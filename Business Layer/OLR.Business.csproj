@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.50709</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6FA29694-2184-49C9-8B87-AA7129008496}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>
+    </RootNamespace>
+    <AssemblyName>OLR.Business</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>None</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BaseClasses">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\BaseClasses.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Ciloci.Flee">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\Ciloci.Flee.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>4.6</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="My Project\AssemblyInfo.cs" />
+    <Compile Include="ContactsTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseContactsTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ContactsRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseContactsRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EventsTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseEventsTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EventsRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseEventsRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FieldTripChoicesTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseFieldTripChoicesTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FieldTripChoicesRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseFieldTripChoicesRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FieldTripOptionsTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseFieldTripOptionsTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FieldTripOptionsRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseFieldTripOptionsRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FieldTripsTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseFieldTripsTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FieldTripsRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseFieldTripsRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HomeTownsTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseHomeTownsTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HomeTownsRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseHomeTownsRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HonorContactLinksTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseHonorContactLinksTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HonorContactLinksRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseHonorContactLinksRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HonorsTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseHonorsTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HonorsRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseHonorsRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PhotoClubContactLinksTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BasePhotoClubContactLinksTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PhotoClubContactLinksRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BasePhotoClubContactLinksRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PhotoClubsTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BasePhotoClubsTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PhotoClubsRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BasePhotoClubsRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RegistrationsTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseRegistrationsTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RegistrationsRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseRegistrationsRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RegistrationTypesTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseRegistrationTypesTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RegistrationTypesRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseRegistrationTypesRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data Access Layer\OLR.Data.csproj">
+      <Project>{C7620FFA-052C-4CBE-90BD-C5EA18E1893C}</Project>
+      <Name>OLR.Data</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
