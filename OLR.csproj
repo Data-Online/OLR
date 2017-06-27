@@ -8,6 +8,12 @@
     </FileUpgradeFlags>
     <OldToolsVersion>4.0</OldToolsVersion>
     <UpgradeBackupLocation />
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -1091,11 +1097,11 @@
     <Compile Include="FieldTrips\Edit-FieldTrips1.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Registrations\Copy-of-RegisterMe.aspx.cs" >
+    <Compile Include="Registrations\Copy-of-RegisterMe.aspx.cs">
       <DependentUpon>Copy-of-RegisterMe.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registrations\Copy-of-RegisterMe.Controls.cs" >
+    <Compile Include="Registrations\Copy-of-RegisterMe.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -1163,8 +1169,6 @@
     <Content Include="Troubleshooting\Test6Do.aspx" />
     <Content Include="Troubleshooting\TestConfiguration.css" />
     <Content Include="Troubleshooting\TestConfiguration.mdb" />
-    <Content Include="Troubleshooting\TestConfiguration35.sdf" />
-    <Content Include="Troubleshooting\TestConfiguration40.sdf" />
     <Content Include="Images\ajax-loader.gif" />
     <Content Include="Images\ASCXControlPlaceholder.gif" />
     <Content Include="Images\ASCXControlPlaceholderMobile.png" />
@@ -1472,7 +1476,7 @@
     <Content Include="Shared\PaginationModern.ascx" />
     <Content Include="Shared\ThemeButtonWithArrow.ascx" />
     <Content Include="FieldTrips\Edit-FieldTrips1.aspx" />
-    <Content Include="Registrations\Copy-of-RegisterMe.aspx"  />
+    <Content Include="Registrations\Copy-of-RegisterMe.aspx" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Global.asax.resx">
@@ -1518,6 +1522,10 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
