@@ -263,8 +263,6 @@ public partial class Add_RegistrationTypes
     
         public ThemeButton CancelButton;
                 
-        public System.Web.UI.WebControls.Literal DescriptionLabel;
-        
         public BaseClasses.Web.UI.WebControls.QuickSelector EventId;
             
         public System.Web.UI.WebControls.Literal EventIdLabel;
@@ -350,7 +348,7 @@ public partial class Add_RegistrationTypes
             // Check if user has access to this page.  Redirects to either sign-in page
             // or 'no access' page if not. Does not do anything if role-based security
             // is not turned on, but you can override to add your own security.
-            this.Authorize("");
+            this.Authorize("NOT_ANONYMOUS");
              if (!this.IsPostBack)
              {
             

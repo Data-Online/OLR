@@ -59,14 +59,27 @@ public class BaseRegistrationTypesTable : PrimaryKeyTable
 		
         this.TableDefinition.AdapterMetaData = this.DataAdapter.AdapterMetaData;
         RegistrationTypeIdColumn.CodeName = "RegistrationTypeId";
-        DescriptionColumn.CodeName = "Description";
         EventIdColumn.CodeName = "EventId";
+        RegistrationTypeColumn.CodeName = "RegistrationType";
 
         
     }
     
 #region "Overriden methods"
-	
+	public override WhereClause AddGlobalWhereClause()
+    {
+        CompoundFilter filter = new CompoundFilter(CompoundFilter.CompoundingOperators.And_Operator, null);
+        WhereClause wc = new WhereClause();
+        String formula;
+
+        if(BaseFormulaEvaluator.ShouldApplyGlobalWhereClause("Session(\"ActiveEventId\")")){
+            formula = EvaluateFormula("Session(\"ActiveEventId\")");
+            filter.AddFilter(new BaseClasses.Data.ColumnValueFilter(RegistrationTypesTable.EventId, formula, BaseClasses.Data.BaseFilter.ComparisonOperator.EqualsTo,false));
+            wc.AddFilter(filter, CompoundFilter.CompoundingOperators.And_Operator);
+        }
+
+        return wc;
+    }
 #endregion    
 
 #region "Properties for columns"
@@ -97,38 +110,13 @@ public class BaseRegistrationTypesTable : PrimaryKeyTable
     
     
     /// <summary>
-    /// This is a convenience property that provides direct access to the table's RegistrationTypes_.Description column object.
-    /// </summary>
-    public BaseClasses.Data.StringColumn DescriptionColumn
-    {
-        get
-        {
-            return (BaseClasses.Data.StringColumn)this.TableDefinition.ColumnList[1];
-        }
-    }
-    
-
-    
-    /// <summary>
-    /// This is a convenience property that provides direct access to the table's RegistrationTypes_.Description column object.
-    /// </summary>
-    public static BaseClasses.Data.StringColumn Description
-    {
-        get
-        {
-            return RegistrationTypesTable.Instance.DescriptionColumn;
-        }
-    }
-    
-    
-    /// <summary>
     /// This is a convenience property that provides direct access to the table's RegistrationTypes_.EventId column object.
     /// </summary>
     public BaseClasses.Data.NumberColumn EventIdColumn
     {
         get
         {
-            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[2];
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[1];
         }
     }
     
@@ -142,6 +130,31 @@ public class BaseRegistrationTypesTable : PrimaryKeyTable
         get
         {
             return RegistrationTypesTable.Instance.EventIdColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's RegistrationTypes_.RegistrationType column object.
+    /// </summary>
+    public BaseClasses.Data.StringColumn RegistrationTypeColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.StringColumn)this.TableDefinition.ColumnList[2];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's RegistrationTypes_.RegistrationType column object.
+    /// </summary>
+    public static BaseClasses.Data.StringColumn RegistrationType
+    {
+        get
+        {
+            return RegistrationTypesTable.Instance.RegistrationTypeColumn;
         }
     }
     
@@ -671,13 +684,13 @@ public class BaseRegistrationTypesTable : PrimaryKeyTable
 
         //Convenience method for creating a record
         public KeyValue NewRecord(
-        string DescriptionValue, 
-        string EventIdValue
+        string EventIdValue, 
+        string RegistrationTypeValue
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
-                    rec.SetString(DescriptionValue, DescriptionColumn);
-        rec.SetString(EventIdValue, EventIdColumn);
+                    rec.SetString(EventIdValue, EventIdColumn);
+        rec.SetString(RegistrationTypeValue, RegistrationTypeColumn);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized

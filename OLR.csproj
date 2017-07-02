@@ -20,7 +20,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.50709</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E5AE864F-AE42-413A-8216-D37C10DC75B9}</ProjectGuid>
+    <ProjectGuid>{0E9BD360-B83C-40AE-9D0D-C2B9C6517553}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>My Project</AppDesignerFolder>
@@ -120,6 +120,8 @@
     <Import Include="System.Web.UI.WebControls.WebParts" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomTools\Settings.cs" />
+    <Compile Include="CustomTools\UserSecurityTools.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -575,6 +577,13 @@
     <Compile Include="FieldTrips\Edit-FieldTrips.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FieldTrips\Edit-FieldTrips1.aspx.cs">
+      <DependentUpon>Edit-FieldTrips1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FieldTrips\Edit-FieldTrips1.Controls.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="FieldTrips\Email-FieldTrips-Table.aspx.cs">
       <DependentUpon>Email-FieldTrips-Table.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -666,90 +675,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="HomeTowns\HomeTowns-QuickSelector.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Honors\Add-Honors.aspx.cs">
-      <DependentUpon>Add-Honors.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Honors\Add-Honors.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Honors\Edit-Honors-Table.aspx.cs">
-      <DependentUpon>Edit-Honors-Table.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Honors\Edit-Honors-Table.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Honors\Edit-Honors.aspx.cs">
-      <DependentUpon>Edit-Honors.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Honors\Edit-Honors.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Honors\Email-Honors-Table.aspx.cs">
-      <DependentUpon>Email-Honors-Table.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Honors\Email-Honors-Table.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Honors\Email-Honors.aspx.cs">
-      <DependentUpon>Email-Honors.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Honors\Email-Honors.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Honors\Honors-QuickSelector.aspx.cs">
-      <DependentUpon>Honors-QuickSelector.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Honors\Honors-QuickSelector.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Honors\Show-Honors-Gallery.aspx.cs">
-      <DependentUpon>Show-Honors-Gallery.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Honors\Show-Honors-Gallery.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Honors\Show-Honors-Gallery1.aspx.cs">
-      <DependentUpon>Show-Honors-Gallery1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Honors\Show-Honors-Gallery1.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Honors\Show-Honors-Table.aspx.cs">
-      <DependentUpon>Show-Honors-Table.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Honors\Show-Honors-Table.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Honors\Show-Honors-Table1.aspx.cs">
-      <DependentUpon>Show-Honors-Table1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Honors\Show-Honors-Table1.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Honors\Show-Honors-Table2.aspx.cs">
-      <DependentUpon>Show-Honors-Table2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Honors\Show-Honors-Table2.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Honors\Show-Honors.aspx.cs">
-      <DependentUpon>Show-Honors.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Honors\Show-Honors.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Menu Panels\IMenu.cs">
@@ -860,32 +785,18 @@
     <Compile Include="Registrations\Add-Registrations.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Registrations\Copy-of-RegisterMe.aspx.cs">
+      <DependentUpon>Copy-of-RegisterMe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registrations\Copy-of-RegisterMe.Controls.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Registrations\Edit-Registrations-Table.aspx.cs">
       <DependentUpon>Edit-Registrations-Table.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Registrations\Edit-Registrations-Table.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Registrations\Edit-Registrations.aspx.cs">
-      <DependentUpon>Edit-Registrations.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registrations\Edit-Registrations.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Registrations\Email-Registrations-Table.aspx.cs">
-      <DependentUpon>Email-Registrations-Table.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registrations\Email-Registrations-Table.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Registrations\Email-Registrations.aspx.cs">
-      <DependentUpon>Email-Registrations.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registrations\Email-Registrations.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Registrations\RegisterMe.aspx.cs">
@@ -902,53 +813,11 @@
     <Compile Include="Registrations\Registrations-QuickSelector.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Registrations\Show-Registrations-Gallery.aspx.cs">
-      <DependentUpon>Show-Registrations-Gallery.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registrations\Show-Registrations-Gallery.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Registrations\Show-Registrations-Gallery1.aspx.cs">
-      <DependentUpon>Show-Registrations-Gallery1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registrations\Show-Registrations-Gallery1.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Registrations\Show-Registrations-Table.aspx.cs">
       <DependentUpon>Show-Registrations-Table.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Registrations\Show-Registrations-Table.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Registrations\Show-Registrations-Table1.aspx.cs">
-      <DependentUpon>Show-Registrations-Table1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registrations\Show-Registrations-Table1.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Registrations\Show-Registrations-Table2.aspx.cs">
-      <DependentUpon>Show-Registrations-Table2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registrations\Show-Registrations-Table2.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Registrations\Show-Registrations-Table3.aspx.cs">
-      <DependentUpon>Show-Registrations-Table3.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registrations\Show-Registrations-Table3.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Registrations\Show-Registrations.aspx.cs">
-      <DependentUpon>Show-Registrations.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registrations\Show-Registrations.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="RegistrationTypes\Add-RegistrationTypes.aspx.cs">
@@ -1035,6 +904,36 @@
     <Compile Include="RegistrationTypes\Show-RegistrationTypes.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Roles\Edit-Roles-Table.aspx.cs">
+      <DependentUpon>Edit-Roles-Table.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Roles\Edit-Roles-Table.Controls.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Roles\Roles-QuickSelector.aspx.cs">
+      <DependentUpon>Roles-QuickSelector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Roles\Roles-QuickSelector.Controls.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\ForgotUser.aspx.cs">
+      <DependentUpon>ForgotUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Security\SendUserInfo.aspx.cs">
+      <DependentUpon>SendUserInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Security\SignIn.aspx.cs">
+      <DependentUpon>SignIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Security\SignOut.aspx.cs">
+      <DependentUpon>SignOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Shared\DatePagination.ascx.cs">
       <DependentUpon>DatePagination.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1090,25 +989,101 @@
     <Compile Include="Shared\IThemeButtonWithArrow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FieldTrips\Edit-FieldTrips1.aspx.cs">
-      <DependentUpon>Edit-FieldTrips1.aspx</DependentUpon>
+    <Compile Include="Users\Edit-Users-Table.aspx.cs">
+      <DependentUpon>Edit-Users-Table.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FieldTrips\Edit-FieldTrips1.Controls.cs">
+    <Compile Include="Users\Edit-Users-Table.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Registrations\Copy-of-RegisterMe.aspx.cs">
-      <DependentUpon>Copy-of-RegisterMe.aspx</DependentUpon>
+    <Compile Include="Users\Users-QuickSelector.aspx.cs">
+      <DependentUpon>Users-QuickSelector.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registrations\Copy-of-RegisterMe.Controls.cs">
+    <Compile Include="Users\Users-QuickSelector.Controls.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="view_Registered\Edit-View-Registered-Table.aspx.cs">
+      <DependentUpon>Edit-View-Registered-Table.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="view_Registered\Edit-View-Registered-Table.Controls.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="view_Registered\Show-View-Registered-Table.aspx.cs">
+      <DependentUpon>Show-View-Registered-Table.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="view_Registered\Show-View-Registered-Table.Controls.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="view_Registered\View-Registered-QuickSelector.aspx.cs">
+      <DependentUpon>View-Registered-QuickSelector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="view_Registered\View-Registered-QuickSelector.Controls.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Registrations\NotActive.aspx.cs">
+      <DependentUpon>NotActive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registrations\Edit-Registration.aspx.cs">
+      <DependentUpon>Edit-Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registrations\Edit-Registration.Controls.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Honours\Honours-QuickSelector.aspx.cs">
+      <DependentUpon>Honours-QuickSelector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Honours\Honours-QuickSelector.Controls.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HonourContactLinks\Add-HonourContactLinks.aspx.cs" >
+      <DependentUpon>Add-HonourContactLinks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HonourContactLinks\Add-HonourContactLinks.Controls.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HonourContactLinks\Edit-HonourContactLinks.aspx.cs" >
+      <DependentUpon>Edit-HonourContactLinks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HonourContactLinks\Edit-HonourContactLinks.Controls.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Honours\Add-Honours.aspx.cs" >
+      <DependentUpon>Add-Honours.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Honours\Add-Honours.Controls.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Honours\Edit-Honours-Table.aspx.cs" >
+      <DependentUpon>Edit-Honours-Table.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Honours\Edit-Honours-Table.Controls.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Honours\Edit-Honours.aspx.cs" >
+      <DependentUpon>Edit-Honours.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Honours\Edit-Honours.Controls.cs" >
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="BaseClasses\Readme.txt" />
     <Content Include="Default.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Header and Footer\EmailHeader.ascx" />
     <Content Include="Header and Footer\Footer.ascx" />
     <Content Include="Header and Footer\Header.ascx" />
@@ -1169,6 +1144,8 @@
     <Content Include="Troubleshooting\Test6Do.aspx" />
     <Content Include="Troubleshooting\TestConfiguration.css" />
     <Content Include="Troubleshooting\TestConfiguration.mdb" />
+    <Content Include="Troubleshooting\TestConfiguration35.sdf" />
+    <Content Include="Troubleshooting\TestConfiguration40.sdf" />
     <Content Include="Images\ajax-loader.gif" />
     <Content Include="Images\ASCXControlPlaceholder.gif" />
     <Content Include="Images\ASCXControlPlaceholderMobile.png" />
@@ -1406,6 +1383,7 @@
     <Content Include="FieldTrips\Add-FieldTrips.aspx" />
     <Content Include="FieldTrips\Edit-FieldTrips-Table.aspx" />
     <Content Include="FieldTrips\Edit-FieldTrips.aspx" />
+    <Content Include="FieldTrips\Edit-FieldTrips1.aspx" />
     <Content Include="FieldTrips\Email-FieldTrips-Table.aspx" />
     <Content Include="FieldTrips\Email-FieldTrips.aspx" />
     <Content Include="FieldTrips\FieldTrips-QuickSelector.aspx" />
@@ -1418,18 +1396,6 @@
     <Content Include="FieldTrips\Show-FieldTrips.aspx" />
     <Content Include="Header and Footer\EmailFooter.ascx" />
     <Content Include="HomeTowns\HomeTowns-QuickSelector.aspx" />
-    <Content Include="Honors\Add-Honors.aspx" />
-    <Content Include="Honors\Edit-Honors-Table.aspx" />
-    <Content Include="Honors\Edit-Honors.aspx" />
-    <Content Include="Honors\Email-Honors-Table.aspx" />
-    <Content Include="Honors\Email-Honors.aspx" />
-    <Content Include="Honors\Honors-QuickSelector.aspx" />
-    <Content Include="Honors\Show-Honors-Gallery.aspx" />
-    <Content Include="Honors\Show-Honors-Gallery1.aspx" />
-    <Content Include="Honors\Show-Honors-Table.aspx" />
-    <Content Include="Honors\Show-Honors-Table1.aspx" />
-    <Content Include="Honors\Show-Honors-Table2.aspx" />
-    <Content Include="Honors\Show-Honors.aspx" />
     <Content Include="Master Pages\Popup.master" />
     <Content Include="PhotoClubContactLinks\Add-PhotoClubContactLinks.aspx" />
     <Content Include="PhotoClubContactLinks\Edit-PhotoClubContactLinks.aspx" />
@@ -1446,19 +1412,11 @@
     <Content Include="PhotoClubs\Show-PhotoClubs-Table2.aspx" />
     <Content Include="PhotoClubs\Show-PhotoClubs.aspx" />
     <Content Include="Registrations\Add-Registrations.aspx" />
+    <Content Include="Registrations\Copy-of-RegisterMe.aspx" />
     <Content Include="Registrations\Edit-Registrations-Table.aspx" />
-    <Content Include="Registrations\Edit-Registrations.aspx" />
-    <Content Include="Registrations\Email-Registrations-Table.aspx" />
-    <Content Include="Registrations\Email-Registrations.aspx" />
     <Content Include="Registrations\RegisterMe.aspx" />
     <Content Include="Registrations\Registrations-QuickSelector.aspx" />
-    <Content Include="Registrations\Show-Registrations-Gallery.aspx" />
-    <Content Include="Registrations\Show-Registrations-Gallery1.aspx" />
     <Content Include="Registrations\Show-Registrations-Table.aspx" />
-    <Content Include="Registrations\Show-Registrations-Table1.aspx" />
-    <Content Include="Registrations\Show-Registrations-Table2.aspx" />
-    <Content Include="Registrations\Show-Registrations-Table3.aspx" />
-    <Content Include="Registrations\Show-Registrations.aspx" />
     <Content Include="RegistrationTypes\Add-RegistrationTypes.aspx" />
     <Content Include="RegistrationTypes\Edit-RegistrationTypes-Table.aspx" />
     <Content Include="RegistrationTypes\Edit-RegistrationTypes.aspx" />
@@ -1471,12 +1429,29 @@
     <Content Include="RegistrationTypes\Show-RegistrationTypes-Table1.aspx" />
     <Content Include="RegistrationTypes\Show-RegistrationTypes-Table2.aspx" />
     <Content Include="RegistrationTypes\Show-RegistrationTypes.aspx" />
+    <Content Include="Roles\Edit-Roles-Table.aspx" />
+    <Content Include="Roles\Roles-QuickSelector.aspx" />
+    <Content Include="Security\ForgotUser.aspx" />
+    <Content Include="Security\SendUserInfo.aspx" />
+    <Content Include="Security\SignIn.aspx" />
+    <Content Include="Security\SignOut.aspx" />
     <Content Include="Shared\DatePagination.ascx" />
     <Content Include="Shared\InfinitePagination.ascx" />
     <Content Include="Shared\PaginationModern.ascx" />
     <Content Include="Shared\ThemeButtonWithArrow.ascx" />
-    <Content Include="FieldTrips\Edit-FieldTrips1.aspx" />
-    <Content Include="Registrations\Copy-of-RegisterMe.aspx" />
+    <Content Include="Users\Edit-Users-Table.aspx" />
+    <Content Include="Users\Users-QuickSelector.aspx" />
+    <Content Include="view_Registered\Edit-View-Registered-Table.aspx" />
+    <Content Include="view_Registered\Show-View-Registered-Table.aspx" />
+    <Content Include="view_Registered\View-Registered-QuickSelector.aspx" />
+    <Content Include="Registrations\NotActive.aspx" />
+    <Content Include="Registrations\Edit-Registration.aspx" />
+    <Content Include="Honours\Honours-QuickSelector.aspx" />
+    <Content Include="HonourContactLinks\Add-HonourContactLinks.aspx"  />
+    <Content Include="HonourContactLinks\Edit-HonourContactLinks.aspx"  />
+    <Content Include="Honours\Add-Honours.aspx"  />
+    <Content Include="Honours\Edit-Honours-Table.aspx"  />
+    <Content Include="Honours\Edit-Honours.aspx"  />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Global.asax.resx">
@@ -1494,11 +1469,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Business Layer\OLR.Business.csproj">
-      <Project>{6FA29694-2184-49C9-8B87-AA7129008496}</Project>
+      <Project>{B45BBD5E-E925-4F23-BDAA-9BB38D9D706C}</Project>
       <Name>OLR.Business</Name>
     </ProjectReference>
     <ProjectReference Include="Data Access Layer\OLR.Data.csproj">
-      <Project>{C7620FFA-052C-4CBE-90BD-C5EA18E1893C}</Project>
+      <Project>{65463E52-46DB-485C-AA9C-6B4222269D50}</Project>
       <Name>OLR.Data</Name>
     </ProjectReference>
   </ItemGroup>

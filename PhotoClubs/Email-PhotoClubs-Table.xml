@@ -14,6 +14,7 @@
     <Layout>PhotoClubs\Email-PhotoClubs-Table.html</Layout>
     <DisplayName>Email-PhotoClubs-Table</DisplayName>
     <Description>Table view to show or edit multiple records.</Description>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>-1462579714-4596</CheckSum>
   </Self>
   <ComposedOf>

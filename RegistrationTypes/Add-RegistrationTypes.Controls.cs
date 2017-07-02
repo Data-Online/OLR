@@ -93,8 +93,6 @@ public class BaseRegistrationTypesRecordControl : OLR.UI.BaseApplicationRecordCo
           
               this.EventId.SelectedIndexChanged += EventId_SelectedIndexChanged;                  
                 
-              this.Description.TextChanged += Description_TextChanged;
-            
         }
 
         public virtual void LoadData()  
@@ -171,8 +169,6 @@ public class BaseRegistrationTypesRecordControl : OLR.UI.BaseApplicationRecordCo
 
             // Call the Set methods for each controls on the panel
         
-                SetDescription();
-                SetDescriptionLabel();
                 SetEventId();
                 SetEventIdLabel();
                 
@@ -199,39 +195,6 @@ public class BaseRegistrationTypesRecordControl : OLR.UI.BaseApplicationRecordCo
         }
         
         
-        public virtual void SetDescription()
-        {
-            
-                    
-            // Set the Description TextBox on the webpage with value from the
-            // DatabaseOLR_db%dbo.RegistrationTypes database record.
-
-            // this.DataSource is the DatabaseOLR_db%dbo.RegistrationTypes record retrieved from the database.
-            // this.Description is the ASP:TextBox on the webpage.
-                  
-            if (this.DataSource != null && this.DataSource.DescriptionSpecified) {
-                								
-                // If the Description is non-NULL, then format the value.
-                // The Format method will use the Display Format
-               string formattedValue = this.DataSource.Format(RegistrationTypesTable.Description);
-                                
-                this.Description.Text = formattedValue;
-                   
-            } 
-            
-            else {
-            
-                // Description is NULL in the database, so use the Default Value.  
-                // Default Value could also be NULL.
-        
-              this.Description.Text = RegistrationTypesTable.Description.Format(RegistrationTypesTable.Description.DefaultValue);
-            		
-            }
-            
-              this.Description.TextChanged += Description_TextChanged;
-                               
-        }
-                
         public virtual void SetEventId()
         {
             				
@@ -335,12 +298,6 @@ public class BaseRegistrationTypesRecordControl : OLR.UI.BaseApplicationRecordCo
                   
                 
                   
-        }
-                
-        public virtual void SetDescriptionLabel()
-                  {
-                  
-                    
         }
                 
         public virtual void SetEventIdLabel()
@@ -505,25 +462,10 @@ public class BaseRegistrationTypesRecordControl : OLR.UI.BaseApplicationRecordCo
       
             // Call the Get methods for each of the user interface controls.
         
-            GetDescription();
             GetEventId();
         }
         
         
-        public virtual void GetDescription()
-        {
-            
-            // Retrieve the value entered by the user on the Description ASP:TextBox, and
-            // save it into the Description field in DataSource DatabaseOLR_db%dbo.RegistrationTypes record.
-            
-            // Custom validation should be performed in Validate, not here.
-                    
-            // Save the value to data source
-            this.DataSource.Parse(this.Description.Text, RegistrationTypesTable.Description);							
-                          
-                      
-        }
-                
         public virtual void GetEventId()
         {
          // Retrieve the value entered by the user on the EventId ASP:QuickSelector, and
@@ -869,11 +811,6 @@ public class BaseRegistrationTypesRecordControl : OLR.UI.BaseApplicationRecordCo
         }
                       
                     
-        protected virtual void Description_TextChanged(object sender, EventArgs args)
-        {
-                    
-              }
-            
   
         private Hashtable _PreviousUIData = new Hashtable();
         public virtual Hashtable PreviousUIData {
@@ -985,18 +922,6 @@ public class BaseRegistrationTypesRecordControl : OLR.UI.BaseApplicationRecordCo
         }
        
 #region "Helper Properties"
-        
-        public System.Web.UI.WebControls.TextBox Description {
-            get {
-                return (System.Web.UI.WebControls.TextBox)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Description");
-            }
-        }
-            
-        public System.Web.UI.WebControls.Literal DescriptionLabel {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "DescriptionLabel");
-            }
-        }
         
         public BaseClasses.Web.UI.WebControls.QuickSelector EventId {
             get {

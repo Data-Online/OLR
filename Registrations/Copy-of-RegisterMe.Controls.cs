@@ -12268,7 +12268,7 @@ public class BaseContactsRecordControl : OLR.UI.BaseApplicationRecordControl
               
               url = this.Page.ModifyRedirectUrl(url, "", true);                                  
               
-              url += "?Target=" + this.HometownId.ClientID + "&Formula=" + (this.Page as BaseApplicationPage).Encrypt("=HomeTowns.Name")+ "&IndexField=" + (this.Page as BaseApplicationPage).Encrypt("HomeTownId")+ "&EmptyValue=" + (this.Page as BaseApplicationPage).Encrypt("--PLEASE_SELECT--") + "&EmptyDisplayText=" + (this.Page as BaseApplicationPage).Encrypt(this.Page.GetResourceValue("Txt:PleaseSelect"))+ "&Mode=" + (this.Page as BaseApplicationPage).Encrypt("FieldValueSingleSelection") + "&RedirectStyle=" + (this.Page as BaseApplicationPage).Encrypt("Popup");
+              url += "?Target=" + this.HometownId.ClientID + "&Formula=" + (this.Page as BaseApplicationPage).Encrypt("= HomeTowns.TownName")+ "&IndexField=" + (this.Page as BaseApplicationPage).Encrypt("HomeTownId")+ "&EmptyValue=" + (this.Page as BaseApplicationPage).Encrypt("--PLEASE_SELECT--") + "&EmptyDisplayText=" + (this.Page as BaseApplicationPage).Encrypt(this.Page.GetResourceValue("Txt:PleaseSelect"))+ "&Mode=" + (this.Page as BaseApplicationPage).Encrypt("FieldValueSingleSelection") + "&RedirectStyle=" + (this.Page as BaseApplicationPage).Encrypt("Popup");
               
               this.HometownId.Attributes["onClick"] = "initializePopupPage(this, '" + url + "', " + Convert.ToString(HometownId.AutoPostBack).ToLower() + ", event); return false;";
                   
@@ -17884,7 +17884,7 @@ public class BaseRegistrationsRecordControl : OLR.UI.BaseApplicationRecordContro
             // Create the ORDER BY clause to sort based on the displayed value.							
                 
             OrderBy orderBy = new OrderBy(false, false);
-                          orderBy.Add(RegistrationTypesTable.Description, OrderByItem.OrderDir.Asc);
+                          orderBy.Add(RegistrationTypesTable.RegistrationType, OrderByItem.OrderDir.Asc);
 
             System.Collections.Generic.IDictionary<string, object> variables = new System.Collections.Generic.Dictionary<string, object> ();
             FormulaEvaluator evaluator = new FormulaEvaluator();

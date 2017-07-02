@@ -59,7 +59,7 @@ public class BaseHomeTownsTable : PrimaryKeyTable
 		
         this.TableDefinition.AdapterMetaData = this.DataAdapter.AdapterMetaData;
         HomeTownIdColumn.CodeName = "HomeTownId";
-        NameColumn.CodeName = "Name";
+        TownNameColumn.CodeName = "TownName";
 
         
     }
@@ -96,9 +96,9 @@ public class BaseHomeTownsTable : PrimaryKeyTable
     
     
     /// <summary>
-    /// This is a convenience property that provides direct access to the table's HomeTowns_.Name column object.
+    /// This is a convenience property that provides direct access to the table's HomeTowns_.TownName column object.
     /// </summary>
-    public BaseClasses.Data.StringColumn NameColumn
+    public BaseClasses.Data.StringColumn TownNameColumn
     {
         get
         {
@@ -109,13 +109,13 @@ public class BaseHomeTownsTable : PrimaryKeyTable
 
     
     /// <summary>
-    /// This is a convenience property that provides direct access to the table's HomeTowns_.Name column object.
+    /// This is a convenience property that provides direct access to the table's HomeTowns_.TownName column object.
     /// </summary>
-    public static BaseClasses.Data.StringColumn Name
+    public static BaseClasses.Data.StringColumn TownName
     {
         get
         {
-            return HomeTownsTable.Instance.NameColumn;
+            return HomeTownsTable.Instance.TownNameColumn;
         }
     }
     
@@ -645,11 +645,11 @@ public class BaseHomeTownsTable : PrimaryKeyTable
 
         //Convenience method for creating a record
         public KeyValue NewRecord(
-        string NameValue
+        string TownNameValue
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
-                    rec.SetString(NameValue, NameColumn);
+                    rec.SetString(TownNameValue, TownNameColumn);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized

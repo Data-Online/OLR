@@ -14,6 +14,7 @@
     <Layout>RegistrationTypes\Show-RegistrationTypes-Gallery1.html</Layout>
     <DisplayName>Show-RegistrationTypes-Gallery1</DisplayName>
     <Description>Gallery to show multiple records.</Description>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>684452890-18182</CheckSum>
   </Self>
   <ComposedOf>
@@ -534,7 +535,7 @@
         </Attribute>
         <Attribute>
           <Name>Consumers</Name>
-          <Value>SearchText</Value>
+          <Value />
         </Attribute>
         <Attribute>
           <Name>ImageURL</Name>
@@ -548,73 +549,6 @@
           <Name>ToolTip</Name>
           <Value>Btn:SearchGoButtonText</Value>
           <Type>ResourceReference</Type>
-        </Attribute>
-      </PassthroughAttributes>
-      <InsideControl>RegistrationTypesTableControl</InsideControl>
-    </ContainedComponent>
-    <ContainedComponent>
-      <Name>SearchText</Name>
-      <Type>SearchFilter</Type>
-      <PassthroughAttributes>
-        <Attribute>
-          <Name>AutoTypeAhead</Name>
-          <Value>True</Value>
-        </Attribute>
-        <Attribute>
-          <Name>AutoTypeAheadDelay</Name>
-          <Value>Default</Value>
-        </Attribute>
-        <Attribute>
-          <Name>AutoTypeAheadDisplayFoundText</Name>
-          <Value>Default</Value>
-        </Attribute>
-        <Attribute>
-          <Name>AutoTypeAheadListSize</Name>
-          <Value>Default</Value>
-        </Attribute>
-        <Attribute>
-          <Name>AutoTypeAheadMinChars</Name>
-          <Value>Default</Value>
-        </Attribute>
-        <Attribute>
-          <Name>AutoTypeAheadSearch</Name>
-          <Value>Default</Value>
-        </Attribute>
-        <Attribute>
-          <Name>AutoTypeAheadWordSeparators</Name>
-          <Value>Default</Value>
-        </Attribute>
-        <Attribute>
-          <Name>CaseSensitive</Name>
-          <Value>False</Value>
-        </Attribute>
-        <Attribute>
-          <Name>Columns</Name>
-          <Value>50</Value>
-        </Attribute>
-        <Attribute>
-          <Name>Consumers</Name>
-          <Value>RegistrationTypesTableControl</Value>
-        </Attribute>
-        <Attribute>
-          <Name>CssClass</Name>
-          <Value>Search_Input</Value>
-        </Attribute>
-        <Attribute>
-          <Name>EnterKeyCaptureToButton</Name>
-          <Value>SearchButton</Value>
-        </Attribute>
-        <Attribute>
-          <Name>Fields</Name>
-          <Value>Description</Value>
-        </Attribute>
-        <Attribute>
-          <Name>FilterOperator</Name>
-          <Value>Contains</Value>
-        </Attribute>
-        <Attribute>
-          <Name>InternalUse:Table</Name>
-          <Value>DatabaseOLR_db%dbo.RegistrationTypes</Value>
         </Attribute>
       </PassthroughAttributes>
       <InsideControl>RegistrationTypesTableControl</InsideControl>
@@ -641,20 +575,20 @@
           <Value>{Txt:PleaseSelect}</Value>
         </Item>
         <Item>
-          <Name>Description Asc</Name>
-          <Value>Description {Txt:Ascending}</Value>
-        </Item>
-        <Item>
-          <Name>Description Desc</Name>
-          <Value>Description {Txt:Descending}</Value>
-        </Item>
-        <Item>
           <Name>EventId Asc</Name>
           <Value>Event {Txt:Ascending}</Value>
         </Item>
         <Item>
           <Name>EventId Desc</Name>
           <Value>Event {Txt:Descending}</Value>
+        </Item>
+        <Item>
+          <Name>RegistrationType Asc</Name>
+          <Value>Registration Type {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>RegistrationType Desc</Name>
+          <Value>Registration Type {Txt:Descending}</Value>
         </Item>
       </SpecifiedItems>
       <PassthroughAttributes>

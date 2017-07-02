@@ -147,36 +147,36 @@ public class BaseHomeTownsRecord : PrimaryKeyRecord
 	}
 
 	/// <summary>
-	/// This is a convenience method that provides direct access to the value of the record's HomeTowns_.Name field.
+	/// This is a convenience method that provides direct access to the value of the record's HomeTowns_.TownName field.
 	/// </summary>
-	public ColumnValue GetNameValue()
+	public ColumnValue GetTownNameValue()
 	{
-		return this.GetValue(TableUtils.NameColumn);
+		return this.GetValue(TableUtils.TownNameColumn);
 	}
 
 	/// <summary>
-	/// This is a convenience method that provides direct access to the value of the record's HomeTowns_.Name field.
+	/// This is a convenience method that provides direct access to the value of the record's HomeTowns_.TownName field.
 	/// </summary>
-	public string GetNameFieldValue()
+	public string GetTownNameFieldValue()
 	{
-		return this.GetValue(TableUtils.NameColumn).ToString();
+		return this.GetValue(TableUtils.TownNameColumn).ToString();
 	}
 
 	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's HomeTowns_.Name field.
+	/// This is a convenience method that allows direct modification of the value of the record's HomeTowns_.TownName field.
 	/// </summary>
-	public void SetNameFieldValue(ColumnValue val)
+	public void SetTownNameFieldValue(ColumnValue val)
 	{
-		this.SetValue(val, TableUtils.NameColumn);
+		this.SetValue(val, TableUtils.TownNameColumn);
 	}
 
 	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's HomeTowns_.Name field.
+	/// This is a convenience method that allows direct modification of the value of the record's HomeTowns_.TownName field.
 	/// </summary>
-	public void SetNameFieldValue(string val)
+	public void SetTownNameFieldValue(string val)
 	{
 		ColumnValue cv = new ColumnValue(val);
-		this.SetValue(cv, TableUtils.NameColumn);
+		this.SetValue(cv, TableUtils.TownNameColumn);
 	}
 
 
@@ -228,18 +228,18 @@ public class BaseHomeTownsRecord : PrimaryKeyRecord
 		}
 	}
 	/// <summary>
-	/// This is a property that provides direct access to the value of the record's HomeTowns_.Name field.
+	/// This is a property that provides direct access to the value of the record's HomeTowns_.TownName field.
 	/// </summary>
-	public string Name
+	public string TownName
 	{
 		get
 		{
-			return this.GetValue(TableUtils.NameColumn).ToString();
+			return this.GetValue(TableUtils.TownNameColumn).ToString();
 		}
 		set
 		{
 			ColumnValue cv = new ColumnValue(value);
-			this.SetValue(cv, TableUtils.NameColumn);
+			this.SetValue(cv, TableUtils.TownNameColumn);
 		}
 	}
 
@@ -247,11 +247,11 @@ public class BaseHomeTownsRecord : PrimaryKeyRecord
 	/// <summary>
 	/// This is a convenience method that can be used to determine that the column is set.
 	/// </summary>
-	public bool NameSpecified
+	public bool TownNameSpecified
 	{
 		get
 		{
-			ColumnValue val = this.GetValue(TableUtils.NameColumn);
+			ColumnValue val = this.GetValue(TableUtils.TownNameColumn);
             if (val == null || val.IsNull)
             {
                 return false;
@@ -261,13 +261,13 @@ public class BaseHomeTownsRecord : PrimaryKeyRecord
 	}
 
 	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's HomeTowns_.Name field.
+	/// This is a convenience method that allows direct modification of the value of the record's HomeTowns_.TownName field.
 	/// </summary>
-	public string NameDefault
+	public string TownNameDefault
 	{
 		get
 		{
-			return TableUtils.NameColumn.DefaultValue;
+			return TableUtils.TownNameColumn.DefaultValue;
 		}
 	}
 

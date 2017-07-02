@@ -361,46 +361,6 @@ public class BaseRegistrationsRecord : PrimaryKeyRecord
 		this.SetValue(cv, TableUtils.RegistrationTypeIdColumn);
 	}
 	/// <summary>
-	/// This is a convenience method that provides direct access to the value of the record's Registrations_.PaymentDate field.
-	/// </summary>
-	public ColumnValue GetPaymentDateValue()
-	{
-		return this.GetValue(TableUtils.PaymentDateColumn);
-	}
-
-	/// <summary>
-	/// This is a convenience method that provides direct access to the value of the record's Registrations_.PaymentDate field.
-	/// </summary>
-	public DateTime GetPaymentDateFieldValue()
-	{
-		return this.GetValue(TableUtils.PaymentDateColumn).ToDateTime();
-	}
-
-	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's Registrations_.PaymentDate field.
-	/// </summary>
-	public void SetPaymentDateFieldValue(ColumnValue val)
-	{
-		this.SetValue(val, TableUtils.PaymentDateColumn);
-	}
-
-	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's Registrations_.PaymentDate field.
-	/// </summary>
-	public void SetPaymentDateFieldValue(string val)
-	{
-		this.SetString(val, TableUtils.PaymentDateColumn);
-	}
-
-	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's Registrations_.PaymentDate field.
-	/// </summary>
-	public void SetPaymentDateFieldValue(DateTime val)
-	{
-		ColumnValue cv = new ColumnValue(val);
-		this.SetValue(cv, TableUtils.PaymentDateColumn);
-	}
-	/// <summary>
 	/// This is a convenience method that provides direct access to the value of the record's Registrations_.AdditionalDinnerTicket field.
 	/// </summary>
 	public ColumnValue GetAdditionalDinnerTicketValue()
@@ -803,50 +763,6 @@ public class BaseRegistrationsRecord : PrimaryKeyRecord
 		get
 		{
 			return TableUtils.RegistrationTypeIdColumn.DefaultValue;
-		}
-	}
-	/// <summary>
-	/// This is a property that provides direct access to the value of the record's Registrations_.PaymentDate field.
-	/// </summary>
-	public DateTime PaymentDate
-	{
-		get
-		{
-			return this.GetValue(TableUtils.PaymentDateColumn).ToDateTime();
-		}
-		set
-		{
-			ColumnValue cv = new ColumnValue(value);
-			this.SetValue(cv, TableUtils.PaymentDateColumn);
-			
-		}
-	}
-
-
-	/// <summary>
-	/// This is a convenience method that can be used to determine that the column is set.
-	/// </summary>
-	public bool PaymentDateSpecified
-	{
-		get
-		{
-			ColumnValue val = this.GetValue(TableUtils.PaymentDateColumn);
-            if (val == null || val.IsNull)
-            {
-                return false;
-            }
-            return true;
-		}
-	}
-
-	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's Registrations_.PaymentDate field.
-	/// </summary>
-	public string PaymentDateDefault
-	{
-		get
-		{
-			return TableUtils.PaymentDateColumn.DefaultValue;
 		}
 	}
 	/// <summary>

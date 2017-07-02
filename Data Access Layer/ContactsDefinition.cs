@@ -12,7 +12,7 @@ namespace OLR.Business
 public class ContactsDefinition
 {
 #region "Definition (XML) for ContactsDefinition table"
-	//Next 491 lines contain Table Definition (XML) for table "ContactsDefinition"
+	//Next 493 lines contain Table Definition (XML) for table "ContactsDefinition"
 	private static string _DefinitionString = "";
 	
 #endregion
@@ -190,21 +190,21 @@ public class ContactsDefinition
          tbf.Append(      @"<columnDBType>int</columnDBType>");
          tbf.Append(      @"<columnLengthSet>10.0</columnLengthSet>");
          tbf.Append(      @"<columnDefault></columnDefault>");
-         tbf.Append(      @"<columnDBDefault></columnDBDefault>");
+         tbf.Append(      @"<columnDBDefault Source=""User""></columnDBDefault>");
          tbf.Append(      @"<columnIndex>N</columnIndex>");
          tbf.Append(      @"<columnUnique>N</columnUnique>");
          tbf.Append(      @"<columnFunction></columnFunction>");
          tbf.Append(      @"<columnDBFormat></columnDBFormat>");
          tbf.Append(      @"<columnPK>N</columnPK>");
          tbf.Append(      @"<columnPermanent>N</columnPermanent>");
-         tbf.Append(      @"<columnComputed>N</columnComputed>");
-         tbf.Append(      @"<columnIdentity>N</columnIdentity>");
-         tbf.Append(      @"<columnReadOnly>N</columnReadOnly>");
+         tbf.Append(      @"<columnComputed Source=""User"">N</columnComputed>");
+         tbf.Append(      @"<columnIdentity Source=""User"">N</columnIdentity>");
+         tbf.Append(      @"<columnReadOnly Source=""User"">N</columnReadOnly>");
          tbf.Append(      @"<columnRequired>N</columnRequired>");
          tbf.Append(      @"<columnNotNull>N</columnNotNull>");
-         tbf.Append(      @"<columnCaseSensitive>N</columnCaseSensitive>");
+         tbf.Append(      @"<columnCaseSensitive Source=""User"">N</columnCaseSensitive>");
          tbf.Append(      @"<columnCollation></columnCollation>");
-         tbf.Append(      @"<columnFullText>N</columnFullText>");
+         tbf.Append(      @"<columnFullText Source=""User"">N</columnFullText>");
          tbf.Append(      @"<columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>");
          tbf.Append(      @"<columnTableAliasName></columnTableAliasName>");
          tbf.Append(      @"<applyLabelText>Y</applyLabelText>");
@@ -213,7 +213,7 @@ public class ContactsDefinition
          tbf.Append(        @"<columnFKTable>OLR.Business.HomeTownsTable, OLR.Business</columnFKTable>");
          tbf.Append(        @"<columnFKOwner>dbo</columnFKOwner>");
          tbf.Append(        @"<columnFKColumn>HomeTownId</columnFKColumn>");
-         tbf.Append(        @"<columnFKColumnDisplay>=HomeTowns.Name</columnFKColumnDisplay>");
+         tbf.Append(        @"<columnFKColumnDisplay>= HomeTowns.TownName</columnFKColumnDisplay>");
          tbf.Append(        @"<foreignKeyType>Explicit</foreignKeyType>");
          tbf.Append(      "</foreignKey>");
          tbf.Append(      @"<applyDFKA>Y</applyDFKA>");
@@ -228,6 +228,8 @@ public class ContactsDefinition
          tbf.Append(      @"<updatingRecordFormula></updatingRecordFormula>");
          tbf.Append(      @"<insertingFormula></insertingFormula>");
          tbf.Append(      @"<updatingFormula></updatingFormula>");
+         tbf.Append(      @"<InternalName>4</InternalName>");
+         tbf.Append(      @"<columnTableClassName></columnTableClassName>");
          tbf.Append(    "</Column>");
          tbf.Append(    @"<Column InternalName=""5"" Priority=""6"" ColumnNum=""5"">");
          tbf.Append(      @"<columnName>MobileNumber</columnName>");

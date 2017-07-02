@@ -74,20 +74,8 @@
                         </td><td class="tableCellLabel"><asp:Literal runat="server" id="EventIdLabel" Text="Event">	</asp:Literal> 
 </td><td class="tableCellValue"><BaseClasses:QuickSelector runat="server" id="EventId" redirecturl=""></BaseClasses:QuickSelector> </td><td class="tableCellLabel"><asp:Literal runat="server" id="ValidationUidLabel" Text="Validation UID">	</asp:Literal> 
 </td><td class="tableCellValue"><asp:TextBox runat="server" id="ValidationUid" MaxLength="40" columns="50" cssclass="field_input" rows="2" textmode="MultiLine"></asp:TextBox>&nbsp;
-<BaseClasses:TextBoxMaxLengthValidator runat="server" id="ValidationUidTextBoxMaxLengthValidator" ControlToValidate="ValidationUid" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueTooLong&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, &quot;Validation UID&quot;) %>"></BaseClasses:TextBoxMaxLengthValidator> </td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="PaymentDateLabel" Text="Payment Date">	</asp:Literal> 
-</td><td class="tableCellValue"><span style="white-space:nowrap;">
-<table border="0" cellpadding="0" cellspacing="0">
-<tr>
-<td style="padding-right: 5px; vertical-align:top">
-<asp:TextBox runat="server" id="PaymentDate" Columns="20" MaxLength="30" cssclass="field_input"></asp:TextBox></td>
-<td>
-<Selectors:CalendarExtendarClass runat="server" ID="PaymentDateCalendarExtender" TargetControlID="PaymentDate" CssClass="MyCalendar" Format="d">
-</Selectors:CalendarExtendarClass>&nbsp;
-<BaseClasses:TextBoxMaxLengthValidator runat="server" id="PaymentDateTextBoxMaxLengthValidator" ControlToValidate="PaymentDate" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueTooLong&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, &quot;Payment Date&quot;) %>"></BaseClasses:TextBoxMaxLengthValidator></td>
-</tr>
-</table>
-</span>
- </td><td class="tableCellLabel"><asp:Literal runat="server" id="ContactIdLabel" Text="Contact">	</asp:Literal> 
+<BaseClasses:TextBoxMaxLengthValidator runat="server" id="ValidationUidTextBoxMaxLengthValidator" ControlToValidate="ValidationUid" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueTooLong&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, &quot;Validation UID&quot;) %>"></BaseClasses:TextBoxMaxLengthValidator> </td></tr><tr><td class="tableCellLabel"> 
+</td><td class="tableCellValue"> </td><td class="tableCellLabel"><asp:Literal runat="server" id="ContactIdLabel" Text="Contact">	</asp:Literal> 
 </td><td class="tableCellValue"><BaseClasses:QuickSelector runat="server" id="ContactId" redirecturl=""></BaseClasses:QuickSelector> </td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="RegistrationTypeIdLabel" Text="Registration Type">	</asp:Literal> 
 </td><td class="tableCellValue"><BaseClasses:QuickSelector runat="server" id="RegistrationTypeId" redirecturl=""></BaseClasses:QuickSelector> </td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableRowDivider" colspan="8"></td></tr></OLR:RegistrationsTableControlRow>
 </ITEMTEMPLATE>

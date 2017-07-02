@@ -14,6 +14,7 @@
     <Layout>FieldTrips\Show-FieldTrips.html</Layout>
     <DisplayName>Show-FieldTrips</DisplayName>
     <Description>Standard record panel.</Description>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>-317494159-10187</CheckSum>
   </Self>
   <ComposedOf>

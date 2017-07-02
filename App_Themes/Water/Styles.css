@@ -1,4 +1,4 @@
-/**********************************************************************
+﻿/**********************************************************************
  * Styles.css                                                         *
  *                                                                    *
  * This file is initially empty and you can add any additional styles *
@@ -37,3 +37,28 @@
 	text-align: left;
 	vertical-align: top;
 }
+
+.tableCellLabel {
+    color: #bbbbbb;
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 14px;
+    padding-bottom: 0px;
+    padding-left: 6px;
+    padding-right: 2px;
+    padding-top: 8px;
+    text-align: right;
+    text-transform: none;
+    vertical-align: top;
+    white-space: nowrap;
+}
+.dialog_header_text, .dht {
+    color: #444444;
+    font-family: 'Open Sans Condensed', Arial, Verdana, sans-serif;
+    font-size: 24px;
+    font-weight: normal;
+    padding-left: 10px;
+    text-shadow: 0px 0px 0px #cccccc;
+    text-transform: none;
+    white-space: nowrap;
+}
+

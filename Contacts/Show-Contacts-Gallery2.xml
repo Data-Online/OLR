@@ -14,6 +14,7 @@
     <Layout>Contacts\Show-Contacts-Gallery2.html</Layout>
     <DisplayName>Show-Contacts-Gallery2</DisplayName>
     <Description>Gallery to show multiple records.</Description>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>-896923587-16854</CheckSum>
   </Self>
   <ComposedOf>

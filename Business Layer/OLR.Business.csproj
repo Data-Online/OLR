@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.50709</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{6FA29694-2184-49C9-8B87-AA7129008496}</ProjectGuid>
+    <ProjectGuid>{B45BBD5E-E925-4F23-BDAA-9BB38D9D706C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>
     </RootNamespace>
@@ -68,154 +68,190 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="My Project\AssemblyInfo.cs" />
-    <Compile Include="ContactsTable.cs" >
+    <Compile Include="ContactsTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseContactsTable.cs" >
+    <Compile Include="BaseContactsTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ContactsRecord.cs" >
+    <Compile Include="ContactsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseContactsRecord.cs" >
+    <Compile Include="BaseContactsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="EventsTable.cs" >
+    <Compile Include="EventsTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseEventsTable.cs" >
+    <Compile Include="BaseEventsTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="EventsRecord.cs" >
+    <Compile Include="EventsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseEventsRecord.cs" >
+    <Compile Include="BaseEventsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FieldTripChoicesTable.cs" >
+    <Compile Include="FieldTripChoicesTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseFieldTripChoicesTable.cs" >
+    <Compile Include="BaseFieldTripChoicesTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FieldTripChoicesRecord.cs" >
+    <Compile Include="FieldTripChoicesRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseFieldTripChoicesRecord.cs" >
+    <Compile Include="BaseFieldTripChoicesRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FieldTripOptionsTable.cs" >
+    <Compile Include="FieldTripOptionsTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseFieldTripOptionsTable.cs" >
+    <Compile Include="BaseFieldTripOptionsTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FieldTripOptionsRecord.cs" >
+    <Compile Include="FieldTripOptionsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseFieldTripOptionsRecord.cs" >
+    <Compile Include="BaseFieldTripOptionsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FieldTripsTable.cs" >
+    <Compile Include="FieldTripsTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseFieldTripsTable.cs" >
+    <Compile Include="BaseFieldTripsTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FieldTripsRecord.cs" >
+    <Compile Include="FieldTripsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseFieldTripsRecord.cs" >
+    <Compile Include="BaseFieldTripsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HomeTownsTable.cs" >
+    <Compile Include="HomeTownsTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseHomeTownsTable.cs" >
+    <Compile Include="BaseHomeTownsTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HomeTownsRecord.cs" >
+    <Compile Include="HomeTownsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseHomeTownsRecord.cs" >
+    <Compile Include="BaseHomeTownsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HonorContactLinksTable.cs" >
+    <Compile Include="PhotoClubContactLinksTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseHonorContactLinksTable.cs" >
+    <Compile Include="BasePhotoClubContactLinksTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HonorContactLinksRecord.cs" >
+    <Compile Include="PhotoClubContactLinksRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseHonorContactLinksRecord.cs" >
+    <Compile Include="BasePhotoClubContactLinksRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HonorsTable.cs" >
+    <Compile Include="PhotoClubsTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseHonorsTable.cs" >
+    <Compile Include="BasePhotoClubsTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HonorsRecord.cs" >
+    <Compile Include="PhotoClubsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseHonorsRecord.cs" >
+    <Compile Include="BasePhotoClubsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="PhotoClubContactLinksTable.cs" >
+    <Compile Include="RegistrationsTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BasePhotoClubContactLinksTable.cs" >
+    <Compile Include="BaseRegistrationsTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="PhotoClubContactLinksRecord.cs" >
+    <Compile Include="RegistrationsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BasePhotoClubContactLinksRecord.cs" >
+    <Compile Include="BaseRegistrationsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="PhotoClubsTable.cs" >
+    <Compile Include="RegistrationTypesTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BasePhotoClubsTable.cs" >
+    <Compile Include="BaseRegistrationTypesTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="PhotoClubsRecord.cs" >
+    <Compile Include="RegistrationTypesRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BasePhotoClubsRecord.cs" >
+    <Compile Include="BaseRegistrationTypesRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="RegistrationsTable.cs" >
+    <Compile Include="Roles1Table.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseRegistrationsTable.cs" >
+    <Compile Include="BaseRoles1Table.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="RegistrationsRecord.cs" >
+    <Compile Include="Roles1Record.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseRegistrationsRecord.cs" >
+    <Compile Include="BaseRoles1Record.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="RegistrationTypesTable.cs" >
+    <Compile Include="UsersTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseRegistrationTypesTable.cs" >
+    <Compile Include="BaseUsersTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="RegistrationTypesRecord.cs" >
+    <Compile Include="UsersRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseRegistrationTypesRecord.cs" >
+    <Compile Include="BaseUsersRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View_RegisteredView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseView_RegisteredView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View_RegisteredRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseView_RegisteredRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HonourContactLinksTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseHonourContactLinksTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HonourContactLinksRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseHonourContactLinksRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HonoursTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseHonoursTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HonoursRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseHonoursRecord.cs" >
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data Access Layer\OLR.Data.csproj">
-      <Project>{C7620FFA-052C-4CBE-90BD-C5EA18E1893C}</Project>
+      <Project>{65463E52-46DB-485C-AA9C-6B4222269D50}</Project>
       <Name>OLR.Data</Name>
       <Private>False</Private>
     </ProjectReference>

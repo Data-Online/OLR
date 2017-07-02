@@ -63,7 +63,6 @@ public class BaseRegistrationsTable : PrimaryKeyTable
         ContactIdColumn.CodeName = "ContactId";
         ValidationUidColumn.CodeName = "ValidationUid";
         RegistrationTypeIdColumn.CodeName = "RegistrationTypeId";
-        PaymentDateColumn.CodeName = "PaymentDate";
         AdditionalDinnerTicketColumn.CodeName = "AdditionalDinnerTicket";
         SpecialRequirementsColumn.CodeName = "SpecialRequirements";
         AdditionalDinnerNameColumn.CodeName = "AdditionalDinnerName";
@@ -74,7 +73,20 @@ public class BaseRegistrationsTable : PrimaryKeyTable
     }
     
 #region "Overriden methods"
-	
+	public override WhereClause AddGlobalWhereClause()
+    {
+        CompoundFilter filter = new CompoundFilter(CompoundFilter.CompoundingOperators.And_Operator, null);
+        WhereClause wc = new WhereClause();
+        String formula;
+
+        if(BaseFormulaEvaluator.ShouldApplyGlobalWhereClause("Session(\"ActiveEventId\")")){
+            formula = EvaluateFormula("Session(\"ActiveEventId\")");
+            filter.AddFilter(new BaseClasses.Data.ColumnValueFilter(RegistrationsTable.EventId, formula, BaseClasses.Data.BaseFilter.ComparisonOperator.EqualsTo,false));
+            wc.AddFilter(filter, CompoundFilter.CompoundingOperators.And_Operator);
+        }
+
+        return wc;
+    }
 #endregion    
 
 #region "Properties for columns"
@@ -205,38 +217,13 @@ public class BaseRegistrationsTable : PrimaryKeyTable
     
     
     /// <summary>
-    /// This is a convenience property that provides direct access to the table's Registrations_.PaymentDate column object.
-    /// </summary>
-    public BaseClasses.Data.DateColumn PaymentDateColumn
-    {
-        get
-        {
-            return (BaseClasses.Data.DateColumn)this.TableDefinition.ColumnList[5];
-        }
-    }
-    
-
-    
-    /// <summary>
-    /// This is a convenience property that provides direct access to the table's Registrations_.PaymentDate column object.
-    /// </summary>
-    public static BaseClasses.Data.DateColumn PaymentDate
-    {
-        get
-        {
-            return RegistrationsTable.Instance.PaymentDateColumn;
-        }
-    }
-    
-    
-    /// <summary>
     /// This is a convenience property that provides direct access to the table's Registrations_.AdditionalDinnerTicket column object.
     /// </summary>
     public BaseClasses.Data.BooleanColumn AdditionalDinnerTicketColumn
     {
         get
         {
-            return (BaseClasses.Data.BooleanColumn)this.TableDefinition.ColumnList[6];
+            return (BaseClasses.Data.BooleanColumn)this.TableDefinition.ColumnList[5];
         }
     }
     
@@ -261,7 +248,7 @@ public class BaseRegistrationsTable : PrimaryKeyTable
     {
         get
         {
-            return (BaseClasses.Data.StringColumn)this.TableDefinition.ColumnList[7];
+            return (BaseClasses.Data.StringColumn)this.TableDefinition.ColumnList[6];
         }
     }
     
@@ -286,7 +273,7 @@ public class BaseRegistrationsTable : PrimaryKeyTable
     {
         get
         {
-            return (BaseClasses.Data.StringColumn)this.TableDefinition.ColumnList[8];
+            return (BaseClasses.Data.StringColumn)this.TableDefinition.ColumnList[7];
         }
     }
     
@@ -311,7 +298,7 @@ public class BaseRegistrationsTable : PrimaryKeyTable
     {
         get
         {
-            return (BaseClasses.Data.DateColumn)this.TableDefinition.ColumnList[9];
+            return (BaseClasses.Data.DateColumn)this.TableDefinition.ColumnList[8];
         }
     }
     
@@ -336,7 +323,7 @@ public class BaseRegistrationsTable : PrimaryKeyTable
     {
         get
         {
-            return (BaseClasses.Data.DateColumn)this.TableDefinition.ColumnList[10];
+            return (BaseClasses.Data.DateColumn)this.TableDefinition.ColumnList[9];
         }
     }
     
@@ -883,7 +870,6 @@ public class BaseRegistrationsTable : PrimaryKeyTable
         string ContactIdValue, 
         string ValidationUidValue, 
         string RegistrationTypeIdValue, 
-        string PaymentDateValue, 
         string AdditionalDinnerTicketValue, 
         string SpecialRequirementsValue, 
         string AdditionalDinnerNameValue, 
@@ -896,7 +882,6 @@ public class BaseRegistrationsTable : PrimaryKeyTable
         rec.SetString(ContactIdValue, ContactIdColumn);
         rec.SetString(ValidationUidValue, ValidationUidColumn);
         rec.SetString(RegistrationTypeIdValue, RegistrationTypeIdColumn);
-        rec.SetString(PaymentDateValue, PaymentDateColumn);
         rec.SetString(AdditionalDinnerTicketValue, AdditionalDinnerTicketColumn);
         rec.SetString(SpecialRequirementsValue, SpecialRequirementsColumn);
         rec.SetString(AdditionalDinnerNameValue, AdditionalDinnerNameColumn);

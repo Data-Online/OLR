@@ -14,6 +14,7 @@
     <Layout>FieldTripOptions\Show-FieldTripOptions-Gallery1.html</Layout>
     <DisplayName>Show-FieldTripOptions-Gallery1</DisplayName>
     <Description>Gallery to show multiple records.</Description>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>-268212083-16124</CheckSum>
   </Self>
   <ComposedOf>

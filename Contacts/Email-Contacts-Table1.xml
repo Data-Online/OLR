@@ -14,6 +14,7 @@
     <Layout>Contacts\Email-Contacts-Table1.html</Layout>
     <DisplayName>Email-Contacts-Table1</DisplayName>
     <Description>Table view to show or edit multiple records.</Description>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>-1112941080-17760</CheckSum>
   </Self>
   <ComposedOf>

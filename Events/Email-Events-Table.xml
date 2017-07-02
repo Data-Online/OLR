@@ -14,6 +14,7 @@
     <Layout>Events\Email-Events-Table.html</Layout>
     <DisplayName>Email-Events-Table</DisplayName>
     <Description>Table view to show or edit multiple records.</Description>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>29060755-4516</CheckSum>
   </Self>
   <ComposedOf>

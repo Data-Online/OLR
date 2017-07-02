@@ -147,38 +147,6 @@ public class BaseRegistrationTypesRecord : PrimaryKeyRecord
 	}
 
 	/// <summary>
-	/// This is a convenience method that provides direct access to the value of the record's RegistrationTypes_.Description field.
-	/// </summary>
-	public ColumnValue GetDescriptionValue()
-	{
-		return this.GetValue(TableUtils.DescriptionColumn);
-	}
-
-	/// <summary>
-	/// This is a convenience method that provides direct access to the value of the record's RegistrationTypes_.Description field.
-	/// </summary>
-	public string GetDescriptionFieldValue()
-	{
-		return this.GetValue(TableUtils.DescriptionColumn).ToString();
-	}
-
-	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.Description field.
-	/// </summary>
-	public void SetDescriptionFieldValue(ColumnValue val)
-	{
-		this.SetValue(val, TableUtils.DescriptionColumn);
-	}
-
-	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.Description field.
-	/// </summary>
-	public void SetDescriptionFieldValue(string val)
-	{
-		ColumnValue cv = new ColumnValue(val);
-		this.SetValue(cv, TableUtils.DescriptionColumn);
-	}
-	/// <summary>
 	/// This is a convenience method that provides direct access to the value of the record's RegistrationTypes_.EventId field.
 	/// </summary>
 	public ColumnValue GetEventIdValue()
@@ -236,6 +204,38 @@ public class BaseRegistrationTypesRecord : PrimaryKeyRecord
 		ColumnValue cv = new ColumnValue(val);
 		this.SetValue(cv, TableUtils.EventIdColumn);
 	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's RegistrationTypes_.RegistrationType field.
+	/// </summary>
+	public ColumnValue GetRegistrationTypeValue()
+	{
+		return this.GetValue(TableUtils.RegistrationTypeColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's RegistrationTypes_.RegistrationType field.
+	/// </summary>
+	public string GetRegistrationTypeFieldValue()
+	{
+		return this.GetValue(TableUtils.RegistrationTypeColumn).ToString();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.RegistrationType field.
+	/// </summary>
+	public void SetRegistrationTypeFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.RegistrationTypeColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.RegistrationType field.
+	/// </summary>
+	public void SetRegistrationTypeFieldValue(string val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.RegistrationTypeColumn);
+	}
 
 
 #endregion
@@ -286,49 +286,6 @@ public class BaseRegistrationTypesRecord : PrimaryKeyRecord
 		}
 	}
 	/// <summary>
-	/// This is a property that provides direct access to the value of the record's RegistrationTypes_.Description field.
-	/// </summary>
-	public string Description
-	{
-		get
-		{
-			return this.GetValue(TableUtils.DescriptionColumn).ToString();
-		}
-		set
-		{
-			ColumnValue cv = new ColumnValue(value);
-			this.SetValue(cv, TableUtils.DescriptionColumn);
-		}
-	}
-
-
-	/// <summary>
-	/// This is a convenience method that can be used to determine that the column is set.
-	/// </summary>
-	public bool DescriptionSpecified
-	{
-		get
-		{
-			ColumnValue val = this.GetValue(TableUtils.DescriptionColumn);
-            if (val == null || val.IsNull)
-            {
-                return false;
-            }
-            return true;
-		}
-	}
-
-	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.Description field.
-	/// </summary>
-	public string DescriptionDefault
-	{
-		get
-		{
-			return TableUtils.DescriptionColumn.DefaultValue;
-		}
-	}
-	/// <summary>
 	/// This is a property that provides direct access to the value of the record's RegistrationTypes_.EventId field.
 	/// </summary>
 	public Int32 EventId
@@ -369,6 +326,49 @@ public class BaseRegistrationTypesRecord : PrimaryKeyRecord
 		get
 		{
 			return TableUtils.EventIdColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's RegistrationTypes_.RegistrationType field.
+	/// </summary>
+	public string RegistrationType
+	{
+		get
+		{
+			return this.GetValue(TableUtils.RegistrationTypeColumn).ToString();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.RegistrationTypeColumn);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool RegistrationTypeSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.RegistrationTypeColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.RegistrationType field.
+	/// </summary>
+	public string RegistrationTypeDefault
+	{
+		get
+		{
+			return TableUtils.RegistrationTypeColumn.DefaultValue;
 		}
 	}
 

@@ -14,6 +14,7 @@
     <Layout>Events\Show-Events-Table.html</Layout>
     <DisplayName>Show-Events-Table</DisplayName>
     <Description>Table view to show or edit multiple records.</Description>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>1586102225-20472</CheckSum>
   </Self>
   <ComposedOf>
@@ -311,6 +312,28 @@
       <Type>Table</Type>
       <PanelStyle>RecInTable_RISepC_Parent</PanelStyle>
       <Table>DatabaseOLR_db%dbo.Events</Table>
+      <QueryDefinition>
+        <WhereClause>
+          <Position>1</Position>
+          <TableAlias>DatabaseOLR_db%dbo.Events_</TableAlias>
+          <Field>[DatabaseOLR_db%dbo.Events_].[GID]</Field>
+          <Operator>=</Operator>
+          <Operand>
+            <Type>Formula</Type>
+            <Value>"B8110877-A03D-4517-88F9-3A897001BAF4"</Value>
+          </Operand>
+          <IgnoreBlankString>Yes</IgnoreBlankString>
+        </WhereClause>
+        <Operators>
+          <Operator xsi:nil="true" />
+        </Operators>
+        <TableAliases>
+          <Alias>
+            <AliasName>DatabaseOLR_db%dbo.Events_</AliasName>
+            <TableName>DatabaseOLR_db%dbo.Events</TableName>
+          </Alias>
+        </TableAliases>
+      </QueryDefinition>
       <PassthroughAttributes>
         <Attribute>
           <Name>HasScrolling</Name>
@@ -327,6 +350,10 @@
         <Attribute>
           <Name>InternalUse:DataSource</Name>
           <Value>TableOrQuery</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:DataSourceArg</Name>
+          <Value />
         </Attribute>
         <Attribute>
           <Name>NumberOfColumns</Name>
@@ -353,6 +380,7 @@
           <Value>Pagination-TotalPages</Value>
         </Attribute>
       </PassthroughAttributes>
+      <OrderBys />
     </ContainedComponent>
     <ContainedComponent>
       <Name>ExcelButton</Name>

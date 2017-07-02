@@ -14,6 +14,7 @@
     <Layout>HomeTowns\HomeTowns-QuickSelector.html</Layout>
     <DisplayName>HomeTowns-QuickSelector</DisplayName>
     <Description>Table view to show or edit multiple records.</Description>
+    <LoginRequired>&lt;PRoles&gt;Everyone&lt;/PRoles&gt;</LoginRequired>
   </Self>
   <ComposedOf>
     <ContainedComponent>

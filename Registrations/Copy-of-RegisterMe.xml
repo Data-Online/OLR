@@ -14,6 +14,7 @@
     <Layout>Registrations\Copy-of-RegisterMe.xml</Layout>
     <DisplayName>Copy-of-RegisterMe</DisplayName>
     <Description>Standard record panel.</Description>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>791467108-9935</CheckSum>
   </Self>
   <ComposedOf>

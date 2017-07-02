@@ -14,6 +14,7 @@
     <Layout>FieldTripOptions\Edit-FieldTripOptions-Table.html</Layout>
     <DisplayName>Edit-FieldTripOptions-Table</DisplayName>
     <Description>Table view to show or edit multiple records.</Description>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>-1038670016-20807</CheckSum>
   </Self>
   <ComposedOf>

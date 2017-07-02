@@ -112,8 +112,6 @@ public class BaseRegistrationsTableControlRow : OLR.UI.BaseApplicationRecordCont
                 
               this.RegistrationTypeId.SelectedIndexChanged += RegistrationTypeId_SelectedIndexChanged;                  
                 
-              this.PaymentDate.TextChanged += PaymentDate_TextChanged;
-            
               this.ValidationUid.TextChanged += ValidationUid_TextChanged;
             
         }
@@ -177,8 +175,6 @@ public class BaseRegistrationsTableControlRow : OLR.UI.BaseApplicationRecordCont
                 
                 SetEventId();
                 SetEventIdLabel();
-                SetPaymentDate();
-                SetPaymentDateLabel();
                 SetRegistrationTypeId();
                 SetRegistrationTypeIdLabel();
                 
@@ -450,48 +446,6 @@ public class BaseRegistrationsTableControlRow : OLR.UI.BaseApplicationRecordCont
                   
         }
                 
-        public virtual void SetPaymentDate()
-        {
-            
-            // If data was retrieved from UI previously, restore it
-            if (this.PreviousUIData.ContainsKey(this.PaymentDate.ID))
-            {
-            
-                this.PaymentDate.Text = this.PreviousUIData[this.PaymentDate.ID].ToString();
-              
-                return;
-            }
-            
-                    
-            // Set the PaymentDate TextBox on the webpage with value from the
-            // DatabaseOLR_db%dbo.Registrations database record.
-
-            // this.DataSource is the DatabaseOLR_db%dbo.Registrations record retrieved from the database.
-            // this.PaymentDate is the ASP:TextBox on the webpage.
-                  
-            if (this.DataSource != null && this.DataSource.PaymentDateSpecified) {
-                								
-                // If the PaymentDate is non-NULL, then format the value.
-                // The Format method will use the Display Format
-               string formattedValue = this.DataSource.Format(RegistrationsTable.PaymentDate, @"d");
-                                
-                this.PaymentDate.Text = formattedValue;
-                   
-            } 
-            
-            else {
-            
-                // PaymentDate is NULL in the database, so use the Default Value.  
-                // Default Value could also be NULL.
-        
-              this.PaymentDate.Text = RegistrationsTable.PaymentDate.Format(RegistrationsTable.PaymentDate.DefaultValue, @"d");
-            		
-            }
-            
-              this.PaymentDate.TextChanged += PaymentDate_TextChanged;
-                               
-        }
-                
         public virtual void SetRegistrationTypeId()
         {
             				
@@ -602,7 +556,7 @@ public class BaseRegistrationsTableControlRow : OLR.UI.BaseApplicationRecordCont
               
               url = this.Page.ModifyRedirectUrl(url, "", true);                                  
               
-              url += "?Target=" + this.RegistrationTypeId.ClientID + "&Formula=" + (this.Page as BaseApplicationPage).Encrypt("=RegistrationTypes.Description")+ "&IndexField=" + (this.Page as BaseApplicationPage).Encrypt("RegistrationTypeId")+ "&EmptyValue=" + (this.Page as BaseApplicationPage).Encrypt("--PLEASE_SELECT--") + "&EmptyDisplayText=" + (this.Page as BaseApplicationPage).Encrypt(this.Page.GetResourceValue("Txt:PleaseSelect"))+ "&Mode=" + (this.Page as BaseApplicationPage).Encrypt("FieldValueSingleSelection") + "&RedirectStyle=" + (this.Page as BaseApplicationPage).Encrypt("Popup");
+              url += "?Target=" + this.RegistrationTypeId.ClientID + "&Formula=" + (this.Page as BaseApplicationPage).Encrypt("= RegistrationTypes.RegistrationType")+ "&IndexField=" + (this.Page as BaseApplicationPage).Encrypt("RegistrationTypeId")+ "&EmptyValue=" + (this.Page as BaseApplicationPage).Encrypt("--PLEASE_SELECT--") + "&EmptyDisplayText=" + (this.Page as BaseApplicationPage).Encrypt(this.Page.GetResourceValue("Txt:PleaseSelect"))+ "&Mode=" + (this.Page as BaseApplicationPage).Encrypt("FieldValueSingleSelection") + "&RedirectStyle=" + (this.Page as BaseApplicationPage).Encrypt("Popup");
               
               this.RegistrationTypeId.Attributes["onClick"] = "initializePopupPage(this, '" + url + "', " + Convert.ToString(RegistrationTypeId.AutoPostBack).ToLower() + ", event); return false;";
                   
@@ -659,12 +613,6 @@ public class BaseRegistrationsTableControlRow : OLR.UI.BaseApplicationRecordCont
         }
                 
         public virtual void SetEventIdLabel()
-                  {
-                  
-                    
-        }
-                
-        public virtual void SetPaymentDateLabel()
                   {
                   
                     
@@ -838,7 +786,6 @@ public class BaseRegistrationsTableControlRow : OLR.UI.BaseApplicationRecordCont
         
             GetContactId();
             GetEventId();
-            GetPaymentDate();
             GetRegistrationTypeId();
             GetValidationUid();
         }
@@ -864,23 +811,6 @@ public class BaseRegistrationsTableControlRow : OLR.UI.BaseApplicationRecordCont
             
             this.DataSource.Parse(MiscUtils.GetValueSelectedPageRequest(this.EventId), RegistrationsTable.EventId);			
                 			 
-        }
-                
-        public virtual void GetPaymentDate()
-        {
-            
-            // Retrieve the value entered by the user on the PaymentDate ASP:TextBox, and
-            // save it into the PaymentDate field in DataSource DatabaseOLR_db%dbo.Registrations record.
-            // Parse will also validate the date to ensure it is of the proper format
-            // and a valid date.  The format is verified based on the current culture 
-            // settings including the order of month, day and year and the separator character.
-            // Parse throws an exception if the date is invalid.
-            // Custom validation should be performed in Validate, not here.
-                    
-            // Save the value to data source
-            this.DataSource.Parse(this.PaymentDate.Text, RegistrationsTable.PaymentDate);							
-                          
-                      
         }
                 
         public virtual void GetRegistrationTypeId()
@@ -1208,11 +1138,6 @@ public class BaseRegistrationsTableControlRow : OLR.UI.BaseApplicationRecordCont
         }
                       
                     
-        protected virtual void PaymentDate_TextChanged(object sender, EventArgs args)
-        {
-                    
-              }
-            
         protected virtual void ValidationUid_TextChanged(object sender, EventArgs args)
         {
                     
@@ -1340,18 +1265,6 @@ public class BaseRegistrationsTableControlRow : OLR.UI.BaseApplicationRecordCont
         public System.Web.UI.WebControls.Literal EventIdLabel {
             get {
                 return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "EventIdLabel");
-            }
-        }
-        
-        public System.Web.UI.WebControls.TextBox PaymentDate {
-            get {
-                return (System.Web.UI.WebControls.TextBox)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "PaymentDate");
-            }
-        }
-            
-        public System.Web.UI.WebControls.Literal PaymentDateLabel {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "PaymentDateLabel");
             }
         }
         
@@ -2423,10 +2336,6 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
                         if (MiscUtils.IsValueSelected(recControl.EventId)) {
                             rec.Parse(recControl.EventId.SelectedItem.Value, RegistrationsTable.EventId);
                         }
-                        if (recControl.PaymentDate.Text != "") {
-                            rec.Parse(recControl.PaymentDate.Text, RegistrationsTable.PaymentDate);
-                  }
-                
                         if (MiscUtils.IsValueSelected(recControl.RegistrationTypeId)) {
                             rec.Parse(recControl.RegistrationTypeId.SelectedItem.Value, RegistrationsTable.RegistrationTypeId);
                         }
@@ -2576,10 +2485,6 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Event {Txt:Ascending}"), "EventId Asc"));
               
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Event {Txt:Descending}"), "EventId Desc"));
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Payment Date {Txt:Ascending}"), "PaymentDate Asc"));
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Payment Date {Txt:Descending}"), "PaymentDate Desc"));
               
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Registration Type {Txt:Ascending}"), "RegistrationTypeId Asc"));
               

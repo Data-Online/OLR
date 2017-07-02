@@ -14,6 +14,7 @@
     <Layout>Contacts\Show-Contacts-Table3.html</Layout>
     <DisplayName>Show-Contacts-Table3</DisplayName>
     <Description>Table view to show or edit multiple records.</Description>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>358449975-32999</CheckSum>
   </Self>
   <ComposedOf>

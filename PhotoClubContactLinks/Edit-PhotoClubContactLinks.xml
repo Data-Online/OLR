@@ -14,6 +14,7 @@
     <Layout>PhotoClubContactLinks\Edit-PhotoClubContactLinks.html</Layout>
     <DisplayName>Edit-PhotoClubContactLinks</DisplayName>
     <Description>Standard record panel.</Description>
+    <LoginRequired>&lt;PRoles&gt;Everyone&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>-1841525346-6141</CheckSum>
   </Self>
   <ComposedOf>

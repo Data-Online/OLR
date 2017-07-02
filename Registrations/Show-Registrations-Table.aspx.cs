@@ -221,6 +221,10 @@ public partial class Show_Registrations_Table
     
         public ThemeButtonWithArrow ActionsButton;
                 
+        public System.Web.UI.WebControls.Literal Email;
+            
+        public System.Web.UI.WebControls.Literal EmailLabel;
+        
         public System.Web.UI.WebControls.Literal EventIdLabel1;
         
         public System.Web.UI.WebControls.ImageButton ExcelButton;
@@ -229,7 +233,15 @@ public partial class Show_Registrations_Table
                 
         public ThemeButtonWithArrow FiltersButton;
                 
+        public System.Web.UI.WebControls.Literal HometownId;
+            
+        public System.Web.UI.WebControls.Literal HometownIdLabel;
+        
         public System.Web.UI.WebControls.ImageButton ImportButton;
+        
+        public System.Web.UI.WebControls.Literal MobileNumber;
+            
+        public System.Web.UI.WebControls.Literal MobileNumberLabel;
         
         public System.Web.UI.WebControls.ImageButton NewButton;
         
@@ -238,6 +250,10 @@ public partial class Show_Registrations_Table
         public PaginationModern Pagination;
                 
         public System.Web.UI.WebControls.ImageButton PDFButton;
+        
+        public System.Web.UI.WebControls.Literal PSNZMember;
+            
+        public System.Web.UI.WebControls.Literal PSNZMemberLabel;
         
         public OLR.UI.Controls.Show_Registrations_Table.RegistrationsTableControl RegistrationsTableControl;
           
@@ -310,7 +326,7 @@ public partial class Show_Registrations_Table
             // Check if user has access to this page.  Redirects to either sign-in page
             // or 'no access' page if not. Does not do anything if role-based security
             // is not turned on, but you can override to add your own security.
-            this.Authorize("");
+            this.Authorize("NOT_ANONYMOUS");
              if (!this.IsPostBack)
              {
             

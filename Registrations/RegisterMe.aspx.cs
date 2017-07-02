@@ -277,14 +277,14 @@ public partial class RegisterMe
                 
         public BaseClasses.Web.UI.WebControls.QuickSelector ContactId;
             
+        public System.Web.UI.WebControls.Literal ContactId1;
+            
         public OLR.UI.Controls.RegisterMe.ContactsRecordControl ContactsRecordControl;
           
         public System.Web.UI.WebControls.Literal Email;
             
         public System.Web.UI.WebControls.Literal EmailLabel;
         
-        public System.Web.UI.WebControls.Literal EventId;
-            
         public OLR.UI.Controls.RegisterMe.FieldTripChoicesTableControl FieldTripChoicesTableControl;
           
         public System.Web.UI.WebControls.Literal FirstNameLabel;
@@ -293,9 +293,15 @@ public partial class RegisterMe
             
         public System.Web.UI.WebControls.Literal HometownIdLabel;
         
+        public OLR.UI.Controls.RegisterMe.HonourContactLinksTableControl HonourContactLinksTableControl;
+          
         public System.Web.UI.WebControls.Literal LastNameLabel;
         
+        public System.Web.UI.WebControls.Image Logo;
+        
         public System.Web.UI.WebControls.Literal MobileNumberLabel;
+        
+        public System.Web.UI.WebControls.ImageButton NewButton;
         
         public System.Web.UI.WebControls.ImageButton NewButton1;
         
@@ -323,11 +329,11 @@ public partial class RegisterMe
                 
         public System.Web.UI.WebControls.Literal SpecialRequirementsLabel;
         
-        public System.Web.UI.WebControls.Literal Title0;
-            
         public System.Web.UI.WebControls.Literal Title1;
             
         public System.Web.UI.WebControls.Literal Title2;
+            
+        public System.Web.UI.WebControls.Literal Title3;
             
         public ValidationSummary ValidationSummary1;
 
@@ -396,7 +402,7 @@ public partial class RegisterMe
             // Check if user has access to this page.  Redirects to either sign-in page
             // or 'no access' page if not. Does not do anything if role-based security
             // is not turned on, but you can override to add your own security.
-            this.Authorize("");
+            this.Authorize("Everyone");
              if (!this.IsPostBack)
              {
             

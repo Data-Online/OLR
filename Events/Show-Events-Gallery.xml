@@ -14,6 +14,7 @@
     <Layout>Events\Show-Events-Gallery.html</Layout>
     <DisplayName>Show-Events-Gallery</DisplayName>
     <Description>Gallery to show multiple records.</Description>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>403242152-17305</CheckSum>
   </Self>
   <ComposedOf>

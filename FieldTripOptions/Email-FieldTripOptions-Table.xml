@@ -14,6 +14,7 @@
     <Layout>FieldTripOptions\Email-FieldTripOptions-Table.html</Layout>
     <DisplayName>Email-FieldTripOptions-Table</DisplayName>
     <Description>Table view to show or edit multiple records.</Description>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>2081129216-8578</CheckSum>
   </Self>
   <ComposedOf>

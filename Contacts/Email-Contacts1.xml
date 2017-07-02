@@ -14,6 +14,7 @@
     <Layout>Contacts\Email-Contacts1.html</Layout>
     <DisplayName>Email-Contacts1</DisplayName>
     <Description>Standard record panel.</Description>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>897612425-16944</CheckSum>
   </Self>
   <ComposedOf>

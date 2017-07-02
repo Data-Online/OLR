@@ -3287,7 +3287,7 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
                  report.AddColumn(ContactsTable.Address1.Name, ReportEnum.Align.Left, "${Address1}", ReportEnum.Align.Left, 28);
                  report.AddColumn(ContactsTable.Address2.Name, ReportEnum.Align.Left, "${Address2}", ReportEnum.Align.Left, 28);
                  report.AddColumn(ContactsTable.Address3.Name, ReportEnum.Align.Left, "${Address3}", ReportEnum.Align.Left, 28);
-                 report.AddColumn(ContactsTable.HometownId.Name, ReportEnum.Align.Left, "${HometownId}", ReportEnum.Align.Left, 15);
+                 report.AddColumn(ContactsTable.HometownId.Name, ReportEnum.Align.Left, "${HometownId}", ReportEnum.Align.Left, 18);
                  report.AddColumn(ContactsTable.MobileNumber.Name, ReportEnum.Align.Right, "${MobileNumber}", ReportEnum.Align.Right, 20);
                  report.AddColumn(ContactsTable.PSNZMembershipCheck.Name, ReportEnum.Align.Left, "${PSNZMembershipCheck}", ReportEnum.Align.Left, 15);
                  report.AddColumn(ContactsTable.PSNZMember.Name, ReportEnum.Align.Left, "${PSNZMember}", ReportEnum.Align.Left, 15);
@@ -3440,7 +3440,7 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
                  report.AddColumn(ContactsTable.Address1.Name, ReportEnum.Align.Left, "${Address1}", ReportEnum.Align.Left, 28);
                  report.AddColumn(ContactsTable.Address2.Name, ReportEnum.Align.Left, "${Address2}", ReportEnum.Align.Left, 28);
                  report.AddColumn(ContactsTable.Address3.Name, ReportEnum.Align.Left, "${Address3}", ReportEnum.Align.Left, 28);
-                 report.AddColumn(ContactsTable.HometownId.Name, ReportEnum.Align.Left, "${HometownId}", ReportEnum.Align.Left, 15);
+                 report.AddColumn(ContactsTable.HometownId.Name, ReportEnum.Align.Left, "${HometownId}", ReportEnum.Align.Left, 18);
                  report.AddColumn(ContactsTable.MobileNumber.Name, ReportEnum.Align.Right, "${MobileNumber}", ReportEnum.Align.Right, 20);
                  report.AddColumn(ContactsTable.PSNZMembershipCheck.Name, ReportEnum.Align.Left, "${PSNZMembershipCheck}", ReportEnum.Align.Left, 15);
                  report.AddColumn(ContactsTable.PSNZMember.Name, ReportEnum.Align.Left, "${PSNZMember}", ReportEnum.Align.Left, 15);

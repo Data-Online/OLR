@@ -31,90 +31,79 @@ The tags are case-sensitive and should contain the following case-sensitive attr
   -->
 <siteMap>
   <siteMapNode>
-    <siteMapNode title="Contacts" description="Contacts" url="~/Contacts/Show-Contacts-Table.aspx?" imageUrl="" roles="" order="0">
-      <siteMapNode title="{Menu:Add} Contacts" description="{Menu:Add} Contacts" url="~/Contacts/Add-Contacts.aspx" imageUrl="" roles="" order="10" />
-      <siteMapNode title="{Menu:Add} Contacts 1" description="{Menu:Add} Contacts 1" url="~/Contacts/Add-Contacts1.aspx" imageUrl="" roles="" order="10" />
-      <siteMapNode title="{Menu:Edit} Contacts" description="{Menu:Edit} Contacts" url="~/Contacts/Edit-Contacts-Table.aspx" imageUrl="" roles="" order="9" />
-      <siteMapNode title="{Menu:Edit} Contacts 1" description="{Menu:Edit} Contacts 1" url="~/Contacts/Edit-Contacts-Table1.aspx" imageUrl="" roles="" order="9" />
-      <siteMapNode title="{Menu:Show} Contacts" description="{Menu:Show} Contacts" url="~/Contacts/Show-Contacts-Table.aspx" imageUrl="" roles="" order="4" />
-      <siteMapNode title="{Menu:Show} Contacts 1" description="{Menu:Show} Contacts 1" url="~/Contacts/Show-Contacts-Table1.aspx" imageUrl="" roles="" order="8" />
-      <siteMapNode title="{Menu:Show} Contacts 2" description="{Menu:Show} Contacts 2" url="~/Contacts/Show-Contacts-Table2.aspx" imageUrl="" roles="" order="3" />
-      <siteMapNode title="{Menu:Show} Contacts 3" description="{Menu:Show} Contacts 3" url="~/Contacts/Show-Contacts-Table3.aspx" imageUrl="" roles="" order="4" />
-      <siteMapNode title="{Menu:Show} Contacts 4" description="{Menu:Show} Contacts 4" url="~/Contacts/Show-Contacts-Table4.aspx" imageUrl="" roles="" order="8" />
-      <siteMapNode title="{Menu:Show} Contacts 5" description="{Menu:Show} Contacts 5" url="~/Contacts/Show-Contacts-Table5.aspx" imageUrl="" roles="" order="3" />
-      <siteMapNode title="{Menu:Show} Contacts Gallery" description="{Menu:Show} Contacts Gallery" url="~/Contacts/Show-Contacts-Gallery.aspx" imageUrl="" roles="" order="4" />
-      <siteMapNode title="{Menu:Show} Contacts Gallery 1" description="{Menu:Show} Contacts Gallery 1" url="~/Contacts/Show-Contacts-Gallery1.aspx" imageUrl="" roles="" order="4" />
-      <siteMapNode title="{Menu:Show} Contacts Gallery 2" description="{Menu:Show} Contacts Gallery 2" url="~/Contacts/Show-Contacts-Gallery2.aspx" imageUrl="" roles="" order="4" />
-      <siteMapNode title="{Menu:Show} Contacts Gallery 3" description="{Menu:Show} Contacts Gallery 3" url="~/Contacts/Show-Contacts-Gallery3.aspx" imageUrl="" roles="" order="4" />
+    <siteMapNode title="Honor Contact Links" description="Honor Contact Links" url="~/HonorContactLinks/Add-HonorContactLinks.aspx?" imageUrl="" roles="" order="0">
+      <siteMapNode title="{Menu:Add} Honor Contact Links" description="{Menu:Add} Honor Contact Links" url="~/HonorContactLinks/Add-HonorContactLinks.aspx" imageUrl="" roles="" order="10" />
     </siteMapNode>
-    <siteMapNode title="Events" description="Events" url="~/Events/Show-Events-Table.aspx?" imageUrl="" roles="" order="0">
-      <siteMapNode title="{Menu:Add} Events" description="{Menu:Add} Events" url="~/Events/Add-Events.aspx" imageUrl="" roles="" order="10" />
-      <siteMapNode title="{Menu:Edit} Events" description="{Menu:Edit} Events" url="~/Events/Edit-Events-Table.aspx" imageUrl="" roles="" order="9" />
-      <siteMapNode title="{Menu:Show} Events" description="{Menu:Show} Events" url="~/Events/Show-Events-Table.aspx" imageUrl="" roles="" order="4" />
-      <siteMapNode title="{Menu:Show} Events 1" description="{Menu:Show} Events 1" url="~/Events/Show-Events-Table1.aspx" imageUrl="" roles="" order="8" />
-      <siteMapNode title="{Menu:Show} Events 2" description="{Menu:Show} Events 2" url="~/Events/Show-Events-Table2.aspx" imageUrl="" roles="" order="3" />
-      <siteMapNode title="{Menu:Show} Events Gallery" description="{Menu:Show} Events Gallery" url="~/Events/Show-Events-Gallery.aspx" imageUrl="" roles="" order="4" />
-      <siteMapNode title="{Menu:Show} Events Gallery 1" description="{Menu:Show} Events Gallery 1" url="~/Events/Show-Events-Gallery1.aspx" imageUrl="" roles="" order="4" />
+    <siteMapNode title="Honour Contact Links" description="Honour Contact Links" url="~/HonourContactLinks/Add-HonourContactLinks.aspx?" imageUrl="" roles="" order="0">
+      <siteMapNode title="{Menu:Add} Honour Contact Links" description="{Menu:Add} Honour Contact Links" url="~/HonourContactLinks/Add-HonourContactLinks.aspx" imageUrl="" roles="" order="10" />
     </siteMapNode>
-    <siteMapNode title="Field Trip Options" description="Field Trip Options" url="~/FieldTripOptions/Show-FieldTripOptions-Table.aspx?" imageUrl="" roles="" order="0">
-      <siteMapNode title="{Menu:Add} Field Trip Options" description="{Menu:Add} Field Trip Options" url="~/FieldTripOptions/Add-FieldTripOptions.aspx" imageUrl="" roles="" order="10" />
-      <siteMapNode title="{Menu:Edit} Field Trip Options" description="{Menu:Edit} Field Trip Options" url="~/FieldTripOptions/Edit-FieldTripOptions-Table.aspx" imageUrl="" roles="" order="9" />
-      <siteMapNode title="{Menu:Show} Field Trip Options" description="{Menu:Show} Field Trip Options" url="~/FieldTripOptions/Show-FieldTripOptions-Table.aspx" imageUrl="" roles="" order="4" />
-      <siteMapNode title="{Menu:Show} Field Trip Options 1" description="{Menu:Show} Field Trip Options 1" url="~/FieldTripOptions/Show-FieldTripOptions-Table1.aspx" imageUrl="" roles="" order="8" />
-      <siteMapNode title="{Menu:Show} Field Trip Options 2" description="{Menu:Show} Field Trip Options 2" url="~/FieldTripOptions/Show-FieldTripOptions-Table2.aspx" imageUrl="" roles="" order="3" />
-      <siteMapNode title="{Menu:Show} Field Trip Options Gallery" description="{Menu:Show} Field Trip Options Gallery" url="~/FieldTripOptions/Show-FieldTripOptions-Gallery.aspx" imageUrl="" roles="" order="4" />
-      <siteMapNode title="{Menu:Show} Field Trip Options Gallery 1" description="{Menu:Show} Field Trip Options Gallery 1" url="~/FieldTripOptions/Show-FieldTripOptions-Gallery1.aspx" imageUrl="" roles="" order="4" />
+    <siteMapNode title="Registrations" description="Registrations" url="~/view_Registered/Show-View-Registered-Table.aspx" imageUrl="" roles="" order="1">
+      <siteMapNode title="Registrations By Name" description="Registrations By Name" url="~/Contacts/Show-Contacts-Table.aspx" imageUrl="" roles="" order="1" />
+      <siteMapNode title="{Menu:Show} Registrations" description="{Menu:Show} Registrations" url="~/Registrations/Show-Registrations-Table.aspx" imageUrl="" roles="" order="2" />
+      <siteMapNode title="{Menu:Edit} Registrations" description="{Menu:Edit} Registrations" url="~/Registrations/Edit-Registrations-Table.aspx" imageUrl="" roles="" order="3" />
+      <siteMapNode title="{Menu:Add} Registrations" description="{Menu:Add} Registrations" url="~/Registrations/Add-Registrations.aspx" imageUrl="" roles="" order="4" />
     </siteMapNode>
-    <siteMapNode title="Field Trips" description="Field Trips" url="~/FieldTrips/Show-FieldTrips-Table.aspx?" imageUrl="" roles="" order="0">
-      <siteMapNode title="{Menu:Add} Field Trips" description="{Menu:Add} Field Trips" url="~/FieldTrips/Add-FieldTrips.aspx" imageUrl="" roles="" order="10" />
-      <siteMapNode title="{Menu:Edit} Field Trips" description="{Menu:Edit} Field Trips" url="~/FieldTrips/Edit-FieldTrips-Table.aspx" imageUrl="" roles="" order="9" />
-      <siteMapNode title="{Menu:Show} Field Trips" description="{Menu:Show} Field Trips" url="~/FieldTrips/Show-FieldTrips-Table.aspx" imageUrl="" roles="" order="4" />
-      <siteMapNode title="{Menu:Show} Field Trips 1" description="{Menu:Show} Field Trips 1" url="~/FieldTrips/Show-FieldTrips-Table1.aspx" imageUrl="" roles="" order="8" />
-      <siteMapNode title="{Menu:Show} Field Trips 2" description="{Menu:Show} Field Trips 2" url="~/FieldTrips/Show-FieldTrips-Table2.aspx" imageUrl="" roles="" order="3" />
-      <siteMapNode title="{Menu:Show} Field Trips 3" description="{Menu:Show} Field Trips 3" url="~/FieldTrips/Show-FieldTrips-Table3.aspx" imageUrl="" roles="" order="4" />
-      <siteMapNode title="{Menu:Show} Field Trips Gallery" description="{Menu:Show} Field Trips Gallery" url="~/FieldTrips/Show-FieldTrips-Gallery.aspx" imageUrl="" roles="" order="4" />
-      <siteMapNode title="{Menu:Show} Field Trips Gallery 1" description="{Menu:Show} Field Trips Gallery 1" url="~/FieldTrips/Show-FieldTrips-Gallery1.aspx" imageUrl="" roles="" order="4" />
-    </siteMapNode>
-    <siteMapNode title="Honors" description="Honors" url="~/Honors/Show-Honors-Table.aspx?" imageUrl="" roles="" order="0">
-      <siteMapNode title="{Menu:Add} Honors" description="{Menu:Add} Honors" url="~/Honors/Add-Honors.aspx" imageUrl="" roles="" order="10" />
-      <siteMapNode title="{Menu:Edit} Honors" description="{Menu:Edit} Honors" url="~/Honors/Edit-Honors-Table.aspx" imageUrl="" roles="" order="9" />
-      <siteMapNode title="{Menu:Show} Honors" description="{Menu:Show} Honors" url="~/Honors/Show-Honors-Table.aspx" imageUrl="" roles="" order="4" />
-      <siteMapNode title="{Menu:Show} Honors 1" description="{Menu:Show} Honors 1" url="~/Honors/Show-Honors-Table1.aspx" imageUrl="" roles="" order="8" />
-      <siteMapNode title="{Menu:Show} Honors 2" description="{Menu:Show} Honors 2" url="~/Honors/Show-Honors-Table2.aspx" imageUrl="" roles="" order="3" />
-      <siteMapNode title="{Menu:Show} Honors Gallery" description="{Menu:Show} Honors Gallery" url="~/Honors/Show-Honors-Gallery.aspx" imageUrl="" roles="" order="4" />
-      <siteMapNode title="{Menu:Show} Honors Gallery 1" description="{Menu:Show} Honors Gallery 1" url="~/Honors/Show-Honors-Gallery1.aspx" imageUrl="" roles="" order="4" />
-    </siteMapNode>
-    <siteMapNode title="Photo Clubs" description="Photo Clubs" url="~/PhotoClubs/Show-PhotoClubs-Table.aspx?" imageUrl="" roles="" order="0">
-      <siteMapNode title="{Menu:Add} Photo Clubs" description="{Menu:Add} Photo Clubs" url="~/PhotoClubs/Add-PhotoClubs.aspx" imageUrl="" roles="" order="10" />
-      <siteMapNode title="{Menu:Edit} Photo Clubs" description="{Menu:Edit} Photo Clubs" url="~/PhotoClubs/Edit-PhotoClubs-Table.aspx" imageUrl="" roles="" order="9" />
-      <siteMapNode title="{Menu:Show} Photo Clubs" description="{Menu:Show} Photo Clubs" url="~/PhotoClubs/Show-PhotoClubs-Table.aspx" imageUrl="" roles="" order="4" />
-      <siteMapNode title="{Menu:Show} Photo Clubs 1" description="{Menu:Show} Photo Clubs 1" url="~/PhotoClubs/Show-PhotoClubs-Table1.aspx" imageUrl="" roles="" order="8" />
-      <siteMapNode title="{Menu:Show} Photo Clubs 2" description="{Menu:Show} Photo Clubs 2" url="~/PhotoClubs/Show-PhotoClubs-Table2.aspx" imageUrl="" roles="" order="3" />
-      <siteMapNode title="{Menu:Show} Photo Clubs Gallery" description="{Menu:Show} Photo Clubs Gallery" url="~/PhotoClubs/Show-PhotoClubs-Gallery.aspx" imageUrl="" roles="" order="4" />
-      <siteMapNode title="{Menu:Show} Photo Clubs Gallery 1" description="{Menu:Show} Photo Clubs Gallery 1" url="~/PhotoClubs/Show-PhotoClubs-Gallery1.aspx" imageUrl="" roles="" order="4" />
-    </siteMapNode>
-    <siteMapNode title="Registrations" description="Registrations" url="~/Registrations/Show-Registrations-Table.aspx?" imageUrl="" roles="" order="0">
-      <siteMapNode title="{Menu:Add} Registrations" description="{Menu:Add} Registrations" url="~/Registrations/Add-Registrations.aspx" imageUrl="" roles="" order="10" />
-      <siteMapNode title="{Menu:Edit} Registrations" description="{Menu:Edit} Registrations" url="~/Registrations/Edit-Registrations-Table.aspx" imageUrl="" roles="" order="9" />
-      <siteMapNode title="{Menu:Show} Registrations" description="{Menu:Show} Registrations" url="~/Registrations/Show-Registrations-Table.aspx" imageUrl="" roles="" order="4" />
-      <siteMapNode title="{Menu:Show} Registrations 1" description="{Menu:Show} Registrations 1" url="~/Registrations/Show-Registrations-Table1.aspx" imageUrl="" roles="" order="8" />
-      <siteMapNode title="{Menu:Show} Registrations 2" description="{Menu:Show} Registrations 2" url="~/Registrations/Show-Registrations-Table2.aspx" imageUrl="" roles="" order="3" />
-      <siteMapNode title="{Menu:Show} Registrations 3" description="{Menu:Show} Registrations 3" url="~/Registrations/Show-Registrations-Table3.aspx" imageUrl="" roles="" order="4" />
-      <siteMapNode title="{Menu:Show} Registrations Gallery" description="{Menu:Show} Registrations Gallery" url="~/Registrations/Show-Registrations-Gallery.aspx" imageUrl="" roles="" order="4" />
-      <siteMapNode title="{Menu:Show} Registrations Gallery 1" description="{Menu:Show} Registrations Gallery 1" url="~/Registrations/Show-Registrations-Gallery1.aspx" imageUrl="" roles="" order="4" />
-    </siteMapNode>
-    <siteMapNode title="{Menu:More}" description="{Menu:More}" url="" imageUrl="" roles="" order="63">
-      <siteMapNode title="Photo Club Contact Links" description="Photo Club Contact Links" url="~/PhotoClubContactLinks/Add-PhotoClubContactLinks.aspx?" imageUrl="" roles="" order="0">
-        <siteMapNode title="{Menu:Add} Photo Club Contact Links" description="{Menu:Add} Photo Club Contact Links" url="~/PhotoClubContactLinks/Add-PhotoClubContactLinks.aspx" imageUrl="" roles="" order="10" />
+    <siteMapNode title="Administration" description="Administration" url="" imageUrl="" roles="" order="2">
+      <siteMapNode title="Field Trips" description="Field Trips" url="~/FieldTrips/Show-FieldTrips-Table.aspx?" imageUrl="" roles="" order="1">
+        <siteMapNode title="{Menu:Add} Field Trips" description="{Menu:Add} Field Trips" url="~/FieldTrips/Add-FieldTrips.aspx" imageUrl="" roles="" order="1" />
+        <siteMapNode title="{Menu:Edit} Field Trips" description="{Menu:Edit} Field Trips" url="~/FieldTrips/Edit-FieldTrips-Table.aspx" imageUrl="" roles="" order="2" />
+        <siteMapNode title="{Menu:Show} Field Trips" description="{Menu:Show} Field Trips" url="~/FieldTrips/Show-FieldTrips-Table.aspx" imageUrl="" roles="" order="3" />
+        <siteMapNode title="{Menu:Show} Field Trips 1" description="{Menu:Show} Field Trips 1" url="~/FieldTrips/Show-FieldTrips-Table1.aspx" imageUrl="" roles="" order="4" />
+        <siteMapNode title="{Menu:Show} Field Trips 2" description="{Menu:Show} Field Trips 2" url="~/FieldTrips/Show-FieldTrips-Table2.aspx" imageUrl="" roles="" order="5" />
+        <siteMapNode title="{Menu:Show} Field Trips 3" description="{Menu:Show} Field Trips 3" url="~/FieldTrips/Show-FieldTrips-Table3.aspx" imageUrl="" roles="" order="6" />
+        <siteMapNode title="{Menu:Show} Field Trips Gallery" description="{Menu:Show} Field Trips Gallery" url="~/FieldTrips/Show-FieldTrips-Gallery.aspx" imageUrl="" roles="" order="7" />
+        <siteMapNode title="{Menu:Show} Field Trips Gallery 1" description="{Menu:Show} Field Trips Gallery 1" url="~/FieldTrips/Show-FieldTrips-Gallery1.aspx" imageUrl="" roles="" order="8" />
       </siteMapNode>
-      <siteMapNode title="Registration Types" description="Registration Types" url="~/RegistrationTypes/Show-RegistrationTypes-Table.aspx?" imageUrl="" roles="" order="0">
-        <siteMapNode title="{Menu:Add} Registration Types" description="{Menu:Add} Registration Types" url="~/RegistrationTypes/Add-RegistrationTypes.aspx" imageUrl="" roles="" order="10" />
-        <siteMapNode title="{Menu:Edit} Registration Types" description="{Menu:Edit} Registration Types" url="~/RegistrationTypes/Edit-RegistrationTypes-Table.aspx" imageUrl="" roles="" order="9" />
-        <siteMapNode title="{Menu:Show} Registration Types" description="{Menu:Show} Registration Types" url="~/RegistrationTypes/Show-RegistrationTypes-Table.aspx" imageUrl="" roles="" order="4" />
-        <siteMapNode title="{Menu:Show} Registration Types 1" description="{Menu:Show} Registration Types 1" url="~/RegistrationTypes/Show-RegistrationTypes-Table1.aspx" imageUrl="" roles="" order="8" />
-        <siteMapNode title="{Menu:Show} Registration Types 2" description="{Menu:Show} Registration Types 2" url="~/RegistrationTypes/Show-RegistrationTypes-Table2.aspx" imageUrl="" roles="" order="3" />
-        <siteMapNode title="{Menu:Show} Registration Types Gallery" description="{Menu:Show} Registration Types Gallery" url="~/RegistrationTypes/Show-RegistrationTypes-Gallery.aspx" imageUrl="" roles="" order="4" />
-        <siteMapNode title="{Menu:Show} Registration Types Gallery 1" description="{Menu:Show} Registration Types Gallery 1" url="~/RegistrationTypes/Show-RegistrationTypes-Gallery1.aspx" imageUrl="" roles="" order="4" />
+      <siteMapNode title="Field Trip Options" description="Field Trip Options" url="~/FieldTripOptions/Show-FieldTripOptions-Table.aspx?" imageUrl="" roles="" order="2">
+        <siteMapNode title="{Menu:Add} Field Trip Options" description="{Menu:Add} Field Trip Options" url="~/FieldTripOptions/Add-FieldTripOptions.aspx" imageUrl="" roles="" order="1" />
+        <siteMapNode title="{Menu:Edit} Field Trip Options" description="{Menu:Edit} Field Trip Options" url="~/FieldTripOptions/Edit-FieldTripOptions-Table.aspx" imageUrl="" roles="" order="2" />
+        <siteMapNode title="{Menu:Show} Field Trip Options" description="{Menu:Show} Field Trip Options" url="~/FieldTripOptions/Show-FieldTripOptions-Table.aspx" imageUrl="" roles="" order="3" />
+        <siteMapNode title="{Menu:Show} Field Trip Options 1" description="{Menu:Show} Field Trip Options 1" url="~/FieldTripOptions/Show-FieldTripOptions-Table1.aspx" imageUrl="" roles="" order="4" />
+        <siteMapNode title="{Menu:Show} Field Trip Options 2" description="{Menu:Show} Field Trip Options 2" url="~/FieldTripOptions/Show-FieldTripOptions-Table2.aspx" imageUrl="" roles="" order="5" />
+        <siteMapNode title="{Menu:Show} Field Trip Options Gallery" description="{Menu:Show} Field Trip Options Gallery" url="~/FieldTripOptions/Show-FieldTripOptions-Gallery.aspx" imageUrl="" roles="" order="6" />
+        <siteMapNode title="{Menu:Show} Field Trip Options Gallery 1" description="{Menu:Show} Field Trip Options Gallery 1" url="~/FieldTripOptions/Show-FieldTripOptions-Gallery1.aspx" imageUrl="" roles="" order="7" />
+      </siteMapNode>
+      <siteMapNode title="Registration Types" description="Registration Types" url="~/RegistrationTypes/Show-RegistrationTypes-Table.aspx?" imageUrl="" roles="" order="3">
+        <siteMapNode title="{Menu:Add} Registration Types" description="{Menu:Add} Registration Types" url="~/RegistrationTypes/Add-RegistrationTypes.aspx" imageUrl="" roles="" order="1" />
+        <siteMapNode title="{Menu:Edit} Registration Types" description="{Menu:Edit} Registration Types" url="~/RegistrationTypes/Edit-RegistrationTypes-Table.aspx" imageUrl="" roles="" order="2" />
+        <siteMapNode title="{Menu:Show} Registration Types" description="{Menu:Show} Registration Types" url="~/RegistrationTypes/Show-RegistrationTypes-Table.aspx" imageUrl="" roles="" order="3" />
+        <siteMapNode title="{Menu:Show} Registration Types 1" description="{Menu:Show} Registration Types 1" url="~/RegistrationTypes/Show-RegistrationTypes-Table1.aspx" imageUrl="" roles="" order="4" />
+        <siteMapNode title="{Menu:Show} Registration Types 2" description="{Menu:Show} Registration Types 2" url="~/RegistrationTypes/Show-RegistrationTypes-Table2.aspx" imageUrl="" roles="" order="5" />
+        <siteMapNode title="{Menu:Show} Registration Types Gallery" description="{Menu:Show} Registration Types Gallery" url="~/RegistrationTypes/Show-RegistrationTypes-Gallery.aspx" imageUrl="" roles="" order="6" />
+        <siteMapNode title="{Menu:Show} Registration Types Gallery 1" description="{Menu:Show} Registration Types Gallery 1" url="~/RegistrationTypes/Show-RegistrationTypes-Gallery1.aspx" imageUrl="" roles="" order="7" />
+      </siteMapNode>
+      <siteMapNode title="Photo Club Contact Links" description="Photo Club Contact Links" url="~/PhotoClubContactLinks/Add-PhotoClubContactLinks.aspx?" imageUrl="" roles="" order="4">
+        <siteMapNode title="{Menu:Add} Photo Club Contact Links" description="{Menu:Add} Photo Club Contact Links" url="~/PhotoClubContactLinks/Add-PhotoClubContactLinks.aspx" imageUrl="" roles="" order="1" />
+      </siteMapNode>
+      <siteMapNode title="Photo Clubs" description="Photo Clubs" url="~/PhotoClubs/Show-PhotoClubs-Table.aspx?" imageUrl="" roles="" order="5">
+        <siteMapNode title="{Menu:Add} Photo Clubs" description="{Menu:Add} Photo Clubs" url="~/PhotoClubs/Add-PhotoClubs.aspx" imageUrl="" roles="" order="1" />
+        <siteMapNode title="{Menu:Edit} Photo Clubs" description="{Menu:Edit} Photo Clubs" url="~/PhotoClubs/Edit-PhotoClubs-Table.aspx" imageUrl="" roles="" order="2" />
+        <siteMapNode title="{Menu:Show} Photo Clubs" description="{Menu:Show} Photo Clubs" url="~/PhotoClubs/Show-PhotoClubs-Table.aspx" imageUrl="" roles="" order="3" />
+        <siteMapNode title="{Menu:Show} Photo Clubs 1" description="{Menu:Show} Photo Clubs 1" url="~/PhotoClubs/Show-PhotoClubs-Table1.aspx" imageUrl="" roles="" order="4" />
+        <siteMapNode title="{Menu:Show} Photo Clubs 2" description="{Menu:Show} Photo Clubs 2" url="~/PhotoClubs/Show-PhotoClubs-Table2.aspx" imageUrl="" roles="" order="5" />
+        <siteMapNode title="{Menu:Show} Photo Clubs Gallery" description="{Menu:Show} Photo Clubs Gallery" url="~/PhotoClubs/Show-PhotoClubs-Gallery.aspx" imageUrl="" roles="" order="6" />
+        <siteMapNode title="{Menu:Show} Photo Clubs Gallery 1" description="{Menu:Show} Photo Clubs Gallery 1" url="~/PhotoClubs/Show-PhotoClubs-Gallery1.aspx" imageUrl="" roles="" order="7" />
+      </siteMapNode>
+      <siteMapNode title="Honors" description="Honors" url="~/Honors/Show-Honors-Table.aspx?" imageUrl="" roles="" order="6">
+        <siteMapNode title="{Menu:Add} Honors" description="{Menu:Add} Honors" url="~/Honors/Add-Honors.aspx" imageUrl="" roles="" order="1" />
+        <siteMapNode title="{Menu:Edit} Honors" description="{Menu:Edit} Honors" url="~/Honors/Edit-Honors-Table.aspx" imageUrl="" roles="" order="2" />
+        <siteMapNode title="{Menu:Show} Honors" description="{Menu:Show} Honors" url="~/Honors/Show-Honors-Table.aspx" imageUrl="" roles="" order="3" />
+        <siteMapNode title="{Menu:Show} Honors 1" description="{Menu:Show} Honors 1" url="~/Honors/Show-Honors-Table1.aspx" imageUrl="" roles="" order="4" />
+        <siteMapNode title="{Menu:Show} Honors 2" description="{Menu:Show} Honors 2" url="~/Honors/Show-Honors-Table2.aspx" imageUrl="" roles="" order="5" />
+        <siteMapNode title="{Menu:Show} Honors Gallery" description="{Menu:Show} Honors Gallery" url="~/Honors/Show-Honors-Gallery.aspx" imageUrl="" roles="" order="6" />
+        <siteMapNode title="{Menu:Show} Honors Gallery 1" description="{Menu:Show} Honors Gallery 1" url="~/Honors/Show-Honors-Gallery1.aspx" imageUrl="" roles="" order="7" />
+      </siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="Roles" description="Roles" url="~/Roles/Edit-Roles-Table.aspx?" imageUrl="" roles="" order="3">
+      <siteMapNode title="{Menu:Edit} Roles" description="{Menu:Edit} Roles" url="~/Roles/Edit-Roles-Table.aspx" imageUrl="" roles="" order="1" />
+    </siteMapNode>
+    <siteMapNode title="Users" description="Users" url="~/Users/Edit-Users-Table.aspx?" imageUrl="" roles="" order="4">
+      <siteMapNode title="{Menu:Edit} Users" description="{Menu:Edit} Users" url="~/Users/Edit-Users-Table.aspx" imageUrl="" roles="" order="1" />
+    </siteMapNode>
+    <siteMapNode title="{Menu:More}" description="{Menu:More}" url="" imageUrl="" roles="" order="57">
+      <siteMapNode title="Honours" description="Honours" url="~/Honours/Add-Honours.aspx?" imageUrl="" roles="" order="0">
+        <siteMapNode title="{Menu:Add} Honours" description="{Menu:Add} Honours" url="~/Honours/Add-Honours.aspx" imageUrl="" roles="" order="10" />
+        <siteMapNode title="{Menu:Edit} Honours" description="{Menu:Edit} Honours" url="~/Honours/Edit-Honours-Table.aspx" imageUrl="" roles="" order="9" />
       </siteMapNode>
     </siteMapNode>
   </siteMapNode>

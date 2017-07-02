@@ -14,6 +14,7 @@
     <Layout>PhotoClubs\Edit-PhotoClubs.html</Layout>
     <DisplayName>Edit-PhotoClubs</DisplayName>
     <Description>Standard record panel.</Description>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>-56764016-5412</CheckSum>
   </Self>
   <ComposedOf>

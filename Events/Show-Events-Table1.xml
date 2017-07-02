@@ -14,6 +14,7 @@
     <Layout>Events\Show-Events-Table1.html</Layout>
     <DisplayName>Show-Events-Table1</DisplayName>
     <Description>Table view to show or edit multiple records.</Description>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>-133657858-20471</CheckSum>
   </Self>
   <ComposedOf>

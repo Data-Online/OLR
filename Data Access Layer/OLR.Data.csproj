@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.50709</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C7620FFA-052C-4CBE-90BD-C5EA18E1893C}</ProjectGuid>
+    <ProjectGuid>{65463E52-46DB-485C-AA9C-6B4222269D50}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>
     </RootNamespace>
@@ -80,112 +80,139 @@
     <Compile Include="Shared\RestfulUtils.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ContactsDefinition.cs" >
+    <Compile Include="ContactsDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ContactsSqlTable.cs" >
+    <Compile Include="ContactsSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseContactsSqlTable.cs" >
+    <Compile Include="BaseContactsSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="EventsDefinition.cs" >
+    <Compile Include="EventsDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="EventsSqlTable.cs" >
+    <Compile Include="EventsSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseEventsSqlTable.cs" >
+    <Compile Include="BaseEventsSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FieldTripChoicesDefinition.cs" >
+    <Compile Include="FieldTripChoicesDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FieldTripChoicesSqlTable.cs" >
+    <Compile Include="FieldTripChoicesSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseFieldTripChoicesSqlTable.cs" >
+    <Compile Include="BaseFieldTripChoicesSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FieldTripOptionsDefinition.cs" >
+    <Compile Include="FieldTripOptionsDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FieldTripOptionsSqlTable.cs" >
+    <Compile Include="FieldTripOptionsSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseFieldTripOptionsSqlTable.cs" >
+    <Compile Include="BaseFieldTripOptionsSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FieldTripsDefinition.cs" >
+    <Compile Include="FieldTripsDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FieldTripsSqlTable.cs" >
+    <Compile Include="FieldTripsSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseFieldTripsSqlTable.cs" >
+    <Compile Include="BaseFieldTripsSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HomeTownsDefinition.cs" >
+    <Compile Include="HomeTownsDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HomeTownsSqlTable.cs" >
+    <Compile Include="HomeTownsSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseHomeTownsSqlTable.cs" >
+    <Compile Include="BaseHomeTownsSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HonorContactLinksDefinition.cs" >
+    <Compile Include="PhotoClubContactLinksDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HonorContactLinksSqlTable.cs" >
+    <Compile Include="PhotoClubContactLinksSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseHonorContactLinksSqlTable.cs" >
+    <Compile Include="BasePhotoClubContactLinksSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HonorsDefinition.cs" >
+    <Compile Include="PhotoClubsDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HonorsSqlTable.cs" >
+    <Compile Include="PhotoClubsSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseHonorsSqlTable.cs" >
+    <Compile Include="BasePhotoClubsSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="PhotoClubContactLinksDefinition.cs" >
+    <Compile Include="RegistrationsDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="PhotoClubContactLinksSqlTable.cs" >
+    <Compile Include="RegistrationsSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BasePhotoClubContactLinksSqlTable.cs" >
+    <Compile Include="BaseRegistrationsSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="PhotoClubsDefinition.cs" >
+    <Compile Include="RegistrationTypesDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="PhotoClubsSqlTable.cs" >
+    <Compile Include="RegistrationTypesSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BasePhotoClubsSqlTable.cs" >
+    <Compile Include="BaseRegistrationTypesSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="RegistrationsDefinition.cs" >
+    <Compile Include="Roles1Definition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="RegistrationsSqlTable.cs" >
+    <Compile Include="Roles1SqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseRegistrationsSqlTable.cs" >
+    <Compile Include="BaseRoles1SqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="RegistrationTypesDefinition.cs" >
+    <Compile Include="UsersDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="RegistrationTypesSqlTable.cs" >
+    <Compile Include="UsersSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseRegistrationTypesSqlTable.cs" >
+    <Compile Include="BaseUsersSqlTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View_RegisteredDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View_RegisteredSqlView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseView_RegisteredSqlView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HonourContactLinksDefinition.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HonourContactLinksSqlTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseHonourContactLinksSqlTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HonoursDefinition.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HonoursSqlTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseHonoursSqlTable.cs" >
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

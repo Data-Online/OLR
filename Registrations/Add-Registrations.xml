@@ -14,6 +14,7 @@
     <Layout>Registrations\Add-Registrations.html</Layout>
     <DisplayName>Add-Registrations</DisplayName>
     <Description>Standard record panel.</Description>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>-1138113599-11095</CheckSum>
   </Self>
   <ComposedOf>
@@ -500,67 +501,6 @@
           <Value>{Title:Add} Registrations</Value>
         </Attribute>
       </PassthroughAttributes>
-    </ContainedComponent>
-    <ContainedComponent>
-      <Name>PaymentDate</Name>
-      <Type>FieldValue</Type>
-      <Field>PaymentDate</Field>
-      <FieldValueStyle>TextBox</FieldValueStyle>
-      <Table>DatabaseOLR_db%dbo.Registrations</Table>
-      <PassthroughAttributes>
-        <Attribute>
-          <Name>CssClass</Name>
-          <Value>field_input</Value>
-        </Attribute>
-        <Attribute>
-          <Name>DateSelectorType</Name>
-          <Value>Default</Value>
-        </Attribute>
-        <Attribute>
-          <Name>EnableIncrementDecrementButtons</Name>
-          <Value>Default</Value>
-        </Attribute>
-        <Attribute>
-          <Name>InternalUse:DataSource</Name>
-          <Value>Parent</Value>
-        </Attribute>
-        <Attribute>
-          <Name>PaymentDateRequiredFieldValidator:Enabled</Name>
-          <Value>False</Value>
-        </Attribute>
-        <Attribute>
-          <Name>PaymentDateRequiredFieldValidator:Text</Name>
-          <Value>*</Value>
-        </Attribute>
-      </PassthroughAttributes>
-      <InsideControl>RegistrationsRecordControl</InsideControl>
-    </ContainedComponent>
-    <ContainedComponent>
-      <Name>PaymentDateLabel</Name>
-      <Type>Literal</Type>
-      <PassthroughAttributes>
-        <Attribute>
-          <Name>Consumers</Name>
-          <Value>RegistrationsRecordControl</Value>
-        </Attribute>
-        <Attribute>
-          <Name>InternalUse:Field</Name>
-          <Value>PaymentDate</Value>
-        </Attribute>
-        <Attribute>
-          <Name>InternalUse:Table</Name>
-          <Value>DatabaseOLR_db%dbo.Registrations</Value>
-        </Attribute>
-        <Attribute>
-          <Name>InternalUse:TreatAs</Name>
-          <Value>FieldValue</Value>
-        </Attribute>
-        <Attribute>
-          <Name>Text</Name>
-          <Value>%ISD_DEFAULT%DatabaseOLR_db%dbo.Registrations%PaymentDate</Value>
-        </Attribute>
-      </PassthroughAttributes>
-      <InsideControl>RegistrationsRecordControl</InsideControl>
     </ContainedComponent>
     <ContainedComponent>
       <Name>PSNZMember</Name>

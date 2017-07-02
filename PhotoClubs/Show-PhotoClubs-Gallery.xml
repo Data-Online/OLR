@@ -14,6 +14,7 @@
     <Layout>PhotoClubs\Show-PhotoClubs-Gallery.html</Layout>
     <DisplayName>Show-PhotoClubs-Gallery</DisplayName>
     <Description>Gallery to show multiple records.</Description>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>63787784-17549</CheckSum>
   </Self>
   <ComposedOf>

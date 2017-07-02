@@ -157,7 +157,6 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
 
             // Call the Set methods for each controls on the panel
         
-                SetDescription();
                 SetEventId();
 
       
@@ -190,46 +189,6 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
             return this.Page.GetImageWithOverlaidText(imgFieldName, this.DataSource, otherFieldName, redirectURL);
         }
     
-        public virtual void SetDescription()
-        {
-            
-                    
-            // Set the Description Literal on the webpage with value from the
-            // DatabaseOLR_db%dbo.RegistrationTypes database record.
-
-            // this.DataSource is the DatabaseOLR_db%dbo.RegistrationTypes record retrieved from the database.
-            // this.Description is the ASP:Literal on the webpage.
-                  
-            if (this.DataSource != null && this.DataSource.DescriptionSpecified) {
-                								
-                // If the Description is non-NULL, then format the value.
-                // The Format method will use the Display Format
-               string formattedValue = this.DataSource.Format(RegistrationTypesTable.Description);
-                                
-                formattedValue = HttpUtility.HtmlEncode(formattedValue);
-                this.Description.Text = formattedValue;
-                   
-            } 
-            
-            else {
-            
-                // Description is NULL in the database, so use the Default Value.  
-                // Default Value could also be NULL.
-        
-              this.Description.Text = RegistrationTypesTable.Description.Format(RegistrationTypesTable.Description.DefaultValue);
-            		
-            }
-            
-            // If the Description is NULL or blank, then use the value specified  
-            // on Properties.
-            if (this.Description.Text == null ||
-                this.Description.Text.Trim().Length == 0) {
-                // Set the value specified on the Properties.
-                this.Description.Text = "&nbsp;";
-            }
-                                     
-        }
-                
         public virtual void SetEventId()
         {
             
@@ -425,16 +384,10 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
       
             // Call the Get methods for each of the user interface controls.
         
-            GetDescription();
             GetEventId();
         }
         
         
-        public virtual void GetDescription()
-        {
-            
-        }
-                
         public virtual void GetEventId()
         {
             
@@ -703,12 +656,6 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
        
 #region "Helper Properties"
         
-        public System.Web.UI.WebControls.Literal Description {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Description");
-            }
-        }
-            
         public System.Web.UI.WebControls.LinkButton EventId {
             get {
                 return (System.Web.UI.WebControls.LinkButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "EventId");
@@ -893,24 +840,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                         
                     }
             }
-            if (!this.Page.IsPostBack)
-            {
-                string initialVal = "";
-                if  (this.InSession(this.SearchText)) 				
-                    initialVal = this.GetFromSession(this.SearchText);
-                
-                if(StringUtils.InvariantEquals(initialVal, "Search for", true) || StringUtils.InvariantEquals(initialVal, BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null), true))
-                {
-                initialVal = "";
-                }
-              
-                if (initialVal != null && initialVal != "")		
-                {
-                        
-                    this.SearchText.Text = initialVal;
-                            
-                    }
-            }
 
 
       
@@ -987,8 +916,7 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                         
         
          //' Setup events for others
-            AjaxControlToolkit.ToolkitScriptManager.RegisterStartupScript(this, this.GetType(), "SearchTextSearchBoxText", "setSearchBoxText(\"" + BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null) + "\", \"" + SearchText.ClientID + "\");", true);
-             
+               
         }
 
         public virtual void LoadData()
@@ -1306,7 +1234,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                 
                 
                 
-                SetSearchText();
                 SetSortByLabel();
                 SetSortControl();
                 
@@ -1472,8 +1399,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
             
             this.SortControl.ClearSelection();
             
-            this.SearchText.Text = "";
-            
             this.CurrentSortOrder.Reset();
             if (this.InSession(this, "Order_By")) {
                 this.CurrentSortOrder = OrderBy.FromXmlString(this.GetFromSession(this, "Order_By", null));
@@ -1634,51 +1559,7 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                 wc.iAND(filter);
                     
             }
-                      
-            if (MiscUtils.IsValueSelected(this.SearchText)) {
-                if (this.SearchText.Text == BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null) ) {
-                        this.SearchText.Text = "";
-                } else {
-                  // Strip "..." from begin and ending of the search text, otherwise the search will return 0 values as in database "..." is not stored.
-                  if (this.SearchText.Text.StartsWith("...")) {
-                      this.SearchText.Text = this.SearchText.Text.Substring(3,this.SearchText.Text.Length-3);
-                  }
-                  if (this.SearchText.Text.EndsWith("...")) {
-                      this.SearchText.Text = this.SearchText.Text.Substring(0,this.SearchText.Text.Length-3);
-                      // Strip the last word as well as it is likely only a partial word
-                      int endindex = this.SearchText.Text.Length - 1;
-                      while (!Char.IsWhiteSpace(SearchText.Text[endindex]) && endindex > 0) {
-                          endindex--;
-                      }
-                      if (endindex > 0) {
-                          this.SearchText.Text = this.SearchText.Text.Substring(0, endindex);
-                      }
-                  }
-                }
-                string formatedSearchText = MiscUtils.GetSelectedValue(this.SearchText, this.GetFromSession(this.SearchText));
-                // After stripping "..." see if the search text is null or empty.
-                if (MiscUtils.IsValueSelected(this.SearchText)) {
-                      
-                    // These clauses are added depending on operator and fields selected in Control's property page, bindings tab.
-                  
-                    WhereClause search = new WhereClause();
-                    
-        ColumnList cols = new ColumnList();
-      
-      cols.Add(RegistrationTypesTable.Description, true);
-      
-      foreach(BaseColumn col in cols)
-      {
-      
-          search.iOR(col, BaseFilter.ComparisonOperator.Contains, MiscUtils.GetSelectedValue(this.SearchText, this.GetFromSession(this.SearchText)), true, false);
-        
-      }
-    
-                    wc.iAND(search);
-                  
-                }
-            }
-                       
+                           
             return wc;
         }
         
@@ -1722,106 +1603,11 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                 
       }
                       
-            if (MiscUtils.IsValueSelected(searchText) && fromSearchControl == "SearchText") {
-                String formatedSearchText = searchText;
-                // strip "..." from begin and ending of the search text, otherwise the search will return 0 values as in database "..." is not stored.
-                if (searchText.StartsWith("...")) {
-                    formatedSearchText = searchText.Substring(3,searchText.Length-3);
-                }
-                if (searchText.EndsWith("...")) {
-                    formatedSearchText = searchText.Substring(0,searchText.Length-3);
-                }
-                // After stripping "...", trim any leading and trailing whitespaces 
-                formatedSearchText = formatedSearchText.Trim();
-                // After stripping "..." see if the search text is null or empty.
-                if (MiscUtils.IsValueSelected(searchText)) {
-                      
-                    // These clauses are added depending on operator and fields selected in Control's property page, bindings tab.
-                  
-                    WhereClause search = new WhereClause();
-                    
-                    if (StringUtils.InvariantLCase(AutoTypeAheadSearch).Equals("wordsstartingwithsearchstring")) {
-                
-        ColumnList cols = new ColumnList();
-      
-      cols.Add(RegistrationTypesTable.Description, true);
-      
-      foreach(BaseColumn col in cols)
-      {
-      
-                  search.iOR(col, BaseFilter.ComparisonOperator.Starts_With, formatedSearchText, true, false);
-                  search.iOR(col, BaseFilter.ComparisonOperator.Contains, AutoTypeAheadWordSeparators + formatedSearchText, true, false);
-                
-      }
-    
-                    } else {
-                        
-        ColumnList cols = new ColumnList();
-      
-      cols.Add(RegistrationTypesTable.Description, true);
-      
-      foreach(BaseColumn col in cols)
-      {
-      
-                  search.iOR(col, BaseFilter.ComparisonOperator.Contains, formatedSearchText, true, false);
-      }
-    
-                    } 
-                    wc.iAND(search);
-                  
-                }
-            }
-                  
 
             return wc;
         }
 
         
-        public virtual string[] GetAutoCompletionList_SearchText(String prefixText,int count)
-        {
-            ArrayList resultList = new ArrayList();
-            ArrayList wordList= new ArrayList();
-            
-            CompoundFilter filterJoin = CreateCompoundJoinFilter();    
-            WhereClause wc = CreateWhereClause(prefixText,"SearchText", "WordsStartingWithSearchString", "[^a-zA-Z0-9]");
-            if(count==0) count = 10;
-            OLR.Business.RegistrationTypesRecord[] recordList  = RegistrationTypesTable.GetRecords(filterJoin, wc, null, 0, count, ref count);
-            String resultItem = "";
-            if (resultItem == "") resultItem = "";
-            foreach (RegistrationTypesRecord rec in recordList ){
-                // Exit the loop if recordList count has reached AutoTypeAheadListSize.
-                if (resultList.Count >= count) {
-                    break;
-                }
-                // If the field is configured to Display as Foreign key, Format() method returns the 
-                // Display as Forien Key value instead of original field value.
-                // Since search had to be done in multiple fields (selected in Control's page property, binding tab) in a record,
-                // We need to find relevent field to display which matches the prefixText and is not already present in the result list.
-        
-                resultItem = rec.Format(RegistrationTypesTable.Description);
-  
-                if (resultItem != null) {
-                    string prText = prefixText;
-                    if(RegistrationTypesTable.Description.IsFullTextSearchable) {
-                        FullTextExpression ft = new FullTextExpression();
-                        prText = ft.GetFirstNonExcludedTerm(prText);
-                    }
-                    if (!string.IsNullOrEmpty(prText) && resultItem.ToUpper(System.Threading.Thread.CurrentThread.CurrentCulture).Contains(prText.ToUpper(System.Threading.Thread.CurrentThread.CurrentCulture))) {
-                        bool isAdded = FormatSuggestions(prText, resultItem, 50, "InMiddleOfMatchedString", "WordsStartingWithSearchString", "[^a-zA-Z0-9]", resultList, RegistrationTypesTable.Description.IsFullTextSearchable);
-                        if (isAdded) {
-                            continue;
-                        }
-                    }
-                }
-                      
-            }
-              
-            resultList.Sort();
-            string[] result = new string[resultList.Count];
-            Array.Copy(resultList.ToArray(), result, resultList.Count);
-            return result;
-        }
-          
           
          public virtual bool FormatSuggestions(String prefixText, String resultItem,
                                               int columnLength, String AutoTypeAheadDisplayFoundText,
@@ -1997,10 +1783,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                     if (recControl.Visible && recControl.IsNewRecord) {
       RegistrationTypesRecord rec = new RegistrationTypesRecord();
         
-                        if (recControl.Description.Text != "") {
-                            rec.Parse(recControl.Description.Text, RegistrationTypesTable.Description);
-                  }
-                
                         if (recControl.EventId.Text != "") {
                             rec.Parse(recControl.EventId.Text, RegistrationTypesTable.EventId);
                   }
@@ -2127,14 +1909,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                              
         }
             
-        public virtual void SetSearchText()
-        {
-                                            
-            this.SearchText.Attributes.Add("onfocus", "if(this.value=='" + BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null) + "') {this.value='';this.className='Search_Input';}");
-            this.SearchText.Attributes.Add("onblur", "if(this.value=='') {this.value='" + BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null) + "';this.className='Search_InputHint';}");
-                                   
-        }
-            
         // Get the filters' data for SortControl.
                 
         protected virtual void PopulateSortControl(string selectedValue, int maxItems)
@@ -2148,13 +1922,13 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
               
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("{Txt:PleaseSelect}"), "--PLEASE_SELECT--"));
               
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Description {Txt:Ascending}"), "Description Asc"));
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Description {Txt:Descending}"), "Description Desc"));
-              
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Event {Txt:Ascending}"), "EventId Asc"));
               
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Event {Txt:Descending}"), "EventId Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Registration Type {Txt:Ascending}"), "RegistrationType Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Registration Type {Txt:Descending}"), "RegistrationType Desc"));
               
             try
             {          
@@ -2372,8 +2146,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
             }
             this.SaveToSession(this.EventIdFilter, EventIdFilterSessionString);
                   
-            this.SaveToSession(this.SearchText, this.SearchText.Text);
-                  
             
                     
             // Save pagination state to session.
@@ -2414,8 +2186,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
             }
             this.SaveToSession("EventIdFilter_Ajax", EventIdFilterSessionString);
           
-      this.SaveToSession("SearchText_Ajax", this.SearchText.Text);
-              
            HttpContext.Current.Session["AppRelativeVirtualPath"] = this.Page.AppRelativeVirtualPath;
          
         }
@@ -2428,7 +2198,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
         
             this.RemoveFromSession(this.SortControl);
             this.RemoveFromSession(this.EventIdFilter);
-            this.RemoveFromSession(this.SearchText);
             
             // Clear pagination state from session.
          
@@ -2787,8 +2556,7 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
               
                 // Add each of the columns in order of export.
                 BaseColumn[] columns = new BaseColumn[] {
-                             RegistrationTypesTable.Description,
-             RegistrationTypesTable.EventId,
+                             RegistrationTypesTable.EventId,
              null};
                 ExportDataToCSV exportData = new ExportDataToCSV(RegistrationTypesTable.Instance,wc,orderBy,columns);
                 exportData.StartExport(this.Page.Response, true);
@@ -2844,8 +2612,7 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
               int width = 0;
               int columnCounter = 0;
               DataForExport data = new DataForExport(RegistrationTypesTable.Instance, wc, orderBy, null,join);
-                           data.ColumnList.Add(new ExcelColumn(RegistrationTypesTable.Description, "Default"));
-             data.ColumnList.Add(new ExcelColumn(RegistrationTypesTable.EventId, "Default"));
+                           data.ColumnList.Add(new ExcelColumn(RegistrationTypesTable.EventId, "Default"));
 
 
               //  First write out the Column Headers
@@ -3018,7 +2785,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                 // The 3rd parameter represents the text format of the column detail
                 // The 4th parameter represents the horizontal alignment of the column detail
                 // The 5th parameter represents the relative width of the column
-                 report.AddColumn(RegistrationTypesTable.Description.Name, ReportEnum.Align.Left, "${Description}", ReportEnum.Align.Left, 28);
                  report.AddColumn(RegistrationTypesTable.EventId.Name, ReportEnum.Align.Left, "${EventId}", ReportEnum.Align.Left, 28);
 
   
@@ -3054,8 +2820,7 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                             // The 2nd parameter represent the data value
                             // The 3rd parameter represent the default alignment of column using the data
                             // The 4th parameter represent the maximum length of the data value being shown
-                                                 report.AddData("${Description}", record.Format(RegistrationTypesTable.Description), ReportEnum.Align.Left, 300);
-                             if (BaseClasses.Utils.MiscUtils.IsNull(record.EventId)){
+                                                 if (BaseClasses.Utils.MiscUtils.IsNull(record.EventId)){
                                  report.AddData("${EventId}", "",ReportEnum.Align.Left);
                              }else{
                                  Boolean _isExpandableNonCompositeForeignKey;
@@ -3108,8 +2873,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
            
             this.SortControl.ClearSelection();
           
-              this.SearchText.Text = "";
-            
               this.CurrentSortOrder.Reset();
               if (this.InSession(this, "Order_By"))
                   this.CurrentSortOrder = OrderBy.FromXmlString(this.GetFromSession(this, "Order_By", null));
@@ -3183,7 +2946,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                 // The 3rd parameter represents the text format of the column detail
                 // The 4th parameter represents the horizontal alignment of the column detail
                 // The 5th parameter represents the relative width of the column
-                 report.AddColumn(RegistrationTypesTable.Description.Name, ReportEnum.Align.Left, "${Description}", ReportEnum.Align.Left, 28);
                  report.AddColumn(RegistrationTypesTable.EventId.Name, ReportEnum.Align.Left, "${EventId}", ReportEnum.Align.Left, 28);
 
                 WhereClause whereClause = null;
@@ -3215,7 +2977,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                             // The 2nd parameter represents the data value
                             // The 3rd parameter represents the default alignment of column using the data
                             // The 4th parameter represents the maximum length of the data value being shown
-                             report.AddData("${Description}", record.Format(RegistrationTypesTable.Description), ReportEnum.Align.Left, 300);
                              if (BaseClasses.Utils.MiscUtils.IsNull(record.EventId)){
                                  report.AddData("${EventId}", "",ReportEnum.Align.Left);
                              }else{
@@ -3543,12 +3304,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
         public System.Web.UI.WebControls.ImageButton SearchButton {
             get {
                 return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "SearchButton");
-            }
-        }
-        
-        public System.Web.UI.WebControls.TextBox SearchText {
-            get {
-                return (System.Web.UI.WebControls.TextBox)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "SearchText");
             }
         }
         

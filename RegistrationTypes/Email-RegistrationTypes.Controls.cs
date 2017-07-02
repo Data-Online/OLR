@@ -180,8 +180,6 @@ public class BaseRegistrationTypesRecordControl : OLR.UI.BaseApplicationRecordCo
 
             // Call the Set methods for each controls on the panel
         
-                SetDescription();
-                SetDescriptionLabel();
                 SetEventId();
                 SetEventIdLabel();
                 
@@ -208,46 +206,6 @@ public class BaseRegistrationTypesRecordControl : OLR.UI.BaseApplicationRecordCo
         }
         
         
-        public virtual void SetDescription()
-        {
-            
-                    
-            // Set the Description Literal on the webpage with value from the
-            // DatabaseOLR_db%dbo.RegistrationTypes database record.
-
-            // this.DataSource is the DatabaseOLR_db%dbo.RegistrationTypes record retrieved from the database.
-            // this.Description is the ASP:Literal on the webpage.
-                  
-            if (this.DataSource != null && this.DataSource.DescriptionSpecified) {
-                								
-                // If the Description is non-NULL, then format the value.
-                // The Format method will use the Display Format
-               string formattedValue = this.DataSource.Format(RegistrationTypesTable.Description);
-                                
-                formattedValue = HttpUtility.HtmlEncode(formattedValue);
-                this.Description.Text = formattedValue;
-                   
-            } 
-            
-            else {
-            
-                // Description is NULL in the database, so use the Default Value.  
-                // Default Value could also be NULL.
-        
-              this.Description.Text = RegistrationTypesTable.Description.Format(RegistrationTypesTable.Description.DefaultValue);
-            		
-            }
-            
-            // If the Description is NULL or blank, then use the value specified  
-            // on Properties.
-            if (this.Description.Text == null ||
-                this.Description.Text.Trim().Length == 0) {
-                // Set the value specified on the Properties.
-                this.Description.Text = "&nbsp;";
-            }
-                                     
-        }
-                
         public virtual void SetEventId()
         {
             
@@ -294,12 +252,6 @@ public class BaseRegistrationTypesRecordControl : OLR.UI.BaseApplicationRecordCo
                 this.EventId.Text = "&nbsp;";
             }
                                      
-        }
-                
-        public virtual void SetDescriptionLabel()
-                  {
-                  
-                    
         }
                 
         public virtual void SetEventIdLabel()
@@ -469,16 +421,10 @@ public class BaseRegistrationTypesRecordControl : OLR.UI.BaseApplicationRecordCo
       
             // Call the Get methods for each of the user interface controls.
         
-            GetDescription();
             GetEventId();
         }
         
         
-        public virtual void GetDescription()
-        {
-            
-        }
-                
         public virtual void GetEventId()
         {
             
@@ -915,18 +861,6 @@ public class BaseRegistrationTypesRecordControl : OLR.UI.BaseApplicationRecordCo
         }
        
 #region "Helper Properties"
-        
-        public System.Web.UI.WebControls.Literal Description {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Description");
-            }
-        }
-            
-        public System.Web.UI.WebControls.Literal DescriptionLabel {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "DescriptionLabel");
-            }
-        }
         
         public System.Web.UI.WebControls.Literal EventId {
             get {

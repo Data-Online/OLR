@@ -14,6 +14,7 @@
     <Layout>FieldTripOptions\Edit-FieldTripOptions.html</Layout>
     <DisplayName>Edit-FieldTripOptions</DisplayName>
     <Description>Standard record panel.</Description>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>871006589-7358</CheckSum>
   </Self>
   <ComposedOf>

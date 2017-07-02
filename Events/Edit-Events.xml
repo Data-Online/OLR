@@ -14,6 +14,7 @@
     <Layout>Events\Edit-Events.html</Layout>
     <DisplayName>Edit-Events</DisplayName>
     <Description>Standard record panel.</Description>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>-1100858355-5324</CheckSum>
   </Self>
   <ComposedOf>
