@@ -1081,7 +1081,7 @@
       <DependentUpon>Confirmation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registrations\Cancel.aspx.cs" >
+    <Compile Include="Registrations\Cancel.aspx.cs">
       <DependentUpon>Cancel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -1152,8 +1152,6 @@
     <Content Include="Troubleshooting\Test6Do.aspx" />
     <Content Include="Troubleshooting\TestConfiguration.css" />
     <Content Include="Troubleshooting\TestConfiguration.mdb" />
-    <Content Include="Troubleshooting\TestConfiguration35.sdf" />
-    <Content Include="Troubleshooting\TestConfiguration40.sdf" />
     <Content Include="Images\ajax-loader.gif" />
     <Content Include="Images\ASCXControlPlaceholder.gif" />
     <Content Include="Images\ASCXControlPlaceholderMobile.png" />
@@ -1462,7 +1460,7 @@
     <Content Include="Honours\Edit-Honours.aspx" />
     <Content Include="Master Pages\Registration.master" />
     <Content Include="Registrations\Confirmation.aspx" />
-    <Content Include="Registrations\Cancel.aspx"  />
+    <Content Include="Registrations\Cancel.aspx" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Global.asax.resx">
