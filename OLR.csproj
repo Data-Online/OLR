@@ -1042,40 +1042,48 @@
     <Compile Include="Honours\Honours-QuickSelector.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HonourContactLinks\Add-HonourContactLinks.aspx.cs" >
+    <Compile Include="HonourContactLinks\Add-HonourContactLinks.aspx.cs">
       <DependentUpon>Add-HonourContactLinks.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="HonourContactLinks\Add-HonourContactLinks.Controls.cs" >
+    <Compile Include="HonourContactLinks\Add-HonourContactLinks.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HonourContactLinks\Edit-HonourContactLinks.aspx.cs" >
+    <Compile Include="HonourContactLinks\Edit-HonourContactLinks.aspx.cs">
       <DependentUpon>Edit-HonourContactLinks.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="HonourContactLinks\Edit-HonourContactLinks.Controls.cs" >
+    <Compile Include="HonourContactLinks\Edit-HonourContactLinks.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Honours\Add-Honours.aspx.cs" >
+    <Compile Include="Honours\Add-Honours.aspx.cs">
       <DependentUpon>Add-Honours.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Honours\Add-Honours.Controls.cs" >
+    <Compile Include="Honours\Add-Honours.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Honours\Edit-Honours-Table.aspx.cs" >
+    <Compile Include="Honours\Edit-Honours-Table.aspx.cs">
       <DependentUpon>Edit-Honours-Table.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Honours\Edit-Honours-Table.Controls.cs" >
+    <Compile Include="Honours\Edit-Honours-Table.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Honours\Edit-Honours.aspx.cs" >
+    <Compile Include="Honours\Edit-Honours.aspx.cs">
       <DependentUpon>Edit-Honours.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Honours\Edit-Honours.Controls.cs" >
+    <Compile Include="Honours\Edit-Honours.Controls.cs">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Registrations\Confirmation.aspx.cs">
+      <DependentUpon>Confirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registrations\Cancel.aspx.cs" >
+      <DependentUpon>Cancel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -1447,11 +1455,14 @@
     <Content Include="Registrations\NotActive.aspx" />
     <Content Include="Registrations\Edit-Registration.aspx" />
     <Content Include="Honours\Honours-QuickSelector.aspx" />
-    <Content Include="HonourContactLinks\Add-HonourContactLinks.aspx"  />
-    <Content Include="HonourContactLinks\Edit-HonourContactLinks.aspx"  />
-    <Content Include="Honours\Add-Honours.aspx"  />
-    <Content Include="Honours\Edit-Honours-Table.aspx"  />
-    <Content Include="Honours\Edit-Honours.aspx"  />
+    <Content Include="HonourContactLinks\Add-HonourContactLinks.aspx" />
+    <Content Include="HonourContactLinks\Edit-HonourContactLinks.aspx" />
+    <Content Include="Honours\Add-Honours.aspx" />
+    <Content Include="Honours\Edit-Honours-Table.aspx" />
+    <Content Include="Honours\Edit-Honours.aspx" />
+    <Content Include="Master Pages\Registration.master" />
+    <Content Include="Registrations\Confirmation.aspx" />
+    <Content Include="Registrations\Cancel.aspx"  />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Global.asax.resx">

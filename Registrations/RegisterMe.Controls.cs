@@ -62,6 +62,48 @@ namespace OLR.UI.Controls.RegisterMe
         // The PhotoClubContactLinksTableControlRow class offers another place where you can customize
         // the DataBind, GetUIData, SaveData and Validate methods specific to each row displayed on the table.
 
+        public override void SaveData()
+        {
+            // Save the data from the entire table.  Calls each row's Save Data
+            // to save their data.  This function is called by the Click handler of the
+            // Save button.  The button handler should Start/Commit/End a transaction.
+
+            foreach (PhotoClubContactLinksTableControlRow recCtl in this.GetRecordControls())
+            {
+
+                if (this.InDeletedRecordIds(recCtl))
+                {
+                    // Delete any pending deletes. 
+                    recCtl.Delete();
+                }
+                else
+                {
+                    if (recCtl.Visible & recCtl.PhotoClubId.Text != "")
+                    {
+                        recCtl.SaveData();
+                    }
+                }
+
+            }
+
+
+
+            // Setting the DataChanged to True results in the page being refreshed with
+            // the most recent data from the database.  This happens in PreRender event
+            // based on the current sort, search and filter criteria.
+            this.DataChanged = true;
+            this.ResetData = true;
+
+            // Set IsNewRecord to False for all records - since everything has been saved and is no longer "new"
+            foreach (PhotoClubContactLinksTableControlRow recCtl in this.GetRecordControls())
+            {
+                recCtl.IsNewRecord = false;
+            }
+
+            // Set DeletedRecordsIds to Nothing since we have deleted all pending deletes.
+            this.DeletedRecordIds = null;
+
+        }
     }
 
 
@@ -117,234 +159,33 @@ namespace OLR.UI.Controls.RegisterMe
             this.AdditionalDinnerName.Visible = this.AdditionalDinnerTicket.Checked;
             this.AdditionalDinnerNameLabel.Visible = this.AdditionalDinnerTicket.Checked;
         }
-    
-#region "Code Customization"
 
-/// <summary>
-/// Overrides the default behaviour of LoadData.
-/// </summary>
-public override void LoadData()
-{
-		  
-	// Call base.LoadData()
-	base.LoadData();
-	if (this.DataSource == null)
-	{
-		// If no records found then, redirect to the page of your choice
-		this.Page.Response.Redirect("../Registrations/NotActive.aspx");
-	}
-   
-}
-  
-#endregion
-}
+        #region "Code Customization"
+
+        /// <summary>
+        /// Overrides the default behaviour of LoadData.
+        /// </summary>
+        /// 
+
+        public override void LoadData()
+        {
+
+            // Call base.LoadData()
+            base.LoadData();
+            if (this.DataSource == null)
+            {
+                // If no records found then, redirect to the page of your choice
+                this.Page.Response.Redirect("../Registrations/NotActive.aspx");
+            }
+
+        }
+
+        #endregion
+    }
 
 
 
-    //public class FieldTripChoicesRecordControl : BaseFieldTripChoicesRecordControl
-    //{
-    //      
-    //        // The BaseFieldTripChoicesRecordControl implements the LoadData, DataBind and other
-    //        // methods to load and display the data in a table control.
-    //
-    //        // This is the ideal place to add your code customizations. For example, you can override the LoadData, 
-    //        // CreateWhereClause, DataBind, SaveData, GetUIData, and Validate methods.
-    //        
-    //}
-    //
-    //public class FieldTripChoicesRecordControl1 : BaseFieldTripChoicesRecordControl1
-    //{
-    //      
-    //        // The BaseFieldTripChoicesRecordControl1 implements the LoadData, DataBind and other
-    //        // methods to load and display the data in a table control.
-    //
-    //        // This is the ideal place to add your code customizations. For example, you can override the LoadData, 
-    //        // CreateWhereClause, DataBind, SaveData, GetUIData, and Validate methods.
-    //        
-    //}
-    //
-    //public class FieldTripsTableControl : BaseFieldTripsTableControl
-    //{
-    //    // The BaseFieldTripsTableControl class implements the LoadData, DataBind, CreateWhereClause
-    //    // and other methods to load and display the data in a table control.
-    //
-    //    // This is the ideal place to add your code customizations. You can override the LoadData and CreateWhereClause,
-    //    // The FieldTripsTableControlRow class offers another place where you can customize
-    //    // the DataBind, GetUIData, SaveData and Validate methods specific to each row displayed on the table.
-    //    
-    //}
-    //
-    //public class FieldTripsTableControlRow : BaseFieldTripsTableControlRow
-    //{
-    //      
-    //        // The BaseFieldTripsTableControlRow implements code for a ROW within the
-    //        // the FieldTripsTableControl table.  The BaseFieldTripsTableControlRow implements the DataBind and SaveData methods.
-    //        // The loading of data is actually performed by the LoadData method in the base class of FieldTripsTableControl.
-    //
-    //        // This is the ideal place to add your code customizations. For example, you can override the DataBind, 
-    //        // SaveData, GetUIData, and Validate methods.
-    //        
-    //}
-    //
-    //public class FieldTripChoicesRecordControl2 : BaseFieldTripChoicesRecordControl2
-    //{
-    //      
-    //        // The BaseFieldTripChoicesRecordControl2 implements the LoadData, DataBind and other
-    //        // methods to load and display the data in a table control.
-    //
-    //        // This is the ideal place to add your code customizations. For example, you can override the LoadData, 
-    //        // CreateWhereClause, DataBind, SaveData, GetUIData, and Validate methods.
-    //        
-    //}
-    //
-    //public class FieldTripChoicesTableControl : BaseFieldTripChoicesTableControl
-    //{
-    //    // The BaseFieldTripChoicesTableControl class implements the LoadData, DataBind, CreateWhereClause
-    //    // and other methods to load and display the data in a table control.
-    //
-    //    // This is the ideal place to add your code customizations. You can override the LoadData and CreateWhereClause,
-    //    // The FieldTripChoicesTableControlRow class offers another place where you can customize
-    //    // the DataBind, GetUIData, SaveData and Validate methods specific to each row displayed on the table.
-    //    
-    //}
-    //
-    //public class FieldTripChoicesTableControlRow : BaseFieldTripChoicesTableControlRow
-    //{
-    //      
-    //        // The BaseFieldTripChoicesTableControlRow implements code for a ROW within the
-    //        // the FieldTripChoicesTableControl table.  The BaseFieldTripChoicesTableControlRow implements the DataBind and SaveData methods.
-    //        // The loading of data is actually performed by the LoadData method in the base class of FieldTripChoicesTableControl.
-    //
-    //        // This is the ideal place to add your code customizations. For example, you can override the DataBind, 
-    //        // SaveData, GetUIData, and Validate methods.
-    //        
-    //}
-    //
-    //public class FieldTripsTableControl : BaseFieldTripsTableControl
-    //{
-    //    // The BaseFieldTripsTableControl class implements the LoadData, DataBind, CreateWhereClause
-    //    // and other methods to load and display the data in a table control.
-    //
-    //    // This is the ideal place to add your code customizations. You can override the LoadData and CreateWhereClause,
-    //    // The FieldTripsTableControlRow class offers another place where you can customize
-    //    // the DataBind, GetUIData, SaveData and Validate methods specific to each row displayed on the table.
-    //    
-    //}
-    //
-    //public class FieldTripsTableControlRow : BaseFieldTripsTableControlRow
-    //{
-    //      
-    //        // The BaseFieldTripsTableControlRow implements code for a ROW within the
-    //        // the FieldTripsTableControl table.  The BaseFieldTripsTableControlRow implements the DataBind and SaveData methods.
-    //        // The loading of data is actually performed by the LoadData method in the base class of FieldTripsTableControl.
-    //
-    //        // This is the ideal place to add your code customizations. For example, you can override the DataBind, 
-    //        // SaveData, GetUIData, and Validate methods.
-    //        
-    //}
-    //
-    //public class FieldTripChoicesTableControl1 : BaseFieldTripChoicesTableControl1
-    //{
-    //    // The BaseFieldTripChoicesTableControl1 class implements the LoadData, DataBind, CreateWhereClause
-    //    // and other methods to load and display the data in a table control.
-    //
-    //    // This is the ideal place to add your code customizations. You can override the LoadData and CreateWhereClause,
-    //    // The FieldTripChoicesTableControl1Row class offers another place where you can customize
-    //    // the DataBind, GetUIData, SaveData and Validate methods specific to each row displayed on the table.
-    //    
-    //}
-    //
-    //public class FieldTripChoicesTableControl1Row : BaseFieldTripChoicesTableControl1Row
-    //{
-    //      
-    //        // The BaseFieldTripChoicesTableControl1Row implements code for a ROW within the
-    //        // the FieldTripChoicesTableControl1 table.  The BaseFieldTripChoicesTableControl1Row implements the DataBind and SaveData methods.
-    //        // The loading of data is actually performed by the LoadData method in the base class of FieldTripChoicesTableControl1.
-    //
-    //        // This is the ideal place to add your code customizations. For example, you can override the DataBind, 
-    //        // SaveData, GetUIData, and Validate methods.
-    //        
-    //}
-    //
-    //public class FieldTripOptionsRecordControl : BaseFieldTripOptionsRecordControl
-    //{
-    //      
-    //        // The BaseFieldTripOptionsRecordControl implements the LoadData, DataBind and other
-    //        // methods to load and display the data in a table control.
-    //
-    //        // This is the ideal place to add your code customizations. For example, you can override the LoadData, 
-    //        // CreateWhereClause, DataBind, SaveData, GetUIData, and Validate methods.
-    //        
-    //}
-    //
-    //public class FieldTripOptionsTableControl : BaseFieldTripOptionsTableControl
-    //{
-    //    // The BaseFieldTripOptionsTableControl class implements the LoadData, DataBind, CreateWhereClause
-    //    // and other methods to load and display the data in a table control.
-    //
-    //    // This is the ideal place to add your code customizations. You can override the LoadData and CreateWhereClause,
-    //    // The FieldTripOptionsTableControlRow class offers another place where you can customize
-    //    // the DataBind, GetUIData, SaveData and Validate methods specific to each row displayed on the table.
-    //    
-    //}
-    //
-    //public class FieldTripOptionsTableControlRow : BaseFieldTripOptionsTableControlRow
-    //{
-    //      
-    //        // The BaseFieldTripOptionsTableControlRow implements code for a ROW within the
-    //        // the FieldTripOptionsTableControl table.  The BaseFieldTripOptionsTableControlRow implements the DataBind and SaveData methods.
-    //        // The loading of data is actually performed by the LoadData method in the base class of FieldTripOptionsTableControl.
-    //
-    //        // This is the ideal place to add your code customizations. For example, you can override the DataBind, 
-    //        // SaveData, GetUIData, and Validate methods.
-    //        
-    //}
-    //
-    //public class FieldTripOptionsTableControl1 : BaseFieldTripOptionsTableControl1
-    //{
-    //    // The BaseFieldTripOptionsTableControl1 class implements the LoadData, DataBind, CreateWhereClause
-    //    // and other methods to load and display the data in a table control.
-    //
-    //    // This is the ideal place to add your code customizations. You can override the LoadData and CreateWhereClause,
-    //    // The FieldTripOptionsTableControl1Row class offers another place where you can customize
-    //    // the DataBind, GetUIData, SaveData and Validate methods specific to each row displayed on the table.
-    //    
-    //}
-    //
-    //public class FieldTripOptionsTableControl1Row : BaseFieldTripOptionsTableControl1Row
-    //{
-    //      
-    //        // The BaseFieldTripOptionsTableControl1Row implements code for a ROW within the
-    //        // the FieldTripOptionsTableControl1 table.  The BaseFieldTripOptionsTableControl1Row implements the DataBind and SaveData methods.
-    //        // The loading of data is actually performed by the LoadData method in the base class of FieldTripOptionsTableControl1.
-    //
-    //        // This is the ideal place to add your code customizations. For example, you can override the DataBind, 
-    //        // SaveData, GetUIData, and Validate methods.
-    //        
-    //}
-    //
-    //public class FieldTripChoicesRecordControl : BaseFieldTripChoicesRecordControl
-    //{
-    //      
-    //        // The BaseFieldTripChoicesRecordControl implements the LoadData, DataBind and other
-    //        // methods to load and display the data in a table control.
-    //
-    //        // This is the ideal place to add your code customizations. For example, you can override the LoadData, 
-    //        // CreateWhereClause, DataBind, SaveData, GetUIData, and Validate methods.
-    //        
-    //}
-    //
-    //public class FieldTripChoicesRecordControl : BaseFieldTripChoicesRecordControl
-    //{
-    //      
-    //        // The BaseFieldTripChoicesRecordControl implements the LoadData, DataBind and other
-    //        // methods to load and display the data in a table control.
-    //
-    //        // This is the ideal place to add your code customizations. For example, you can override the LoadData, 
-    //        // CreateWhereClause, DataBind, SaveData, GetUIData, and Validate methods.
-    //        
-    //}
-    //
+
     public class FieldTripChoicesTableControl : BaseFieldTripChoicesTableControl
     {
         // The BaseFieldTripChoicesTableControl class implements the LoadData, DataBind, CreateWhereClause
@@ -366,6 +207,40 @@ public override void LoadData()
             this.Init += new EventHandler(MultipleDropdown_MyInit);
 
             #endregion
+        }
+
+        public override void DataBind()
+        {
+            base.DataBind();
+
+            if (this.DataSource != null)
+            {
+                string selectedText3 = FieldTripOptionId3.SelectedItem.Text;
+
+                if (!BaseClasses.Utils.StringUtils.InvariantUCase(selectedText3).Equals(BaseClasses.Utils.StringUtils.InvariantUCase(Page.GetResourceValue("Txt:PleaseSelect", "OLR"))))
+                {
+                    return;
+                }
+                //Check option 2
+                // If selected value, then populate next option and enable
+                string selectedText = FieldTripOptionId.SelectedItem.Text;
+                string selectedText2 = FieldTripOptionId2.SelectedItem.Text;
+                if (!BaseClasses.Utils.StringUtils.InvariantUCase(selectedText2).Equals(BaseClasses.Utils.StringUtils.InvariantUCase(Page.GetResourceValue("Txt:PleaseSelect", "OLR"))))
+                {
+                    // i.e Option 2 has a value
+                    PopulateFieldTripOptionId3DropDown(10);
+                    FieldTripOptionId3.Enabled = true;
+                }
+                else if (!BaseClasses.Utils.StringUtils.InvariantUCase(selectedText).Equals(BaseClasses.Utils.StringUtils.InvariantUCase(Page.GetResourceValue("Txt:PleaseSelect", "OLR"))))
+                {
+                    PopulateFieldTripOptionId2DropDown(10);
+                    FieldTripOptionId2.Enabled = true;
+                }
+            }
+            //// Check option 1
+            //SetFieldTripOptionId2();
+            //SetFieldTripOptionId3();
+
         }
 
         // The BaseFieldTripChoicesTableControlRow implements code for a ROW within the
@@ -441,21 +316,8 @@ public override void LoadData()
         /// </summary>
         protected void PopulateFieldTripOptionId2DropDown(int maxItems)
         {
-            // Set up the WHERE clause.
-            // Create the WHERE clause to filter the second dropdown list based on the 
             // selected value in the first dropdown list.
-            WhereClause wc = new WhereClause();
-            string selectedValue = FieldTripOptionId.SelectedValue;
             string selectedText = FieldTripOptionId.SelectedItem.Text;
-
-            //wc.iAND(FieldTripChoicesTable.FieldTripOptionId, BaseFilter.ComparisonOperator.EqualsTo, selectedValue);
-
-            // Clear the contents of second dropdown list.
-            //this.FieldTripOptionId2.Items.Clear();
-            this.FieldTripOptionId2.Items.Remove(FieldTripOptionId.SelectedItem);
-            this.FieldTripOptionId3.Items.Remove(FieldTripOptionId.SelectedItem);
-            // Add "Please Select" string to second dropdown list.   
-            //  this.FieldTripOptionId2.Items.Insert(0, new ListItem(Page.GetResourceValue("Txt:PleaseSelect", "OLR"), "--PLEASE_SELECT--"));                      
 
             if (BaseClasses.Utils.StringUtils.InvariantUCase(selectedText).Equals(BaseClasses.Utils.StringUtils.InvariantUCase(Page.GetResourceValue("Txt:PleaseSelect", "OLR"))))
             {
@@ -464,43 +326,33 @@ public override void LoadData()
                 return;
             }
 
-            //// Get the records using the created where clause.
-            //foreach (FieldTripChoicesRecord itemValue in FieldTripChoicesTable.GetRecords(wc, null, 0, maxItems))
-            //{
-            //    if (itemValue.FieldTripOptionId2Specified)
-            //    {
-            //        // In each record, obtain the value of second dropdown field if value exists,
-            //        // create an item for it and add it to the list.
-            //        string cvalue = itemValue.FieldTripOptionId2.ToString();
-            //        string fvalue = itemValue.Format(FieldTripChoicesTable.FieldTripOptionId2);
-            //        ListItem item = new ListItem(fvalue, cvalue);
-            //        if (!this.FieldTripOptionId2.Items.Contains(item))
-            //        {
-            //            this.FieldTripOptionId2.Items.Add(item);
-            //        }
-            //    }
-            //}
-
-
+            this.FieldTripOptionId2.Items.Clear();
+            SetFieldTripOptionId2();
+            this.FieldTripOptionId2.Items.Remove(FieldTripOptionId.SelectedItem);
 
             // Select "Please Select" string in the second dropdown list.
             this.FieldTripOptionId2.SelectedIndex = 0;
+            this.FieldTripOptionId3.SelectedIndex = 0;
+            FieldTripOptionId3.Enabled = false;
         }
 
         protected void PopulateFieldTripOptionId3DropDown(int maxItems)
         {
             string selectedText = FieldTripOptionId2.SelectedItem.Text;
 
-            this.FieldTripOptionId3.Items.Remove(FieldTripOptionId2.SelectedItem);
-            // Add "Please Select" string to second dropdown list.   
-            //  this.FieldTripOptionId2.Items.Insert(0, new ListItem(Page.GetResourceValue("Txt:PleaseSelect", "OLR"), "--PLEASE_SELECT--"));                      
-
             if (BaseClasses.Utils.StringUtils.InvariantUCase(selectedText).Equals(BaseClasses.Utils.StringUtils.InvariantUCase(Page.GetResourceValue("Txt:PleaseSelect", "OLR"))))
             {
                 // if "Please Select" string is selected for first dropdown list,
                 // then do not continue populating the second dropdown list.
                 return;
             }
+
+            this.FieldTripOptionId3.Items.Clear();
+            SetFieldTripOptionId3();
+            this.FieldTripOptionId3.Items.Remove(FieldTripOptionId.SelectedItem);
+            this.FieldTripOptionId3.Items.Remove(FieldTripOptionId2.SelectedItem);
+
+            //this.FieldTripOptionId2.Items.Insert(0, new ListItem(Page.GetResourceValue("Txt:PleaseSelect", "OLR"), "--PLEASE_SELECT--"));
 
             // Select "Please Select" string in the second dropdown list.
             this.FieldTripOptionId3.SelectedIndex = 0;
@@ -508,200 +360,79 @@ public override void LoadData()
 
         #endregion
     }
-    //public class HonorContactLinksTableControl : BaseHonorContactLinksTableControl
-//{
-//    // The BaseHonorContactLinksTableControl class implements the LoadData, DataBind, CreateWhereClause
-//    // and other methods to load and display the data in a table control.
-//
-//    // This is the ideal place to add your code customizations. You can override the LoadData and CreateWhereClause,
-//    // The HonorContactLinksTableControlRow class offers another place where you can customize
-//    // the DataBind, GetUIData, SaveData and Validate methods specific to each row displayed on the table.
-//    
-//}
-//
-//public class HonorContactLinksTableControlRow : BaseHonorContactLinksTableControlRow
-//{
-//      
-//        // The BaseHonorContactLinksTableControlRow implements code for a ROW within the
-//        // the HonorContactLinksTableControl table.  The BaseHonorContactLinksTableControlRow implements the DataBind and SaveData methods.
-//        // The loading of data is actually performed by the LoadData method in the base class of HonorContactLinksTableControl.
-//
-//        // This is the ideal place to add your code customizations. For example, you can override the DataBind, 
-//        // SaveData, GetUIData, and Validate methods.
-//        
-//}
-//
-//public class HonourContactLinksTableControl : BaseHonourContactLinksTableControl
-//{
-//    // The BaseHonourContactLinksTableControl class implements the LoadData, DataBind, CreateWhereClause
-//    // and other methods to load and display the data in a table control.
-//
-//    // This is the ideal place to add your code customizations. You can override the LoadData and CreateWhereClause,
-//    // The HonourContactLinksTableControlRow class offers another place where you can customize
-//    // the DataBind, GetUIData, SaveData and Validate methods specific to each row displayed on the table.
-//    
-//}
-//
-//public class HonourContactLinksTableControlRow : BaseHonourContactLinksTableControlRow
-//{
-//      
-//        // The BaseHonourContactLinksTableControlRow implements code for a ROW within the
-//        // the HonourContactLinksTableControl table.  The BaseHonourContactLinksTableControlRow implements the DataBind and SaveData methods.
-//        // The loading of data is actually performed by the LoadData method in the base class of HonourContactLinksTableControl.
-//
-//        // This is the ideal place to add your code customizations. For example, you can override the DataBind, 
-//        // SaveData, GetUIData, and Validate methods.
-//        
-//}
-//
-//public class HonourContactLinksTableControl : BaseHonourContactLinksTableControl
-//{
-//    // The BaseHonourContactLinksTableControl class implements the LoadData, DataBind, CreateWhereClause
-//    // and other methods to load and display the data in a table control.
-//
-//    // This is the ideal place to add your code customizations. You can override the LoadData and CreateWhereClause,
-//    // The HonourContactLinksTableControlRow class offers another place where you can customize
-//    // the DataBind, GetUIData, SaveData and Validate methods specific to each row displayed on the table.
-//    
-//}
-//
-//public class HonourContactLinksTableControlRow : BaseHonourContactLinksTableControlRow
-//{
-//      
-//        // The BaseHonourContactLinksTableControlRow implements code for a ROW within the
-//        // the HonourContactLinksTableControl table.  The BaseHonourContactLinksTableControlRow implements the DataBind and SaveData methods.
-//        // The loading of data is actually performed by the LoadData method in the base class of HonourContactLinksTableControl.
-//
-//        // This is the ideal place to add your code customizations. For example, you can override the DataBind, 
-//        // SaveData, GetUIData, and Validate methods.
-//        
-//}
-//
-//public class HonourContactLinksTableControl : BaseHonourContactLinksTableControl
-//{
-//    // The BaseHonourContactLinksTableControl class implements the LoadData, DataBind, CreateWhereClause
-//    // and other methods to load and display the data in a table control.
-//
-//    // This is the ideal place to add your code customizations. You can override the LoadData and CreateWhereClause,
-//    // The HonourContactLinksTableControlRow class offers another place where you can customize
-//    // the DataBind, GetUIData, SaveData and Validate methods specific to each row displayed on the table.
-//    
-//}
-//
-//public class HonourContactLinksTableControlRow : BaseHonourContactLinksTableControlRow
-//{
-//      
-//        // The BaseHonourContactLinksTableControlRow implements code for a ROW within the
-//        // the HonourContactLinksTableControl table.  The BaseHonourContactLinksTableControlRow implements the DataBind and SaveData methods.
-//        // The loading of data is actually performed by the LoadData method in the base class of HonourContactLinksTableControl.
-//
-//        // This is the ideal place to add your code customizations. For example, you can override the DataBind, 
-//        // SaveData, GetUIData, and Validate methods.
-//        
-//}
-//
-//public class HonourContactLinksTableControl : BaseHonourContactLinksTableControl
-//{
-//    // The BaseHonourContactLinksTableControl class implements the LoadData, DataBind, CreateWhereClause
-//    // and other methods to load and display the data in a table control.
-//
-//    // This is the ideal place to add your code customizations. You can override the LoadData and CreateWhereClause,
-//    // The HonourContactLinksTableControlRow class offers another place where you can customize
-//    // the DataBind, GetUIData, SaveData and Validate methods specific to each row displayed on the table.
-//    
-//}
-//
-//public class HonourContactLinksTableControlRow : BaseHonourContactLinksTableControlRow
-//{
-//      
-//        // The BaseHonourContactLinksTableControlRow implements code for a ROW within the
-//        // the HonourContactLinksTableControl table.  The BaseHonourContactLinksTableControlRow implements the DataBind and SaveData methods.
-//        // The loading of data is actually performed by the LoadData method in the base class of HonourContactLinksTableControl.
-//
-//        // This is the ideal place to add your code customizations. For example, you can override the DataBind, 
-//        // SaveData, GetUIData, and Validate methods.
-//        
-//}
-//
-//public class HonourContactLinksTableControl : BaseHonourContactLinksTableControl
-//{
-//    // The BaseHonourContactLinksTableControl class implements the LoadData, DataBind, CreateWhereClause
-//    // and other methods to load and display the data in a table control.
-//
-//    // This is the ideal place to add your code customizations. You can override the LoadData and CreateWhereClause,
-//    // The HonourContactLinksTableControlRow class offers another place where you can customize
-//    // the DataBind, GetUIData, SaveData and Validate methods specific to each row displayed on the table.
-//    
-//}
-//
-//public class HonourContactLinksTableControlRow : BaseHonourContactLinksTableControlRow
-//{
-//      
-//        // The BaseHonourContactLinksTableControlRow implements code for a ROW within the
-//        // the HonourContactLinksTableControl table.  The BaseHonourContactLinksTableControlRow implements the DataBind and SaveData methods.
-//        // The loading of data is actually performed by the LoadData method in the base class of HonourContactLinksTableControl.
-//
-//        // This is the ideal place to add your code customizations. For example, you can override the DataBind, 
-//        // SaveData, GetUIData, and Validate methods.
-//        
-//}
-//
-//public class HonourContactLinksTableControl : BaseHonourContactLinksTableControl
-//{
-//    // The BaseHonourContactLinksTableControl class implements the LoadData, DataBind, CreateWhereClause
-//    // and other methods to load and display the data in a table control.
-//
-//    // This is the ideal place to add your code customizations. You can override the LoadData and CreateWhereClause,
-//    // The HonourContactLinksTableControlRow class offers another place where you can customize
-//    // the DataBind, GetUIData, SaveData and Validate methods specific to each row displayed on the table.
-//    
-//}
-//
-//public class HonourContactLinksTableControlRow : BaseHonourContactLinksTableControlRow
-//{
-//      
-//        // The BaseHonourContactLinksTableControlRow implements code for a ROW within the
-//        // the HonourContactLinksTableControl table.  The BaseHonourContactLinksTableControlRow implements the DataBind and SaveData methods.
-//        // The loading of data is actually performed by the LoadData method in the base class of HonourContactLinksTableControl.
-//
-//        // This is the ideal place to add your code customizations. For example, you can override the DataBind, 
-//        // SaveData, GetUIData, and Validate methods.
-//        
-//}
-//
-public class HonourContactLinksTableControl : BaseHonourContactLinksTableControl
-{
-    // The BaseHonourContactLinksTableControl class implements the LoadData, DataBind, CreateWhereClause
-    // and other methods to load and display the data in a table control.
 
-    // This is the ideal place to add your code customizations. You can override the LoadData and CreateWhereClause,
-    // The HonourContactLinksTableControlRow class offers another place where you can customize
-    // the DataBind, GetUIData, SaveData and Validate methods specific to each row displayed on the table.
-    
-}
-public class HonourContactLinksTableControlRow : BaseHonourContactLinksTableControlRow
-{
-      
+    public class HonourContactLinksTableControl : BaseHonourContactLinksTableControl
+    {
+        // The BaseHonourContactLinksTableControl class implements the LoadData, DataBind, CreateWhereClause
+        // and other methods to load and display the data in a table control.
+
+        // This is the ideal place to add your code customizations. You can override the LoadData and CreateWhereClause,
+        // The HonourContactLinksTableControlRow class offers another place where you can customize
+        // the DataBind, GetUIData, SaveData and Validate methods specific to each row displayed on the table.
+        public override void SaveData()
+        {
+            // Save the data from the entire table.  Calls each row's Save Data
+            // to save their data.  This function is called by the Click handler of the
+            // Save button.  The button handler should Start/Commit/End a transaction.
+
+            foreach (HonourContactLinksTableControlRow recCtl in this.GetRecordControls())
+            {
+
+                if (this.InDeletedRecordIds(recCtl))
+                {
+                    // Delete any pending deletes. 
+                    recCtl.Delete();
+                }
+                else
+                {
+                    if (recCtl.Visible & recCtl.HonourId.Text != "")
+                    {
+                        recCtl.SaveData();
+                    }
+                }
+
+            }
+
+            // Setting the DataChanged to True results in the page being refreshed with
+            // the most recent data from the database.  This happens in PreRender event
+            // based on the current sort, search and filter criteria.
+            this.DataChanged = true;
+            this.ResetData = true;
+
+            // Set IsNewRecord to False for all records - since everything has been saved and is no longer "new"
+            foreach (HonourContactLinksTableControlRow recCtl in this.GetRecordControls())
+            {
+                recCtl.IsNewRecord = false;
+            }
+
+            // Set DeletedRecordsIds to Nothing since we have deleted all pending deletes.
+            this.DeletedRecordIds = null;
+        }
+    }
+
+    public class HonourContactLinksTableControlRow : BaseHonourContactLinksTableControlRow
+    {
+
         // The BaseHonourContactLinksTableControlRow implements code for a ROW within the
         // the HonourContactLinksTableControl table.  The BaseHonourContactLinksTableControlRow implements the DataBind and SaveData methods.
         // The loading of data is actually performed by the LoadData method in the base class of HonourContactLinksTableControl.
 
         // This is the ideal place to add your code customizations. For example, you can override the DataBind, 
         // SaveData, GetUIData, and Validate methods.
-        
-}
-//public class EventsRecordControl : BaseEventsRecordControl
-//{
-//      
-//        // The BaseEventsRecordControl implements the LoadData, DataBind and other
-//        // methods to load and display the data in a table control.
-//
-//        // This is the ideal place to add your code customizations. For example, you can override the LoadData, 
-//        // CreateWhereClause, DataBind, SaveData, GetUIData, and Validate methods.
-//        
-//}
-//
-#endregion
+
+    }
+    //public class EventsRecordControl : BaseEventsRecordControl
+    //{
+    //      
+    //        // The BaseEventsRecordControl implements the LoadData, DataBind and other
+    //        // methods to load and display the data in a table control.
+    //
+    //        // This is the ideal place to add your code customizations. For example, you can override the LoadData, 
+    //        // CreateWhereClause, DataBind, SaveData, GetUIData, and Validate methods.
+    //        
+    //}
+    //
+    #endregion
 
 
 
@@ -9616,7 +9347,6 @@ public class BaseRegistrationsRecordControl : OLR.UI.BaseApplicationRecordContro
                 SetContactId();
                 
                 
-                
                 SetRegistrationId1();
                 SetRegistrationTypeId();
                 SetRegistrationTypeIdLabel();
@@ -10903,12 +10633,6 @@ public class BaseRegistrationsRecordControl : OLR.UI.BaseApplicationRecordContro
         public FieldTripChoicesTableControl FieldTripChoicesTableControl {
             get {
                 return (FieldTripChoicesTableControl)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FieldTripChoicesTableControl");
-            }
-        }
-        
-        public System.Web.UI.WebControls.Image Logo {
-            get {
-                return (System.Web.UI.WebControls.Image)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Logo");
             }
         }
         

@@ -1,8 +1,8 @@
-﻿<%@ Register Tagprefix="OLR" Namespace="OLR.UI.Controls.RegisterMe" Assembly="OLR" %>
+﻿<%@ Page Language="C#" EnableEventValidation="false" AutoEventWireup="false" Codebehind="RegisterMe.aspx.cs" Culture="en-NZ" MasterPageFile="../Master Pages/Registration.master" Inherits="OLR.UI.RegisterMe" %>
+<%@ Register Tagprefix="OLR" Namespace="OLR.UI.Controls.RegisterMe" Assembly="OLR" %>
 
 <%@ Register Tagprefix="OLR" TagName="ThemeButton" Src="../Shared/ThemeButton.ascx" %>
 
-<%@ Page Language="C#" EnableEventValidation="false" AutoEventWireup="false" Codebehind="RegisterMe.aspx.cs" Culture="en-NZ" MasterPageFile="../Master Pages/Blank.master" Inherits="OLR.UI.RegisterMe" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register Tagprefix="BaseClasses" Namespace="BaseClasses.Web.UI.WebControls" Assembly="BaseClasses" %>
 <%@ Register Tagprefix="Selectors" Namespace="OLR" Assembly="OLR" %>
@@ -27,12 +27,7 @@
 <%= SystemUtils.GenerateEnterKeyCaptureBeginTag(FindControlRecursively("SaveAndNewButton"))%>
 <%= SystemUtils.GenerateEnterKeyCaptureBeginTag(FindControlRecursively("SaveButton"))%>
 
-                        <OLR:RegistrationsRecordControl runat="server" id="RegistrationsRecordControl">	<table class="dv" cellpadding="0" cellspacing="0" border="0"><tr><td class="panelTL"><img src="../Images/space.gif" class="panelTLSpace" alt="" /></td><td class="panelT"></td><td class="panelTR"><img src="../Images/space.gif" class="panelTRSpace" alt="" /></td></tr><tr><td class="panelHeaderL"></td><td>
-                  <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="dhel"><img src="../Images/space.gif" alt="" /></td><td style="text-align:center;"><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="dht" valign="middle"><asp:Image runat="server" id="Logo" imageurl="~/images/natcon2018_logo.jpg" width="250px">		
-	</asp:Image></td></tr></table>
-</td><td class="dher"><img src="../Images/space.gif" alt="" /></td></tr></table>
-
-                </td><td class="panelHeaderR"></td></tr><tr><td class="panelL"></td><td>
+                        <OLR:RegistrationsRecordControl runat="server" id="RegistrationsRecordControl">	<table class="dv" cellpadding="0" cellspacing="0" border="0"><tr><td class="panelTL"><img src="../Images/space.gif" class="panelTLSpace" alt="" /></td><td class="panelT"></td><td class="panelTR"><img src="../Images/space.gif" class="panelTRSpace" alt="" /></td></tr><tr><td class="panelL"></td><td>
                   <asp:panel id="CollapsibleRegion" runat="server"><table class="dBody" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td>
                     <asp:panel id="RegistrationsRecordControlPanel" runat="server"><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="largeText"><BaseClasses:QuickSelector runat="server" id="ContactId" redirecturl="" visible="False"></BaseClasses:QuickSelector></td></tr><tr><td class="tableCellLabel"><table class="dv" cellpadding="0" cellspacing="0" border="0"><tr><td class="panelTL"><img src="../Images/space.gif" class="panelTLSpace" alt="" /></td><td class="panelT"></td><td class="panelTR"><img src="../Images/space.gif" class="panelTRSpace" alt="" /></td></tr><tr><td class="panelHeaderL"></td><td class="dh">
                   <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="dhel"><img src="../Images/space.gif" alt="" /></td><td class="dhb"><table cellpadding="0" cellspacing="0" border="0"><tr><td class="largeText" valign="middle">Your Details</td></tr></table>

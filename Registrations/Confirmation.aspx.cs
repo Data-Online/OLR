@@ -1,6 +1,6 @@
 ﻿
-// This file implements the code-behind class for RegisterMe.aspx.
-// RegisterMe.Controls.vb contains the Table, Row and Record control classes
+// This file implements the code-behind class for Confirmation.aspx.
+// Confirmation.Controls.vb contains the Table, Row and Record control classes
 // for the page.  Best practices calls for overriding methods in the Row or Record control classes.
 
 #region "Using statements"    
@@ -29,15 +29,15 @@ using OLR.Data;
 namespace OLR.UI
 {
   
-public partial class RegisterMe
+public partial class Confirmation
         : BaseApplicationPage
-// Code-behind class for the RegisterMe page.
+// Code-behind class for the Confirmation page.
 // Place your customizations in Section 1. Do not modify Section 2.
 {
         
       #region "Section 1: Place your customizations here."
 
-      public RegisterMe()
+      public Confirmation()
         {
             this.Initialize();
     
@@ -189,67 +189,14 @@ public partial class RegisterMe
 
       // Page Event Handlers - buttons, sort, links
       
-        public void CancelButton_Click(object sender, EventArgs args)
-        {
-
-          // Click handler for CancelButton.
-          // Customize by adding code before the call or replace the call to the Base function with your own code.
-          CancelButton_Click_Base(sender, args);
-          // NOTE: If the Base function redirects to another page, any code here will not be executed.
-        }
-            
-        public void SaveButton_Click(object sender, EventArgs args)
-        {
-
-          // Click handler for SaveButton.
-          // Customize by adding code before the call or replace the call to the Base function with your own code.
-          SaveButton_Click_Base(sender, args);
-          // NOTE: If the Base function redirects to another page, any code here will not be executed.
-        }
-            
     
         // Write out the Set methods
-        
-        public void SetRegistrationsRecordControl()
-        {
-            SetRegistrationsRecordControl_Base(); 
-        }
-        
-        public void SetCancelButton()
-        {
-            SetCancelButton_Base(); 
-        }              
-            
-        public void SetSaveButton()
-        {
-            SetSaveButton_Base(); 
-        }              
-                         
+                     
         
         // Write out the methods for DataSource
         
 
 
-//[System.Web.Services.WebMethod]
-//        public static string[] GetAutoCompletionList_FieldTripOptionsSearchText(string prefixText, int count)
-//        {
-//            // GetFieldTripOptionsSearchTextCompletionList gets the list of suggestions from the database.
-//            // prefixText is the search text typed by the user .
-//            // count specifies the number of suggestions to be returned.
-//            // Customize by adding code before or after the call to  GetAutoCompletionList_FieldTripOptionsSearchText_Base()
-//            // or replace the call to GetAutoCompletionList_FieldTripOptionsSearchText_Base().
-//            return GetAutoCompletionList_FieldTripOptionsSearchText_Base(prefixText, count);
-//        }
-//[System.Web.Services.WebMethod]
-//        public static string[] GetAutoCompletionList_FieldTripOptionsSearchText1(string prefixText, int count)
-//        {
-//            // GetFieldTripOptionsSearchText1CompletionList gets the list of suggestions from the database.
-//            // prefixText is the search text typed by the user .
-//            // count specifies the number of suggestions to be returned.
-//            // Customize by adding code before or after the call to  GetAutoCompletionList_FieldTripOptionsSearchText1_Base()
-//            // or replace the call to GetAutoCompletionList_FieldTripOptionsSearchText1_Base().
-//            return GetAutoCompletionList_FieldTripOptionsSearchText1_Base(prefixText, count);
-//        }
 #endregion
 
 #region "Section 2: Do not modify this section."
@@ -267,72 +214,10 @@ public partial class RegisterMe
         }
         
     
-        public System.Web.UI.WebControls.Literal AdditionalDinnerNameLabel;
-        
-        public System.Web.UI.WebControls.CheckBox AdditionalDinnerTicket;
-            
-        public System.Web.UI.WebControls.Literal AdditionalDinnerTicketLabel;
-        
-        public ThemeButton CancelButton;
-                
-        public BaseClasses.Web.UI.WebControls.QuickSelector ContactId;
-            
-        public System.Web.UI.WebControls.Literal ContactId1;
-            
-        public OLR.UI.Controls.RegisterMe.ContactsRecordControl ContactsRecordControl;
-          
-        public System.Web.UI.WebControls.Literal Email;
-            
-        public System.Web.UI.WebControls.Literal EmailLabel;
-        
-        public OLR.UI.Controls.RegisterMe.FieldTripChoicesTableControl FieldTripChoicesTableControl;
-          
-        public System.Web.UI.WebControls.Literal FirstNameLabel;
-        
-        public BaseClasses.Web.UI.WebControls.QuickSelector HometownId;
-            
-        public System.Web.UI.WebControls.Literal HometownIdLabel;
-        
-        public OLR.UI.Controls.RegisterMe.HonourContactLinksTableControl HonourContactLinksTableControl;
-          
-        public System.Web.UI.WebControls.Literal LastNameLabel;
-        
-        public System.Web.UI.WebControls.Literal MobileNumberLabel;
-        
-        public System.Web.UI.WebControls.ImageButton NewButton;
-        
-        public System.Web.UI.WebControls.ImageButton NewButton1;
-        
         public System.Web.UI.WebControls.Literal PageTitle;
         
-        public OLR.UI.Controls.RegisterMe.PhotoClubContactLinksTableControl PhotoClubContactLinksTableControl;
-          
-        public System.Web.UI.WebControls.CheckBox PSNZAppliedFor;
-            
-        public System.Web.UI.WebControls.Literal PSNZAppliedForLabel;
+        public System.Web.UI.WebControls.Literal Thankyou;
         
-        public System.Web.UI.WebControls.CheckBox PSNZMember;
-            
-        public System.Web.UI.WebControls.Literal PSNZMemberLabel;
-        
-        public System.Web.UI.WebControls.Literal RegistrationId1;
-            
-        public OLR.UI.Controls.RegisterMe.RegistrationsRecordControl RegistrationsRecordControl;
-          
-        public System.Web.UI.WebControls.RadioButtonList RegistrationTypeId;
-            
-        public System.Web.UI.WebControls.Literal RegistrationTypeIdLabel;
-        
-        public ThemeButton SaveButton;
-                
-        public System.Web.UI.WebControls.Literal SpecialRequirementsLabel;
-        
-        public System.Web.UI.WebControls.Literal Title1;
-            
-        public System.Web.UI.WebControls.Literal Title2;
-            
-        public System.Web.UI.WebControls.Literal Title3;
-            
         public ValidationSummary ValidationSummary1;
 
   
@@ -354,10 +239,6 @@ public partial class RegisterMe
 
           // Setup the pagination events.
         
-                    this.CancelButton.Button.Click += CancelButton_Click;
-                        
-                    this.SaveButton.Button.Click += SaveButton_Click;
-                        
           this.ClearControlsFromSession();    
     
           System.Web.HttpContext.Current.Session["isd_geo_location"] = "<location><error>LOCATION_ERROR_DISABLED</error></location>";
@@ -372,9 +253,7 @@ public partial class RegisterMe
 
         private void Base_RegisterPostback()
         {
-        
-              this.RegisterPostBackTrigger(MiscUtils.FindControlRecursively(this,"SaveButton"));
-                                
+                
         }
 
         protected void BasePage_PreRender_Base(object sender, System.EventArgs e)
@@ -400,7 +279,7 @@ public partial class RegisterMe
             // Check if user has access to this page.  Redirects to either sign-in page
             // or 'no access' page if not. Does not do anything if role-based security
             // is not turned on, but you can override to add your own security.
-            this.Authorize("Everyone");
+            this.Authorize("");
              if (!this.IsPostBack)
              {
             
@@ -419,7 +298,7 @@ public partial class RegisterMe
     }
 
     
-            Page.Title = "Registration";
+            Page.Title = "Blank page";
         
         if (!IsPostBack)
             AjaxControlToolkit.ToolkitScriptManager.RegisterStartupScript(this, this.GetType(), "PopupScript", "openPopupPage('QPageSize');", true);
@@ -509,15 +388,6 @@ public partial class RegisterMe
       {
           // Load data for each record and table UI control.
         
-          switch (control)
-          {
-          
-              case "RegistrationsRecordControl":
-                 SetRegistrationsRecordControl();
-                 break;
-               
-          }
-        
       }
       
     
@@ -525,8 +395,6 @@ public partial class RegisterMe
       public void SaveData_Base()
       {
       
-        this.RegistrationsRecordControl.SaveData();
-        
       }
       
      
@@ -621,18 +489,12 @@ public partial class RegisterMe
     
                 // Load and bind data for each record and table UI control.
                 
-        SetRegistrationsRecordControl();
-        
     
                 // Load data for chart.
                 
             
                 // initialize aspx controls
                 
-                SetCancelButton();
-              
-                SetSaveButton();
-              
     } catch (Exception ex) {
     // An error has occured so display an error message.
     BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "Page_Load_Error_Message", ex.Message);
@@ -713,139 +575,12 @@ public partial class RegisterMe
         
                 
         // Write out the Set methods
-        
-        public void SetRegistrationsRecordControl_Base()           
-        
-        {        
-            if (RegistrationsRecordControl.Visible)
-            {
-                RegistrationsRecordControl.LoadData();
-                RegistrationsRecordControl.DataBind();
-            }
-        }
-      
-        public void SetCancelButton_Base()                
-              
-        {
-        
-   
-        }
             
-        public void SetSaveButton_Base()                
-              
-        {
-        
-                    this.SaveButton.Button.Attributes.Add("onclick", "SubmitHRefOnce(this, \"" + this.GetResourceValue("Txt:SaveRecord", "OLR") + "\");");
-                  
-   
-        }
-                
 
         // Write out the DataSource properties and methods
                 
 
         // Write out event methods for the page events
-        
-        // event handler for Button
-        public void CancelButton_Click_Base(object sender, EventArgs args)
-        {
-              
-            // The redirect URL is set on the Properties, Custom Properties or Actions.
-            // The ModifyRedirectURL call resolves the parameters before the
-            // Response.Redirect redirects the page to the URL.  
-            // Any code after the Response.Redirect call will not be executed, since the page is
-            // redirected to the URL.
-            
-            string url = @"../Registrations/Cancel.aspx";
-            
-            if (!string.IsNullOrEmpty(this.Page.Request["RedirectStyle"])) 
-                url += "?RedirectStyle=" + this.Page.Request["RedirectStyle"];
-            
-        bool shouldRedirect = true;
-        string target = null;
-        if (target == null) target = ""; // avoid warning on VS
-      
-            try {
-                // Enclose all database retrieval/update code within a Transaction boundary
-                DbUtils.StartTransaction();
-                
-                url = this.ModifyRedirectUrl(url, "",true);
-              
-            } catch (Exception ex) {
-                  // Upon error, rollback the transaction
-                  this.RollBackTransaction(sender);
-                  shouldRedirect = false;
-                  this.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-                DbUtils.EndTransaction();
-            }
-            if (shouldRedirect) {
-                this.ShouldSaveControlsToSession = true;
-      this.Response.Redirect(url);
-        
-            }
-        
-        }
-            
-            
-        
-        // event handler for Button
-        public void SaveButton_Click_Base(object sender, EventArgs args)
-        {
-              
-            // The redirect URL is set on the Properties, Custom Properties or Actions.
-            // The ModifyRedirectURL call resolves the parameters before the
-            // Response.Redirect redirects the page to the URL.  
-            // Any code after the Response.Redirect call will not be executed, since the page is
-            // redirected to the URL.
-            
-            string url = @"../Registrations/Confirmation.aspx";
-            
-            if (!string.IsNullOrEmpty(this.Page.Request["RedirectStyle"])) 
-                url += "?RedirectStyle=" + this.Page.Request["RedirectStyle"];
-            
-        bool shouldRedirect = true;
-        string target = null;
-        if (target == null) target = ""; // avoid warning on VS
-      
-            try {
-                // Enclose all database retrieval/update code within a Transaction boundary
-                DbUtils.StartTransaction();
-                
-        
-              if (!this.IsPageRefresh)
-              {
-                  this.SaveData();
-              }
-
-          
-                url = this.ModifyRedirectUrl(url, "",true);
-              this.CommitTransaction(sender);
-            } catch (Exception ex) {
-                  // Upon error, rollback the transaction
-                  this.RollBackTransaction(sender);
-                  shouldRedirect = false;
-                  this.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-                DbUtils.EndTransaction();
-            }
-            if (shouldRedirect) {
-                this.ShouldSaveControlsToSession = true;
-      this.Response.Redirect(url);
-        
-            }
-        
-        }
-            
-            
         
       
 
