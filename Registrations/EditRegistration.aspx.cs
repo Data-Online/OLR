@@ -1,6 +1,6 @@
 ﻿
-// This file implements the code-behind class for Edit_Registration.aspx.
-// Edit_Registration.Controls.vb contains the Table, Row and Record control classes
+// This file implements the code-behind class for EditRegistration.aspx.
+// EditRegistration.Controls.vb contains the Table, Row and Record control classes
 // for the page.  Best practices calls for overriding methods in the Row or Record control classes.
 
 #region "Using statements"    
@@ -29,15 +29,15 @@ using OLR.Data;
 namespace OLR.UI
 {
   
-public partial class Edit_Registration
+public partial class EditRegistration
         : BaseApplicationPage
-// Code-behind class for the Edit_Registration page.
+// Code-behind class for the EditRegistration page.
 // Place your customizations in Section 1. Do not modify Section 2.
 {
         
       #region "Section 1: Place your customizations here."
 
-      public Edit_Registration()
+      public EditRegistration()
         {
             this.Initialize();
     
@@ -257,15 +257,15 @@ public partial class Edit_Registration
                 
         public BaseClasses.Web.UI.WebControls.QuickSelector ContactId;
             
-        public OLR.UI.Controls.Edit_Registration.ContactsRecordControl ContactsRecordControl;
-          
-        public System.Web.UI.WebControls.Literal Email;
+        public System.Web.UI.WebControls.Literal ContactId1;
             
+        public OLR.UI.Controls.EditRegistration.ContactsRecordControl ContactsRecordControl;
+          
+        public System.Web.UI.WebControls.Literal DatePaidLabel;
+        
         public System.Web.UI.WebControls.Literal EmailLabel;
         
-        public System.Web.UI.WebControls.Literal EventId;
-            
-        public OLR.UI.Controls.Edit_Registration.FieldTripChoicesTableControl FieldTripChoicesTableControl;
+        public OLR.UI.Controls.EditRegistration.FieldTripChoicesTableControl FieldTripChoicesTableControl;
           
         public System.Web.UI.WebControls.Literal FirstNameLabel;
         
@@ -273,15 +273,21 @@ public partial class Edit_Registration
             
         public System.Web.UI.WebControls.Literal HometownIdLabel;
         
+        public OLR.UI.Controls.EditRegistration.HonourContactLinksTableControl HonourContactLinksTableControl;
+          
+        public System.Web.UI.WebControls.Literal InitialCreationDateLabel;
+        
         public System.Web.UI.WebControls.Literal LastNameLabel;
         
         public System.Web.UI.WebControls.Literal MobileNumberLabel;
+        
+        public System.Web.UI.WebControls.ImageButton NewButton;
         
         public System.Web.UI.WebControls.ImageButton NewButton1;
         
         public System.Web.UI.WebControls.Literal PageTitle;
         
-        public OLR.UI.Controls.Edit_Registration.PhotoClubContactLinksTableControl PhotoClubContactLinksTableControl;
+        public OLR.UI.Controls.EditRegistration.PhotoClubContactLinksTableControl PhotoClubContactLinksTableControl;
           
         public System.Web.UI.WebControls.CheckBox PSNZAppliedFor;
             
@@ -291,9 +297,13 @@ public partial class Edit_Registration
             
         public System.Web.UI.WebControls.Literal PSNZMemberLabel;
         
+        public System.Web.UI.WebControls.CheckBox PSNZMembershipCheck;
+            
+        public System.Web.UI.WebControls.Literal PSNZMembershipCheckLabel;
+        
         public System.Web.UI.WebControls.Literal RegistrationId1;
             
-        public OLR.UI.Controls.Edit_Registration.RegistrationsRecordControl RegistrationsRecordControl;
+        public OLR.UI.Controls.EditRegistration.RegistrationsRecordControl RegistrationsRecordControl;
           
         public System.Web.UI.WebControls.RadioButtonList RegistrationTypeId;
             
@@ -303,11 +313,11 @@ public partial class Edit_Registration
                 
         public System.Web.UI.WebControls.Literal SpecialRequirementsLabel;
         
-        public System.Web.UI.WebControls.Literal Title0;
-            
         public System.Web.UI.WebControls.Literal Title1;
             
         public System.Web.UI.WebControls.Literal Title2;
+            
+        public System.Web.UI.WebControls.Literal Title3;
             
         public ValidationSummary ValidationSummary1;
 
@@ -376,7 +386,7 @@ public partial class Edit_Registration
             // Check if user has access to this page.  Redirects to either sign-in page
             // or 'no access' page if not. Does not do anything if role-based security
             // is not turned on, but you can override to add your own security.
-            this.Authorize("NOT_ANONYMOUS");
+            this.Authorize("Everyone");
              if (!this.IsPostBack)
              {
             
@@ -732,6 +742,14 @@ public partial class Edit_Registration
       
             try {
                 
+          
+                // if target is specified meaning that is opened on popup or new window
+                if (!string.IsNullOrEmpty(Page.Request["target"]))
+                {
+                    shouldRedirect = false;
+                    AjaxControlToolkit.ToolkitScriptManager.RegisterStartupScript(this, this.GetType(), "ClosePopup", "closePopupPage();", true);                   
+                }
+      
             } catch (Exception ex) {
                   shouldRedirect = false;
                   this.ErrorOnPage = true;
@@ -744,7 +762,7 @@ public partial class Edit_Registration
             }
             if (shouldRedirect) {
                 this.ShouldSaveControlsToSession = true;
-      this.CloseWindow(true);
+      this.RedirectBack();
         
             }
         
@@ -756,6 +774,10 @@ public partial class Edit_Registration
         public void SaveButton_Click_Base(object sender, EventArgs args)
         {
               
+        bool shouldRedirect = true;
+        string target = null;
+        if (target == null) target = ""; // avoid warning on VS
+      
             try {
                 // Enclose all database retrieval/update code within a Transaction boundary
                 DbUtils.StartTransaction();
@@ -767,9 +789,62 @@ public partial class Edit_Registration
               }
 
           this.CommitTransaction(sender);
+            string field = "";
+            string formula = "";
+            string displayFieldName = "";
+            string value = "";
+            if(value == null) value = ""; // added to remove warning from VS
+            string id = ""; 
+            if(id == null) id = ""; //added to avoid warning in VS
+            
+            // retrieve necessary URL parameters
+            if (!String.IsNullOrEmpty(Page.Request["Target"]) )
+                target = (this.Page as BaseApplicationPage).GetDecryptedURLParameter("Target");
+            if (!String.IsNullOrEmpty(Page.Request["IndexField"]))
+                field = (this.Page as BaseApplicationPage).GetDecryptedURLParameter("IndexField");
+            if (!String.IsNullOrEmpty(Page.Request["Formula"]))
+                formula = (this.Page as BaseApplicationPage).GetDecryptedURLParameter("Formula");
+            if (!String.IsNullOrEmpty(Page.Request["DFKA"]))
+                displayFieldName = (this.Page as BaseApplicationPage).GetDecryptedURLParameter("DFKA");
+            
+            if (!string.IsNullOrEmpty(target) && !string.IsNullOrEmpty(field))
+            {
+          
+
+                  if (this.RegistrationsRecordControl != null && this.RegistrationsRecordControl.DataSource != null)
+                  {
+                        id = this.RegistrationsRecordControl.DataSource.GetValue(this.RegistrationsRecordControl.DataSource.TableAccess.TableDefinition.ColumnList.GetByAnyName(field)).ToString();
+                        if (!string.IsNullOrEmpty(formula))
+                        {
+                            System.Collections.Generic.IDictionary<String, Object> variables = new System.Collections.Generic.Dictionary<String, Object>();
+                            variables.Add(this.RegistrationsRecordControl.DataSource.TableAccess.TableDefinition.TableCodeName, this.RegistrationsRecordControl.DataSource);
+                            value = EvaluateFormula(formula, this.RegistrationsRecordControl.DataSource, null,variables);
+                        }
+                        else if (displayFieldName == "") 
+                        {
+                            value = id;
+                        }
+                        else
+                        {
+                            value = this.RegistrationsRecordControl.DataSource.GetValue(this.RegistrationsRecordControl.DataSource.TableAccess.TableDefinition.ColumnList.GetByAnyName(displayFieldName)).ToString();
+                        }
+                  }
+                  if (value == null)
+                      value = id;
+                  BaseClasses.Utils.MiscUtils.RegisterAddButtonScript(this, target, id, value);
+                  shouldRedirect = false;
+                
+           }
+           else if (!string.IsNullOrEmpty(target))
+           {
+                BaseClasses.Utils.MiscUtils.RegisterAddButtonScript(this, target, null, null);           
+                shouldRedirect = false;       
+           }
+         
             } catch (Exception ex) {
                   // Upon error, rollback the transaction
                   this.RollBackTransaction(sender);
+                  shouldRedirect = false;
                   this.ErrorOnPage = true;
 
             // Report the error message to the end user
@@ -778,7 +853,12 @@ public partial class Edit_Registration
             } finally {
                 DbUtils.EndTransaction();
             }
-    
+            if (shouldRedirect) {
+                this.ShouldSaveControlsToSession = true;
+      this.RedirectBack();
+        
+            }
+        
         }
             
             

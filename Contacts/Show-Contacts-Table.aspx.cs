@@ -202,16 +202,16 @@ public partial class Show_Contacts_Table
         
 
 
-[System.Web.Services.WebMethod]
-        public static string[] GetAutoCompletionList_RegistrationsSearchText(string prefixText, int count)
-        {
-            // GetRegistrationsSearchTextCompletionList gets the list of suggestions from the database.
-            // prefixText is the search text typed by the user .
-            // count specifies the number of suggestions to be returned.
-            // Customize by adding code before or after the call to  GetAutoCompletionList_RegistrationsSearchText_Base()
-            // or replace the call to GetAutoCompletionList_RegistrationsSearchText_Base().
-            return GetAutoCompletionList_RegistrationsSearchText_Base(prefixText, count);
-        }
+//[System.Web.Services.WebMethod]
+//        public static string[] GetAutoCompletionList_RegistrationsSearchText(string prefixText, int count)
+//        {
+//            // GetRegistrationsSearchTextCompletionList gets the list of suggestions from the database.
+//            // prefixText is the search text typed by the user .
+//            // count specifies the number of suggestions to be returned.
+//            // Customize by adding code before or after the call to  GetAutoCompletionList_RegistrationsSearchText_Base()
+//            // or replace the call to GetAutoCompletionList_RegistrationsSearchText_Base().
+//            return GetAutoCompletionList_RegistrationsSearchText_Base(prefixText, count);
+//        }
 #endregion
 
 #region "Section 2: Do not modify this section."
@@ -229,65 +229,35 @@ public partial class Show_Contacts_Table
         }
         
     
-        public ThemeButtonWithArrow Actions1Button;
-                
         public ThemeButtonWithArrow ActionsButton;
                 
         public OLR.UI.Controls.Show_Contacts_Table.ContactsTableControl ContactsTableControl;
           
         public System.Web.UI.WebControls.ImageButton ExcelButton;
         
-        public System.Web.UI.WebControls.ImageButton ExcelButton1;
-        
         public ThemeButton FilterButton;
-                
-        public ThemeButton FilterButton1;
-                
-        public ThemeButtonWithArrow Filters1Button;
                 
         public ThemeButtonWithArrow FiltersButton;
                 
         public System.Web.UI.WebControls.ImageButton ImportButton;
         
-        public System.Web.UI.WebControls.ImageButton ImportButton1;
-        
-        public System.Web.UI.WebControls.Literal MobileNumberLabel1;
+        public System.Web.UI.WebControls.Literal LastNameLabel;
         
         public System.Web.UI.WebControls.ImageButton NewButton;
-        
-        public System.Web.UI.WebControls.ImageButton NewButton1;
         
         public System.Web.UI.WebControls.Literal PageTitle;
         
         public PaginationModern Pagination;
                 
-        public PaginationModern Pagination1;
-                
         public System.Web.UI.WebControls.ImageButton PDFButton;
-        
-        public System.Web.UI.WebControls.ImageButton PDFButton1;
-        
-        public System.Web.UI.WebControls.TextBox RegistrationsSearchText;
-        
-        public System.Web.UI.WebControls.Literal RegistrationTypeIdLabel2;
         
         public System.Web.UI.WebControls.ImageButton ResetButton;
         
-        public System.Web.UI.WebControls.ImageButton ResetButton1;
-        
-        public System.Web.UI.WebControls.ImageButton SearchButton1;
-        
         public System.Web.UI.WebControls.Label SortByLabel;
-        
-        public System.Web.UI.WebControls.Label SortByLabel1;
         
         public System.Web.UI.WebControls.Literal Title0;
             
-        public System.Web.UI.WebControls.Literal Title1;
-            
         public System.Web.UI.WebControls.ImageButton WordButton;
-        
-        public System.Web.UI.WebControls.ImageButton WordButton1;
         
         public ValidationSummary ValidationSummary1;
 
@@ -548,17 +518,6 @@ public partial class Show_Contacts_Table
       }  
       
         
-    public static string[] GetAutoCompletionList_RegistrationsSearchText_Base(string prefixText, int count)
-    {
-        // Since this method is a shared/static method it does not maintain information about page or controls within the page.
-        // Hence we can not invoke any method associated with any controls.
-        // So, if we need to use any control in the page we need to instantiate it.
-        OLR.UI.Controls.Show_Contacts_Table.RegistrationsTableControl control = new OLR.UI.Controls.Show_Contacts_Table.RegistrationsTableControl();
-        
-        return control.GetAutoCompletionList_RegistrationsSearchText(prefixText, count);
-            
-    }
-      
 
     // Load data from database into UI controls.
     // Modify LoadData in Section 1 above to customize.  Or override DataBind() in

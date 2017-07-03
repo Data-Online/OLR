@@ -549,6 +549,8 @@ public class BaseContactsTableControlRow : OLR.UI.BaseApplicationRecordControl
         public virtual void SetAddress1Label()
                   {
                   
+                        this.Address1Label.Text = EvaluateFormula("\"Address\"");
+                      
                     
         }
                 
@@ -2623,6 +2625,10 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("First Name {Txt:Ascending}"), "FirstName Asc"));
               
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("First Name {Txt:Descending}"), "FirstName Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Record Deleted {Txt:Ascending}"), "RecordDeleted Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Record Deleted {Txt:Descending}"), "RecordDeleted Desc"));
               
             try
             {          

@@ -12,7 +12,7 @@ namespace OLR.Business
 public class HonoursDefinition
 {
 #region "Definition (XML) for HonoursDefinition table"
-	//Next 85 lines contain Table Definition (XML) for table "HonoursDefinition"
+	//Next 97 lines contain Table Definition (XML) for table "HonoursDefinition"
 	private static string _DefinitionString = "";
 	
 #endregion
@@ -41,7 +41,7 @@ public class HonoursDefinition
          tbf.Append(      @"<columnDBDefault></columnDBDefault>");
          tbf.Append(      @"<columnIndex>Y</columnIndex>");
          tbf.Append(      @"<columnUnique>Y</columnUnique>");
-         tbf.Append(      @"<columnFunction>notrim</columnFunction>");
+         tbf.Append(      @"<columnFunction></columnFunction>");
          tbf.Append(      @"<columnDBFormat></columnDBFormat>");
          tbf.Append(      @"<columnPK>Y</columnPK>");
          tbf.Append(      @"<columnPermanent>N</columnPermanent>");
@@ -56,6 +56,18 @@ public class HonoursDefinition
          tbf.Append(      @"<columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>");
          tbf.Append(      @"<columnTableAliasName></columnTableAliasName>");
          tbf.Append(      @"<applyLabelText>Y</applyLabelText>");
+         tbf.Append(      @"<applyDFKA>N</applyDFKA>");
+         tbf.Append(      @"<applyInitializeInsertingRecord>N</applyInitializeInsertingRecord>");
+         tbf.Append(      @"<applyInitializeReadingRecord>N</applyInitializeReadingRecord>");
+         tbf.Append(      @"<applyInitializeUpdatingRecord>N</applyInitializeUpdatingRecord>");
+         tbf.Append(      @"<applyValidateInsertingRecord>N</applyValidateInsertingRecord>");
+         tbf.Append(      @"<applyValidateUpdatingRecord>N</applyValidateUpdatingRecord>");
+         tbf.Append(      @"<applyDefaultValue>N</applyDefaultValue>");
+         tbf.Append(      @"<insertingRecordFormula></insertingRecordFormula>");
+         tbf.Append(      @"<readingRecordFormula></readingRecordFormula>");
+         tbf.Append(      @"<updatingRecordFormula></updatingRecordFormula>");
+         tbf.Append(      @"<insertingFormula></insertingFormula>");
+         tbf.Append(      @"<updatingFormula></updatingFormula>");
          tbf.Append(    "</Column>");
          tbf.Append(    @"<Column InternalName=""1"" Priority=""2"" ColumnNum=""1"">");
          tbf.Append(      @"<columnName>Honour</columnName>");
@@ -65,8 +77,8 @@ public class HonoursDefinition
          tbf.Append(      @"<columnLengthSet>50</columnLengthSet>");
          tbf.Append(      @"<columnDefault></columnDefault>");
          tbf.Append(      @"<columnDBDefault></columnDBDefault>");
-         tbf.Append(      @"<columnIndex>N</columnIndex>");
-         tbf.Append(      @"<columnUnique>N</columnUnique>");
+         tbf.Append(      @"<columnIndex>Y</columnIndex>");
+         tbf.Append(      @"<columnUnique>Y</columnUnique>");
          tbf.Append(      @"<columnFunction></columnFunction>");
          tbf.Append(      @"<columnDBFormat></columnDBFormat>");
          tbf.Append(      @"<columnPK>N</columnPK>");
@@ -97,7 +109,7 @@ public class HonoursDefinition
          tbf.Append(    "</Column>");
          tbf.Append(  "</ColumnDefinition>");
          tbf.Append(  @"<TableName>Honours</TableName>");
-         tbf.Append(  @"<Version>2</Version>");
+         tbf.Append(  @"<Version>3</Version>");
          tbf.Append(  @"<Owner>dbo</Owner>");
          tbf.Append(  @"<TableAliasName>Honours_</TableAliasName>");
          tbf.Append(  @"<ConnectionName>DatabaseOLR_db</ConnectionName>");

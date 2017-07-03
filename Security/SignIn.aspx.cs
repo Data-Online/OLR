@@ -233,7 +233,8 @@ namespace OLR.UI
 
                 if (admin)
                 {
-                    this.Page.Response.Redirect("../Registrations/Show-Registrations-Table.aspx");
+                    //this.Page.Response.Redirect("../Registrations/Show-Registrations-Table.aspx");
+                    this.Page.Response.Redirect("../view_Registered/Show-View-Registered-Table.aspx");
                 }
                 else
                 {
@@ -415,8 +416,6 @@ namespace OLR.UI
           // SignInState is a class to store values of cookies in the session state. It is also used by SignOut.ascx.vb(cs)
           private SignInState signInState;
       
-        public System.Web.UI.WebControls.Literal PageTitle;
-        
         public System.Web.UI.WebControls.CheckBox AutomaticallySignIn;
         
         public System.Web.UI.WebControls.Label AutomaticallySignInLabel;
@@ -427,10 +426,14 @@ namespace OLR.UI
             
         public System.Web.UI.WebControls.LinkButton EmailLinkButton;
         
+        public System.Web.UI.WebControls.Image Image;
+        
         public System.Web.UI.WebControls.Label LoginMessage;
         
         public ThemeButton OKButton;
                 
+        public System.Web.UI.WebControls.Literal PageTitle;
+        
         public System.Web.UI.WebControls.TextBox Password;
         
         public System.Web.UI.WebControls.Label PasswordLabel;
@@ -448,8 +451,6 @@ namespace OLR.UI
         public System.Web.UI.WebControls.TextBox UserName;
         
         public System.Web.UI.WebControls.Label UserNameLabel;
-        
-        public System.Web.UI.WebControls.Image Image;
         
         public ValidationSummary ValidationSummary1;
 

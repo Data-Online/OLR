@@ -61,12 +61,26 @@ public class BaseHonourContactLinksTable : PrimaryKeyTable
         HonourIdColumn.CodeName = "HonourId";
         ContactIdColumn.CodeName = "ContactId";
         HonourContactLinkIdColumn.CodeName = "HonourContactLinkId";
+        RecordDeletedColumn.CodeName = "RecordDeleted";
 
         
     }
     
 #region "Overriden methods"
-	
+	public override WhereClause AddGlobalWhereClause()
+    {
+        CompoundFilter filter = new CompoundFilter(CompoundFilter.CompoundingOperators.And_Operator, null);
+        WhereClause wc = new WhereClause();
+        String formula;
+
+        if(BaseFormulaEvaluator.ShouldApplyGlobalWhereClause("1")){
+            formula = EvaluateFormula("1");
+            filter.AddFilter(new BaseClasses.Data.ColumnValueFilter(HonourContactLinksTable.RecordDeleted, formula, BaseClasses.Data.BaseFilter.ComparisonOperator.Not_Equals, false));
+            wc.AddFilter(filter, CompoundFilter.CompoundingOperators.And_Operator);
+        }
+
+        return wc;
+    }
 #endregion    
 
 #region "Properties for columns"
@@ -142,6 +156,31 @@ public class BaseHonourContactLinksTable : PrimaryKeyTable
         get
         {
             return HonourContactLinksTable.Instance.HonourContactLinkIdColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's HonourContactLinks_.RecordDeleted column object.
+    /// </summary>
+    public BaseClasses.Data.BooleanColumn RecordDeletedColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.BooleanColumn)this.TableDefinition.ColumnList[3];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's HonourContactLinks_.RecordDeleted column object.
+    /// </summary>
+    public static BaseClasses.Data.BooleanColumn RecordDeleted
+    {
+        get
+        {
+            return HonourContactLinksTable.Instance.RecordDeletedColumn;
         }
     }
     
@@ -672,12 +711,14 @@ public class BaseHonourContactLinksTable : PrimaryKeyTable
         //Convenience method for creating a record
         public KeyValue NewRecord(
         string HonourIdValue, 
-        string ContactIdValue
+        string ContactIdValue, 
+        string RecordDeletedValue
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
                     rec.SetString(HonourIdValue, HonourIdColumn);
         rec.SetString(ContactIdValue, ContactIdColumn);
+        rec.SetString(RecordDeletedValue, RecordDeletedColumn);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized

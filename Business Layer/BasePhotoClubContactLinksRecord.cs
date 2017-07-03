@@ -262,6 +262,46 @@ public class BasePhotoClubContactLinksRecord : PrimaryKeyRecord
 		return this.GetValue(TableUtils.PhotoClubContactIdColumn).ToInt32();
 	}
 
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's PhotoClubContactLinks_.RecordDeleted field.
+	/// </summary>
+	public ColumnValue GetRecordDeletedValue()
+	{
+		return this.GetValue(TableUtils.RecordDeletedColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's PhotoClubContactLinks_.RecordDeleted field.
+	/// </summary>
+	public bool GetRecordDeletedFieldValue()
+	{
+		return this.GetValue(TableUtils.RecordDeletedColumn).ToBoolean();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's PhotoClubContactLinks_.RecordDeleted field.
+	/// </summary>
+	public void SetRecordDeletedFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.RecordDeletedColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's PhotoClubContactLinks_.RecordDeleted field.
+	/// </summary>
+	public void SetRecordDeletedFieldValue(string val)
+	{
+		this.SetString(val, TableUtils.RecordDeletedColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's PhotoClubContactLinks_.RecordDeleted field.
+	/// </summary>
+	public void SetRecordDeletedFieldValue(bool val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.RecordDeletedColumn);
+	}
 
 
 #endregion
@@ -395,6 +435,50 @@ public class BasePhotoClubContactLinksRecord : PrimaryKeyRecord
 		get
 		{
 			return TableUtils.PhotoClubContactIdColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's PhotoClubContactLinks_.RecordDeleted field.
+	/// </summary>
+	public bool RecordDeleted
+	{
+		get
+		{
+			return this.GetValue(TableUtils.RecordDeletedColumn).ToBoolean();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+	   		this.SetValue(cv, TableUtils.RecordDeletedColumn);
+		}
+	}
+	
+	
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool RecordDeletedSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.RecordDeletedColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's PhotoClubContactLinks_.RecordDeleted field.
+	/// </summary>
+	public string RecordDeletedDefault
+	{
+		get
+		{
+			return TableUtils.RecordDeletedColumn.DefaultValue;
 		}
 	}
 

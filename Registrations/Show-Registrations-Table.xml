@@ -1199,6 +1199,14 @@
           <Name>DatePaid Desc</Name>
           <Value>Date Paid {Txt:Descending}</Value>
         </Item>
+        <Item>
+          <Name>RecordDeleted Asc</Name>
+          <Value>Record Deleted {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>RecordDeleted Desc</Name>
+          <Value>Record Deleted {Txt:Descending}</Value>
+        </Item>
       </SpecifiedItems>
       <PassthroughAttributes>
         <Attribute>

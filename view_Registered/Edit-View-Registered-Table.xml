@@ -1483,6 +1483,14 @@
           <Name>RegistrationId Desc</Name>
           <Value>Registration {Txt:Descending}</Value>
         </Item>
+        <Item>
+          <Name>RecordDeleted Asc</Name>
+          <Value>Record Deleted {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>RecordDeleted Desc</Name>
+          <Value>Record Deleted {Txt:Descending}</Value>
+        </Item>
       </SpecifiedItems>
       <PassthroughAttributes>
         <Attribute>

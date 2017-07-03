@@ -2604,6 +2604,22 @@ public class BaseFieldTripChoicesTableControl : OLR.UI.BaseApplicationTableContr
               
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Field Trip {Txt:Descending}"), "FieldTripId Desc"));
               
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Field Trip Allocated 2 {Txt:Ascending}"), "FieldTripAllocated2 Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Field Trip Allocated 2 {Txt:Descending}"), "FieldTripAllocated2 Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Field Trip Allocated 3 {Txt:Ascending}"), "FieldTripAllocated3 Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Field Trip Allocated 3 {Txt:Descending}"), "FieldTripAllocated3 Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Field Trip Allocated {Txt:Ascending}"), "FieldTripAllocated Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Field Trip Allocated {Txt:Descending}"), "FieldTripAllocated Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Record Deleted {Txt:Ascending}"), "RecordDeleted Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Record Deleted {Txt:Descending}"), "RecordDeleted Desc"));
+              
             try
             {          
                 // Set the selected value.

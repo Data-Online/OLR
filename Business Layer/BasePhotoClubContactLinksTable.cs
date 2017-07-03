@@ -61,12 +61,26 @@ public class BasePhotoClubContactLinksTable : PrimaryKeyTable
         ContactIdColumn.CodeName = "ContactId";
         PhotoClubIdColumn.CodeName = "PhotoClubId";
         PhotoClubContactIdColumn.CodeName = "PhotoClubContactId";
+        RecordDeletedColumn.CodeName = "RecordDeleted";
 
         
     }
     
 #region "Overriden methods"
-	
+	public override WhereClause AddGlobalWhereClause()
+    {
+        CompoundFilter filter = new CompoundFilter(CompoundFilter.CompoundingOperators.And_Operator, null);
+        WhereClause wc = new WhereClause();
+        String formula;
+
+        if(BaseFormulaEvaluator.ShouldApplyGlobalWhereClause("1")){
+            formula = EvaluateFormula("1");
+            filter.AddFilter(new BaseClasses.Data.ColumnValueFilter(PhotoClubContactLinksTable.RecordDeleted, formula, BaseClasses.Data.BaseFilter.ComparisonOperator.Not_Equals, false));
+            wc.AddFilter(filter, CompoundFilter.CompoundingOperators.And_Operator);
+        }
+
+        return wc;
+    }
 #endregion    
 
 #region "Properties for columns"
@@ -142,6 +156,31 @@ public class BasePhotoClubContactLinksTable : PrimaryKeyTable
         get
         {
             return PhotoClubContactLinksTable.Instance.PhotoClubContactIdColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's PhotoClubContactLinks_.RecordDeleted column object.
+    /// </summary>
+    public BaseClasses.Data.BooleanColumn RecordDeletedColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.BooleanColumn)this.TableDefinition.ColumnList[3];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's PhotoClubContactLinks_.RecordDeleted column object.
+    /// </summary>
+    public static BaseClasses.Data.BooleanColumn RecordDeleted
+    {
+        get
+        {
+            return PhotoClubContactLinksTable.Instance.RecordDeletedColumn;
         }
     }
     
@@ -672,12 +711,14 @@ public class BasePhotoClubContactLinksTable : PrimaryKeyTable
         //Convenience method for creating a record
         public KeyValue NewRecord(
         string ContactIdValue, 
-        string PhotoClubIdValue
+        string PhotoClubIdValue, 
+        string RecordDeletedValue
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
                     rec.SetString(ContactIdValue, ContactIdColumn);
         rec.SetString(PhotoClubIdValue, PhotoClubIdColumn);
+        rec.SetString(RecordDeletedValue, RecordDeletedColumn);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized

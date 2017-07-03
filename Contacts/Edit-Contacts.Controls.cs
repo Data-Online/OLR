@@ -491,6 +491,8 @@ public class BaseContactsRecordControl : OLR.UI.BaseApplicationRecordControl
         public virtual void SetAddress1Label()
                   {
                   
+                        this.Address1Label.Text = EvaluateFormula("\"Address\"");
+                      
                     
         }
                 

@@ -3350,6 +3350,10 @@ public class BaseView_RegisteredTableControl : OLR.UI.BaseApplicationTableContro
               
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Registration {Txt:Descending}"), "RegistrationId Desc"));
               
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Record Deleted {Txt:Ascending}"), "RecordDeleted Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Record Deleted {Txt:Descending}"), "RecordDeleted Desc"));
+              
             try
             {          
                 // Set the selected value.

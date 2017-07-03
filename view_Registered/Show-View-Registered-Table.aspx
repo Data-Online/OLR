@@ -101,7 +101,38 @@
 <asp:Literal runat="server" id="PSNZAppliedFor"></asp:Literal> <br />
 <asp:Literal runat="server" id="PSNZMembershipCheck"></asp:Literal></td></tr><tr><td class="tableCellValue"><asp:Literal runat="server" id="Address1"></asp:Literal> 
 <asp:Literal runat="server" id="Address2"></asp:Literal> 
-<asp:Literal runat="server" id="Address3"></asp:Literal></td><td class="tableCellValue"><asp:Literal runat="server" id="TownName"></asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"><asp:Literal runat="server" id="SpecialRequirementsLabel" Text="Special Requirements">	</asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellValue" colspan="3"><asp:Literal runat="server" id="RegistrationType"></asp:Literal></td><td class="tableCellLabel" colspan="3"><asp:Literal runat="server" id="SpecialRequirements"></asp:Literal></td></tr><tr><td></td><td></td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableRowDivider" colspan="8"></td></tr></OLR:View_RegisteredTableControlRow>
+<asp:Literal runat="server" id="Address3"></asp:Literal></td><td class="tableCellValue"><asp:Literal runat="server" id="TownName"></asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"><asp:Literal runat="server" id="SpecialRequirementsLabel" Text="Special Requirements">	</asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellValue" colspan="3"><asp:Literal runat="server" id="RegistrationType"></asp:Literal></td><td class="tableCellLabel" colspan="3"><asp:Literal runat="server" id="SpecialRequirements"></asp:Literal></td></tr><tr><td></td><td></td><td class="tableCellLabel" colspan="6"><OLR:FieldTripChoicesTableControl1 runat="server" id="FieldTripChoicesTableControl1">	<table class="dv" cellpadding="0" cellspacing="0" border="0"><tr><td></td><td></td><td></td></tr><tr><td class="panelHeaderL"></td><td class="dh">
+                  <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="dhel"><img src="../Images/space.gif" alt="" /></td><td class="dhb"><table cellpadding="0" cellspacing="0" border="0"><tr><td class="dht" valign="middle">
+                        <asp:Literal runat="server" id="Title1" Text="&lt;%#String.Concat(&quot;Field Trip Choices&quot;) %>">	</asp:Literal>
+                      </td></tr></table>
+</td></tr></table>
+
+                </td><td class="panelHeaderR"></td></tr><tr><td></td><td>
+                  <asp:panel id="CollapsibleRegion2" runat="server"><table class="dBody" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tre">
+                    <table id="FieldTripChoicesTableControl1Grid" cellpadding="0" cellspacing="0" border="0" width="100%" onkeydown="captureUpDownKey(this, event)"><tr class="tch"><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th></tr><asp:Repeater runat="server" id="FieldTripChoicesTableControl1Repeater">		<ITEMTEMPLATE>		<OLR:FieldTripChoicesTableControl1Row runat="server" id="FieldTripChoicesTableControl1Row">
+<tr><td class="tableCellLabel" colspan="4" style="text-align:left;"><span style="white-space:nowrap;">
+<asp:LinkButton runat="server" id="FieldTripId1" causesvalidation="False" commandname="Redirect"></asp:LinkButton></span>
+</td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="FieldTripOptionIdLabel" Text="EvaluateFormula(&quot;= \&quot;First Choice\&quot;&quot;, true)">	</asp:Literal> 
+</td><td class="tableCellValue"><span style="white-space:nowrap;">
+<asp:LinkButton runat="server" id="FieldTripOptionId1" causesvalidation="False" commandname="Redirect"></asp:LinkButton></span>
+ </td><td class="tableCellLabel"><asp:Literal runat="server" id="FieldTripOptionId2Label" Text="EvaluateFormula(&quot;= \&quot;Second Choice\&quot;&quot;, true)">	</asp:Literal> 
+</td><td class="tableCellValue"><span style="white-space:nowrap;">
+<asp:LinkButton runat="server" id="FieldTripOptionId21" causesvalidation="False" commandname="Redirect"></asp:LinkButton></span>
+ </td><td class="tableCellLabel"><asp:Literal runat="server" id="FieldTripOptionId3Label" Text="EvaluateFormula(&quot;= \&quot;Third Choice\&quot;&quot;, true)">	</asp:Literal> 
+</td><td class="tableCellValue"><span style="white-space:nowrap;">
+<asp:LinkButton runat="server" id="FieldTripOptionId31" causesvalidation="False" commandname="Redirect"></asp:LinkButton></span>
+ </td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="FieldTripAllocatedLabel" Text="Field Trip Allocated">	</asp:Literal></td><td class="tableCellValue"><asp:LinkButton runat="server" id="FieldTripAllocated" causesvalidation="False" commandname="Redirect"></asp:LinkButton></td><td class="tableCellLabel"><asp:Literal runat="server" id="FieldTripAllocated2Label" Text="Field Trip Allocated 2">	</asp:Literal></td><td class="tableCellValue"><asp:LinkButton runat="server" id="FieldTripAllocated2" causesvalidation="False" commandname="Redirect"></asp:LinkButton></td><td class="tableCellLabel"><asp:Literal runat="server" id="FieldTripAllocated3Label" Text="Field Trip Allocated 3">	</asp:Literal></td><td class="tableCellValue"><asp:LinkButton runat="server" id="FieldTripAllocated3" causesvalidation="False" commandname="Redirect"></asp:LinkButton></td></tr><tr><td class="tableRowDivider" colspan="6"></td></tr></OLR:FieldTripChoicesTableControl1Row>
+</ITEMTEMPLATE>
+
+</asp:Repeater>
+</table>
+
+                  </td></tr></table>
+</asp:panel>
+                </td><td></td></tr><tr><td></td><td></td><td></td></tr></table>
+	<asp:hiddenfield id="FieldTripChoicesTableControl1_PostbackTracker" runat="server" />
+</OLR:FieldTripChoicesTableControl1>
+</td></tr><tr><td class="tableRowDivider" colspan="8"></td></tr></OLR:View_RegisteredTableControlRow>
 </ITEMTEMPLATE>
 
 </asp:Repeater>

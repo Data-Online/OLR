@@ -77,8 +77,8 @@ public class HomeTownsDefinition
          tbf.Append(      @"<columnLengthSet>50</columnLengthSet>");
          tbf.Append(      @"<columnDefault></columnDefault>");
          tbf.Append(      @"<columnDBDefault></columnDBDefault>");
-         tbf.Append(      @"<columnIndex>N</columnIndex>");
-         tbf.Append(      @"<columnUnique>N</columnUnique>");
+         tbf.Append(      @"<columnIndex>Y</columnIndex>");
+         tbf.Append(      @"<columnUnique>Y</columnUnique>");
          tbf.Append(      @"<columnFunction></columnFunction>");
          tbf.Append(      @"<columnDBFormat></columnDBFormat>");
          tbf.Append(      @"<columnPK>N</columnPK>");
@@ -109,7 +109,7 @@ public class HomeTownsDefinition
          tbf.Append(    "</Column>");
          tbf.Append(  "</ColumnDefinition>");
          tbf.Append(  @"<TableName>HomeTowns</TableName>");
-         tbf.Append(  @"<Version>2</Version>");
+         tbf.Append(  @"<Version>3</Version>");
          tbf.Append(  @"<Owner>dbo</Owner>");
          tbf.Append(  @"<TableAliasName>HomeTowns_</TableAliasName>");
          tbf.Append(  @"<ConnectionName>DatabaseOLR_db</ConnectionName>");

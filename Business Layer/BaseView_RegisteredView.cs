@@ -78,12 +78,26 @@ public class BaseView_RegisteredView : PrimaryKeyTable
         TownNameColumn.Name = EvaluateFormula("\"Town\"");
         RegistrationTypeColumn.CodeName = "RegistrationType";
         RegistrationIdColumn.CodeName = "RegistrationId";
+        RecordDeletedColumn.CodeName = "RecordDeleted";
 
         
     }
     
 #region "Overriden methods"
-	
+	public override WhereClause AddGlobalWhereClause()
+    {
+        CompoundFilter filter = new CompoundFilter(CompoundFilter.CompoundingOperators.And_Operator, null);
+        WhereClause wc = new WhereClause();
+        String formula;
+
+        if(BaseFormulaEvaluator.ShouldApplyGlobalWhereClause("1")){
+            formula = EvaluateFormula("1");
+            filter.AddFilter(new BaseClasses.Data.ColumnValueFilter(View_RegisteredView.RecordDeleted, formula, BaseClasses.Data.BaseFilter.ComparisonOperator.Not_Equals, false));
+            wc.AddFilter(filter, CompoundFilter.CompoundingOperators.And_Operator);
+        }
+
+        return wc;
+    }
 #endregion    
 
 #region "Properties for columns"
@@ -559,6 +573,31 @@ public class BaseView_RegisteredView : PrimaryKeyTable
         get
         {
             return View_RegisteredView.Instance.RegistrationIdColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_Registered_.RecordDeleted column object.
+    /// </summary>
+    public BaseClasses.Data.BooleanColumn RecordDeletedColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.BooleanColumn)this.TableDefinition.ColumnList[19];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_Registered_.RecordDeleted column object.
+    /// </summary>
+    public static BaseClasses.Data.BooleanColumn RecordDeleted
+    {
+        get
+        {
+            return View_RegisteredView.Instance.RecordDeletedColumn;
         }
     }
     
@@ -1106,7 +1145,8 @@ public class BaseView_RegisteredView : PrimaryKeyTable
         string AdditionalDinnerTicketValue, 
         string TownNameValue, 
         string RegistrationTypeValue, 
-        string RegistrationIdValue
+        string RegistrationIdValue, 
+        string RecordDeletedValue
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
@@ -1129,6 +1169,7 @@ public class BaseView_RegisteredView : PrimaryKeyTable
         rec.SetString(TownNameValue, TownNameColumn);
         rec.SetString(RegistrationTypeValue, RegistrationTypeColumn);
         rec.SetString(RegistrationIdValue, RegistrationIdColumn);
+        rec.SetString(RecordDeletedValue, RecordDeletedColumn);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized

@@ -3571,6 +3571,38 @@
           <Name>FieldTripId Desc</Name>
           <Value>Field Trip {Txt:Descending}</Value>
         </Item>
+        <Item>
+          <Name>FieldTripAllocated2 Asc</Name>
+          <Value>Field Trip Allocated 2 {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>FieldTripAllocated2 Desc</Name>
+          <Value>Field Trip Allocated 2 {Txt:Descending}</Value>
+        </Item>
+        <Item>
+          <Name>FieldTripAllocated3 Asc</Name>
+          <Value>Field Trip Allocated 3 {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>FieldTripAllocated3 Desc</Name>
+          <Value>Field Trip Allocated 3 {Txt:Descending}</Value>
+        </Item>
+        <Item>
+          <Name>FieldTripAllocated Asc</Name>
+          <Value>Field Trip Allocated {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>FieldTripAllocated Desc</Name>
+          <Value>Field Trip Allocated {Txt:Descending}</Value>
+        </Item>
+        <Item>
+          <Name>RecordDeleted Asc</Name>
+          <Value>Record Deleted {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>RecordDeleted Desc</Name>
+          <Value>Record Deleted {Txt:Descending}</Value>
+        </Item>
       </SpecifiedItems>
       <PassthroughAttributes>
         <Attribute>

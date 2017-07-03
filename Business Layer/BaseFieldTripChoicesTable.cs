@@ -67,12 +67,29 @@ public class BaseFieldTripChoicesTable : PrimaryKeyTable
         FieldTripOptionId3Column.CodeName = "FieldTripOptionId3";
         FieldTripOptionId3Column.Name = EvaluateFormula("\"Third Choice\"");
         FieldTripIdColumn.CodeName = "FieldTripId";
+        RecordDeletedColumn.CodeName = "RecordDeleted";
+        FieldTripAllocatedColumn.CodeName = "FieldTripAllocated";
+        FieldTripAllocated2Column.CodeName = "FieldTripAllocated2";
+        FieldTripAllocated3Column.CodeName = "FieldTripAllocated3";
 
         
     }
     
 #region "Overriden methods"
-	
+	public override WhereClause AddGlobalWhereClause()
+    {
+        CompoundFilter filter = new CompoundFilter(CompoundFilter.CompoundingOperators.And_Operator, null);
+        WhereClause wc = new WhereClause();
+        String formula;
+
+        if(BaseFormulaEvaluator.ShouldApplyGlobalWhereClause("1")){
+            formula = EvaluateFormula("1");
+            filter.AddFilter(new BaseClasses.Data.ColumnValueFilter(FieldTripChoicesTable.RecordDeleted, formula, BaseClasses.Data.BaseFilter.ComparisonOperator.Not_Equals, false));
+            wc.AddFilter(filter, CompoundFilter.CompoundingOperators.And_Operator);
+        }
+
+        return wc;
+    }
 #endregion    
 
 #region "Properties for columns"
@@ -223,6 +240,106 @@ public class BaseFieldTripChoicesTable : PrimaryKeyTable
         get
         {
             return FieldTripChoicesTable.Instance.FieldTripIdColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's FieldTripChoices_.RecordDeleted column object.
+    /// </summary>
+    public BaseClasses.Data.BooleanColumn RecordDeletedColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.BooleanColumn)this.TableDefinition.ColumnList[6];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's FieldTripChoices_.RecordDeleted column object.
+    /// </summary>
+    public static BaseClasses.Data.BooleanColumn RecordDeleted
+    {
+        get
+        {
+            return FieldTripChoicesTable.Instance.RecordDeletedColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's FieldTripChoices_.FieldTripAllocated column object.
+    /// </summary>
+    public BaseClasses.Data.NumberColumn FieldTripAllocatedColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[7];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's FieldTripChoices_.FieldTripAllocated column object.
+    /// </summary>
+    public static BaseClasses.Data.NumberColumn FieldTripAllocated
+    {
+        get
+        {
+            return FieldTripChoicesTable.Instance.FieldTripAllocatedColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's FieldTripChoices_.FieldTripAllocated2 column object.
+    /// </summary>
+    public BaseClasses.Data.NumberColumn FieldTripAllocated2Column
+    {
+        get
+        {
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[8];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's FieldTripChoices_.FieldTripAllocated2 column object.
+    /// </summary>
+    public static BaseClasses.Data.NumberColumn FieldTripAllocated2
+    {
+        get
+        {
+            return FieldTripChoicesTable.Instance.FieldTripAllocated2Column;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's FieldTripChoices_.FieldTripAllocated3 column object.
+    /// </summary>
+    public BaseClasses.Data.NumberColumn FieldTripAllocated3Column
+    {
+        get
+        {
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[9];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's FieldTripChoices_.FieldTripAllocated3 column object.
+    /// </summary>
+    public static BaseClasses.Data.NumberColumn FieldTripAllocated3
+    {
+        get
+        {
+            return FieldTripChoicesTable.Instance.FieldTripAllocated3Column;
         }
     }
     
@@ -756,7 +873,11 @@ public class BaseFieldTripChoicesTable : PrimaryKeyTable
         string RegistrationIdValue, 
         string FieldTripOptionId2Value, 
         string FieldTripOptionId3Value, 
-        string FieldTripIdValue
+        string FieldTripIdValue, 
+        string RecordDeletedValue, 
+        string FieldTripAllocatedValue, 
+        string FieldTripAllocated2Value, 
+        string FieldTripAllocated3Value
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
@@ -765,6 +886,10 @@ public class BaseFieldTripChoicesTable : PrimaryKeyTable
         rec.SetString(FieldTripOptionId2Value, FieldTripOptionId2Column);
         rec.SetString(FieldTripOptionId3Value, FieldTripOptionId3Column);
         rec.SetString(FieldTripIdValue, FieldTripIdColumn);
+        rec.SetString(RecordDeletedValue, RecordDeletedColumn);
+        rec.SetString(FieldTripAllocatedValue, FieldTripAllocatedColumn);
+        rec.SetString(FieldTripAllocated2Value, FieldTripAllocated2Column);
+        rec.SetString(FieldTripAllocated3Value, FieldTripAllocated3Column);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized

@@ -284,6 +284,8 @@ public partial class Show_View_Registered_Table
         
         public System.Web.UI.WebControls.Literal Title0;
             
+        public System.Web.UI.WebControls.Literal Title1;
+            
         public System.Web.UI.WebControls.LinkButton TownNameLabel;
         
         public OLR.UI.Controls.Show_View_Registered_Table.View_RegisteredTableControl View_RegisteredTableControl;

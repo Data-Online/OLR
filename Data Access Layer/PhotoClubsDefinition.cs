@@ -12,7 +12,7 @@ namespace OLR.Business
 public class PhotoClubsDefinition
 {
 #region "Definition (XML) for PhotoClubsDefinition table"
-	//Next 73 lines contain Table Definition (XML) for table "PhotoClubsDefinition"
+	//Next 97 lines contain Table Definition (XML) for table "PhotoClubsDefinition"
 	private static string _DefinitionString = "";
 	
 #endregion
@@ -41,7 +41,7 @@ public class PhotoClubsDefinition
          tbf.Append(      @"<columnDBDefault></columnDBDefault>");
          tbf.Append(      @"<columnIndex>Y</columnIndex>");
          tbf.Append(      @"<columnUnique>Y</columnUnique>");
-         tbf.Append(      @"<columnFunction>notrim</columnFunction>");
+         tbf.Append(      @"<columnFunction></columnFunction>");
          tbf.Append(      @"<columnDBFormat></columnDBFormat>");
          tbf.Append(      @"<columnPK>Y</columnPK>");
          tbf.Append(      @"<columnPermanent>N</columnPermanent>");
@@ -56,6 +56,18 @@ public class PhotoClubsDefinition
          tbf.Append(      @"<columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>");
          tbf.Append(      @"<columnTableAliasName></columnTableAliasName>");
          tbf.Append(      @"<applyLabelText>Y</applyLabelText>");
+         tbf.Append(      @"<applyDFKA>N</applyDFKA>");
+         tbf.Append(      @"<applyInitializeInsertingRecord>N</applyInitializeInsertingRecord>");
+         tbf.Append(      @"<applyInitializeReadingRecord>N</applyInitializeReadingRecord>");
+         tbf.Append(      @"<applyInitializeUpdatingRecord>N</applyInitializeUpdatingRecord>");
+         tbf.Append(      @"<applyValidateInsertingRecord>N</applyValidateInsertingRecord>");
+         tbf.Append(      @"<applyValidateUpdatingRecord>N</applyValidateUpdatingRecord>");
+         tbf.Append(      @"<applyDefaultValue>N</applyDefaultValue>");
+         tbf.Append(      @"<insertingRecordFormula></insertingRecordFormula>");
+         tbf.Append(      @"<readingRecordFormula></readingRecordFormula>");
+         tbf.Append(      @"<updatingRecordFormula></updatingRecordFormula>");
+         tbf.Append(      @"<insertingFormula></insertingFormula>");
+         tbf.Append(      @"<updatingFormula></updatingFormula>");
          tbf.Append(    "</Column>");
          tbf.Append(    @"<Column InternalName=""1"" Priority=""2"" ColumnNum=""1"">");
          tbf.Append(      @"<columnName>Description</columnName>");
@@ -65,8 +77,8 @@ public class PhotoClubsDefinition
          tbf.Append(      @"<columnLengthSet>100</columnLengthSet>");
          tbf.Append(      @"<columnDefault></columnDefault>");
          tbf.Append(      @"<columnDBDefault></columnDBDefault>");
-         tbf.Append(      @"<columnIndex>N</columnIndex>");
-         tbf.Append(      @"<columnUnique>N</columnUnique>");
+         tbf.Append(      @"<columnIndex>Y</columnIndex>");
+         tbf.Append(      @"<columnUnique>Y</columnUnique>");
          tbf.Append(      @"<columnFunction></columnFunction>");
          tbf.Append(      @"<columnDBFormat></columnDBFormat>");
          tbf.Append(      @"<columnPK>N</columnPK>");
@@ -82,10 +94,22 @@ public class PhotoClubsDefinition
          tbf.Append(      @"<columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>");
          tbf.Append(      @"<columnTableAliasName></columnTableAliasName>");
          tbf.Append(      @"<applyLabelText>Y</applyLabelText>");
+         tbf.Append(      @"<applyDFKA>N</applyDFKA>");
+         tbf.Append(      @"<applyInitializeInsertingRecord>N</applyInitializeInsertingRecord>");
+         tbf.Append(      @"<applyInitializeReadingRecord>N</applyInitializeReadingRecord>");
+         tbf.Append(      @"<applyInitializeUpdatingRecord>N</applyInitializeUpdatingRecord>");
+         tbf.Append(      @"<applyValidateInsertingRecord>N</applyValidateInsertingRecord>");
+         tbf.Append(      @"<applyValidateUpdatingRecord>N</applyValidateUpdatingRecord>");
+         tbf.Append(      @"<applyDefaultValue>N</applyDefaultValue>");
+         tbf.Append(      @"<insertingRecordFormula></insertingRecordFormula>");
+         tbf.Append(      @"<readingRecordFormula></readingRecordFormula>");
+         tbf.Append(      @"<updatingRecordFormula></updatingRecordFormula>");
+         tbf.Append(      @"<insertingFormula></insertingFormula>");
+         tbf.Append(      @"<updatingFormula></updatingFormula>");
          tbf.Append(    "</Column>");
          tbf.Append(  "</ColumnDefinition>");
          tbf.Append(  @"<TableName>PhotoClubs</TableName>");
-         tbf.Append(  @"<Version></Version>");
+         tbf.Append(  @"<Version>1</Version>");
          tbf.Append(  @"<Owner>dbo</Owner>");
          tbf.Append(  @"<TableAliasName>PhotoClubs_</TableAliasName>");
          tbf.Append(  @"<ConnectionName>DatabaseOLR_db</ConnectionName>");
@@ -96,10 +120,10 @@ public class PhotoClubsDefinition
          tbf.Append(  @"<canViewRecords Source=""Database"">Y</canViewRecords>");
          tbf.Append(  @"<ConcurrencyMethod>BinaryChecksum</ConcurrencyMethod>");
          tbf.Append(  @"<AppShortName>OLR</AppShortName>");
+         tbf.Append(  @"<TableCodeName>PhotoClubs</TableCodeName>");
          tbf.Append(  @"<FolderName>PhotoClubs</FolderName>");
          tbf.Append(  @"<MenuName>Photo Clubs</MenuName>");
          tbf.Append(  @"<QSPath>../PhotoClubs/PhotoClubs-QuickSelector.aspx</QSPath>");
-         tbf.Append(  @"<TableCodeName>PhotoClubs</TableCodeName>");
          tbf.Append(  @"<TableStoredProcPrefix>pOLRPhotoClubs</TableStoredProcPrefix>");
          tbf.Append("</XMLDefinition>");
          _DefinitionString = tbf.ToString();

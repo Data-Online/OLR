@@ -74,8 +74,12 @@
           <Type>ResourceReference</Type>
         </Attribute>
         <Attribute>
+          <Name>Height</Name>
+          <Value>21px</Value>
+        </Attribute>
+        <Attribute>
           <Name>ImageURL</Name>
-          <Value>../Images/logo.png</Value>
+          <Value>../Images/natcon2018_logo.jpg</Value>
         </Attribute>
         <Attribute>
           <Name>style</Name>

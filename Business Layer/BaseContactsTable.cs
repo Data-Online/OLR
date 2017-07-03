@@ -60,6 +60,7 @@ public class BaseContactsTable : PrimaryKeyTable
         this.TableDefinition.AdapterMetaData = this.DataAdapter.AdapterMetaData;
         ContactIdColumn.CodeName = "ContactId";
         Address1Column.CodeName = "Address1";
+        Address1Column.Name = EvaluateFormula("\"Address\"");
         Address2Column.CodeName = "Address2";
         Address3Column.CodeName = "Address3";
         HometownIdColumn.CodeName = "HometownId";
@@ -70,12 +71,26 @@ public class BaseContactsTable : PrimaryKeyTable
         PSNZAppliedForColumn.CodeName = "PSNZAppliedFor";
         FirstNameColumn.CodeName = "FirstName";
         LastNameColumn.CodeName = "LastName";
+        RecordDeletedColumn.CodeName = "RecordDeleted";
 
         
     }
     
 #region "Overriden methods"
-	
+	public override WhereClause AddGlobalWhereClause()
+    {
+        CompoundFilter filter = new CompoundFilter(CompoundFilter.CompoundingOperators.And_Operator, null);
+        WhereClause wc = new WhereClause();
+        String formula;
+
+        if(BaseFormulaEvaluator.ShouldApplyGlobalWhereClause("1")){
+            formula = EvaluateFormula("1");
+            filter.AddFilter(new BaseClasses.Data.ColumnValueFilter(ContactsTable.RecordDeleted, formula, BaseClasses.Data.BaseFilter.ComparisonOperator.Not_Equals, false));
+            wc.AddFilter(filter, CompoundFilter.CompoundingOperators.And_Operator);
+        }
+
+        return wc;
+    }
 #endregion    
 
 #region "Properties for columns"
@@ -376,6 +391,31 @@ public class BaseContactsTable : PrimaryKeyTable
         get
         {
             return ContactsTable.Instance.LastNameColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's Contacts_.RecordDeleted column object.
+    /// </summary>
+    public BaseClasses.Data.BooleanColumn RecordDeletedColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.BooleanColumn)this.TableDefinition.ColumnList[12];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's Contacts_.RecordDeleted column object.
+    /// </summary>
+    public static BaseClasses.Data.BooleanColumn RecordDeleted
+    {
+        get
+        {
+            return ContactsTable.Instance.RecordDeletedColumn;
         }
     }
     
@@ -915,7 +955,8 @@ public class BaseContactsTable : PrimaryKeyTable
         string EmailValue, 
         string PSNZAppliedForValue, 
         string FirstNameValue, 
-        string LastNameValue
+        string LastNameValue, 
+        string RecordDeletedValue
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
@@ -930,6 +971,7 @@ public class BaseContactsTable : PrimaryKeyTable
         rec.SetString(PSNZAppliedForValue, PSNZAppliedForColumn);
         rec.SetString(FirstNameValue, FirstNameColumn);
         rec.SetString(LastNameValue, LastNameColumn);
+        rec.SetString(RecordDeletedValue, RecordDeletedColumn);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized

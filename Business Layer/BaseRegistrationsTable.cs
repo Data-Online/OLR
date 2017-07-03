@@ -68,6 +68,7 @@ public class BaseRegistrationsTable : PrimaryKeyTable
         AdditionalDinnerNameColumn.CodeName = "AdditionalDinnerName";
         DatePaidColumn.CodeName = "DatePaid";
         InitialCreationDateColumn.CodeName = "InitialCreationDate";
+        RecordDeletedColumn.CodeName = "RecordDeleted";
 
         
     }
@@ -79,6 +80,11 @@ public class BaseRegistrationsTable : PrimaryKeyTable
         WhereClause wc = new WhereClause();
         String formula;
 
+        if(BaseFormulaEvaluator.ShouldApplyGlobalWhereClause("1")){
+            formula = EvaluateFormula("1");
+            filter.AddFilter(new BaseClasses.Data.ColumnValueFilter(RegistrationsTable.RecordDeleted, formula, BaseClasses.Data.BaseFilter.ComparisonOperator.Not_Equals, false));
+            wc.AddFilter(filter, CompoundFilter.CompoundingOperators.And_Operator);
+        }
         if(BaseFormulaEvaluator.ShouldApplyGlobalWhereClause("Session(\"ActiveEventId\")")){
             formula = EvaluateFormula("Session(\"ActiveEventId\")");
             filter.AddFilter(new BaseClasses.Data.ColumnValueFilter(RegistrationsTable.EventId, formula, BaseClasses.Data.BaseFilter.ComparisonOperator.EqualsTo,false));
@@ -337,6 +343,31 @@ public class BaseRegistrationsTable : PrimaryKeyTable
         get
         {
             return RegistrationsTable.Instance.InitialCreationDateColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's Registrations_.RecordDeleted column object.
+    /// </summary>
+    public BaseClasses.Data.BooleanColumn RecordDeletedColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.BooleanColumn)this.TableDefinition.ColumnList[10];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's Registrations_.RecordDeleted column object.
+    /// </summary>
+    public static BaseClasses.Data.BooleanColumn RecordDeleted
+    {
+        get
+        {
+            return RegistrationsTable.Instance.RecordDeletedColumn;
         }
     }
     
@@ -874,7 +905,8 @@ public class BaseRegistrationsTable : PrimaryKeyTable
         string SpecialRequirementsValue, 
         string AdditionalDinnerNameValue, 
         string DatePaidValue, 
-        string InitialCreationDateValue
+        string InitialCreationDateValue, 
+        string RecordDeletedValue
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
@@ -887,6 +919,7 @@ public class BaseRegistrationsTable : PrimaryKeyTable
         rec.SetString(AdditionalDinnerNameValue, AdditionalDinnerNameColumn);
         rec.SetString(DatePaidValue, DatePaidColumn);
         rec.SetString(InitialCreationDateValue, InitialCreationDateColumn);
+        rec.SetString(RecordDeletedValue, RecordDeletedColumn);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized

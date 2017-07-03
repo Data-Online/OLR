@@ -84,6 +84,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -120,6 +121,7 @@
     <Import Include="System.Web.UI.WebControls.WebParts" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomTools\CustomStoredProcedures.cs" />
     <Compile Include="CustomTools\Settings.cs" />
     <Compile Include="CustomTools\UserSecurityTools.cs" />
     <Compile Include="Global.asax.cs">
@@ -1028,13 +1030,6 @@
       <DependentUpon>NotActive.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registrations\Edit-Registration.aspx.cs">
-      <DependentUpon>Edit-Registration.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registrations\Edit-Registration.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Honours\Honours-QuickSelector.aspx.cs">
       <DependentUpon>Honours-QuickSelector.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1084,6 +1079,13 @@
     <Compile Include="Registrations\Cancel.aspx.cs">
       <DependentUpon>Cancel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registrations\EditRegistration.aspx.cs" >
+      <DependentUpon>EditRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registrations\EditRegistration.Controls.cs" >
+      <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -1451,7 +1453,6 @@
     <Content Include="view_Registered\Show-View-Registered-Table.aspx" />
     <Content Include="view_Registered\View-Registered-QuickSelector.aspx" />
     <Content Include="Registrations\NotActive.aspx" />
-    <Content Include="Registrations\Edit-Registration.aspx" />
     <Content Include="Honours\Honours-QuickSelector.aspx" />
     <Content Include="HonourContactLinks\Add-HonourContactLinks.aspx" />
     <Content Include="HonourContactLinks\Edit-HonourContactLinks.aspx" />
@@ -1461,6 +1462,7 @@
     <Content Include="Master Pages\Registration.master" />
     <Content Include="Registrations\Confirmation.aspx" />
     <Content Include="Registrations\Cancel.aspx" />
+    <Content Include="Registrations\EditRegistration.aspx"  />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Global.asax.resx">

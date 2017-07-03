@@ -436,6 +436,220 @@ public class BaseFieldTripChoicesRecord : PrimaryKeyRecord
 		ColumnValue cv = new ColumnValue(val);
 		this.SetValue(cv, TableUtils.FieldTripIdColumn);
 	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's FieldTripChoices_.RecordDeleted field.
+	/// </summary>
+	public ColumnValue GetRecordDeletedValue()
+	{
+		return this.GetValue(TableUtils.RecordDeletedColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's FieldTripChoices_.RecordDeleted field.
+	/// </summary>
+	public bool GetRecordDeletedFieldValue()
+	{
+		return this.GetValue(TableUtils.RecordDeletedColumn).ToBoolean();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's FieldTripChoices_.RecordDeleted field.
+	/// </summary>
+	public void SetRecordDeletedFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.RecordDeletedColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's FieldTripChoices_.RecordDeleted field.
+	/// </summary>
+	public void SetRecordDeletedFieldValue(string val)
+	{
+		this.SetString(val, TableUtils.RecordDeletedColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's FieldTripChoices_.RecordDeleted field.
+	/// </summary>
+	public void SetRecordDeletedFieldValue(bool val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.RecordDeletedColumn);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's FieldTripChoices_.FieldTripAllocated field.
+	/// </summary>
+	public ColumnValue GetFieldTripAllocatedValue()
+	{
+		return this.GetValue(TableUtils.FieldTripAllocatedColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's FieldTripChoices_.FieldTripAllocated field.
+	/// </summary>
+	public Int32 GetFieldTripAllocatedFieldValue()
+	{
+		return this.GetValue(TableUtils.FieldTripAllocatedColumn).ToInt32();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's FieldTripChoices_.FieldTripAllocated field.
+	/// </summary>
+	public void SetFieldTripAllocatedFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.FieldTripAllocatedColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's FieldTripChoices_.FieldTripAllocated field.
+	/// </summary>
+	public void SetFieldTripAllocatedFieldValue(string val)
+	{
+		this.SetString(val, TableUtils.FieldTripAllocatedColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's FieldTripChoices_.FieldTripAllocated field.
+	/// </summary>
+	public void SetFieldTripAllocatedFieldValue(double val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.FieldTripAllocatedColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's FieldTripChoices_.FieldTripAllocated field.
+	/// </summary>
+	public void SetFieldTripAllocatedFieldValue(decimal val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.FieldTripAllocatedColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's FieldTripChoices_.FieldTripAllocated field.
+	/// </summary>
+	public void SetFieldTripAllocatedFieldValue(long val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.FieldTripAllocatedColumn);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's FieldTripChoices_.FieldTripAllocated2 field.
+	/// </summary>
+	public ColumnValue GetFieldTripAllocated2Value()
+	{
+		return this.GetValue(TableUtils.FieldTripAllocated2Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's FieldTripChoices_.FieldTripAllocated2 field.
+	/// </summary>
+	public Int32 GetFieldTripAllocated2FieldValue()
+	{
+		return this.GetValue(TableUtils.FieldTripAllocated2Column).ToInt32();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's FieldTripChoices_.FieldTripAllocated2 field.
+	/// </summary>
+	public void SetFieldTripAllocated2FieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.FieldTripAllocated2Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's FieldTripChoices_.FieldTripAllocated2 field.
+	/// </summary>
+	public void SetFieldTripAllocated2FieldValue(string val)
+	{
+		this.SetString(val, TableUtils.FieldTripAllocated2Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's FieldTripChoices_.FieldTripAllocated2 field.
+	/// </summary>
+	public void SetFieldTripAllocated2FieldValue(double val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.FieldTripAllocated2Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's FieldTripChoices_.FieldTripAllocated2 field.
+	/// </summary>
+	public void SetFieldTripAllocated2FieldValue(decimal val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.FieldTripAllocated2Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's FieldTripChoices_.FieldTripAllocated2 field.
+	/// </summary>
+	public void SetFieldTripAllocated2FieldValue(long val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.FieldTripAllocated2Column);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's FieldTripChoices_.FieldTripAllocated3 field.
+	/// </summary>
+	public ColumnValue GetFieldTripAllocated3Value()
+	{
+		return this.GetValue(TableUtils.FieldTripAllocated3Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's FieldTripChoices_.FieldTripAllocated3 field.
+	/// </summary>
+	public Int32 GetFieldTripAllocated3FieldValue()
+	{
+		return this.GetValue(TableUtils.FieldTripAllocated3Column).ToInt32();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's FieldTripChoices_.FieldTripAllocated3 field.
+	/// </summary>
+	public void SetFieldTripAllocated3FieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.FieldTripAllocated3Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's FieldTripChoices_.FieldTripAllocated3 field.
+	/// </summary>
+	public void SetFieldTripAllocated3FieldValue(string val)
+	{
+		this.SetString(val, TableUtils.FieldTripAllocated3Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's FieldTripChoices_.FieldTripAllocated3 field.
+	/// </summary>
+	public void SetFieldTripAllocated3FieldValue(double val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.FieldTripAllocated3Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's FieldTripChoices_.FieldTripAllocated3 field.
+	/// </summary>
+	public void SetFieldTripAllocated3FieldValue(decimal val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.FieldTripAllocated3Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's FieldTripChoices_.FieldTripAllocated3 field.
+	/// </summary>
+	public void SetFieldTripAllocated3FieldValue(long val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.FieldTripAllocated3Column);
+	}
 
 
 #endregion
@@ -698,6 +912,179 @@ public class BaseFieldTripChoicesRecord : PrimaryKeyRecord
 		get
 		{
 			return TableUtils.FieldTripIdColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's FieldTripChoices_.RecordDeleted field.
+	/// </summary>
+	public bool RecordDeleted
+	{
+		get
+		{
+			return this.GetValue(TableUtils.RecordDeletedColumn).ToBoolean();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+	   		this.SetValue(cv, TableUtils.RecordDeletedColumn);
+		}
+	}
+	
+	
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool RecordDeletedSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.RecordDeletedColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's FieldTripChoices_.RecordDeleted field.
+	/// </summary>
+	public string RecordDeletedDefault
+	{
+		get
+		{
+			return TableUtils.RecordDeletedColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's FieldTripChoices_.FieldTripAllocated field.
+	/// </summary>
+	public Int32 FieldTripAllocated
+	{
+		get
+		{
+			return this.GetValue(TableUtils.FieldTripAllocatedColumn).ToInt32();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.FieldTripAllocatedColumn);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool FieldTripAllocatedSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.FieldTripAllocatedColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's FieldTripChoices_.FieldTripAllocated field.
+	/// </summary>
+	public string FieldTripAllocatedDefault
+	{
+		get
+		{
+			return TableUtils.FieldTripAllocatedColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's FieldTripChoices_.FieldTripAllocated2 field.
+	/// </summary>
+	public Int32 FieldTripAllocated2
+	{
+		get
+		{
+			return this.GetValue(TableUtils.FieldTripAllocated2Column).ToInt32();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.FieldTripAllocated2Column);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool FieldTripAllocated2Specified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.FieldTripAllocated2Column);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's FieldTripChoices_.FieldTripAllocated2 field.
+	/// </summary>
+	public string FieldTripAllocated2Default
+	{
+		get
+		{
+			return TableUtils.FieldTripAllocated2Column.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's FieldTripChoices_.FieldTripAllocated3 field.
+	/// </summary>
+	public Int32 FieldTripAllocated3
+	{
+		get
+		{
+			return this.GetValue(TableUtils.FieldTripAllocated3Column).ToInt32();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.FieldTripAllocated3Column);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool FieldTripAllocated3Specified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.FieldTripAllocated3Column);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's FieldTripChoices_.FieldTripAllocated3 field.
+	/// </summary>
+	public string FieldTripAllocated3Default
+	{
+		get
+		{
+			return TableUtils.FieldTripAllocated3Column.DefaultValue;
 		}
 	}
 

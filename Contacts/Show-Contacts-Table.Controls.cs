@@ -183,15 +183,15 @@ public class BaseContactsTableControlRow : OLR.UI.BaseApplicationRecordControl
                 SetAddress1();
                 SetAddress1Label();
                 SetAddress2();
-                SetAddress2Label();
                 SetAddress3();
-                SetAddress3Label();
                 
                 
                 SetEmail();
                 SetEmailLabel();
+                SetFirstName();
                 SetHometownId();
                 SetHometownIdLabel();
+                SetLastName();
                 SetMobileNumber();
                 SetMobileNumberLabel();
                 SetPSNZMember();
@@ -389,6 +389,46 @@ public class BaseContactsTableControlRow : OLR.UI.BaseApplicationRecordControl
                                      
         }
                 
+        public virtual void SetFirstName()
+        {
+            
+                    
+            // Set the FirstName Literal on the webpage with value from the
+            // DatabaseOLR_db%dbo.Contacts database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.Contacts record retrieved from the database.
+            // this.FirstName is the ASP:Literal on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.FirstNameSpecified) {
+                								
+                // If the FirstName is non-NULL, then format the value.
+                // The Format method will use the Display Format
+               string formattedValue = this.DataSource.Format(ContactsTable.FirstName);
+                                
+                formattedValue = HttpUtility.HtmlEncode(formattedValue);
+                this.FirstName.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // FirstName is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.FirstName.Text = ContactsTable.FirstName.Format(ContactsTable.FirstName.DefaultValue);
+            		
+            }
+            
+            // If the FirstName is NULL or blank, then use the value specified  
+            // on Properties.
+            if (this.FirstName.Text == null ||
+                this.FirstName.Text.Trim().Length == 0) {
+                // Set the value specified on the Properties.
+                this.FirstName.Text = "&nbsp;";
+            }
+                                     
+        }
+                
         public virtual void SetHometownId()
         {
             
@@ -433,6 +473,46 @@ public class BaseContactsTableControlRow : OLR.UI.BaseApplicationRecordControl
                 this.HometownId.Text.Trim().Length == 0) {
                 // Set the value specified on the Properties.
                 this.HometownId.Text = "&nbsp;";
+            }
+                                     
+        }
+                
+        public virtual void SetLastName()
+        {
+            
+                    
+            // Set the LastName Literal on the webpage with value from the
+            // DatabaseOLR_db%dbo.Contacts database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.Contacts record retrieved from the database.
+            // this.LastName is the ASP:Literal on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.LastNameSpecified) {
+                								
+                // If the LastName is non-NULL, then format the value.
+                // The Format method will use the Display Format
+               string formattedValue = this.DataSource.Format(ContactsTable.LastName);
+                                
+                formattedValue = HttpUtility.HtmlEncode(formattedValue);
+                this.LastName.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // LastName is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.LastName.Text = ContactsTable.LastName.Format(ContactsTable.LastName.DefaultValue);
+            		
+            }
+            
+            // If the LastName is NULL or blank, then use the value specified  
+            // on Properties.
+            if (this.LastName.Text == null ||
+                this.LastName.Text.Trim().Length == 0) {
+                // Set the value specified on the Properties.
+                this.LastName.Text = "&nbsp;";
             }
                                      
         }
@@ -560,18 +640,8 @@ public class BaseContactsTableControlRow : OLR.UI.BaseApplicationRecordControl
         public virtual void SetAddress1Label()
                   {
                   
-                    
-        }
-                
-        public virtual void SetAddress2Label()
-                  {
-                  
-                    
-        }
-                
-        public virtual void SetAddress3Label()
-                  {
-                  
+                        this.Address1Label.Text = EvaluateFormula("\"Address\"");
+                      
                     
         }
                 
@@ -775,7 +845,9 @@ public class BaseContactsTableControlRow : OLR.UI.BaseApplicationRecordControl
             GetAddress2();
             GetAddress3();
             GetEmail();
+            GetFirstName();
             GetHometownId();
+            GetLastName();
             GetMobileNumber();
             GetPSNZMember();
             GetPSNZMembershipCheck();
@@ -802,7 +874,17 @@ public class BaseContactsTableControlRow : OLR.UI.BaseApplicationRecordControl
             
         }
                 
+        public virtual void GetFirstName()
+        {
+            
+        }
+                
         public virtual void GetHometownId()
+        {
+            
+        }
+                
+        public virtual void GetLastName()
         {
             
         }
@@ -1150,24 +1232,12 @@ public class BaseContactsTableControlRow : OLR.UI.BaseApplicationRecordControl
             }
         }
             
-        public System.Web.UI.WebControls.Literal Address2Label {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Address2Label");
-            }
-        }
-        
         public System.Web.UI.WebControls.Literal Address3 {
             get {
                 return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Address3");
             }
         }
             
-        public System.Web.UI.WebControls.Literal Address3Label {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Address3Label");
-            }
-        }
-        
         public System.Web.UI.WebControls.ImageButton DeleteRowButton {
             get {
                 return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "DeleteRowButton");
@@ -1192,6 +1262,12 @@ public class BaseContactsTableControlRow : OLR.UI.BaseApplicationRecordControl
             }
         }
         
+        public System.Web.UI.WebControls.Literal FirstName {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FirstName");
+            }
+        }
+            
         public System.Web.UI.WebControls.Literal HometownId {
             get {
                 return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "HometownId");
@@ -1204,6 +1280,12 @@ public class BaseContactsTableControlRow : OLR.UI.BaseApplicationRecordControl
             }
         }
         
+        public System.Web.UI.WebControls.Literal LastName {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "LastName");
+            }
+        }
+            
         public System.Web.UI.WebControls.Literal MobileNumber {
             get {
                 return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "MobileNumber");
@@ -1387,12 +1469,12 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
             if (!this.Page.IsPostBack)
             {
                 string initialVal = "";
-                if  (this.InSession(this.MobileNumberFilter)) 				
-                    initialVal = this.GetFromSession(this.MobileNumberFilter);
+                if  (this.InSession(this.LastNameFilter)) 				
+                    initialVal = this.GetFromSession(this.LastNameFilter);
                 
                 else
                     
-                    initialVal = EvaluateFormula("URL(\"MobileNumber\")");
+                    initialVal = EvaluateFormula("URL(\"LastName\")");
                 
                 if(StringUtils.InvariantEquals(initialVal, "Search for", true) || StringUtils.InvariantEquals(initialVal, BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null), true))
                 {
@@ -1402,9 +1484,9 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
                 if (initialVal != null && initialVal != "")		
                 {
                         
-                    string[] MobileNumberFilteritemListFromSession = initialVal.Split(',');
+                    string[] LastNameFilteritemListFromSession = initialVal.Split(',');
                     int index = 0;
-                    foreach (string item in MobileNumberFilteritemListFromSession)
+                    foreach (string item in LastNameFilteritemListFromSession)
                     {
                         if (index == 0 && item.ToString().Equals(""))
                         {
@@ -1412,12 +1494,12 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
                         }
                         else
                         {
-                            this.MobileNumberFilter.Items.Add(item);
-                            this.MobileNumberFilter.Items[index].Selected = true;
+                            this.LastNameFilter.Items.Add(item);
+                            this.LastNameFilter.Items[index].Selected = true;
                             index += 1;
                         }
                     }
-                    foreach (ListItem listItem in this.MobileNumberFilter.Items)
+                    foreach (ListItem listItem in this.LastNameFilter.Items)
                     {
                         listItem.Selected = true;
                     }
@@ -1494,7 +1576,7 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
                         
             this.SortControl.SelectedIndexChanged += new EventHandler(SortControl_SelectedIndexChanged);
             
-              this.MobileNumberFilter.SelectedIndexChanged += MobileNumberFilter_SelectedIndexChanged;                  
+              this.LastNameFilter.SelectedIndexChanged += LastNameFilter_SelectedIndexChanged;                  
                         
         
          //' Setup events for others
@@ -1736,8 +1818,8 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
                 
                 
                 
-                SetMobileNumberFilter();
-                SetMobileNumberLabel1();
+                SetLastNameFilter();
+                SetLastNameLabel();
                 
                 
                 
@@ -1901,7 +1983,7 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
 
 
             
-            this.MobileNumberFilter.ClearSelection();
+            this.LastNameFilter.ClearSelection();
             
             this.SortControl.ClearSelection();
             
@@ -2043,10 +2125,10 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
             // 3. User selected filter criteria.
             
         
-            if (MiscUtils.IsValueSelected(this.MobileNumberFilter)) {
+            if (MiscUtils.IsValueSelected(this.LastNameFilter)) {
                         
                 int selectedItemCount = 0;
-                foreach (ListItem item in this.MobileNumberFilter.Items){
+                foreach (ListItem item in this.LastNameFilter.Items){
                     if (item.Selected) {
                         selectedItemCount += 1;
                         
@@ -2054,12 +2136,12 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
                     }
                 }
                 WhereClause filter = new WhereClause();
-                foreach (ListItem item in this.MobileNumberFilter.Items){
+                foreach (ListItem item in this.LastNameFilter.Items){
                     if ((item.Selected) && ((item.Value == "--ANY--") || (item.Value == "--PLEASE_SELECT--")) && (selectedItemCount > 1)){
                         item.Selected = false;
                     }
                     if (item.Selected){
-                        filter.iOR(ContactsTable.MobileNumber, BaseFilter.ComparisonOperator.EqualsTo, item.Value, false, false);
+                        filter.iOR(ContactsTable.LastName, BaseFilter.ComparisonOperator.EqualsTo, item.Value, false, false);
                     }
                 }
                 wc.iAND(filter);
@@ -2085,22 +2167,22 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
             
             // Adds clauses if values are selected in Filter controls which are configured in the page.
           
-      String MobileNumberFilterSelectedValue = (String)HttpContext.Current.Session[HttpContext.Current.Session.SessionID + appRelativeVirtualPath + "MobileNumberFilter_Ajax"];
-            if (MiscUtils.IsValueSelected(MobileNumberFilterSelectedValue)) {
+      String LastNameFilterSelectedValue = (String)HttpContext.Current.Session[HttpContext.Current.Session.SessionID + appRelativeVirtualPath + "LastNameFilter_Ajax"];
+            if (MiscUtils.IsValueSelected(LastNameFilterSelectedValue)) {
 
               
-        if (MobileNumberFilterSelectedValue != null){
-                        string[] MobileNumberFilteritemListFromSession = MobileNumberFilterSelectedValue.Split(',');
+        if (LastNameFilterSelectedValue != null){
+                        string[] LastNameFilteritemListFromSession = LastNameFilterSelectedValue.Split(',');
                         int index = 0;
                         WhereClause filter = new WhereClause();
-                        foreach (string item in MobileNumberFilteritemListFromSession)
+                        foreach (string item in LastNameFilteritemListFromSession)
                         {
                             if (index == 0 && item.ToString().Equals(""))
                             {
                             }
                             else
                             {
-                                filter.iOR(ContactsTable.MobileNumber, BaseFilter.ComparisonOperator.EqualsTo, item, false, false);
+                                filter.iOR(ContactsTable.LastName, BaseFilter.ComparisonOperator.EqualsTo, item, false, false);
                                 index += 1;
                             }
                         }
@@ -2306,8 +2388,16 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
                             rec.Parse(recControl.Email.Text, ContactsTable.Email);
                   }
                 
+                        if (recControl.FirstName.Text != "") {
+                            rec.Parse(recControl.FirstName.Text, ContactsTable.FirstName);
+                  }
+                
                         if (recControl.HometownId.Text != "") {
                             rec.Parse(recControl.HometownId.Text, ContactsTable.HometownId);
+                  }
+                
+                        if (recControl.LastName.Text != "") {
+                            rec.Parse(recControl.LastName.Text, ContactsTable.LastName);
                   }
                 
                         if (recControl.MobileNumber.Text != "") {
@@ -2389,7 +2479,7 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
       
         // Create Set, WhereClause, and Populate Methods
         
-        public virtual void SetMobileNumberLabel1()
+        public virtual void SetLastNameLabel()
                   {
                   
                     
@@ -2413,33 +2503,33 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
 
         }
             
-        public virtual void SetMobileNumberFilter()
+        public virtual void SetLastNameFilter()
         {
             
-            ArrayList MobileNumberFilterselectedFilterItemList = new ArrayList();
-            string MobileNumberFilteritemsString = null;
-            if (this.InSession(this.MobileNumberFilter))
-                MobileNumberFilteritemsString = this.GetFromSession(this.MobileNumberFilter);
+            ArrayList LastNameFilterselectedFilterItemList = new ArrayList();
+            string LastNameFilteritemsString = null;
+            if (this.InSession(this.LastNameFilter))
+                LastNameFilteritemsString = this.GetFromSession(this.LastNameFilter);
             
-            if (MobileNumberFilteritemsString != null)
+            if (LastNameFilteritemsString != null)
             {
-                string[] MobileNumberFilteritemListFromSession = MobileNumberFilteritemsString.Split(',');
-                foreach (string item in MobileNumberFilteritemListFromSession)
+                string[] LastNameFilteritemListFromSession = LastNameFilteritemsString.Split(',');
+                foreach (string item in LastNameFilteritemListFromSession)
                 {
-                    MobileNumberFilterselectedFilterItemList.Add(item);
+                    LastNameFilterselectedFilterItemList.Add(item);
                 }
             }
               
             			
-            this.PopulateMobileNumberFilter(MiscUtils.GetSelectedValueList(this.MobileNumberFilter, MobileNumberFilterselectedFilterItemList), 500);
+            this.PopulateLastNameFilter(MiscUtils.GetSelectedValueList(this.LastNameFilter, LastNameFilterselectedFilterItemList), 500);
                     
               string url = this.ModifyRedirectUrl("../Contacts/Contacts-QuickSelector.aspx", "", true);
               
               url = this.Page.ModifyRedirectUrl(url, "", true);                                  
               
-              url += "?Target=" + this.MobileNumberFilter.ClientID + "&IndexField=" + (this.Page as BaseApplicationPage).Encrypt("MobileNumber")+ "&EmptyValue=" + (this.Page as BaseApplicationPage).Encrypt("--ANY--") + "&EmptyDisplayText=" + (this.Page as BaseApplicationPage).Encrypt(this.Page.GetResourceValue("Txt:All")) + "&RedirectStyle=" + (this.Page as BaseApplicationPage).Encrypt("Popup");
+              url += "?Target=" + this.LastNameFilter.ClientID + "&IndexField=" + (this.Page as BaseApplicationPage).Encrypt("LastName")+ "&EmptyValue=" + (this.Page as BaseApplicationPage).Encrypt("--ANY--") + "&EmptyDisplayText=" + (this.Page as BaseApplicationPage).Encrypt(this.Page.GetResourceValue("Txt:All")) + "&RedirectStyle=" + (this.Page as BaseApplicationPage).Encrypt("Popup");
               
-              this.MobileNumberFilter.Attributes["onClick"] = "initializePopupPage(this, '" + url + "', " + Convert.ToString(MobileNumberFilter.AutoPostBack).ToLower() + ", event); return false;";
+              this.LastNameFilter.Attributes["onClick"] = "initializePopupPage(this, '" + url + "', " + Convert.ToString(LastNameFilter.AutoPostBack).ToLower() + ", event); return false;";
                   
                              
         }
@@ -2501,6 +2591,10 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
               
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("First Name {Txt:Descending}"), "FirstName Desc"));
               
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Record Deleted {Txt:Ascending}"), "RecordDeleted Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Record Deleted {Txt:Descending}"), "RecordDeleted Desc"));
+              
             try
             {          
                 // Set the selected value.
@@ -2517,32 +2611,32 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
               
         }
             
-        // Get the filters' data for MobileNumberFilter.
+        // Get the filters' data for LastNameFilter.
                 
-        protected virtual void PopulateMobileNumberFilter(ArrayList selectedValue, int maxItems)
+        protected virtual void PopulateLastNameFilter(ArrayList selectedValue, int maxItems)
                     
         {
         
             
             //Setup the WHERE clause.
                         
-            WhereClause wc = this.CreateWhereClause_MobileNumberFilter();            
-            this.MobileNumberFilter.Items.Clear();
+            WhereClause wc = this.CreateWhereClause_LastNameFilter();            
+            this.LastNameFilter.Items.Clear();
             			  			
-            // Set up the WHERE and the ORDER BY clause by calling the CreateWhereClause_MobileNumberFilter function.
+            // Set up the WHERE and the ORDER BY clause by calling the CreateWhereClause_LastNameFilter function.
             // It is better to customize the where clause there.
              
             
             
             OrderBy orderBy = new OrderBy(false, false);
-            orderBy.Add(ContactsTable.MobileNumber, OrderByItem.OrderDir.Asc);                
+            orderBy.Add(ContactsTable.LastName, OrderByItem.OrderDir.Asc);                
             
             
             string[] values = new string[0];
             if (wc.RunQuery)
             {
             
-                values = ContactsTable.GetValues(ContactsTable.MobileNumber, wc, orderBy, maxItems);
+                values = ContactsTable.GetValues(ContactsTable.LastName, wc, orderBy, maxItems);
             
             }
             
@@ -2551,10 +2645,10 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
             {
             // Create the item and add to the list.
             string fvalue;
-            if ( ContactsTable.MobileNumber.IsColumnValueTypeBoolean()) {
+            if ( ContactsTable.LastName.IsColumnValueTypeBoolean()) {
                     fvalue = cvalue;
                 }else {
-                    fvalue = ContactsTable.MobileNumber.Format(cvalue);
+                    fvalue = ContactsTable.LastName.Format(cvalue);
                 }
                 if (fvalue == null) {
                     fvalue = "";
@@ -2566,7 +2660,7 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
                     fvalue = fvalue.Substring(0, 50) + "...";
                 }
 
-                ListItem dupItem = this.MobileNumberFilter.Items.FindByText(fvalue);
+                ListItem dupItem = this.LastNameFilter.Items.FindByText(fvalue);
 								
                 if (dupItem != null) {
                     listDuplicates.Add(fvalue);
@@ -2577,7 +2671,7 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
                 }
 
                 ListItem newItem = new ListItem(fvalue, cvalue);
-                this.MobileNumberFilter.Items.Add(newItem);
+                this.LastNameFilter.Items.Add(newItem);
 
                 if (listDuplicates.Contains(fvalue) &&  !string.IsNullOrEmpty(cvalue)) {
                     newItem.Text = fvalue + " (ID " + cvalue.Substring(0, Math.Min(cvalue.Length,38)) + ")";
@@ -2595,53 +2689,53 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
             }
             
             
-            this.MobileNumberFilter.SetFieldMaxLength(50);
+            this.LastNameFilter.SetFieldMaxLength(50);
                                  
                   
             // Add the selected value.
-            if (this.MobileNumberFilter.Items.Count == 0)
-                this.MobileNumberFilter.Items.Add(new ListItem(Page.GetResourceValue("Txt:All", "OLR"), "--ANY--"));
+            if (this.LastNameFilter.Items.Count == 0)
+                this.LastNameFilter.Items.Add(new ListItem(Page.GetResourceValue("Txt:All", "OLR"), "--ANY--"));
             
             // Mark all items to be selected.
-            foreach (ListItem item in this.MobileNumberFilter.Items)
+            foreach (ListItem item in this.LastNameFilter.Items)
             {
                 item.Selected = true;
             }
                                
         }
             
-        public virtual WhereClause CreateWhereClause_MobileNumberFilter()
+        public virtual WhereClause CreateWhereClause_LastNameFilter()
         {
-            // Create a where clause for the filter MobileNumberFilter.
+            // Create a where clause for the filter LastNameFilter.
             // This function is called by the Populate method to load the items 
-            // in the MobileNumberFilterQuickSelector
+            // in the LastNameFilterQuickSelector
         
-            ArrayList MobileNumberFilterselectedFilterItemList = new ArrayList();
-            string MobileNumberFilteritemsString = null;
-            if (this.InSession(this.MobileNumberFilter))
-                MobileNumberFilteritemsString = this.GetFromSession(this.MobileNumberFilter);
+            ArrayList LastNameFilterselectedFilterItemList = new ArrayList();
+            string LastNameFilteritemsString = null;
+            if (this.InSession(this.LastNameFilter))
+                LastNameFilteritemsString = this.GetFromSession(this.LastNameFilter);
             
-            if (MobileNumberFilteritemsString != null)
+            if (LastNameFilteritemsString != null)
             {
-                string[] MobileNumberFilteritemListFromSession = MobileNumberFilteritemsString.Split(',');
-                foreach (string item in MobileNumberFilteritemListFromSession)
+                string[] LastNameFilteritemListFromSession = LastNameFilteritemsString.Split(',');
+                foreach (string item in LastNameFilteritemListFromSession)
                 {
-                    MobileNumberFilterselectedFilterItemList.Add(item);
+                    LastNameFilterselectedFilterItemList.Add(item);
                 }
             }
               
-            MobileNumberFilterselectedFilterItemList = MiscUtils.GetSelectedValueList(this.MobileNumberFilter, MobileNumberFilterselectedFilterItemList); 
+            LastNameFilterselectedFilterItemList = MiscUtils.GetSelectedValueList(this.LastNameFilter, LastNameFilterselectedFilterItemList); 
             WhereClause wc = new WhereClause();
-            if (MobileNumberFilterselectedFilterItemList == null || MobileNumberFilterselectedFilterItemList.Count == 0)
+            if (LastNameFilterselectedFilterItemList == null || LastNameFilterselectedFilterItemList.Count == 0)
                 wc.RunQuery = false;
             else            
             {
-                foreach (string item in MobileNumberFilterselectedFilterItemList)
+                foreach (string item in LastNameFilterselectedFilterItemList)
                 {
             
       
    
-                    wc.iOR(ContactsTable.MobileNumber, BaseFilter.ComparisonOperator.EqualsTo, item);
+                    wc.iOR(ContactsTable.LastName, BaseFilter.ComparisonOperator.EqualsTo, item);
 
                                 
                 }
@@ -2685,14 +2779,14 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
         
             this.SaveToSession(this.SortControl, this.SortControl.SelectedValue);
                   
-            ArrayList MobileNumberFilterselectedFilterItemList = MiscUtils.GetSelectedValueList(this.MobileNumberFilter, null);
-            string MobileNumberFilterSessionString = "";
-            if (MobileNumberFilterselectedFilterItemList != null){
-                foreach (string item in MobileNumberFilterselectedFilterItemList){
-                    MobileNumberFilterSessionString = String.Concat(MobileNumberFilterSessionString ,"," , item);
+            ArrayList LastNameFilterselectedFilterItemList = MiscUtils.GetSelectedValueList(this.LastNameFilter, null);
+            string LastNameFilterSessionString = "";
+            if (LastNameFilterselectedFilterItemList != null){
+                foreach (string item in LastNameFilterselectedFilterItemList){
+                    LastNameFilterSessionString = String.Concat(LastNameFilterSessionString ,"," , item);
                 }
             }
-            this.SaveToSession(this.MobileNumberFilter, MobileNumberFilterSessionString);
+            this.SaveToSession(this.LastNameFilter, LastNameFilterSessionString);
                   
             
                     
@@ -2723,14 +2817,14 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
           
             this.SaveToSession(this.SortControl, this.SortControl.SelectedValue);
                   
-            ArrayList MobileNumberFilterselectedFilterItemList = MiscUtils.GetSelectedValueList(this.MobileNumberFilter, null);
-            string MobileNumberFilterSessionString = "";
-            if (MobileNumberFilterselectedFilterItemList != null){
-                foreach (string item in MobileNumberFilterselectedFilterItemList){
-                    MobileNumberFilterSessionString = String.Concat(MobileNumberFilterSessionString ,"," , item);
+            ArrayList LastNameFilterselectedFilterItemList = MiscUtils.GetSelectedValueList(this.LastNameFilter, null);
+            string LastNameFilterSessionString = "";
+            if (LastNameFilterselectedFilterItemList != null){
+                foreach (string item in LastNameFilterselectedFilterItemList){
+                    LastNameFilterSessionString = String.Concat(LastNameFilterSessionString ,"," , item);
                 }
             }
-            this.SaveToSession("MobileNumberFilter_Ajax", MobileNumberFilterSessionString);
+            this.SaveToSession("LastNameFilter_Ajax", LastNameFilterSessionString);
           
            HttpContext.Current.Session["AppRelativeVirtualPath"] = this.Page.AppRelativeVirtualPath;
          
@@ -2743,7 +2837,7 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
             // Clear filter controls values from the session.
         
             this.RemoveFromSession(this.SortControl);
-            this.RemoveFromSession(this.MobileNumberFilter);
+            this.RemoveFromSession(this.LastNameFilter);
             
             // Clear pagination state from session.
          
@@ -2918,7 +3012,7 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
          themeButtonFiltersButton.ArrowImage.ImageUrl = "../Images/ButtonExpandArrow.png";
     
       
-            if (MiscUtils.IsValueSelected(MobileNumberFilter))
+            if (MiscUtils.IsValueSelected(LastNameFilter))
                 themeButtonFiltersButton.ArrowImage.ImageUrl = "../Images/ButtonCheckmark.png";
         
    
@@ -3095,6 +3189,8 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
              ContactsTable.PSNZMembershipCheck,
              ContactsTable.PSNZMember,
              ContactsTable.Email,
+             ContactsTable.FirstName,
+             ContactsTable.LastName,
              null};
                 ExportDataToCSV exportData = new ExportDataToCSV(ContactsTable.Instance,wc,orderBy,columns);
                 exportData.StartExport(this.Page.Response, true);
@@ -3158,6 +3254,8 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
              data.ColumnList.Add(new ExcelColumn(ContactsTable.PSNZMembershipCheck, "Default"));
              data.ColumnList.Add(new ExcelColumn(ContactsTable.PSNZMember, "Default"));
              data.ColumnList.Add(new ExcelColumn(ContactsTable.Email, "Default"));
+             data.ColumnList.Add(new ExcelColumn(ContactsTable.FirstName, "Default"));
+             data.ColumnList.Add(new ExcelColumn(ContactsTable.LastName, "Default"));
 
 
               //  First write out the Column Headers
@@ -3338,6 +3436,8 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
                  report.AddColumn(ContactsTable.PSNZMembershipCheck.Name, ReportEnum.Align.Left, "${PSNZMembershipCheck}", ReportEnum.Align.Left, 15);
                  report.AddColumn(ContactsTable.PSNZMember.Name, ReportEnum.Align.Left, "${PSNZMember}", ReportEnum.Align.Left, 15);
                  report.AddColumn(ContactsTable.Email.Name, ReportEnum.Align.Left, "${Email}", ReportEnum.Align.Left, 28);
+                 report.AddColumn(ContactsTable.FirstName.Name, ReportEnum.Align.Left, "${FirstName}", ReportEnum.Align.Left, 28);
+                 report.AddColumn(ContactsTable.LastName.Name, ReportEnum.Align.Left, "${LastName}", ReportEnum.Align.Left, 28);
 
   
                 int rowsPerQuery = 5000;
@@ -3392,6 +3492,8 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
                              report.AddData("${PSNZMembershipCheck}", record.Format(ContactsTable.PSNZMembershipCheck), ReportEnum.Align.Left, 300);
                              report.AddData("${PSNZMember}", record.Format(ContactsTable.PSNZMember), ReportEnum.Align.Left, 300);
                              report.AddData("${Email}", record.Format(ContactsTable.Email), ReportEnum.Align.Left, 300);
+                             report.AddData("${FirstName}", record.Format(ContactsTable.FirstName), ReportEnum.Align.Left, 300);
+                             report.AddData("${LastName}", record.Format(ContactsTable.LastName), ReportEnum.Align.Left, 300);
 
                             report.WriteRow();
                         }
@@ -3427,7 +3529,7 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
               
             try {
                 
-              this.MobileNumberFilter.ClearSelection();
+              this.LastNameFilter.ClearSelection();
             
            
             this.SortControl.ClearSelection();
@@ -3491,6 +3593,8 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
                  report.AddColumn(ContactsTable.PSNZMembershipCheck.Name, ReportEnum.Align.Left, "${PSNZMembershipCheck}", ReportEnum.Align.Left, 15);
                  report.AddColumn(ContactsTable.PSNZMember.Name, ReportEnum.Align.Left, "${PSNZMember}", ReportEnum.Align.Left, 15);
                  report.AddColumn(ContactsTable.Email.Name, ReportEnum.Align.Left, "${Email}", ReportEnum.Align.Left, 28);
+                 report.AddColumn(ContactsTable.FirstName.Name, ReportEnum.Align.Left, "${FirstName}", ReportEnum.Align.Left, 28);
+                 report.AddColumn(ContactsTable.LastName.Name, ReportEnum.Align.Left, "${LastName}", ReportEnum.Align.Left, 28);
 
                 WhereClause whereClause = null;
                 whereClause = CreateWhereClause();
@@ -3541,6 +3645,8 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
                              report.AddData("${PSNZMembershipCheck}", record.Format(ContactsTable.PSNZMembershipCheck), ReportEnum.Align.Left, 300);
                              report.AddData("${PSNZMember}", record.Format(ContactsTable.PSNZMember), ReportEnum.Align.Left, 300);
                              report.AddData("${Email}", record.Format(ContactsTable.Email), ReportEnum.Align.Left, 300);
+                             report.AddData("${FirstName}", record.Format(ContactsTable.FirstName), ReportEnum.Align.Left, 300);
+                             report.AddData("${LastName}", record.Format(ContactsTable.LastName), ReportEnum.Align.Left, 300);
 
                             report.WriteRow();
                         }
@@ -3691,7 +3797,7 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
         }
             
         // event handler for FieldFilter
-        protected virtual void MobileNumberFilter_SelectedIndexChanged(object sender, EventArgs args)
+        protected virtual void LastNameFilter_SelectedIndexChanged(object sender, EventArgs args)
         {
             // Setting the DataChanged to True results in the page being refreshed with
             // the most recent data from the database.  This happens in PreRender event
@@ -3805,15 +3911,15 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
             }
         }
         
-        public BaseClasses.Web.UI.WebControls.QuickSelector MobileNumberFilter {
+        public BaseClasses.Web.UI.WebControls.QuickSelector LastNameFilter {
             get {
-                return (BaseClasses.Web.UI.WebControls.QuickSelector)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "MobileNumberFilter");
+                return (BaseClasses.Web.UI.WebControls.QuickSelector)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "LastNameFilter");
             }
         }              
         
-        public System.Web.UI.WebControls.Literal MobileNumberLabel1 {
+        public System.Web.UI.WebControls.Literal LastNameLabel {
             get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "MobileNumberLabel1");
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "LastNameLabel");
             }
         }
         
@@ -4020,17 +4126,11 @@ public class BaseRegistrationsTableControlRow : OLR.UI.BaseApplicationRecordCont
         // To customize, override this method in RegistrationsTableControlRow.
         protected virtual void Control_Load(object sender, System.EventArgs e)
         {      
-        
-              // Show confirmation message on Click
-              this.DeleteRowButton1.Attributes.Add("onClick", "return (confirm(\"" + ((BaseApplicationPage)this.Page).GetResourceValue("DeleteRecordConfirm", "OLR") + "\"));");            
+                    
         
               // Register the event handlers.
 
           
-                    this.DeleteRowButton1.Click += DeleteRowButton1_Click;
-                        
-                    this.EditRowButton1.Click += EditRowButton1_Click;
-                        
                     this.EventId.Click += EventId_Click;
                         
                     this.RegistrationTypeId.Click += RegistrationTypeId_Click;
@@ -4096,20 +4196,12 @@ public class BaseRegistrationsTableControlRow : OLR.UI.BaseApplicationRecordCont
                 SetAdditionalDinnerTicketLabel();
                 SetDatePaid();
                 SetDatePaidLabel();
-                
-                
                 SetEventId();
-                SetEventIdLabel();
                 SetInitialCreationDate();
                 SetInitialCreationDateLabel();
                 SetRegistrationTypeId();
-                SetRegistrationTypeIdLabel();
                 SetSpecialRequirements();
                 SetSpecialRequirementsLabel();
-                SetDeleteRowButton1();
-              
-                SetEditRowButton1();
-              
 
       
 
@@ -4433,19 +4525,7 @@ public class BaseRegistrationsTableControlRow : OLR.UI.BaseApplicationRecordCont
                     
         }
                 
-        public virtual void SetEventIdLabel()
-                  {
-                  
-                    
-        }
-                
         public virtual void SetInitialCreationDateLabel()
-                  {
-                  
-                    
-        }
-                
-        public virtual void SetRegistrationTypeIdLabel()
                   {
                   
                     
@@ -4799,98 +4879,6 @@ public class BaseRegistrationsTableControlRow : OLR.UI.BaseApplicationRecordCont
     
         // Generate set method for buttons
         
-        public virtual void SetDeleteRowButton1()                
-              
-        {
-        
-   
-        }
-            
-        public virtual void SetEditRowButton1()                
-              
-        {
-        
-   
-        }
-            
-        // event handler for ImageButton
-        public virtual void DeleteRowButton1_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            try {
-                // Enclose all database retrieval/update code within a Transaction boundary
-                DbUtils.StartTransaction();
-                
-            if (!this.Page.IsPageRefresh) {
-        
-                this.Delete();
-              
-            }
-      this.Page.CommitTransaction(sender);
-            } catch (Exception ex) {
-                  // Upon error, rollback the transaction
-                  this.Page.RollBackTransaction(sender);
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-                DbUtils.EndTransaction();
-            }
-    
-        }
-            
-            
-        
-        // event handler for ImageButton
-        public virtual void EditRowButton1_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            // The redirect URL is set on the Properties, Custom Properties or Actions.
-            // The ModifyRedirectURL call resolves the parameters before the
-            // Response.Redirect redirects the page to the URL.  
-            // Any code after the Response.Redirect call will not be executed, since the page is
-            // redirected to the URL.
-            
-            string url = @"../Registrations/Edit-Registrations.aspx?Registrations={PK}";
-            
-            if (!string.IsNullOrEmpty(this.Page.Request["RedirectStyle"]))
-                url += "&RedirectStyle=" + this.Page.Request["RedirectStyle"];
-            
-        bool shouldRedirect = true;
-        string target = null;
-        if (target == null) target = ""; // avoid warning on VS
-      
-            try {
-                // Enclose all database retrieval/update code within a Transaction boundary
-                DbUtils.StartTransaction();
-                
-                url = this.ModifyRedirectUrl(url, "",true);
-                url = this.Page.ModifyRedirectUrl(url, "",true);
-              
-            } catch (Exception ex) {
-                  // Upon error, rollback the transaction
-                  this.Page.RollBackTransaction(sender);
-                  shouldRedirect = false;
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-                DbUtils.EndTransaction();
-            }
-            if (shouldRedirect) {
-                this.Page.ShouldSaveControlsToSession = true;
-      this.Page.Response.Redirect(url);
-        
-            }
-        
-        }
-            
-            
-        
         // event handler for LinkButton
         public virtual void EventId_Click(object sender, EventArgs args)
         {
@@ -5112,30 +5100,12 @@ public class BaseRegistrationsTableControlRow : OLR.UI.BaseApplicationRecordCont
             }
         }
         
-        public System.Web.UI.WebControls.ImageButton DeleteRowButton1 {
-            get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "DeleteRowButton1");
-            }
-        }
-        
-        public System.Web.UI.WebControls.ImageButton EditRowButton1 {
-            get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "EditRowButton1");
-            }
-        }
-        
         public System.Web.UI.WebControls.LinkButton EventId {
             get {
                 return (System.Web.UI.WebControls.LinkButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "EventId");
             }
         }
             
-        public System.Web.UI.WebControls.Literal EventIdLabel {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "EventIdLabel");
-            }
-        }
-        
         public System.Web.UI.WebControls.Literal InitialCreationDate {
             get {
                 return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "InitialCreationDate");
@@ -5154,12 +5124,6 @@ public class BaseRegistrationsTableControlRow : OLR.UI.BaseApplicationRecordCont
             }
         }
             
-        public System.Web.UI.WebControls.Literal RegistrationTypeIdLabel {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "RegistrationTypeIdLabel");
-            }
-        }
-        
         public System.Web.UI.WebControls.Literal SpecialRequirements {
             get {
                 return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "SpecialRequirements");
@@ -5289,85 +5253,6 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
     
            // Setup the filter and search.
         
-            if (!this.Page.IsPostBack)
-            {
-                string initialVal = "";
-                
-                  if(StringUtils.InvariantEquals(initialVal, "Search for", true) || StringUtils.InvariantEquals(initialVal, BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null), true))
-                  {
-                  initialVal = "";
-                  }
-                
-                if  (this.InSession(this.SortControl1)) 				
-                    initialVal = this.GetFromSession(this.SortControl1);
-                
-                if (initialVal != null && initialVal != "")		
-                {
-                        
-                    this.SortControl1.Items.Add(new ListItem(initialVal, initialVal));
-                        
-                    this.SortControl1.SelectedValue = initialVal;
-                            
-                    }
-            }
-            if (!this.Page.IsPostBack)
-            {
-                string initialVal = "";
-                if  (this.InSession(this.RegistrationsSearchText)) 				
-                    initialVal = this.GetFromSession(this.RegistrationsSearchText);
-                
-                if(StringUtils.InvariantEquals(initialVal, "Search for", true) || StringUtils.InvariantEquals(initialVal, BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null), true))
-                {
-                initialVal = "";
-                }
-              
-                if (initialVal != null && initialVal != "")		
-                {
-                        
-                    this.RegistrationsSearchText.Text = initialVal;
-                            
-                    }
-            }
-            if (!this.Page.IsPostBack)
-            {
-                string initialVal = "";
-                if  (this.InSession(this.RegistrationTypeIdFilter1)) 				
-                    initialVal = this.GetFromSession(this.RegistrationTypeIdFilter1);
-                
-                else
-                    
-                    initialVal = EvaluateFormula("URL(\"RegistrationTypeId\")");
-                
-                if(StringUtils.InvariantEquals(initialVal, "Search for", true) || StringUtils.InvariantEquals(initialVal, BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null), true))
-                {
-                initialVal = "";
-                }
-              
-                if (initialVal != null && initialVal != "")		
-                {
-                        
-                    string[] RegistrationTypeIdFilter1itemListFromSession = initialVal.Split(',');
-                    int index = 0;
-                    foreach (string item in RegistrationTypeIdFilter1itemListFromSession)
-                    {
-                        if (index == 0 && item.ToString().Equals(""))
-                        {
-                            // do nothing
-                        }
-                        else
-                        {
-                            this.RegistrationTypeIdFilter1.Items.Add(item);
-                            this.RegistrationTypeIdFilter1.Items[index].Selected = true;
-                            index += 1;
-                        }
-                    }
-                    foreach (ListItem listItem in this.RegistrationTypeIdFilter1.Items)
-                    {
-                        listItem.Selected = true;
-                    }
-                        
-                    }
-            }
 
 
       
@@ -5400,16 +5285,6 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
         
             // Setup the pagination events.
             
-                    this.Pagination1.FirstPage.Click += Pagination1_FirstPage_Click;
-                        
-                    this.Pagination1.LastPage.Click += Pagination1_LastPage_Click;
-                        
-                    this.Pagination1.NextPage.Click += Pagination1_NextPage_Click;
-                        
-                    this.Pagination1.PageSizeButton.Click += Pagination1_PageSizeButton_Click;
-                        
-                    this.Pagination1.PreviousPage.Click += Pagination1_PreviousPage_Click;
-                        
 
             string url =""; //to avoid warning in VS as its not being used
             if(url == null) url=""; //to avoid warning in VS as its not being used
@@ -5417,35 +5292,10 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
        // Setup the sorting events.
         
             // Setup the button events.
-          
-                    this.ExcelButton1.Click += ExcelButton1_Click;
-                        
-                    this.ImportButton1.Click += ImportButton1_Click;
-                        
-                    this.NewButton1.Click += NewButton1_Click;
-                        
-                    this.PDFButton1.Click += PDFButton1_Click;
-                        
-                    this.ResetButton1.Click += ResetButton1_Click;
-                        
-                    this.SearchButton1.Click += SearchButton1_Click;
-                        
-                    this.WordButton1.Click += WordButton1_Click;
-                        
-                    this.Actions1Button.Button.Click += Actions1Button_Click;
-                        
-                    this.FilterButton1.Button.Click += FilterButton1_Click;
-                        
-                    this.Filters1Button.Button.Click += Filters1Button_Click;
-                        
-            this.SortControl1.SelectedIndexChanged += new EventHandler(SortControl1_SelectedIndexChanged);
-            
-              this.RegistrationTypeIdFilter1.SelectedIndexChanged += RegistrationTypeIdFilter1_SelectedIndexChanged;                  
-                        
+                  
         
          //' Setup events for others
-            AjaxControlToolkit.ToolkitScriptManager.RegisterStartupScript(this, this.GetType(), "RegistrationsSearchTextSearchBoxText", "setSearchBoxText(\"" + BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null) + "\", \"" + RegistrationsSearchText.ClientID + "\");", true);
-             
+               
         }
 
         public virtual void LoadData()
@@ -5678,43 +5528,6 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
     
             // Call the Set methods for each controls on the panel
         
-                
-                
-                
-                
-                
-                
-                
-                
-                SetRegistrationsSearchText();
-                SetRegistrationTypeIdFilter1();
-                SetRegistrationTypeIdLabel2();
-                
-                
-                SetSortByLabel1();
-                SetSortControl1();
-                
-                
-                SetExcelButton1();
-              
-                SetImportButton1();
-              
-                SetNewButton1();
-              
-                SetPDFButton1();
-              
-                SetResetButton1();
-              
-                SetSearchButton1();
-              
-                SetWordButton1();
-              
-                SetActions1Button();
-              
-                SetFilterButton1();
-              
-                SetFilters1Button();
-              
             // setting the state of expand or collapse alternative rows
       
             // Load data for each record and table UI control.
@@ -5725,9 +5538,7 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
             // this method calls the set method for controls with special formula like running total, sum, rank, etc
             SetFormulaControls();
             
-             
-              SetFilters1Button();
-                     
+                    
         }
         
         
@@ -5739,15 +5550,6 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
     }
 
         
-    public virtual void AddWarningMessageOnClick() {
-    
-        if (this.TotalRecords > 10000)
-          this.ExcelButton1.Attributes.Add("onClick", "return (confirm('" + ((BaseApplicationPage)this.Page).GetResourceValue("ExportConfirm", "OLR") + "'));");
-        else
-          this.ExcelButton1.Attributes.Remove("onClick");
-      
-    }
-  
         public void PreFetchForeignKeyValues() {
             if (this.DataSource == null) {
                 return;
@@ -5760,13 +5562,7 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
 
         public virtual void RegisterPostback()
         {
-        
-              this.Page.RegisterPostBackTrigger(MiscUtils.FindControlRecursively(this,"ExcelButton1"));
-                        
-              this.Page.RegisterPostBackTrigger(MiscUtils.FindControlRecursively(this,"PDFButton1"));
-                        
-              this.Page.RegisterPostBackTrigger(MiscUtils.FindControlRecursively(this,"WordButton1"));
-                                
+                
         }
         
 
@@ -5877,35 +5673,9 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
 
             // Bind the pagination labels.
         
-            if (DbUtils.GetCreatedRecords(this.DataSource).Length > 0)                      
-                    
-            {
-                this.Pagination1.CurrentPage.Text = (this.PageIndex + 1).ToString();
-            } 
-            else
-            {
-                this.Pagination1.CurrentPage.Text = "0";
-            }
-            this.Pagination1.PageSize.Text = this.PageSize.ToString();
     
             // Bind the buttons for RegistrationsTableControl pagination.
-        
-            this.Pagination1.FirstPage.Enabled = !(this.PageIndex == 0);
-            if (this._TotalPages < 0)             // if the total pages is not determined yet, enable last and next buttons
-                this.Pagination1.LastPage.Enabled = true;
-            else if (this._TotalPages == 0)          // if the total pages is determined and it is 0, enable last and next buttons
-                this.Pagination1.LastPage.Enabled = false;            
-            else                                     // if the total pages is the last page, disable last and next buttons
-                this.Pagination1.LastPage.Enabled = !(this.PageIndex == this.TotalPages - 1);            
-          
-            if (this._TotalPages < 0)             // if the total pages is not determined yet, enable last and next buttons
-                this.Pagination1.NextPage.Enabled = true;
-            else if (this._TotalPages == 0)          // if the total pages is determined and it is 0, enable last and next buttons
-                this.Pagination1.NextPage.Enabled = false;            
-            else                                     // if the total pages is the last page, disable last and next buttons
-                this.Pagination1.NextPage.Enabled = !(this.PageIndex == this.TotalPages - 1);            
-          
-            this.Pagination1.PreviousPage.Enabled = !(this.PageIndex == 0);    
+            
         }
  
         public virtual void SaveData()
@@ -6010,74 +5780,7 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
               }
             
       HttpContext.Current.Session["RegistrationsTableControlWhereClause"] = selectedRecordKeyValue.ToXmlString();
-    
-            if (MiscUtils.IsValueSelected(this.RegistrationsSearchText)) {
-                if (this.RegistrationsSearchText.Text == BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null) ) {
-                        this.RegistrationsSearchText.Text = "";
-                } else {
-                  // Strip "..." from begin and ending of the search text, otherwise the search will return 0 values as in database "..." is not stored.
-                  if (this.RegistrationsSearchText.Text.StartsWith("...")) {
-                      this.RegistrationsSearchText.Text = this.RegistrationsSearchText.Text.Substring(3,this.RegistrationsSearchText.Text.Length-3);
-                  }
-                  if (this.RegistrationsSearchText.Text.EndsWith("...")) {
-                      this.RegistrationsSearchText.Text = this.RegistrationsSearchText.Text.Substring(0,this.RegistrationsSearchText.Text.Length-3);
-                      // Strip the last word as well as it is likely only a partial word
-                      int endindex = this.RegistrationsSearchText.Text.Length - 1;
-                      while (!Char.IsWhiteSpace(RegistrationsSearchText.Text[endindex]) && endindex > 0) {
-                          endindex--;
-                      }
-                      if (endindex > 0) {
-                          this.RegistrationsSearchText.Text = this.RegistrationsSearchText.Text.Substring(0, endindex);
-                      }
-                  }
-                }
-                string formatedSearchText = MiscUtils.GetSelectedValue(this.RegistrationsSearchText, this.GetFromSession(this.RegistrationsSearchText));
-                // After stripping "..." see if the search text is null or empty.
-                if (MiscUtils.IsValueSelected(this.RegistrationsSearchText)) {
-                      
-                    // These clauses are added depending on operator and fields selected in Control's property page, bindings tab.
-                  
-                    WhereClause search = new WhereClause();
-                    
-        ColumnList cols = new ColumnList();
-      
-      cols.Add(RegistrationsTable.AdditionalDinnerName, true);
-      
-      foreach(BaseColumn col in cols)
-      {
-      
-          search.iOR(col, BaseFilter.ComparisonOperator.Contains, MiscUtils.GetSelectedValue(this.RegistrationsSearchText, this.GetFromSession(this.RegistrationsSearchText)), true, false);
-        
-      }
-    
-                    wc.iAND(search);
-                  
-                }
-            }
-                  
-            if (MiscUtils.IsValueSelected(this.RegistrationTypeIdFilter1)) {
-                        
-                int selectedItemCount = 0;
-                foreach (ListItem item in this.RegistrationTypeIdFilter1.Items){
-                    if (item.Selected) {
-                        selectedItemCount += 1;
-                        
-                          
-                    }
-                }
-                WhereClause filter = new WhereClause();
-                foreach (ListItem item in this.RegistrationTypeIdFilter1.Items){
-                    if ((item.Selected) && ((item.Value == "--ANY--") || (item.Value == "--PLEASE_SELECT--")) && (selectedItemCount > 1)){
-                        item.Selected = false;
-                    }
-                    if (item.Selected){
-                        filter.iOR(RegistrationsTable.RegistrationTypeId, BaseFilter.ComparisonOperator.EqualsTo, item.Value, false, false);
-                    }
-                }
-                wc.iAND(filter);
-                    
-            }
-                           
+         
             return wc;
         }
         
@@ -6110,130 +5813,11 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
     
             // Adds clauses if values are selected in Filter controls which are configured in the page.
           
-            if (MiscUtils.IsValueSelected(searchText) && fromSearchControl == "RegistrationsSearchText") {
-                String formatedSearchText = searchText;
-                // strip "..." from begin and ending of the search text, otherwise the search will return 0 values as in database "..." is not stored.
-                if (searchText.StartsWith("...")) {
-                    formatedSearchText = searchText.Substring(3,searchText.Length-3);
-                }
-                if (searchText.EndsWith("...")) {
-                    formatedSearchText = searchText.Substring(0,searchText.Length-3);
-                }
-                // After stripping "...", trim any leading and trailing whitespaces 
-                formatedSearchText = formatedSearchText.Trim();
-                // After stripping "..." see if the search text is null or empty.
-                if (MiscUtils.IsValueSelected(searchText)) {
-                      
-                    // These clauses are added depending on operator and fields selected in Control's property page, bindings tab.
-                  
-                    WhereClause search = new WhereClause();
-                    
-                    if (StringUtils.InvariantLCase(AutoTypeAheadSearch).Equals("wordsstartingwithsearchstring")) {
-                
-        ColumnList cols = new ColumnList();
-      
-      cols.Add(RegistrationsTable.AdditionalDinnerName, true);
-      
-      foreach(BaseColumn col in cols)
-      {
-      
-                  search.iOR(col, BaseFilter.ComparisonOperator.Starts_With, formatedSearchText, true, false);
-                  search.iOR(col, BaseFilter.ComparisonOperator.Contains, AutoTypeAheadWordSeparators + formatedSearchText, true, false);
-                
-      }
-    
-                    } else {
-                        
-        ColumnList cols = new ColumnList();
-      
-      cols.Add(RegistrationsTable.AdditionalDinnerName, true);
-      
-      foreach(BaseColumn col in cols)
-      {
-      
-                  search.iOR(col, BaseFilter.ComparisonOperator.Contains, formatedSearchText, true, false);
-      }
-    
-                    } 
-                    wc.iAND(search);
-                  
-                }
-            }
-                  
-      String RegistrationTypeIdFilter1SelectedValue = (String)HttpContext.Current.Session[HttpContext.Current.Session.SessionID + appRelativeVirtualPath + "RegistrationTypeIdFilter1_Ajax"];
-            if (MiscUtils.IsValueSelected(RegistrationTypeIdFilter1SelectedValue)) {
-
-              
-        if (RegistrationTypeIdFilter1SelectedValue != null){
-                        string[] RegistrationTypeIdFilter1itemListFromSession = RegistrationTypeIdFilter1SelectedValue.Split(',');
-                        int index = 0;
-                        WhereClause filter = new WhereClause();
-                        foreach (string item in RegistrationTypeIdFilter1itemListFromSession)
-                        {
-                            if (index == 0 && item.ToString().Equals(""))
-                            {
-                            }
-                            else
-                            {
-                                filter.iOR(RegistrationsTable.RegistrationTypeId, BaseFilter.ComparisonOperator.EqualsTo, item, false, false);
-                                index += 1;
-                            }
-                        }
-                        wc.iAND(filter);
-        }
-                
-      }
-                      
 
             return wc;
         }
 
         
-        public virtual string[] GetAutoCompletionList_RegistrationsSearchText(String prefixText,int count)
-        {
-            ArrayList resultList = new ArrayList();
-            ArrayList wordList= new ArrayList();
-            
-            CompoundFilter filterJoin = CreateCompoundJoinFilter();    
-            WhereClause wc = CreateWhereClause(prefixText,"RegistrationsSearchText", "WordsStartingWithSearchString", "[^a-zA-Z0-9]");
-            if(count==0) count = 10;
-            OLR.Business.RegistrationsRecord[] recordList  = RegistrationsTable.GetRecords(filterJoin, wc, null, 0, count, ref count);
-            String resultItem = "";
-            if (resultItem == "") resultItem = "";
-            foreach (RegistrationsRecord rec in recordList ){
-                // Exit the loop if recordList count has reached AutoTypeAheadListSize.
-                if (resultList.Count >= count) {
-                    break;
-                }
-                // If the field is configured to Display as Foreign key, Format() method returns the 
-                // Display as Forien Key value instead of original field value.
-                // Since search had to be done in multiple fields (selected in Control's page property, binding tab) in a record,
-                // We need to find relevent field to display which matches the prefixText and is not already present in the result list.
-        
-                resultItem = rec.Format(RegistrationsTable.AdditionalDinnerName);
-  
-                if (resultItem != null) {
-                    string prText = prefixText;
-                    if(RegistrationsTable.AdditionalDinnerName.IsFullTextSearchable) {
-                        FullTextExpression ft = new FullTextExpression();
-                        prText = ft.GetFirstNonExcludedTerm(prText);
-                    }
-                    if (!string.IsNullOrEmpty(prText) && resultItem.ToUpper(System.Threading.Thread.CurrentThread.CurrentCulture).Contains(prText.ToUpper(System.Threading.Thread.CurrentThread.CurrentCulture))) {
-                        bool isAdded = FormatSuggestions(prText, resultItem, 50, "InMiddleOfMatchedString", "WordsStartingWithSearchString", "[^a-zA-Z0-9]", resultList, RegistrationsTable.AdditionalDinnerName.IsFullTextSearchable);
-                        if (isAdded) {
-                            continue;
-                        }
-                    }
-                }
-                      
-            }
-              
-            resultList.Sort();
-            string[] result = new string[resultList.Count];
-            Array.Copy(resultList.ToArray(), result, resultList.Count);
-            return result;
-        }
-          
           
          public virtual bool FormatSuggestions(String prefixText, String resultItem,
                                               int columnLength, String AutoTypeAheadDisplayFoundText,
@@ -6379,12 +5963,6 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
         protected virtual void GetPageSize()
         {
         
-            if (this.Pagination1.PageSize.Text.Length > 0) {
-                try {
-                    // this.PageSize = Convert.ToInt32(this.Pagination1.PageSize.Text);
-                } catch (Exception ) {
-                }
-            }
         }
 
         protected virtual void AddNewRecords()
@@ -6505,282 +6083,6 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
       
         // Create Set, WhereClause, and Populate Methods
         
-        public virtual void SetRegistrationTypeIdLabel2()
-                  {
-                  
-                    
-        }
-                
-        public virtual void SetSortByLabel1()
-                  {
-                  
-                      //Code for the text property is generated inside the .aspx file. 
-                      //To override this property you can uncomment the following property and add you own value.
-                      //this.SortByLabel1.Text = "Some value";
-                    
-                    
-        }
-                
-        public virtual void SetSortControl1()
-        {
-            
-                this.PopulateSortControl1(MiscUtils.GetSelectedValue(this.SortControl1,  GetFromSession(this.SortControl1)), 500);					
-                    
-
-        }
-            
-        public virtual void SetRegistrationsSearchText()
-        {
-                                            
-            this.RegistrationsSearchText.Attributes.Add("onfocus", "if(this.value=='" + BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null) + "') {this.value='';this.className='Search_Input';}");
-            this.RegistrationsSearchText.Attributes.Add("onblur", "if(this.value=='') {this.value='" + BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null) + "';this.className='Search_InputHint';}");
-                                   
-        }
-            
-        public virtual void SetRegistrationTypeIdFilter1()
-        {
-            
-            ArrayList RegistrationTypeIdFilter1selectedFilterItemList = new ArrayList();
-            string RegistrationTypeIdFilter1itemsString = null;
-            if (this.InSession(this.RegistrationTypeIdFilter1))
-                RegistrationTypeIdFilter1itemsString = this.GetFromSession(this.RegistrationTypeIdFilter1);
-            
-            if (RegistrationTypeIdFilter1itemsString != null)
-            {
-                string[] RegistrationTypeIdFilter1itemListFromSession = RegistrationTypeIdFilter1itemsString.Split(',');
-                foreach (string item in RegistrationTypeIdFilter1itemListFromSession)
-                {
-                    RegistrationTypeIdFilter1selectedFilterItemList.Add(item);
-                }
-            }
-              
-            			
-            this.PopulateRegistrationTypeIdFilter1(MiscUtils.GetSelectedValueList(this.RegistrationTypeIdFilter1, RegistrationTypeIdFilter1selectedFilterItemList), 500);
-                    
-              string url = this.ModifyRedirectUrl("../RegistrationTypes/RegistrationTypes-QuickSelector.aspx", "", true);
-              
-              url = this.Page.ModifyRedirectUrl(url, "", true);                                  
-              
-              url += "?Target=" + this.RegistrationTypeIdFilter1.ClientID + "&Formula=" + (this.Page as BaseApplicationPage).Encrypt("= RegistrationTypes.RegistrationType")+ "&IndexField=" + (this.Page as BaseApplicationPage).Encrypt("RegistrationTypeId")+ "&EmptyValue=" + (this.Page as BaseApplicationPage).Encrypt("--ANY--") + "&EmptyDisplayText=" + (this.Page as BaseApplicationPage).Encrypt(this.Page.GetResourceValue("Txt:All")) + "&RedirectStyle=" + (this.Page as BaseApplicationPage).Encrypt("Popup");
-              
-              this.RegistrationTypeIdFilter1.Attributes["onClick"] = "initializePopupPage(this, '" + url + "', " + Convert.ToString(RegistrationTypeIdFilter1.AutoPostBack).ToLower() + ", event); return false;";
-                  
-                             
-        }
-            
-        // Get the filters' data for SortControl1.
-                
-        protected virtual void PopulateSortControl1(string selectedValue, int maxItems)
-                    
-        {
-            
-              
-                this.SortControl1.Items.Clear();
-                
-              // 1. Setup the static list items
-              
-                this.SortControl1.Items.Add(new ListItem(this.Page.ExpandResourceValue("{Txt:PleaseSelect}"), "--PLEASE_SELECT--"));
-              
-                this.SortControl1.Items.Add(new ListItem(this.Page.ExpandResourceValue("Additional Dinner Name {Txt:Ascending}"), "AdditionalDinnerName Asc"));
-              
-                this.SortControl1.Items.Add(new ListItem(this.Page.ExpandResourceValue("Additional Dinner Name {Txt:Descending}"), "AdditionalDinnerName Desc"));
-              
-                this.SortControl1.Items.Add(new ListItem(this.Page.ExpandResourceValue("Additional Dinner Ticket {Txt:Ascending}"), "AdditionalDinnerTicket Asc"));
-              
-                this.SortControl1.Items.Add(new ListItem(this.Page.ExpandResourceValue("Additional Dinner Ticket {Txt:Descending}"), "AdditionalDinnerTicket Desc"));
-              
-                this.SortControl1.Items.Add(new ListItem(this.Page.ExpandResourceValue("Date Paid {Txt:Ascending}"), "DatePaid Asc"));
-              
-                this.SortControl1.Items.Add(new ListItem(this.Page.ExpandResourceValue("Date Paid {Txt:Descending}"), "DatePaid Desc"));
-              
-                this.SortControl1.Items.Add(new ListItem(this.Page.ExpandResourceValue("Event {Txt:Ascending}"), "EventId Asc"));
-              
-                this.SortControl1.Items.Add(new ListItem(this.Page.ExpandResourceValue("Event {Txt:Descending}"), "EventId Desc"));
-              
-                this.SortControl1.Items.Add(new ListItem(this.Page.ExpandResourceValue("Initial Creation Date {Txt:Ascending}"), "InitialCreationDate Asc"));
-              
-                this.SortControl1.Items.Add(new ListItem(this.Page.ExpandResourceValue("Initial Creation Date {Txt:Descending}"), "InitialCreationDate Desc"));
-              
-                this.SortControl1.Items.Add(new ListItem(this.Page.ExpandResourceValue("Registration Type {Txt:Ascending}"), "RegistrationTypeId Asc"));
-              
-                this.SortControl1.Items.Add(new ListItem(this.Page.ExpandResourceValue("Registration Type {Txt:Descending}"), "RegistrationTypeId Desc"));
-              
-                this.SortControl1.Items.Add(new ListItem(this.Page.ExpandResourceValue("Special Requirements {Txt:Ascending}"), "SpecialRequirements Asc"));
-              
-                this.SortControl1.Items.Add(new ListItem(this.Page.ExpandResourceValue("Special Requirements {Txt:Descending}"), "SpecialRequirements Desc"));
-              
-            try
-            {          
-                // Set the selected value.
-                MiscUtils.SetSelectedValue(this.SortControl1, selectedValue);
-
-               
-            }
-            catch
-            {
-            }
-              
-            if (this.SortControl1.SelectedValue != null && this.SortControl1.Items.FindByValue(this.SortControl1.SelectedValue) == null)
-                this.SortControl1.SelectedValue = null;
-              
-        }
-            
-        // Get the filters' data for RegistrationTypeIdFilter1.
-                
-        protected virtual void PopulateRegistrationTypeIdFilter1(ArrayList selectedValue, int maxItems)
-                    
-        {
-        
-            
-            //Setup the WHERE clause.
-                        
-            WhereClause wc = this.CreateWhereClause_RegistrationTypeIdFilter1();            
-            this.RegistrationTypeIdFilter1.Items.Clear();
-            			  			
-            // Set up the WHERE and the ORDER BY clause by calling the CreateWhereClause_RegistrationTypeIdFilter1 function.
-            // It is better to customize the where clause there.
-             
-            OrderBy orderBy = new OrderBy(false, false);
-            
-
-            System.Collections.Generic.IDictionary<string, object> variables = new System.Collections.Generic.Dictionary<string, object> ();
-
-            
- 
-            string noValueFormat = Page.GetResourceValue("Txt:Other", "OLR");
-
-            RegistrationTypesRecord[] itemValues  = null;
-            if (wc.RunQuery)
-            {
-                int counter = 0;
-                int pageNum = 0;
-                FormulaEvaluator evaluator = new FormulaEvaluator();
-                ArrayList listDuplicates = new ArrayList();
-                
-                do
-                {
-                    
-                    itemValues = RegistrationTypesTable.GetRecords(wc, orderBy, pageNum, maxItems);
-                                    
-                    foreach (RegistrationTypesRecord itemValue in itemValues) 
-                    {
-                        // Create the item and add to the list.
-                        string cvalue = null;
-                        string fvalue = null;
-                        if (itemValue.RegistrationTypeIdSpecified) 
-                        {
-                            cvalue = itemValue.RegistrationTypeId.ToString();
-                            if (counter < maxItems && this.RegistrationTypeIdFilter1.Items.FindByValue(cvalue) == null)
-                            {
-                                    
-                                Boolean _isExpandableNonCompositeForeignKey = RegistrationsTable.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(RegistrationsTable.RegistrationTypeId);
-                                if(_isExpandableNonCompositeForeignKey && RegistrationsTable.RegistrationTypeId.IsApplyDisplayAs)
-                                     fvalue = RegistrationsTable.GetDFKA(itemValue, RegistrationsTable.RegistrationTypeId);
-                                if ((!_isExpandableNonCompositeForeignKey) || (String.IsNullOrEmpty(fvalue)))
-                                     fvalue = itemValue.Format(RegistrationTypesTable.RegistrationTypeId);
-                                   					
-                                if (fvalue == null || fvalue.Trim() == "") fvalue = cvalue;
-
-                                if (fvalue == null) {
-                                    fvalue = "";
-                                }
-
-                                fvalue = fvalue.Trim();
-
-                                if ( fvalue.Length > 50 ) {
-                                   fvalue = fvalue.Substring(0, 50) + "...";
-                                }
-
-                                ListItem dupItem = this.RegistrationTypeIdFilter1.Items.FindByText(fvalue);
-								
-                                if (dupItem != null) {
-                                    listDuplicates.Add(fvalue);
-                                    if (!string.IsNullOrEmpty(dupItem.Value))
-                                    {
-                                        dupItem.Text = fvalue + " (ID " + dupItem.Value.Substring(0, Math.Min(dupItem.Value.Length,38)) + ")";
-                                    }
-                                }
-
-                                ListItem newItem = new ListItem(fvalue, cvalue);
-                                this.RegistrationTypeIdFilter1.Items.Add(newItem);
-
-                                if (listDuplicates.Contains(fvalue) &&  !string.IsNullOrEmpty(cvalue)) {
-                                    newItem.Text = fvalue + " (ID " + cvalue.Substring(0, Math.Min(cvalue.Length,38)) + ")";
-                                }
-
-                                counter += 1;
-                            }
-                        }
-                    }
-                    pageNum++;
-                }
-                while (itemValues.Length == maxItems && counter < maxItems);
-            }
-        
-                      
-            try
-            {
-      
-                
-            }
-            catch
-            {
-            }
-            
-            
-            this.RegistrationTypeIdFilter1.SetFieldMaxLength(50);
-                                 
-                  
-            // Add the selected value.
-            if (this.RegistrationTypeIdFilter1.Items.Count == 0)
-                this.RegistrationTypeIdFilter1.Items.Add(new ListItem(Page.GetResourceValue("Txt:All", "OLR"), "--ANY--"));
-            
-            // Mark all items to be selected.
-            foreach (ListItem item in this.RegistrationTypeIdFilter1.Items)
-            {
-                item.Selected = true;
-            }
-                               
-        }
-            
-        public virtual WhereClause CreateWhereClause_RegistrationTypeIdFilter1()
-        {
-            // Create a where clause for the filter RegistrationTypeIdFilter1.
-            // This function is called by the Populate method to load the items 
-            // in the RegistrationTypeIdFilter1QuickSelector
-        
-            ArrayList RegistrationTypeIdFilter1selectedFilterItemList = new ArrayList();
-            string RegistrationTypeIdFilter1itemsString = null;
-            if (this.InSession(this.RegistrationTypeIdFilter1))
-                RegistrationTypeIdFilter1itemsString = this.GetFromSession(this.RegistrationTypeIdFilter1);
-            
-            if (RegistrationTypeIdFilter1itemsString != null)
-            {
-                string[] RegistrationTypeIdFilter1itemListFromSession = RegistrationTypeIdFilter1itemsString.Split(',');
-                foreach (string item in RegistrationTypeIdFilter1itemListFromSession)
-                {
-                    RegistrationTypeIdFilter1selectedFilterItemList.Add(item);
-                }
-            }
-              
-            RegistrationTypeIdFilter1selectedFilterItemList = MiscUtils.GetSelectedValueList(this.RegistrationTypeIdFilter1, RegistrationTypeIdFilter1selectedFilterItemList); 
-            WhereClause wc = new WhereClause();
-            if (RegistrationTypeIdFilter1selectedFilterItemList == null || RegistrationTypeIdFilter1selectedFilterItemList.Count == 0)
-                wc.RunQuery = false;
-            else            
-            {
-                foreach (string item in RegistrationTypeIdFilter1selectedFilterItemList)
-                {
-            	  
-                    wc.iOR(RegistrationTypesTable.RegistrationTypeId, BaseFilter.ComparisonOperator.EqualsTo, item);                  
-                  
-                                 
-                }
-            }
-            return wc;
-        
-        }
-      
 
     
         protected virtual void Control_PreRender(object sender, System.EventArgs e)
@@ -6814,19 +6116,6 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
             base.SaveControlsToSession();
             // Save filter controls to values to session.
         
-            this.SaveToSession(this.SortControl1, this.SortControl1.SelectedValue);
-                  
-            this.SaveToSession(this.RegistrationsSearchText, this.RegistrationsSearchText.Text);
-                  
-            ArrayList RegistrationTypeIdFilter1selectedFilterItemList = MiscUtils.GetSelectedValueList(this.RegistrationTypeIdFilter1, null);
-            string RegistrationTypeIdFilter1SessionString = "";
-            if (RegistrationTypeIdFilter1selectedFilterItemList != null){
-                foreach (string item in RegistrationTypeIdFilter1selectedFilterItemList){
-                    RegistrationTypeIdFilter1SessionString = String.Concat(RegistrationTypeIdFilter1SessionString ,"," , item);
-                }
-            }
-            this.SaveToSession(this.RegistrationTypeIdFilter1, RegistrationTypeIdFilter1SessionString);
-                  
             
                     
             // Save pagination state to session.
@@ -6854,19 +6143,6 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
         {
             // Save filter controls to values to session.
           
-            this.SaveToSession(this.SortControl1, this.SortControl1.SelectedValue);
-                  
-      this.SaveToSession("RegistrationsSearchText_Ajax", this.RegistrationsSearchText.Text);
-              
-            ArrayList RegistrationTypeIdFilter1selectedFilterItemList = MiscUtils.GetSelectedValueList(this.RegistrationTypeIdFilter1, null);
-            string RegistrationTypeIdFilter1SessionString = "";
-            if (RegistrationTypeIdFilter1selectedFilterItemList != null){
-                foreach (string item in RegistrationTypeIdFilter1selectedFilterItemList){
-                    RegistrationTypeIdFilter1SessionString = String.Concat(RegistrationTypeIdFilter1SessionString ,"," , item);
-                }
-            }
-            this.SaveToSession("RegistrationTypeIdFilter1_Ajax", RegistrationTypeIdFilter1SessionString);
-          
            HttpContext.Current.Session["AppRelativeVirtualPath"] = this.Page.AppRelativeVirtualPath;
          
         }
@@ -6877,9 +6153,6 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
             base.ClearControlsFromSession();
             // Clear filter controls values from the session.
         
-            this.RemoveFromSession(this.SortControl1);
-            this.RemoveFromSession(this.RegistrationsSearchText);
-            this.RemoveFromSession(this.RegistrationTypeIdFilter1);
             
             // Clear pagination state from session.
          
@@ -6908,7 +6181,7 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
             }
           
 
-            Control Pagination = this.FindControl("Pagination1");
+            Control Pagination = this.FindControl("");
             String PaginationType = "";
             if (Pagination != null){
               Control Summary = Pagination.FindControl("_Summary");
@@ -6964,231 +6237,9 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
         }
 
         // Generate set method for buttons
-        
-        public virtual void SetExcelButton1()                
-              
-        {
-        
-   
-        }
-            
-        public virtual void SetImportButton1()                
-              
-        {
-        							
-                    this.ImportButton1.PostBackUrl = "../Shared/SelectFileToImport.aspx?TableName=Registrations" ;
-                    this.ImportButton1.Attributes["onClick"] = "window.open('" + this.Page.EncryptUrlParameter(this.ImportButton1.PostBackUrl) + "','importWindow', 'width=700, height=500,top=' +(screen.availHeight-500)/2 + ',left=' + (screen.availWidth-700)/2+ ', resizable=yes, scrollbars=yes,modal=yes'); return false;";
-                        
-   
-        }
-            
-        public virtual void SetNewButton1()                
-              
-        {
-        
-              try
-              {
-                    string url = "../Registrations/Add-Registrations.aspx?ContactId={ContactsTableControlRow:FV:ContactId}&TabVisible=False&SaveAndNewVisible=False";
-              
-                      
-                    url = this.ModifyRedirectUrl(url, "", true);
-                    
-                    url = this.Page.ModifyRedirectUrl(url, "", true);                                  
-                    
-                    url = url + "&RedirectStyle=" + (this.Page as BaseApplicationPage).Encrypt("Popup") + "&Target=" + (this.Page as BaseApplicationPage).Encrypt(MiscUtils.FindControlRecursively(this, "RegistrationsTableControl_PostbackTracker").ClientID);                           
-                                
-                string javascriptCall = "";
-                
-                    javascriptCall = "initializePopupPage(document.getElementById('" + MiscUtils.FindControlRecursively(this, "RegistrationsTableControl_PostbackTracker").ClientID + "'), '" + url + "', true, event);";                                      
-                       
-                    this.NewButton1.Attributes["onClick"] = javascriptCall + "return false;";            
-                }
-                catch
-                {
-                    // do nothing.  If the code above fails, server side click event, NewButton1_ClickNewButton1_Click will be trigger when user click the button.
-                }
-                  
-   
-        }
-            
-        public virtual void SetPDFButton1()                
-              
-        {
-        
-   
-        }
-            
-        public virtual void SetResetButton1()                
-              
-        {
-        
-   
-        }
-            
-        public virtual void SetSearchButton1()                
-              
-        {
-        
-   
-        }
-            
-        public virtual void SetWordButton1()                
-              
-        {
-        
-   
-        }
-            
-        public virtual void SetActions1Button()                
-              
-        {
-        
-   
-        }
-            
-        public virtual void SetFilterButton1()                
-              
-        {
-        
-   
-        }
-            
-        public virtual void SetFilters1Button()                
-              
-        {
-                
-         IThemeButtonWithArrow themeButtonFilters1Button = (IThemeButtonWithArrow)(MiscUtils.FindControlRecursively(this, "Filters1Button"));
-         themeButtonFilters1Button.ArrowImage.ImageUrl = "../Images/ButtonExpandArrow.png";
-    
-      
-            if (MiscUtils.IsValueSelected(RegistrationTypeIdFilter1))
-                themeButtonFilters1Button.ArrowImage.ImageUrl = "../Images/ButtonCheckmark.png";
-        
-   
-        }
-               
+           
         
         // Generate the event handling functions for pagination events.
-        
-        // event handler for ImageButton
-        public virtual void Pagination1_FirstPage_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            try {
-                
-            this.PageIndex = 0;
-            this.DataChanged = true;
-      
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
-        
-        // event handler for ImageButton
-        public virtual void Pagination1_LastPage_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            try {
-                
-            this.DisplayLastPage = true;
-            this.DataChanged = true;
-      
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
-        
-        // event handler for ImageButton
-        public virtual void Pagination1_NextPage_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            try {
-                
-            this.PageIndex += 1;
-            this.DataChanged = true;
-      
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
-        
-        // event handler for LinkButton
-        public virtual void Pagination1_PageSizeButton_Click(object sender, EventArgs args)
-        {
-              
-            try {
-                
-            this.DataChanged = true;
-      
-            this.PageSize = this.Pagination1.GetCurrentPageSize();
-      
-            this.PageIndex = Convert.ToInt32(this.Pagination1.CurrentPage.Text) - 1;
-      
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
-        
-        // event handler for ImageButton
-        public virtual void Pagination1_PreviousPage_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            try {
-                
-            if (this.PageIndex > 0) {
-                this.PageIndex -= 1;
-                this.DataChanged = true;
-            }
-      
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
         
 
         // Generate the event handling functions for sorting events.
@@ -7196,696 +6247,10 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
 
         // Generate the event handling functions for button events.
         
-        // event handler for ImageButton
-        public virtual void ExcelButton1_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            try {
-                // Enclose all database retrieval/update code within a Transaction boundary
-                DbUtils.StartTransaction();
-                
-            
-            // To customize the columns or the format, override this function in Section 1 of the page
-            // and modify it to your liking.
-            // Build the where clause based on the current filter and search criteria
-            // Create the Order By clause based on the user's current sorting preference.
-            
-                WhereClause wc = null;
-                wc = CreateWhereClause();
-                OrderBy orderBy = null;
-              
-                orderBy = CreateOrderBy();
-              
-              bool done = false;
-              object val = "";
-              CompoundFilter join = CreateCompoundJoinFilter();
-              
-              // Read pageSize records at a time and write out the Excel file.
-              int totalRowsReturned = 0;
-
-
-              this.TotalRecords = RegistrationsTable.GetRecordCount(join, wc);
-              if (this.TotalRecords > 10000)
-              {
-              
-                // Add each of the columns in order of export.
-                BaseColumn[] columns = new BaseColumn[] {
-                             RegistrationsTable.EventId,
-             RegistrationsTable.RegistrationTypeId,
-             RegistrationsTable.AdditionalDinnerTicket,
-             RegistrationsTable.SpecialRequirements,
-             RegistrationsTable.AdditionalDinnerName,
-             RegistrationsTable.DatePaid,
-             RegistrationsTable.InitialCreationDate,
-             null};
-                ExportDataToCSV exportData = new ExportDataToCSV(RegistrationsTable.Instance,wc,orderBy,columns);
-                exportData.StartExport(this.Page.Response, true);
-
-                DataForExport dataForCSV = new DataForExport(RegistrationsTable.Instance, wc, orderBy, columns,join);
-
-                //  Read pageSize records at a time and write out the CSV file.
-                while (!done)
-                {
-                ArrayList recList = dataForCSV.GetRows(exportData.pageSize);
-                if (recList == null)
-                break; //we are done
-
-                totalRowsReturned = recList.Count;
-                foreach (BaseRecord rec in recList)
-                {
-                foreach (BaseColumn col in dataForCSV.ColumnList)
-                {
-                if (col == null)
-                continue;
-
-                if (!dataForCSV.IncludeInExport(col))
-                continue;
-
-                val = rec.GetValue(col).ToString();
-                exportData.WriteColumnData(val, dataForCSV.IsString(col));
-                }
-                exportData.WriteNewRow();
-                }
-
-                //  If we already are below the pageSize, then we are done.
-                if (totalRowsReturned < exportData.pageSize)
-                {
-                done = true;
-                }
-                }
-                exportData.FinishExport(this.Page.Response);
-              
-              }
-              else
-              {
-              // Create an instance of the ExportDataToExcel class with the table class, where clause and order by.
-              ExportDataToExcel excelReport = new ExportDataToExcel(RegistrationsTable.Instance, wc, orderBy);
-              // Add each of the columns in order of export.
-              // To customize the data type, change the second parameter of the new ExcelColumn to be
-              // a format string from Excel's Format Cell menu. For example "dddd, mmmm dd, yyyy h:mm AM/PM;@", "#,##0.00"
-
-              if (this.Page.Response == null)
-              return;
-
-              excelReport.CreateExcelBook();
-
-              int width = 0;
-              int columnCounter = 0;
-              DataForExport data = new DataForExport(RegistrationsTable.Instance, wc, orderBy, null,join);
-                           data.ColumnList.Add(new ExcelColumn(RegistrationsTable.EventId, "Default"));
-             data.ColumnList.Add(new ExcelColumn(RegistrationsTable.RegistrationTypeId, "Default"));
-             data.ColumnList.Add(new ExcelColumn(RegistrationsTable.AdditionalDinnerTicket, "Default"));
-             data.ColumnList.Add(new ExcelColumn(RegistrationsTable.SpecialRequirements, "Default"));
-             data.ColumnList.Add(new ExcelColumn(RegistrationsTable.AdditionalDinnerName, "Default"));
-             data.ColumnList.Add(new ExcelColumn(RegistrationsTable.DatePaid, "Short Date"));
-             data.ColumnList.Add(new ExcelColumn(RegistrationsTable.InitialCreationDate, "Short Date"));
-
-
-              //  First write out the Column Headers
-              foreach (ExcelColumn col in data.ColumnList)
-              {
-              width = excelReport.GetExcelCellWidth(col);
-              if (data.IncludeInExport(col))
-              {
-              excelReport.AddColumnToExcelBook(columnCounter, col.ToString(), excelReport.GetExcelDataType(col), width, excelReport.GetDisplayFormat(col));
-              columnCounter++;
-              }
-              }
-              
-              while (!done)
-              {
-              ArrayList recList = data.GetRows(excelReport.pageSize);
-
-              if (recList == null)
-              {
-              break;
-              }
-              totalRowsReturned = recList.Count;
-
-              foreach (BaseRecord rec in recList)
-              {
-              excelReport.AddRowToExcelBook();
-              columnCounter = 0;
-              foreach (ExcelColumn col in data.ColumnList)
-              {
-              if (!data.IncludeInExport(col))
-              continue;
-
-              Boolean _isExpandableNonCompositeForeignKey = col.DisplayColumn.TableDefinition.IsExpandableNonCompositeForeignKey(col.DisplayColumn);
-              if (_isExpandableNonCompositeForeignKey && col.DisplayColumn.IsApplyDisplayAs)
-              {
-                val = RegistrationsTable.GetDFKA(rec.GetValue(col.DisplayColumn).ToString(), col.DisplayColumn, null) as string;
-                if (String.IsNullOrEmpty(val as string))
-                {
-                  val = rec.Format(col.DisplayColumn);
-                }
-              }
-              else
-                val = excelReport.GetValueForExcelExport(col, rec);
-              
-              excelReport.AddCellToExcelRow(columnCounter, excelReport.GetExcelDataType(col), val, col.DisplayFormat);
-
-              columnCounter++;
-              }
-              }
-
-              // If we already are below the pageSize, then we are done.
-              if (totalRowsReturned < excelReport.pageSize)
-              {
-              done = true;
-              }
-              }
-              excelReport.SaveExcelBook(this.Page.Response);
-              }
-            
-            } catch (Exception ex) {
-                  // Upon error, rollback the transaction
-                  this.Page.RollBackTransaction(sender);
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-                DbUtils.EndTransaction();
-            }
-    
-        }
-            
-            
-        
-        // event handler for ImageButton
-        public virtual void ImportButton1_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            try {
-                // Enclose all database retrieval/update code within a Transaction boundary
-                DbUtils.StartTransaction();
-                
-            } catch (Exception ex) {
-                  // Upon error, rollback the transaction
-                  this.Page.RollBackTransaction(sender);
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-                DbUtils.EndTransaction();
-            }
-    
-        }
-            
-            
-        
-        // event handler for ImageButton
-        public virtual void NewButton1_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            // The redirect URL is set on the Properties, Custom Properties or Actions.
-            // The ModifyRedirectURL call resolves the parameters before the
-            // Response.Redirect redirects the page to the URL.  
-            // Any code after the Response.Redirect call will not be executed, since the page is
-            // redirected to the URL.
-            
-            string url = @"../Registrations/Add-Registrations.aspx?ContactId={ContactsTableControlRow:FV:ContactId}&TabVisible=False&SaveAndNewVisible=False";
-            
-        bool shouldRedirect = true;
-        string target = null;
-        if (target == null) target = ""; // avoid warning on VS
-      
-            try {
-                // Enclose all database retrieval/update code within a Transaction boundary
-                DbUtils.StartTransaction();
-                
-                url = this.ModifyRedirectUrl(url, "",true);
-                url = this.Page.ModifyRedirectUrl(url, "",true);
-              
-            } catch (Exception ex) {
-                  // Upon error, rollback the transaction
-                  this.Page.RollBackTransaction(sender);
-                  shouldRedirect = false;
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-                DbUtils.EndTransaction();
-            }
-            if (shouldRedirect) {
-                this.Page.ShouldSaveControlsToSession = true;
-      
-                    url = url + "&RedirectStyle=" + (this.Page as BaseApplicationPage).Encrypt("Popup") + "&Target=" + (this.Page as BaseApplicationPage).Encrypt(MiscUtils.FindControlRecursively(this, "RegistrationsTableControl_PostbackTracker").ClientID);                           
-                                
-                string javascriptCall = "";
-                
-                    javascriptCall = "initializePopupPage(document.getElementById('" + MiscUtils.FindControlRecursively(this, "RegistrationsTableControl_PostbackTracker").ClientID + "'), '" + url + "', true, event);";                                      
-                AjaxControlToolkit.ToolkitScriptManager.RegisterStartupScript(this, this.GetType(), "NewButton1_Click", javascriptCall, true);
-        
-            }
-        
-        }
-            
-            
-        
-        // event handler for ImageButton
-        public virtual void PDFButton1_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            try {
-                // Enclose all database retrieval/update code within a Transaction boundary
-                DbUtils.StartTransaction();
-                
-
-                PDFReport report = new PDFReport();
-
-                report.SpecificReportFileName = Page.Server.MapPath("Show-Contacts-Table.PDFButton1.report");
-                // report.Title replaces the value tag of page header and footer containing ${ReportTitle}
-                report.Title = "Registrations";
-                // If Show-Contacts-Table.PDFButton1.report specifies a valid report template,
-                // AddColumn methods will generate a report template.   
-                // Each AddColumn method-call specifies a column
-                // The 1st parameter represents the text of the column header
-                // The 2nd parameter represents the horizontal alignment of the column header
-                // The 3rd parameter represents the text format of the column detail
-                // The 4th parameter represents the horizontal alignment of the column detail
-                // The 5th parameter represents the relative width of the column
-                 report.AddColumn(RegistrationsTable.EventId.Name, ReportEnum.Align.Left, "${EventId}", ReportEnum.Align.Left, 28);
-                 report.AddColumn(RegistrationsTable.RegistrationTypeId.Name, ReportEnum.Align.Left, "${RegistrationTypeId}", ReportEnum.Align.Left, 24);
-                 report.AddColumn(RegistrationsTable.AdditionalDinnerTicket.Name, ReportEnum.Align.Left, "${AdditionalDinnerTicket}", ReportEnum.Align.Left, 15);
-                 report.AddColumn(RegistrationsTable.SpecialRequirements.Name, ReportEnum.Align.Left, "${SpecialRequirements}", ReportEnum.Align.Left, 28);
-                 report.AddColumn(RegistrationsTable.AdditionalDinnerName.Name, ReportEnum.Align.Left, "${AdditionalDinnerName}", ReportEnum.Align.Left, 28);
-                 report.AddColumn(RegistrationsTable.DatePaid.Name, ReportEnum.Align.Left, "${DatePaid}", ReportEnum.Align.Left, 20);
-                 report.AddColumn(RegistrationsTable.InitialCreationDate.Name, ReportEnum.Align.Left, "${InitialCreationDate}", ReportEnum.Align.Left, 20);
-
-  
-                int rowsPerQuery = 5000;
-                int recordCount = 0;
-                                
-                report.Page = Page.GetResourceValue("Txt:Page", "OLR");
-                report.ApplicationPath = this.Page.MapPath(Page.Request.ApplicationPath);
-
-                
-                ColumnList columns = RegistrationsTable.GetColumnList();
-                
-                WhereClause whereClause = null;
-                whereClause = CreateWhereClause();
-                OrderBy orderBy = CreateOrderBy();
-                BaseFilter joinFilter = CreateCompoundJoinFilter();
-                
-                int pageNum = 0;
-                int totalRows = RegistrationsTable.GetRecordCount(joinFilter,whereClause);
-                RegistrationsRecord[] records = null;
-                
-                do
-                {
-                    
-                    records = RegistrationsTable.GetRecords(joinFilter,whereClause, orderBy, pageNum, rowsPerQuery);
-                     if (records != null && records.Length > 0 && whereClause.RunQuery)
-                    {
-                        foreach ( RegistrationsRecord record in records)
-                    
-                        {
-                            // AddData method takes four parameters   
-                            // The 1st parameter represent the data format
-                            // The 2nd parameter represent the data value
-                            // The 3rd parameter represent the default alignment of column using the data
-                            // The 4th parameter represent the maximum length of the data value being shown
-                                                 if (BaseClasses.Utils.MiscUtils.IsNull(record.EventId)){
-                                 report.AddData("${EventId}", "",ReportEnum.Align.Left);
-                             }else{
-                                 Boolean _isExpandableNonCompositeForeignKey;
-                                 String _DFKA = "";
-                                 _isExpandableNonCompositeForeignKey = RegistrationsTable.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(RegistrationsTable.EventId);
-                                 _DFKA = RegistrationsTable.GetDFKA(record.EventId.ToString(), RegistrationsTable.EventId,null);
-                                 if (_isExpandableNonCompositeForeignKey &&  ( _DFKA  != null)  &&  RegistrationsTable.EventId.IsApplyDisplayAs){
-                                     report.AddData("${EventId}", _DFKA,ReportEnum.Align.Left);
-                                 }else{
-                                     report.AddData("${EventId}", record.Format(RegistrationsTable.EventId), ReportEnum.Align.Left);
-                                 }
-                             }
-                             if (BaseClasses.Utils.MiscUtils.IsNull(record.RegistrationTypeId)){
-                                 report.AddData("${RegistrationTypeId}", "",ReportEnum.Align.Left);
-                             }else{
-                                 Boolean _isExpandableNonCompositeForeignKey;
-                                 String _DFKA = "";
-                                 _isExpandableNonCompositeForeignKey = RegistrationsTable.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(RegistrationsTable.RegistrationTypeId);
-                                 _DFKA = RegistrationsTable.GetDFKA(record.RegistrationTypeId.ToString(), RegistrationsTable.RegistrationTypeId,null);
-                                 if (_isExpandableNonCompositeForeignKey &&  ( _DFKA  != null)  &&  RegistrationsTable.RegistrationTypeId.IsApplyDisplayAs){
-                                     report.AddData("${RegistrationTypeId}", _DFKA,ReportEnum.Align.Left);
-                                 }else{
-                                     report.AddData("${RegistrationTypeId}", record.Format(RegistrationsTable.RegistrationTypeId), ReportEnum.Align.Left);
-                                 }
-                             }
-                             report.AddData("${AdditionalDinnerTicket}", record.Format(RegistrationsTable.AdditionalDinnerTicket), ReportEnum.Align.Left, 300);
-                             report.AddData("${SpecialRequirements}", record.Format(RegistrationsTable.SpecialRequirements), ReportEnum.Align.Left, 300);
-                             report.AddData("${AdditionalDinnerName}", record.Format(RegistrationsTable.AdditionalDinnerName), ReportEnum.Align.Left, 300);
-                             report.AddData("${DatePaid}", record.Format(RegistrationsTable.DatePaid), ReportEnum.Align.Left, 300);
-                             report.AddData("${InitialCreationDate}", record.Format(RegistrationsTable.InitialCreationDate), ReportEnum.Align.Left, 300);
-
-                            report.WriteRow();
-                        }
-                        pageNum++;
-                        recordCount += records.Length;
-                    }
-                }
-                while (records != null && recordCount < totalRows && whereClause.RunQuery);
-                	
-                
-                report.Close();
-                BaseClasses.Utils.NetUtils.WriteResponseBinaryAttachment(this.Page.Response, report.Title + ".pdf", report.ReportInByteArray, 0, true);
-            
-            } catch (Exception ex) {
-                  // Upon error, rollback the transaction
-                  this.Page.RollBackTransaction(sender);
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-                DbUtils.EndTransaction();
-            }
-    
-        }
-            
-            
-        
-        // event handler for ImageButton
-        public virtual void ResetButton1_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            try {
-                
-              this.RegistrationTypeIdFilter1.ClearSelection();
-            
-           
-            this.SortControl1.ClearSelection();
-          
-              this.RegistrationsSearchText.Text = "";
-            
-              this.CurrentSortOrder.Reset();
-              if (this.InSession(this, "Order_By"))
-                  this.CurrentSortOrder = OrderBy.FromXmlString(this.GetFromSession(this, "Order_By", null));
-              else
-              {
-                  this.CurrentSortOrder = new OrderBy(true, false);
-                  
-              }
-                
-
-            // Setting the DataChanged to true results in the page being refreshed with
-            // the most recent data from the database.  This happens in PreRender event
-            // based on the current sort, search and filter criteria.
-            this.DataChanged = true;
-                
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
-        
-        // event handler for ImageButton
-        public virtual void SearchButton1_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            try {
-                
-            this.DataChanged = true;
-          
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
-        
-        // event handler for ImageButton
-        public virtual void WordButton1_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            try {
-                // Enclose all database retrieval/update code within a Transaction boundary
-                DbUtils.StartTransaction();
-                
-
-                WordReport report = new WordReport();
-
-                report.SpecificReportFileName = Page.Server.MapPath("Show-Contacts-Table.WordButton1.word");
-                // report.Title replaces the value tag of page header and footer containing ${ReportTitle}
-                report.Title = "Registrations";
-                // If Show-Contacts-Table.WordButton1.report specifies a valid report template,
-                // AddColumn methods will generate a report template.
-                // Each AddColumn method-call specifies a column
-                // The 1st parameter represents the text of the column header
-                // The 2nd parameter represents the horizontal alignment of the column header
-                // The 3rd parameter represents the text format of the column detail
-                // The 4th parameter represents the horizontal alignment of the column detail
-                // The 5th parameter represents the relative width of the column
-                 report.AddColumn(RegistrationsTable.EventId.Name, ReportEnum.Align.Left, "${EventId}", ReportEnum.Align.Left, 28);
-                 report.AddColumn(RegistrationsTable.RegistrationTypeId.Name, ReportEnum.Align.Left, "${RegistrationTypeId}", ReportEnum.Align.Left, 24);
-                 report.AddColumn(RegistrationsTable.AdditionalDinnerTicket.Name, ReportEnum.Align.Left, "${AdditionalDinnerTicket}", ReportEnum.Align.Left, 15);
-                 report.AddColumn(RegistrationsTable.SpecialRequirements.Name, ReportEnum.Align.Left, "${SpecialRequirements}", ReportEnum.Align.Left, 28);
-                 report.AddColumn(RegistrationsTable.AdditionalDinnerName.Name, ReportEnum.Align.Left, "${AdditionalDinnerName}", ReportEnum.Align.Left, 28);
-                 report.AddColumn(RegistrationsTable.DatePaid.Name, ReportEnum.Align.Left, "${DatePaid}", ReportEnum.Align.Left, 20);
-                 report.AddColumn(RegistrationsTable.InitialCreationDate.Name, ReportEnum.Align.Left, "${InitialCreationDate}", ReportEnum.Align.Left, 20);
-
-                WhereClause whereClause = null;
-                whereClause = CreateWhereClause();
-            
-                OrderBy orderBy = CreateOrderBy();
-                BaseFilter joinFilter = CreateCompoundJoinFilter();
-                
-
-                int rowsPerQuery = 5000;
-                int pageNum = 0;
-                int recordCount = 0;
-                int totalRows = RegistrationsTable.GetRecordCount(joinFilter,whereClause);
-
-                report.Page = Page.GetResourceValue("Txt:Page", "OLR");
-                report.ApplicationPath = this.Page.MapPath(Page.Request.ApplicationPath);
-
-                ColumnList columns = RegistrationsTable.GetColumnList();
-                RegistrationsRecord[] records = null;
-                do
-                {
-                    records = RegistrationsTable.GetRecords(joinFilter,whereClause, orderBy, pageNum, rowsPerQuery);
-                    if (records != null && records.Length > 0 && whereClause.RunQuery)
-                    {
-                        foreach ( RegistrationsRecord record in records)
-                        {
-                            // AddData method takes four parameters
-                            // The 1st parameter represents the data format
-                            // The 2nd parameter represents the data value
-                            // The 3rd parameter represents the default alignment of column using the data
-                            // The 4th parameter represents the maximum length of the data value being shown
-                             if (BaseClasses.Utils.MiscUtils.IsNull(record.EventId)){
-                                 report.AddData("${EventId}", "",ReportEnum.Align.Left);
-                             }else{
-                                 Boolean _isExpandableNonCompositeForeignKey;
-                                 String _DFKA = "";
-                                 _isExpandableNonCompositeForeignKey = RegistrationsTable.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(RegistrationsTable.EventId);
-                                 _DFKA = RegistrationsTable.GetDFKA(record.EventId.ToString(), RegistrationsTable.EventId,null);
-                                 if (_isExpandableNonCompositeForeignKey &&  ( _DFKA  != null)  &&  RegistrationsTable.EventId.IsApplyDisplayAs){
-                                     report.AddData("${EventId}", _DFKA,ReportEnum.Align.Left);
-                                 }else{
-                                     report.AddData("${EventId}", record.Format(RegistrationsTable.EventId), ReportEnum.Align.Left);
-                                 }
-                             }
-                             if (BaseClasses.Utils.MiscUtils.IsNull(record.RegistrationTypeId)){
-                                 report.AddData("${RegistrationTypeId}", "",ReportEnum.Align.Left);
-                             }else{
-                                 Boolean _isExpandableNonCompositeForeignKey;
-                                 String _DFKA = "";
-                                 _isExpandableNonCompositeForeignKey = RegistrationsTable.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(RegistrationsTable.RegistrationTypeId);
-                                 _DFKA = RegistrationsTable.GetDFKA(record.RegistrationTypeId.ToString(), RegistrationsTable.RegistrationTypeId,null);
-                                 if (_isExpandableNonCompositeForeignKey &&  ( _DFKA  != null)  &&  RegistrationsTable.RegistrationTypeId.IsApplyDisplayAs){
-                                     report.AddData("${RegistrationTypeId}", _DFKA,ReportEnum.Align.Left);
-                                 }else{
-                                     report.AddData("${RegistrationTypeId}", record.Format(RegistrationsTable.RegistrationTypeId), ReportEnum.Align.Left);
-                                 }
-                             }
-                             report.AddData("${AdditionalDinnerTicket}", record.Format(RegistrationsTable.AdditionalDinnerTicket), ReportEnum.Align.Left, 300);
-                             report.AddData("${SpecialRequirements}", record.Format(RegistrationsTable.SpecialRequirements), ReportEnum.Align.Left, 300);
-                             report.AddData("${AdditionalDinnerName}", record.Format(RegistrationsTable.AdditionalDinnerName), ReportEnum.Align.Left, 300);
-                             report.AddData("${DatePaid}", record.Format(RegistrationsTable.DatePaid), ReportEnum.Align.Left, 300);
-                             report.AddData("${InitialCreationDate}", record.Format(RegistrationsTable.InitialCreationDate), ReportEnum.Align.Left, 300);
-
-                            report.WriteRow();
-                        }
-                        pageNum++;
-                        recordCount += records.Length;
-                    }
-                }
-                while (records != null && recordCount < totalRows && whereClause.RunQuery);
-                report.save();
-                BaseClasses.Utils.NetUtils.WriteResponseBinaryAttachment(this.Page.Response, report.Title + ".doc", report.ReportInByteArray, 0, true);
-          
-            } catch (Exception ex) {
-                  // Upon error, rollback the transaction
-                  this.Page.RollBackTransaction(sender);
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-                DbUtils.EndTransaction();
-            }
-    
-        }
-            
-            
-        
-        // event handler for Button
-        public virtual void Actions1Button_Click(object sender, EventArgs args)
-        {
-              
-            try {
-                
-            //This method is initially empty to implement custom click handler.
-      
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
-        
-        // event handler for Button
-        public virtual void FilterButton1_Click(object sender, EventArgs args)
-        {
-              
-            try {
-                
-            this.DataChanged = true;
-          
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
-        
-        // event handler for Button
-        public virtual void Filters1Button_Click(object sender, EventArgs args)
-        {
-              
-            try {
-                
-            //This method is initially empty to implement custom click handler.
-      
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
-        
 
 
         // Generate the event handling functions for filter and search events.
         
-        // event handler for OrderSort
-        protected virtual void SortControl1_SelectedIndexChanged(object sender, EventArgs args)
-        {
-              
-                  string SelVal1 = this.SortControl1.SelectedValue.ToUpper();
-                  string[] words1 = SelVal1.Split(' ');
-                  if (SelVal1 != "" )
-                  {
-                  SelVal1 = SelVal1.Replace(words1[words1.Length - 1], "").TrimEnd();
-                  foreach (BaseClasses.Data.BaseColumn ColumnNam in RegistrationsTable.GetColumns())
-                  {
-                  if (ColumnNam.Name.ToUpper().Equals(SelVal1))
-                  {
-                  SelVal1 = ColumnNam.InternalName;
-                  }
-                  }
-                  }
-
-                
-                OrderByItem sd = this.CurrentSortOrder.Find(RegistrationsTable.GetColumnByName(SelVal1));
-                if (sd == null || this.CurrentSortOrder.Items != null)
-                {
-                // First time sort, so add sort order for Discontinued.
-                if (RegistrationsTable.GetColumnByName(SelVal1) != null)
-                {
-                  this.CurrentSortOrder.Reset();
-                }
-
-                //If default sort order was GeoProximity, create new CurrentSortOrder of OrderBy type
-                if ((this.CurrentSortOrder).GetType() == typeof(GeoOrderBy)) this.CurrentSortOrder = new OrderBy(true, false);
-
-                
-                  if (SelVal1 != "--PLEASE_SELECT--" && RegistrationsTable.GetColumnByName(SelVal1) != null)
-                  {
-                    if (words1[words1.Length - 1].Contains("ASC"))
-                  {
-                  this.CurrentSortOrder.Add(RegistrationsTable.GetColumnByName(SelVal1),OrderByItem.OrderDir.Asc);
-                    }
-                    else
-                    {
-                      if (words1[words1.Length - 1].Contains("DESC"))
-                  {
-                  this.CurrentSortOrder.Add(RegistrationsTable.GetColumnByName(SelVal1),OrderByItem.OrderDir.Desc );
-                      }
-                    }
-                  }
-                
-                }
-                this.DataChanged = true;
-              				
-        }
-            
-        // event handler for FieldFilter
-        protected virtual void RegistrationTypeIdFilter1_SelectedIndexChanged(object sender, EventArgs args)
-        {
-            // Setting the DataChanged to True results in the page being refreshed with
-            // the most recent data from the database.  This happens in PreRender event
-            // based on the current sort, search and filter criteria.
-            this.DataChanged = true;
-            
-           				
-        }
-            
     
         // Generate the event handling functions for others
         	  
@@ -7959,108 +6324,6 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
         }
 
 #region "Helper Properties"
-        
-        public OLR.UI.IThemeButtonWithArrow Actions1Button {
-            get {
-                return (OLR.UI.IThemeButtonWithArrow)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Actions1Button");
-            }
-        }
-        
-        public System.Web.UI.WebControls.ImageButton ExcelButton1 {
-            get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "ExcelButton1");
-            }
-        }
-        
-        public OLR.UI.IThemeButton FilterButton1 {
-            get {
-                return (OLR.UI.IThemeButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FilterButton1");
-            }
-        }
-        
-        public OLR.UI.IThemeButtonWithArrow Filters1Button {
-            get {
-                return (OLR.UI.IThemeButtonWithArrow)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Filters1Button");
-            }
-        }
-        
-        public System.Web.UI.WebControls.ImageButton ImportButton1 {
-            get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "ImportButton1");
-            }
-        }
-        
-        public System.Web.UI.WebControls.ImageButton NewButton1 {
-            get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "NewButton1");
-            }
-        }
-        
-        public OLR.UI.IPaginationModern Pagination1 {
-            get {
-                return (OLR.UI.IPaginationModern)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Pagination1");
-            }
-        }
-        
-        public System.Web.UI.WebControls.ImageButton PDFButton1 {
-            get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "PDFButton1");
-            }
-        }
-        
-        public System.Web.UI.WebControls.TextBox RegistrationsSearchText {
-            get {
-                return (System.Web.UI.WebControls.TextBox)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "RegistrationsSearchText");
-            }
-        }
-        
-        public BaseClasses.Web.UI.WebControls.QuickSelector RegistrationTypeIdFilter1 {
-            get {
-                return (BaseClasses.Web.UI.WebControls.QuickSelector)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "RegistrationTypeIdFilter1");
-            }
-        }              
-        
-        public System.Web.UI.WebControls.Literal RegistrationTypeIdLabel2 {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "RegistrationTypeIdLabel2");
-            }
-        }
-        
-        public System.Web.UI.WebControls.ImageButton ResetButton1 {
-            get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "ResetButton1");
-            }
-        }
-        
-        public System.Web.UI.WebControls.ImageButton SearchButton1 {
-            get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "SearchButton1");
-            }
-        }
-        
-        public System.Web.UI.WebControls.Label SortByLabel1 {
-            get {
-                return (System.Web.UI.WebControls.Label)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "SortByLabel1");
-            }
-        }
-        
-          public System.Web.UI.WebControls.DropDownList SortControl1 {
-          get {
-          return (System.Web.UI.WebControls.DropDownList)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "SortControl1");
-          }
-          }
-        
-        public System.Web.UI.WebControls.Literal Title1 {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Title1");
-            }
-        }
-        
-        public System.Web.UI.WebControls.ImageButton WordButton1 {
-            get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "WordButton1");
-            }
-        }
         
 #endregion
 
