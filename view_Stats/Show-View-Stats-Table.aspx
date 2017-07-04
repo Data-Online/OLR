@@ -1,7 +1,5 @@
 ﻿<%@ Register Tagprefix="OLR" TagName="ThemeButtonWithArrow" Src="../Shared/ThemeButtonWithArrow.ascx" %>
 
-<%@ Register Tagprefix="OLR" TagName="PaginationModern" Src="../Shared/PaginationModern.ascx" %>
-
 <%@ Register Tagprefix="OLR" TagName="ThemeButton" Src="../Shared/ThemeButton.ascx" %>
 
 <%@ Page Language="C#" EnableEventValidation="false" AutoEventWireup="false" Codebehind="Show-View-Stats-Table.aspx.cs" Culture="en-NZ" MasterPageFile="../Master Pages/HorizontalMenu.master" Inherits="OLR.UI.Show_View_Stats_Table" %>
@@ -86,7 +84,7 @@
                                   <asp:ImageButton runat="server" id="EditRowButton" causesvalidation="False" commandname="Redirect" cssclass="button_link" imageurl="../Images/icon_edit.gif" onmouseout="this.src=&#39;../Images/icon_edit.gif&#39;" onmouseover="this.src=&#39;../Images/icon_edit_over.gif&#39;" tooltip="&lt;%# GetResourceValue(&quot;Txt:EditRecord&quot;, &quot;OLR&quot;) %>">		
 	</asp:ImageButton>                                 
                                 
-                                  <asp:ImageButton runat="server" id="DeleteRowButton" causesvalidation="False" commandname="DeleteRecord" cssclass="button_link" imageurl="../Images/icon_delete.gif" onmouseout="this.src=&#39;../Images/icon_delete.gif&#39;" onmouseover="this.src=&#39;../Images/icon_delete_over.gif&#39;" tooltip="&lt;%# GetResourceValue(&quot;Txt:DeleteRecord&quot;, &quot;OLR&quot;) %>">		
+                                  <asp:ImageButton runat="server" id="DeleteRowButton" causesvalidation="False" commandname="DeleteRecord" cssclass="button_link" imageurl="../Images/icon_delete.gif" onmouseout="this.src=&#39;../Images/icon_delete.gif&#39;" onmouseover="this.src=&#39;../Images/icon_delete_over.gif&#39;" tooltip="&lt;%# GetResourceValue(&quot;Txt:DeleteRecord&quot;, &quot;OLR&quot;) %>" visible="False">		
 	</asp:ImageButton>                                 
                                 </td><td class="tableCellLabel"><asp:Label runat="server" id="Label" Text="Field Trip Option">	</asp:Label></td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:Literal runat="server" id="FieldTripOptionId"></asp:Literal></span>
@@ -114,14 +112,45 @@
 
                   </td></tr></table>
 </asp:panel>
-                </td><td class="panelR"></td></tr><tr><td class="panelL"></td><td class="panelPaginationC">
-                    <OLR:PaginationModern runat="server" id="Pagination"></OLR:PaginationModern>
-                    <!--To change the position of the pagination control, please search for "prspace" on the Online Help for instruction. -->
-                  </td><td class="panelR"></td></tr><tr><td class="panelBL"><img src="../Images/space.gif" class="panelBLSpace" alt="" /></td><td class="panelB"></td><td class="panelBR"><img src="../Images/space.gif" class="panelBRSpace" alt="" /></td></tr></table>
+                </td><td class="panelR"></td></tr><tr><td class="panelBL"><img src="../Images/space.gif" class="panelBLSpace" alt="" /></td><td class="panelB"></td><td class="panelBR"><img src="../Images/space.gif" class="panelBRSpace" alt="" /></td></tr></table>
 	<asp:hiddenfield id="View_StatsTableControl_PostbackTracker" runat="server" />
 </OLR:View_StatsTableControl>
 
-            </td></tr></table>
+            </td></tr><tr><td><OLR:RegistrationsTableControl runat="server" id="RegistrationsTableControl">	<table class="dv" cellpadding="0" cellspacing="0" border="0"><tr hidden="true"><td><asp:panel id="CollapsibleRegion1" runat="server"><table class="dBody" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tre">
+                    <table id="RegistrationsTableControlGrid" cellpadding="0" cellspacing="0" border="0" width="100%" onkeydown="captureUpDownKey(this, event)"><tr class="tch"><th class="thc" colspan="2" style="display:none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th></tr><asp:Repeater runat="server" id="RegistrationsTableControlRepeater">		<ITEMTEMPLATE>		<OLR:RegistrationsTableControlRow runat="server" id="RegistrationsTableControlRow">
+<tr><td class="tableRowButtonsCellVertical" scope="row" style="font-size: 5px;" rowspan="4" colspan="2">
+                                  <asp:ImageButton runat="server" id="EditRowButton1" causesvalidation="False" commandname="Redirect" cssclass="button_link" imageurl="../Images/icon_edit.gif" onmouseout="this.src=&#39;../Images/icon_edit.gif&#39;" onmouseover="this.src=&#39;../Images/icon_edit_over.gif&#39;" tooltip="&lt;%# GetResourceValue(&quot;Txt:EditRecord&quot;, &quot;OLR&quot;) %>">		
+	</asp:ImageButton>                                 
+                                
+                                  <asp:ImageButton runat="server" id="DeleteRowButton1" causesvalidation="False" commandname="DeleteRecord" cssclass="button_link" imageurl="../Images/icon_delete.gif" onmouseout="this.src=&#39;../Images/icon_delete.gif&#39;" onmouseover="this.src=&#39;../Images/icon_delete_over.gif&#39;" tooltip="&lt;%# GetResourceValue(&quot;Txt:DeleteRecord&quot;, &quot;OLR&quot;) %>">		
+	</asp:ImageButton>                                 
+                                </td><td class="tableCellLabel"><asp:Literal runat="server" id="AdditionalDinnerNameLabel" Text="Additional Dinner Name">	</asp:Literal> 
+</td><td class="tableCellValue"><asp:Literal runat="server" id="AdditionalDinnerName"></asp:Literal> </td><td class="tableCellLabel"><asp:Literal runat="server" id="AdditionalDinnerTicketLabel" Text="Additional Dinner Ticket">	</asp:Literal> 
+</td><td class="tableCellValue"><asp:Literal runat="server" id="AdditionalDinnerTicket"></asp:Literal> </td><td class="tableCellLabel"><asp:Literal runat="server" id="InitialCreationDateLabel" Text="Initial Creation Date">	</asp:Literal> 
+</td><td class="tableCellValue"><span style="white-space:nowrap;">
+<asp:Literal runat="server" id="InitialCreationDate"></asp:Literal></span>
+ </td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="ContactIdLabel" Text="Contact">	</asp:Literal> 
+</td><td class="tableCellValue"><asp:LinkButton runat="server" id="ContactId" causesvalidation="False" commandname="Redirect"></asp:LinkButton> </td><td class="tableCellLabel"><asp:Literal runat="server" id="RecordDeletedLabel" Text="Record Deleted">	</asp:Literal> 
+</td><td class="tableCellValue"><asp:Literal runat="server" id="RecordDeleted"></asp:Literal> </td><td class="tableCellLabel"><asp:Literal runat="server" id="DatePaidLabel" Text="Date Paid">	</asp:Literal> 
+</td><td class="tableCellValue"><span style="white-space:nowrap;">
+<asp:Literal runat="server" id="DatePaid"></asp:Literal></span>
+ </td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="EventIdLabel" Text="Event">	</asp:Literal> 
+</td><td class="tableCellValue"><asp:LinkButton runat="server" id="EventId" causesvalidation="False" commandname="Redirect"></asp:LinkButton> </td><td class="tableCellLabel"><asp:Literal runat="server" id="RegistrationTypeIdLabel" Text="Registration Type">	</asp:Literal> 
+</td><td class="tableCellValue"><span style="white-space:nowrap;">
+<asp:LinkButton runat="server" id="RegistrationTypeId" causesvalidation="False" commandname="Redirect"></asp:LinkButton></span>
+ </td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="SpecialRequirementsLabel" Text="Special Requirements">	</asp:Literal> 
+</td><td class="tableCellValue" colspan="5"><asp:Literal runat="server" id="SpecialRequirements"></asp:Literal> </td></tr><tr><td class="tableRowDivider" colspan="8"></td></tr></OLR:RegistrationsTableControlRow>
+</ITEMTEMPLATE>
+
+</asp:Repeater>
+</table>
+
+                  </td></tr></table>
+</asp:panel></td></tr><tr><td class="panelBL"><asp:Label runat="server" id="Label4" Text="Total Registrations">	</asp:Label> 
+<asp:Literal runat="server" id="RegistrationsCountControl">	</asp:Literal></td></tr></table>
+	<asp:hiddenfield id="RegistrationsTableControl_PostbackTracker" runat="server" />
+</OLR:RegistrationsTableControl>
+</td></tr></table>
       </ContentTemplate>
 </asp:UpdatePanel>
 

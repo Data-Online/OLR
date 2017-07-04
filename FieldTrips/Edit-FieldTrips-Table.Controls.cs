@@ -3441,85 +3441,6 @@ public class BaseFieldTripsTableControl : OLR.UI.BaseApplicationTableControl
     
            // Setup the filter and search.
         
-            if (!this.Page.IsPostBack)
-            {
-                string initialVal = "";
-                
-                  if(StringUtils.InvariantEquals(initialVal, "Search for", true) || StringUtils.InvariantEquals(initialVal, BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null), true))
-                  {
-                  initialVal = "";
-                  }
-                
-                if  (this.InSession(this.SortControl)) 				
-                    initialVal = this.GetFromSession(this.SortControl);
-                
-                if (initialVal != null && initialVal != "")		
-                {
-                        
-                    this.SortControl.Items.Add(new ListItem(initialVal, initialVal));
-                        
-                    this.SortControl.SelectedValue = initialVal;
-                            
-                    }
-            }
-            if (!this.Page.IsPostBack)
-            {
-                string initialVal = "";
-                if  (this.InSession(this.DescriptionFilter)) 				
-                    initialVal = this.GetFromSession(this.DescriptionFilter);
-                
-                else
-                    
-                    initialVal = EvaluateFormula("URL(\"Description\")");
-                
-                if(StringUtils.InvariantEquals(initialVal, "Search for", true) || StringUtils.InvariantEquals(initialVal, BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null), true))
-                {
-                initialVal = "";
-                }
-              
-                if (initialVal != null && initialVal != "")		
-                {
-                        
-                    string[] DescriptionFilteritemListFromSession = initialVal.Split(',');
-                    int index = 0;
-                    foreach (string item in DescriptionFilteritemListFromSession)
-                    {
-                        if (index == 0 && item.ToString().Equals(""))
-                        {
-                            // do nothing
-                        }
-                        else
-                        {
-                            this.DescriptionFilter.Items.Add(item);
-                            this.DescriptionFilter.Items[index].Selected = true;
-                            index += 1;
-                        }
-                    }
-                    foreach (ListItem listItem in this.DescriptionFilter.Items)
-                    {
-                        listItem.Selected = true;
-                    }
-                        
-                    }
-            }
-            if (!this.Page.IsPostBack)
-            {
-                string initialVal = "";
-                if  (this.InSession(this.SearchText)) 				
-                    initialVal = this.GetFromSession(this.SearchText);
-                
-                if(StringUtils.InvariantEquals(initialVal, "Search for", true) || StringUtils.InvariantEquals(initialVal, BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null), true))
-                {
-                initialVal = "";
-                }
-              
-                if (initialVal != null && initialVal != "")		
-                {
-                        
-                    this.SearchText.Text = initialVal;
-                            
-                    }
-            }
 
 
       
@@ -3550,8 +3471,6 @@ public class BaseFieldTripsTableControl : OLR.UI.BaseApplicationTableControl
         
             SaveControlsToSession_Ajax();
         
-              // Show confirmation message on Click
-              this.DeleteButton.Attributes.Add("onClick", "return (confirm(\"" + ((BaseApplicationPage)this.Page).GetResourceValue("DeleteConfirm", "OLR") + "\"));");
             // Setup the pagination events.
             
                     this.Pagination.FirstPage.Click += Pagination_FirstPage_Click;
@@ -3571,31 +3490,10 @@ public class BaseFieldTripsTableControl : OLR.UI.BaseApplicationTableControl
        // Setup the sorting events.
         
             // Setup the button events.
-          
-                    this.AddButton.Click += AddButton_Click;
-                        
-                    this.DeleteButton.Click += DeleteButton_Click;
-                        
-                    this.ResetButton.Click += ResetButton_Click;
-                        
-                    this.SaveButton.Click += SaveButton_Click;
-                        
-                    this.SearchButton.Click += SearchButton_Click;
-                        
-                    this.ActionsButton.Button.Click += ActionsButton_Click;
-                        
-                    this.FilterButton.Button.Click += FilterButton_Click;
-                        
-                    this.FiltersButton.Button.Click += FiltersButton_Click;
-                        
-            this.SortControl.SelectedIndexChanged += new EventHandler(SortControl_SelectedIndexChanged);
-            
-              this.DescriptionFilter.SelectedIndexChanged += DescriptionFilter_SelectedIndexChanged;                  
-                        
+                  
         
          //' Setup events for others
-            AjaxControlToolkit.ToolkitScriptManager.RegisterStartupScript(this, this.GetType(), "SearchTextSearchBoxText", "setSearchBoxText(\"" + BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null) + "\", \"" + SearchText.ClientID + "\");", true);
-             
+               
         }
 
         public virtual void LoadData()
@@ -3829,35 +3727,6 @@ public class BaseFieldTripsTableControl : OLR.UI.BaseApplicationTableControl
                 
                 
                 
-                SetDescriptionFilter();
-                SetDescriptionLabel1();
-                
-                
-                
-                
-                
-                
-                SetSearchText();
-                SetSortByLabel();
-                SetSortControl();
-                
-                
-                SetAddButton();
-              
-                SetDeleteButton();
-              
-                SetResetButton();
-              
-                SetSaveButton();
-              
-                SetSearchButton();
-              
-                SetActionsButton();
-              
-                SetFilterButton();
-              
-                SetFiltersButton();
-              
             // setting the state of expand or collapse alternative rows
       
             // Load data for each record and table UI control.
@@ -3868,9 +3737,7 @@ public class BaseFieldTripsTableControl : OLR.UI.BaseApplicationTableControl
             // this method calls the set method for controls with special formula like running total, sum, rank, etc
             SetFormulaControls();
             
-             
-              SetFiltersButton();
-                     
+                    
         }
         
         
@@ -3885,9 +3752,7 @@ public class BaseFieldTripsTableControl : OLR.UI.BaseApplicationTableControl
 
         public virtual void RegisterPostback()
         {
-        
-              this.Page.RegisterPostBackTrigger(MiscUtils.FindControlRecursively(this,"SaveButton"));
-                                
+                
         }
         
 
@@ -3973,12 +3838,6 @@ public class BaseFieldTripsTableControl : OLR.UI.BaseApplicationTableControl
         {
 
 
-            
-            this.DescriptionFilter.ClearSelection();
-            
-            this.SortControl.ClearSelection();
-            
-            this.SearchText.Text = "";
             
             this.CurrentSortOrder.Reset();
             if (this.InSession(this, "Order_By")) {
@@ -4117,74 +3976,7 @@ public class BaseFieldTripsTableControl : OLR.UI.BaseApplicationTableControl
             // 2. User selected search criteria.
             // 3. User selected filter criteria.
             
-        
-            if (MiscUtils.IsValueSelected(this.DescriptionFilter)) {
-                        
-                int selectedItemCount = 0;
-                foreach (ListItem item in this.DescriptionFilter.Items){
-                    if (item.Selected) {
-                        selectedItemCount += 1;
-                        
-                          
-                    }
-                }
-                WhereClause filter = new WhereClause();
-                foreach (ListItem item in this.DescriptionFilter.Items){
-                    if ((item.Selected) && ((item.Value == "--ANY--") || (item.Value == "--PLEASE_SELECT--")) && (selectedItemCount > 1)){
-                        item.Selected = false;
-                    }
-                    if (item.Selected){
-                        filter.iOR(FieldTripsTable.Description, BaseFilter.ComparisonOperator.EqualsTo, item.Value, false, false);
-                    }
-                }
-                wc.iAND(filter);
-                    
-            }
-                      
-            if (MiscUtils.IsValueSelected(this.SearchText)) {
-                if (this.SearchText.Text == BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null) ) {
-                        this.SearchText.Text = "";
-                } else {
-                  // Strip "..." from begin and ending of the search text, otherwise the search will return 0 values as in database "..." is not stored.
-                  if (this.SearchText.Text.StartsWith("...")) {
-                      this.SearchText.Text = this.SearchText.Text.Substring(3,this.SearchText.Text.Length-3);
-                  }
-                  if (this.SearchText.Text.EndsWith("...")) {
-                      this.SearchText.Text = this.SearchText.Text.Substring(0,this.SearchText.Text.Length-3);
-                      // Strip the last word as well as it is likely only a partial word
-                      int endindex = this.SearchText.Text.Length - 1;
-                      while (!Char.IsWhiteSpace(SearchText.Text[endindex]) && endindex > 0) {
-                          endindex--;
-                      }
-                      if (endindex > 0) {
-                          this.SearchText.Text = this.SearchText.Text.Substring(0, endindex);
-                      }
-                  }
-                }
-                string formatedSearchText = MiscUtils.GetSelectedValue(this.SearchText, this.GetFromSession(this.SearchText));
-                // After stripping "..." see if the search text is null or empty.
-                if (MiscUtils.IsValueSelected(this.SearchText)) {
-                      
-                    // These clauses are added depending on operator and fields selected in Control's property page, bindings tab.
-                  
-                    WhereClause search = new WhereClause();
-                    
-        ColumnList cols = new ColumnList();
-      
-      cols.Add(FieldTripsTable.Description, true);
-      
-      foreach(BaseColumn col in cols)
-      {
-      
-          search.iOR(col, BaseFilter.ComparisonOperator.Contains, MiscUtils.GetSelectedValue(this.SearchText, this.GetFromSession(this.SearchText)), true, false);
-        
-      }
-    
-                    wc.iAND(search);
-                  
-                }
-            }
-                       
+             
             return wc;
         }
         
@@ -4204,130 +3996,11 @@ public class BaseFieldTripsTableControl : OLR.UI.BaseApplicationTableControl
             
             // Adds clauses if values are selected in Filter controls which are configured in the page.
           
-      String DescriptionFilterSelectedValue = (String)HttpContext.Current.Session[HttpContext.Current.Session.SessionID + appRelativeVirtualPath + "DescriptionFilter_Ajax"];
-            if (MiscUtils.IsValueSelected(DescriptionFilterSelectedValue)) {
-
-              
-        if (DescriptionFilterSelectedValue != null){
-                        string[] DescriptionFilteritemListFromSession = DescriptionFilterSelectedValue.Split(',');
-                        int index = 0;
-                        WhereClause filter = new WhereClause();
-                        foreach (string item in DescriptionFilteritemListFromSession)
-                        {
-                            if (index == 0 && item.ToString().Equals(""))
-                            {
-                            }
-                            else
-                            {
-                                filter.iOR(FieldTripsTable.Description, BaseFilter.ComparisonOperator.EqualsTo, item, false, false);
-                                index += 1;
-                            }
-                        }
-                        wc.iAND(filter);
-        }
-                
-      }
-                      
-            if (MiscUtils.IsValueSelected(searchText) && fromSearchControl == "SearchText") {
-                String formatedSearchText = searchText;
-                // strip "..." from begin and ending of the search text, otherwise the search will return 0 values as in database "..." is not stored.
-                if (searchText.StartsWith("...")) {
-                    formatedSearchText = searchText.Substring(3,searchText.Length-3);
-                }
-                if (searchText.EndsWith("...")) {
-                    formatedSearchText = searchText.Substring(0,searchText.Length-3);
-                }
-                // After stripping "...", trim any leading and trailing whitespaces 
-                formatedSearchText = formatedSearchText.Trim();
-                // After stripping "..." see if the search text is null or empty.
-                if (MiscUtils.IsValueSelected(searchText)) {
-                      
-                    // These clauses are added depending on operator and fields selected in Control's property page, bindings tab.
-                  
-                    WhereClause search = new WhereClause();
-                    
-                    if (StringUtils.InvariantLCase(AutoTypeAheadSearch).Equals("wordsstartingwithsearchstring")) {
-                
-        ColumnList cols = new ColumnList();
-      
-      cols.Add(FieldTripsTable.Description, true);
-      
-      foreach(BaseColumn col in cols)
-      {
-      
-                  search.iOR(col, BaseFilter.ComparisonOperator.Starts_With, formatedSearchText, true, false);
-                  search.iOR(col, BaseFilter.ComparisonOperator.Contains, AutoTypeAheadWordSeparators + formatedSearchText, true, false);
-                
-      }
-    
-                    } else {
-                        
-        ColumnList cols = new ColumnList();
-      
-      cols.Add(FieldTripsTable.Description, true);
-      
-      foreach(BaseColumn col in cols)
-      {
-      
-                  search.iOR(col, BaseFilter.ComparisonOperator.Contains, formatedSearchText, true, false);
-      }
-    
-                    } 
-                    wc.iAND(search);
-                  
-                }
-            }
-                  
 
             return wc;
         }
 
         
-        public virtual string[] GetAutoCompletionList_SearchText(String prefixText,int count)
-        {
-            ArrayList resultList = new ArrayList();
-            ArrayList wordList= new ArrayList();
-            
-            CompoundFilter filterJoin = CreateCompoundJoinFilter();    
-            WhereClause wc = CreateWhereClause(prefixText,"SearchText", "WordsStartingWithSearchString", "[^a-zA-Z0-9]");
-            if(count==0) count = 10;
-            OLR.Business.FieldTripsRecord[] recordList  = FieldTripsTable.GetRecords(filterJoin, wc, null, 0, count, ref count);
-            String resultItem = "";
-            if (resultItem == "") resultItem = "";
-            foreach (FieldTripsRecord rec in recordList ){
-                // Exit the loop if recordList count has reached AutoTypeAheadListSize.
-                if (resultList.Count >= count) {
-                    break;
-                }
-                // If the field is configured to Display as Foreign key, Format() method returns the 
-                // Display as Forien Key value instead of original field value.
-                // Since search had to be done in multiple fields (selected in Control's page property, binding tab) in a record,
-                // We need to find relevent field to display which matches the prefixText and is not already present in the result list.
-        
-                resultItem = rec.Format(FieldTripsTable.Description);
-  
-                if (resultItem != null) {
-                    string prText = prefixText;
-                    if(FieldTripsTable.Description.IsFullTextSearchable) {
-                        FullTextExpression ft = new FullTextExpression();
-                        prText = ft.GetFirstNonExcludedTerm(prText);
-                    }
-                    if (!string.IsNullOrEmpty(prText) && resultItem.ToUpper(System.Threading.Thread.CurrentThread.CurrentCulture).Contains(prText.ToUpper(System.Threading.Thread.CurrentThread.CurrentCulture))) {
-                        bool isAdded = FormatSuggestions(prText, resultItem, 50, "InMiddleOfMatchedString", "WordsStartingWithSearchString", "[^a-zA-Z0-9]", resultList, FieldTripsTable.Description.IsFullTextSearchable);
-                        if (isAdded) {
-                            continue;
-                        }
-                    }
-                }
-                      
-            }
-              
-            resultList.Sort();
-            string[] result = new string[resultList.Count];
-            Array.Copy(resultList.ToArray(), result, resultList.Count);
-            return result;
-        }
-          
           
          public virtual bool FormatSuggestions(String prefixText, String resultItem,
                                               int columnLength, String AutoTypeAheadDisplayFoundText,
@@ -4583,251 +4256,6 @@ public class BaseFieldTripsTableControl : OLR.UI.BaseApplicationTableControl
       
         // Create Set, WhereClause, and Populate Methods
         
-        public virtual void SetDescriptionLabel1()
-                  {
-                  
-                    
-        }
-                
-        public virtual void SetSortByLabel()
-                  {
-                  
-                      //Code for the text property is generated inside the .aspx file. 
-                      //To override this property you can uncomment the following property and add you own value.
-                      //this.SortByLabel.Text = "Some value";
-                    
-                    
-        }
-                
-        public virtual void SetSortControl()
-        {
-            
-                this.PopulateSortControl(MiscUtils.GetSelectedValue(this.SortControl,  GetFromSession(this.SortControl)), 500);					
-                    
-
-        }
-            
-        public virtual void SetDescriptionFilter()
-        {
-            
-            ArrayList DescriptionFilterselectedFilterItemList = new ArrayList();
-            string DescriptionFilteritemsString = null;
-            if (this.InSession(this.DescriptionFilter))
-                DescriptionFilteritemsString = this.GetFromSession(this.DescriptionFilter);
-            
-            if (DescriptionFilteritemsString != null)
-            {
-                string[] DescriptionFilteritemListFromSession = DescriptionFilteritemsString.Split(',');
-                foreach (string item in DescriptionFilteritemListFromSession)
-                {
-                    DescriptionFilterselectedFilterItemList.Add(item);
-                }
-            }
-              
-            			
-            this.PopulateDescriptionFilter(MiscUtils.GetSelectedValueList(this.DescriptionFilter, DescriptionFilterselectedFilterItemList), 500);
-                    
-              string url = this.ModifyRedirectUrl("../FieldTrips/FieldTrips-QuickSelector.aspx", "", true);
-              
-              url = this.Page.ModifyRedirectUrl(url, "", true);                                  
-              
-              url += "?Target=" + this.DescriptionFilter.ClientID + "&IndexField=" + (this.Page as BaseApplicationPage).Encrypt("Description")+ "&EmptyValue=" + (this.Page as BaseApplicationPage).Encrypt("--ANY--") + "&EmptyDisplayText=" + (this.Page as BaseApplicationPage).Encrypt(this.Page.GetResourceValue("Txt:All")) + "&RedirectStyle=" + (this.Page as BaseApplicationPage).Encrypt("Popup");
-              
-              this.DescriptionFilter.Attributes["onClick"] = "initializePopupPage(this, '" + url + "', " + Convert.ToString(DescriptionFilter.AutoPostBack).ToLower() + ", event); return false;";
-                  
-                             
-        }
-            
-        public virtual void SetSearchText()
-        {
-                                            
-            this.SearchText.Attributes.Add("onfocus", "if(this.value=='" + BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null) + "') {this.value='';this.className='Search_Input';}");
-            this.SearchText.Attributes.Add("onblur", "if(this.value=='') {this.value='" + BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null) + "';this.className='Search_InputHint';}");
-                                   
-        }
-            
-        // Get the filters' data for SortControl.
-                
-        protected virtual void PopulateSortControl(string selectedValue, int maxItems)
-                    
-        {
-            
-              
-                this.SortControl.Items.Clear();
-                
-              // 1. Setup the static list items
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("{Txt:PleaseSelect}"), "--PLEASE_SELECT--"));
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Date {Txt:Ascending}"), "Date Asc"));
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Date {Txt:Descending}"), "Date Desc"));
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Description {Txt:Ascending}"), "Description Asc"));
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Description {Txt:Descending}"), "Description Desc"));
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Time {Txt:Ascending}"), "Time Asc"));
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Time {Txt:Descending}"), "Time Desc"));
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Event {Txt:Ascending}"), "EventId Asc"));
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Event {Txt:Descending}"), "EventId Desc"));
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Display Sequence {Txt:Ascending}"), "DisplaySequence Asc"));
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Display Sequence {Txt:Descending}"), "DisplaySequence Desc"));
-              
-            try
-            {          
-                // Set the selected value.
-                MiscUtils.SetSelectedValue(this.SortControl, selectedValue);
-
-               
-            }
-            catch
-            {
-            }
-              
-            if (this.SortControl.SelectedValue != null && this.SortControl.Items.FindByValue(this.SortControl.SelectedValue) == null)
-                this.SortControl.SelectedValue = null;
-              
-        }
-            
-        // Get the filters' data for DescriptionFilter.
-                
-        protected virtual void PopulateDescriptionFilter(ArrayList selectedValue, int maxItems)
-                    
-        {
-        
-            
-            //Setup the WHERE clause.
-                        
-            WhereClause wc = this.CreateWhereClause_DescriptionFilter();            
-            this.DescriptionFilter.Items.Clear();
-            			  			
-            // Set up the WHERE and the ORDER BY clause by calling the CreateWhereClause_DescriptionFilter function.
-            // It is better to customize the where clause there.
-             
-            
-            
-            OrderBy orderBy = new OrderBy(false, false);
-            orderBy.Add(FieldTripsTable.Description, OrderByItem.OrderDir.Asc);                
-            
-            
-            string[] values = new string[0];
-            if (wc.RunQuery)
-            {
-            
-                values = FieldTripsTable.GetValues(FieldTripsTable.Description, wc, orderBy, maxItems);
-            
-            }
-            
-            ArrayList listDuplicates = new ArrayList();
-            foreach (string cvalue in values)
-            {
-            // Create the item and add to the list.
-            string fvalue;
-            if ( FieldTripsTable.Description.IsColumnValueTypeBoolean()) {
-                    fvalue = cvalue;
-                }else {
-                    fvalue = FieldTripsTable.Description.Format(cvalue);
-                }
-                if (fvalue == null) {
-                    fvalue = "";
-                }
-
-                fvalue = fvalue.Trim();
-
-                if ( fvalue.Length > 50 ) {
-                    fvalue = fvalue.Substring(0, 50) + "...";
-                }
-
-                ListItem dupItem = this.DescriptionFilter.Items.FindByText(fvalue);
-								
-                if (dupItem != null) {
-                    listDuplicates.Add(fvalue);
-                    if (!string.IsNullOrEmpty(dupItem.Value))
-                    {
-                        dupItem.Text = fvalue + " (ID " + dupItem.Value.Substring(0, Math.Min(dupItem.Value.Length,38)) + ")";
-                    }
-                }
-
-                ListItem newItem = new ListItem(fvalue, cvalue);
-                this.DescriptionFilter.Items.Add(newItem);
-
-                if (listDuplicates.Contains(fvalue) &&  !string.IsNullOrEmpty(cvalue)) {
-                    newItem.Text = fvalue + " (ID " + cvalue.Substring(0, Math.Min(cvalue.Length,38)) + ")";
-                }
-            }
-
-                          
-            try
-            {
-      
-                
-            }
-            catch
-            {
-            }
-            
-            
-            this.DescriptionFilter.SetFieldMaxLength(50);
-                                 
-                  
-            // Add the selected value.
-            if (this.DescriptionFilter.Items.Count == 0)
-                this.DescriptionFilter.Items.Add(new ListItem(Page.GetResourceValue("Txt:All", "OLR"), "--ANY--"));
-            
-            // Mark all items to be selected.
-            foreach (ListItem item in this.DescriptionFilter.Items)
-            {
-                item.Selected = true;
-            }
-                               
-        }
-            
-        public virtual WhereClause CreateWhereClause_DescriptionFilter()
-        {
-            // Create a where clause for the filter DescriptionFilter.
-            // This function is called by the Populate method to load the items 
-            // in the DescriptionFilterQuickSelector
-        
-            ArrayList DescriptionFilterselectedFilterItemList = new ArrayList();
-            string DescriptionFilteritemsString = null;
-            if (this.InSession(this.DescriptionFilter))
-                DescriptionFilteritemsString = this.GetFromSession(this.DescriptionFilter);
-            
-            if (DescriptionFilteritemsString != null)
-            {
-                string[] DescriptionFilteritemListFromSession = DescriptionFilteritemsString.Split(',');
-                foreach (string item in DescriptionFilteritemListFromSession)
-                {
-                    DescriptionFilterselectedFilterItemList.Add(item);
-                }
-            }
-              
-            DescriptionFilterselectedFilterItemList = MiscUtils.GetSelectedValueList(this.DescriptionFilter, DescriptionFilterselectedFilterItemList); 
-            WhereClause wc = new WhereClause();
-            if (DescriptionFilterselectedFilterItemList == null || DescriptionFilterselectedFilterItemList.Count == 0)
-                wc.RunQuery = false;
-            else            
-            {
-                foreach (string item in DescriptionFilterselectedFilterItemList)
-                {
-            
-      
-   
-                    wc.iOR(FieldTripsTable.Description, BaseFilter.ComparisonOperator.EqualsTo, item);
-
-                                
-                }
-            }
-            return wc;
-        
-        }
-      
 
     
         protected virtual void Control_PreRender(object sender, System.EventArgs e)
@@ -4883,19 +4311,6 @@ public class BaseFieldTripsTableControl : OLR.UI.BaseApplicationTableControl
             base.SaveControlsToSession();
             // Save filter controls to values to session.
         
-            this.SaveToSession(this.SortControl, this.SortControl.SelectedValue);
-                  
-            ArrayList DescriptionFilterselectedFilterItemList = MiscUtils.GetSelectedValueList(this.DescriptionFilter, null);
-            string DescriptionFilterSessionString = "";
-            if (DescriptionFilterselectedFilterItemList != null){
-                foreach (string item in DescriptionFilterselectedFilterItemList){
-                    DescriptionFilterSessionString = String.Concat(DescriptionFilterSessionString ,"," , item);
-                }
-            }
-            this.SaveToSession(this.DescriptionFilter, DescriptionFilterSessionString);
-                  
-            this.SaveToSession(this.SearchText, this.SearchText.Text);
-                  
             
                     
             // Save pagination state to session.
@@ -4923,19 +4338,6 @@ public class BaseFieldTripsTableControl : OLR.UI.BaseApplicationTableControl
         {
             // Save filter controls to values to session.
           
-            this.SaveToSession(this.SortControl, this.SortControl.SelectedValue);
-                  
-            ArrayList DescriptionFilterselectedFilterItemList = MiscUtils.GetSelectedValueList(this.DescriptionFilter, null);
-            string DescriptionFilterSessionString = "";
-            if (DescriptionFilterselectedFilterItemList != null){
-                foreach (string item in DescriptionFilterselectedFilterItemList){
-                    DescriptionFilterSessionString = String.Concat(DescriptionFilterSessionString ,"," , item);
-                }
-            }
-            this.SaveToSession("DescriptionFilter_Ajax", DescriptionFilterSessionString);
-          
-      this.SaveToSession("SearchText_Ajax", this.SearchText.Text);
-              
            HttpContext.Current.Session["AppRelativeVirtualPath"] = this.Page.AppRelativeVirtualPath;
          
         }
@@ -4946,9 +4348,6 @@ public class BaseFieldTripsTableControl : OLR.UI.BaseApplicationTableControl
             base.ClearControlsFromSession();
             // Clear filter controls values from the session.
         
-            this.RemoveFromSession(this.SortControl);
-            this.RemoveFromSession(this.DescriptionFilter);
-            this.RemoveFromSession(this.SearchText);
             
             // Clear pagination state from session.
          
@@ -5033,72 +4432,7 @@ public class BaseFieldTripsTableControl : OLR.UI.BaseApplicationTableControl
         }
 
         // Generate set method for buttons
-        
-        public virtual void SetAddButton()                
-              
-        {
-        
-   
-        }
-            
-        public virtual void SetDeleteButton()                
-              
-        {
-        
-   
-        }
-            
-        public virtual void SetResetButton()                
-              
-        {
-        
-   
-        }
-            
-        public virtual void SetSaveButton()                
-              
-        {
-        
-                    this.SaveButton.Attributes.Add("onclick", "SubmitHRefOnce(this, \"" + this.Page.GetResourceValue("Txt:SaveRecord", "OLR") + "\");");
-                  
-   
-        }
-            
-        public virtual void SetSearchButton()                
-              
-        {
-        
-   
-        }
-            
-        public virtual void SetActionsButton()                
-              
-        {
-        
-   
-        }
-            
-        public virtual void SetFilterButton()                
-              
-        {
-        
-   
-        }
-            
-        public virtual void SetFiltersButton()                
-              
-        {
-                
-         IThemeButtonWithArrow themeButtonFiltersButton = (IThemeButtonWithArrow)(MiscUtils.FindControlRecursively(this, "FiltersButton"));
-         themeButtonFiltersButton.ArrowImage.ImageUrl = "../Images/ButtonExpandArrow.png";
-    
-      
-            if (MiscUtils.IsValueSelected(DescriptionFilter))
-                themeButtonFiltersButton.ArrowImage.ImageUrl = "../Images/ButtonCheckmark.png";
-        
-   
-        }
-               
+           
         
         // Generate the event handling functions for pagination events.
         
@@ -5228,303 +4562,10 @@ public class BaseFieldTripsTableControl : OLR.UI.BaseApplicationTableControl
 
         // Generate the event handling functions for button events.
         
-        // event handler for ImageButton
-        public virtual void AddButton_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            try {
-                // Enclose all database retrieval/update code within a Transaction boundary
-                DbUtils.StartTransaction();
-                
-            this.AddNewRecord = 1;
-            this.DataChanged = true;
-      
-            } catch (Exception ex) {
-                  // Upon error, rollback the transaction
-                  this.Page.RollBackTransaction(sender);
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-                DbUtils.EndTransaction();
-            }
-    
-        }
-            
-            
-        
-        // event handler for ImageButton
-        public virtual void DeleteButton_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            try {
-                // Enclose all database retrieval/update code within a Transaction boundary
-                DbUtils.StartTransaction();
-                
-            if (!this.Page.IsPageRefresh) {
-        
-                this.DeleteSelectedRecords(true);
-                this.SetFormulaControls();
-          
-            }
-      
-            } catch (Exception ex) {
-                  // Upon error, rollback the transaction
-                  this.Page.RollBackTransaction(sender);
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-                DbUtils.EndTransaction();
-            }
-    
-        }
-            
-            
-        
-        // event handler for ImageButton
-        public virtual void ResetButton_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            try {
-                
-              this.DescriptionFilter.ClearSelection();
-            
-           
-            this.SortControl.ClearSelection();
-          
-              this.SearchText.Text = "";
-            
-              this.CurrentSortOrder.Reset();
-              if (this.InSession(this, "Order_By"))
-                  this.CurrentSortOrder = OrderBy.FromXmlString(this.GetFromSession(this, "Order_By", null));
-              else
-              {
-                  this.CurrentSortOrder = new OrderBy(true, false);
-                  
-              }
-                
-
-            // Setting the DataChanged to true results in the page being refreshed with
-            // the most recent data from the database.  This happens in PreRender event
-            // based on the current sort, search and filter criteria.
-            this.DataChanged = true;
-                
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
-        
-        // event handler for ImageButton
-        public virtual void SaveButton_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            try {
-                // Enclose all database retrieval/update code within a Transaction boundary
-                DbUtils.StartTransaction();
-                
-        
-              if (!this.Page.IsPageRefresh)
-              {
-                  this.SaveData();
-              }
-
-          this.Page.CommitTransaction(sender);
-          // Set IsNewRecord to False for all records - since everything has been saved and is no longer "new"
-           
-                foreach (FieldTripsTableControlRow recCtl in this.GetRecordControls()){
-                     
-                    recCtl.IsNewRecord = false;
-                }
-      
-          // Set DeletedRecordsIds to Nothing since we have deleted all pending deletes.
-          
-                this.DeletedRecordIds = null;
-            
-            } catch (Exception ex) {
-                  // Upon error, rollback the transaction
-                  this.Page.RollBackTransaction(sender);
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-                DbUtils.EndTransaction();
-            }
-    
-        }
-            
-            
-        
-        // event handler for ImageButton
-        public virtual void SearchButton_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            try {
-                
-            this.DataChanged = true;
-          
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
-        
-        // event handler for Button
-        public virtual void ActionsButton_Click(object sender, EventArgs args)
-        {
-              
-            try {
-                
-            //This method is initially empty to implement custom click handler.
-      
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
-        
-        // event handler for Button
-        public virtual void FilterButton_Click(object sender, EventArgs args)
-        {
-              
-            try {
-                
-            this.DataChanged = true;
-          
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
-        
-        // event handler for Button
-        public virtual void FiltersButton_Click(object sender, EventArgs args)
-        {
-              
-            try {
-                
-            //This method is initially empty to implement custom click handler.
-      
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
-        
 
 
         // Generate the event handling functions for filter and search events.
         
-        // event handler for OrderSort
-        protected virtual void SortControl_SelectedIndexChanged(object sender, EventArgs args)
-        {
-              
-                  string SelVal1 = this.SortControl.SelectedValue.ToUpper();
-                  string[] words1 = SelVal1.Split(' ');
-                  if (SelVal1 != "" )
-                  {
-                  SelVal1 = SelVal1.Replace(words1[words1.Length - 1], "").TrimEnd();
-                  foreach (BaseClasses.Data.BaseColumn ColumnNam in FieldTripsTable.GetColumns())
-                  {
-                  if (ColumnNam.Name.ToUpper().Equals(SelVal1))
-                  {
-                  SelVal1 = ColumnNam.InternalName;
-                  }
-                  }
-                  }
-
-                
-                OrderByItem sd = this.CurrentSortOrder.Find(FieldTripsTable.GetColumnByName(SelVal1));
-                if (sd == null || this.CurrentSortOrder.Items != null)
-                {
-                // First time sort, so add sort order for Discontinued.
-                if (FieldTripsTable.GetColumnByName(SelVal1) != null)
-                {
-                  this.CurrentSortOrder.Reset();
-                }
-
-                //If default sort order was GeoProximity, create new CurrentSortOrder of OrderBy type
-                if ((this.CurrentSortOrder).GetType() == typeof(GeoOrderBy)) this.CurrentSortOrder = new OrderBy(true, false);
-
-                
-                  if (SelVal1 != "--PLEASE_SELECT--" && FieldTripsTable.GetColumnByName(SelVal1) != null)
-                  {
-                    if (words1[words1.Length - 1].Contains("ASC"))
-                  {
-                  this.CurrentSortOrder.Add(FieldTripsTable.GetColumnByName(SelVal1),OrderByItem.OrderDir.Asc);
-                    }
-                    else
-                    {
-                      if (words1[words1.Length - 1].Contains("DESC"))
-                  {
-                  this.CurrentSortOrder.Add(FieldTripsTable.GetColumnByName(SelVal1),OrderByItem.OrderDir.Desc );
-                      }
-                    }
-                  }
-                
-                }
-                this.DataChanged = true;
-              				
-        }
-            
-        // event handler for FieldFilter
-        protected virtual void DescriptionFilter_SelectedIndexChanged(object sender, EventArgs args)
-        {
-            // Setting the DataChanged to True results in the page being refreshed with
-            // the most recent data from the database.  This happens in PreRender event
-            // based on the current sort, search and filter criteria.
-            this.DataChanged = true;
-            
-           				
-        }
-            
     
         // Generate the event handling functions for others
         	  
@@ -5599,89 +4640,11 @@ public class BaseFieldTripsTableControl : OLR.UI.BaseApplicationTableControl
 
 #region "Helper Properties"
         
-        public OLR.UI.IThemeButtonWithArrow ActionsButton {
-            get {
-                return (OLR.UI.IThemeButtonWithArrow)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "ActionsButton");
-            }
-        }
-        
-        public System.Web.UI.WebControls.ImageButton AddButton {
-            get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "AddButton");
-            }
-        }
-        
-        public System.Web.UI.WebControls.ImageButton DeleteButton {
-            get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "DeleteButton");
-            }
-        }
-        
-        public BaseClasses.Web.UI.WebControls.QuickSelector DescriptionFilter {
-            get {
-                return (BaseClasses.Web.UI.WebControls.QuickSelector)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "DescriptionFilter");
-            }
-        }              
-        
-        public System.Web.UI.WebControls.Literal DescriptionLabel1 {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "DescriptionLabel1");
-            }
-        }
-        
-        public OLR.UI.IThemeButton FilterButton {
-            get {
-                return (OLR.UI.IThemeButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FilterButton");
-            }
-        }
-        
-        public OLR.UI.IThemeButtonWithArrow FiltersButton {
-            get {
-                return (OLR.UI.IThemeButtonWithArrow)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FiltersButton");
-            }
-        }
-        
         public OLR.UI.IPaginationModern Pagination {
             get {
                 return (OLR.UI.IPaginationModern)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Pagination");
             }
         }
-        
-        public System.Web.UI.WebControls.ImageButton ResetButton {
-            get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "ResetButton");
-            }
-        }
-        
-        public System.Web.UI.WebControls.ImageButton SaveButton {
-            get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "SaveButton");
-            }
-        }
-        
-        public System.Web.UI.WebControls.ImageButton SearchButton {
-            get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "SearchButton");
-            }
-        }
-        
-        public System.Web.UI.WebControls.TextBox SearchText {
-            get {
-                return (System.Web.UI.WebControls.TextBox)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "SearchText");
-            }
-        }
-        
-        public System.Web.UI.WebControls.Label SortByLabel {
-            get {
-                return (System.Web.UI.WebControls.Label)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "SortByLabel");
-            }
-        }
-        
-          public System.Web.UI.WebControls.DropDownList SortControl {
-          get {
-          return (System.Web.UI.WebControls.DropDownList)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "SortControl");
-          }
-          }
         
         public System.Web.UI.WebControls.Literal Title0 {
             get {

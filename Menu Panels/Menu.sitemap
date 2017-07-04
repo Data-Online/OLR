@@ -36,16 +36,16 @@ The tags are case-sensitive and should contain the following case-sensitive attr
       <siteMapNode title="Field Trips" description="Field Trips" url="~/FieldTrips/Show-FieldTrips-Table.aspx?" imageUrl="" roles="" order="1">
         <siteMapNode title="{Menu:Edit} Field Trips" description="{Menu:Edit} Field Trips" url="~/FieldTrips/Edit-FieldTrips-Table.aspx" imageUrl="" roles="" order="1" />
       </siteMapNode>
-      <siteMapNode title="Photo Clubs" description="Photo Clubs" url="~/PhotoClubs/Show-PhotoClubs-Table.aspx?" imageUrl="" roles="" order="2">
+      <siteMapNode title="Photo Clubs" description="Photo Clubs" url="" imageUrl="" roles="" order="2">
         <siteMapNode title="{Menu:Edit} Photo Clubs" description="{Menu:Edit} Photo Clubs" url="~/PhotoClubs/Edit-PhotoClubs-Table.aspx" imageUrl="" roles="" order="1" />
       </siteMapNode>
-      <siteMapNode title="Honors" description="Honors" url="~/Honors/Show-Honors-Table.aspx?" imageUrl="" roles="" order="3">
-        <siteMapNode title="{Menu:Edit} Honors" description="{Menu:Edit} Honors" url="~/Honors/Edit-Honors-Table.aspx" imageUrl="" roles="" order="1" />
+      <siteMapNode title="Honours" description="Honours" url="" imageUrl="" roles="" order="3">
+        <siteMapNode title="{Menu:Edit} Honors" description="{Menu:Edit} Honors" url="~/Honours/Edit-Honours-Table.aspx" imageUrl="" roles="" order="1" />
       </siteMapNode>
-      <siteMapNode title="Users" description="Users" url="~/Users/Edit-Users-Table.aspx?" imageUrl="" roles="" order="4">
+      <siteMapNode title="Users" description="Users" url="" imageUrl="" roles="" order="4">
         <siteMapNode title="{Menu:Edit} Users" description="{Menu:Edit} Users" url="~/Users/Edit-Users-Table.aspx" imageUrl="" roles="" order="1" />
       </siteMapNode>
     </siteMapNode>
-    <siteMapNode title="Stats" description="Stats" url="~/view_Stats/Show-View-Stats-Table.aspx?" imageUrl="" roles="" order="3" />
+    <siteMapNode title="Stats" description="Stats" url="~/FieldTrips/Show-FieldTrips-Table.aspx" imageUrl="" roles="" order="3" />
   </siteMapNode>
 </siteMap>

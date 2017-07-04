@@ -173,16 +173,16 @@ public partial class Edit_FieldTrips_Table
         }
         
     
-        [System.Web.Services.WebMethod]
-        public static string[] GetAutoCompletionList_SearchText(string prefixText, int count)
-        {
-            // GetSearchTextCompletionList gets the list of suggestions from the database.
-            // prefixText is the search text typed by the user .
-            // count specifies the number of suggestions to be returned.
-            // Customize by adding code before or after the call to  GetAutoCompletionList_SearchText_Base()
-            // or replace the call to GetAutoCompletionList_SearchText_Base().
-            return GetAutoCompletionList_SearchText_Base(prefixText, count);
-        }
+//        [System.Web.Services.WebMethod]
+//        public static string[] GetAutoCompletionList_SearchText(string prefixText, int count)
+//        {
+//            // GetSearchTextCompletionList gets the list of suggestions from the database.
+//            // prefixText is the search text typed by the user .
+//            // count specifies the number of suggestions to be returned.
+//            // Customize by adding code before or after the call to  GetAutoCompletionList_SearchText_Base()
+//            // or replace the call to GetAutoCompletionList_SearchText_Base().
+//            return GetAutoCompletionList_SearchText_Base(prefixText, count);
+//        }
       
       protected override void BasePage_PreRender(object sender, EventArgs e)
       {
@@ -232,39 +232,17 @@ public partial class Edit_FieldTrips_Table
     
         public ThemeButtonWithArrow Actions1Button;
                 
-        public ThemeButtonWithArrow ActionsButton;
-                
-        public System.Web.UI.WebControls.ImageButton AddButton;
-        
         public System.Web.UI.WebControls.ImageButton AddButton1;
-        
-        public System.Web.UI.WebControls.ImageButton DeleteButton;
         
         public System.Web.UI.WebControls.ImageButton DeleteButton1;
         
-        public System.Web.UI.WebControls.Literal DescriptionLabel1;
-        
         public OLR.UI.Controls.Edit_FieldTrips_Table.FieldTripsTableControl FieldTripsTableControl;
           
-        public ThemeButton FilterButton;
-                
-        public ThemeButtonWithArrow FiltersButton;
-                
         public System.Web.UI.WebControls.Literal PageTitle;
         
         public PaginationModern Pagination;
                 
-        public System.Web.UI.WebControls.ImageButton ResetButton;
-        
-        public System.Web.UI.WebControls.ImageButton SaveButton;
-        
         public System.Web.UI.WebControls.ImageButton SaveButton1;
-        
-        public System.Web.UI.WebControls.ImageButton SearchButton;
-        
-        public System.Web.UI.WebControls.TextBox SearchText;
-        
-        public System.Web.UI.WebControls.Label SortByLabel;
         
         public System.Web.UI.WebControls.Literal Title0;
             
@@ -533,17 +511,6 @@ public partial class Edit_FieldTrips_Table
       }  
       
         
-    public static string[] GetAutoCompletionList_SearchText_Base(string prefixText, int count)
-    {
-        // Since this method is a shared/static method it does not maintain information about page or controls within the page.
-        // Hence we can not invoke any method associated with any controls.
-        // So, if we need to use any control in the page we need to instantiate it.
-        OLR.UI.Controls.Edit_FieldTrips_Table.FieldTripsTableControl control = new OLR.UI.Controls.Edit_FieldTrips_Table.FieldTripsTableControl();
-        
-        return control.GetAutoCompletionList_SearchText(prefixText, count);
-            
-    }
-      
 
     // Load data from database into UI controls.
     // Modify LoadData in Section 1 above to customize.  Or override DataBind() in

@@ -202,6 +202,20 @@ public partial class Show_View_Stats_Table
         
 
 
+public void SetRegistrationsTableControl()
+        {
+            SetRegistrationsTableControl_Base(); 
+        }
+//[System.Web.Services.WebMethod]
+//        public static string[] GetAutoCompletionList_RegistrationsSearchText(string prefixText, int count)
+//        {
+//            // GetRegistrationsSearchTextCompletionList gets the list of suggestions from the database.
+//            // prefixText is the search text typed by the user .
+//            // count specifies the number of suggestions to be returned.
+//            // Customize by adding code before or after the call to  GetAutoCompletionList_RegistrationsSearchText_Base()
+//            // or replace the call to GetAutoCompletionList_RegistrationsSearchText_Base().
+//            return GetAutoCompletionList_RegistrationsSearchText_Base(prefixText, count);
+//        }
 #endregion
 
 #region "Section 2: Do not modify this section."
@@ -231,14 +245,18 @@ public partial class Show_View_Stats_Table
                 
         public System.Web.UI.WebControls.ImageButton ImportButton;
         
+        public System.Web.UI.WebControls.Label Label4;
+        
         public System.Web.UI.WebControls.ImageButton NewButton;
         
         public System.Web.UI.WebControls.Literal PageTitle;
         
-        public PaginationModern Pagination;
-                
         public System.Web.UI.WebControls.ImageButton PDFButton;
         
+        public System.Web.UI.WebControls.Literal RegistrationsCountControl;
+        
+        public OLR.UI.Controls.Show_View_Stats_Table.RegistrationsTableControl RegistrationsTableControl;
+          
         public System.Web.UI.WebControls.ImageButton ResetButton;
         
         public System.Web.UI.WebControls.Label SortByLabel;
@@ -422,6 +440,10 @@ public partial class Show_View_Stats_Table
           switch (control)
           {
           
+              case "RegistrationsTableControl":
+                 SetRegistrationsTableControl();
+                 break;
+          
               case "View_StatsTableControl":
                  SetView_StatsTableControl();
                  break;
@@ -435,6 +457,8 @@ public partial class Show_View_Stats_Table
       public void SaveData_Base()
       {
       
+        this.RegistrationsTableControl.SaveData();
+        
         this.View_StatsTableControl.SaveData();
         
       }
@@ -531,6 +555,8 @@ public partial class Show_View_Stats_Table
     
                 // Load and bind data for each record and table UI control.
                 
+        SetRegistrationsTableControl();
+        
         SetView_StatsTableControl();
         
     
@@ -620,6 +646,16 @@ public partial class Show_View_Stats_Table
                 
         // Write out the Set methods
         
+        public void SetRegistrationsTableControl_Base()           
+        
+        {        
+            if (RegistrationsTableControl.Visible)
+            {
+                RegistrationsTableControl.LoadData();
+                RegistrationsTableControl.DataBind();
+            }
+        }
+      
         public void SetView_StatsTableControl_Base()           
         
         {        

@@ -173,16 +173,16 @@ public partial class Show_FieldTrips_Table
         }
         
     
-        [System.Web.Services.WebMethod]
-        public static string[] GetAutoCompletionList_SearchText(string prefixText, int count)
-        {
-            // GetSearchTextCompletionList gets the list of suggestions from the database.
-            // prefixText is the search text typed by the user .
-            // count specifies the number of suggestions to be returned.
-            // Customize by adding code before or after the call to  GetAutoCompletionList_SearchText_Base()
-            // or replace the call to GetAutoCompletionList_SearchText_Base().
-            return GetAutoCompletionList_SearchText_Base(prefixText, count);
-        }
+//        [System.Web.Services.WebMethod]
+//        public static string[] GetAutoCompletionList_SearchText(string prefixText, int count)
+//        {
+//            // GetSearchTextCompletionList gets the list of suggestions from the database.
+//            // prefixText is the search text typed by the user .
+//            // count specifies the number of suggestions to be returned.
+//            // Customize by adding code before or after the call to  GetAutoCompletionList_SearchText_Base()
+//            // or replace the call to GetAutoCompletionList_SearchText_Base().
+//            return GetAutoCompletionList_SearchText_Base(prefixText, count);
+//        }
       
       protected override void BasePage_PreRender(object sender, EventArgs e)
       {
@@ -213,6 +213,10 @@ public partial class Show_FieldTrips_Table
         
 
 
+public void SetRegistrationsTableControl()
+        {
+            SetRegistrationsTableControl_Base(); 
+        }
 #endregion
 
 #region "Section 2: Do not modify this section."
@@ -230,40 +234,26 @@ public partial class Show_FieldTrips_Table
         }
         
     
-        public ThemeButtonWithArrow ActionsButton;
-                
-        public System.Web.UI.WebControls.Literal DescriptionLabel1;
-        
-        public System.Web.UI.WebControls.ImageButton ExcelButton;
+        public System.Web.UI.WebControls.LinkButton DescriptionLabel2;
         
         public OLR.UI.Controls.Show_FieldTrips_Table.FieldTripsTableControl FieldTripsTableControl;
           
-        public ThemeButton FilterButton;
-                
-        public ThemeButtonWithArrow FiltersButton;
-                
-        public System.Web.UI.WebControls.ImageButton ImportButton;
+        public System.Web.UI.WebControls.Label Label;
         
-        public System.Web.UI.WebControls.ImageButton NewButton;
+        public System.Web.UI.WebControls.Label Label1;
+        
+        public System.Web.UI.WebControls.Label Label4;
         
         public System.Web.UI.WebControls.Literal PageTitle;
         
-        public PaginationModern Pagination;
-                
-        public System.Web.UI.WebControls.ImageButton PDFButton;
+        public System.Web.UI.WebControls.LinkButton PlacesAvailableLabel1;
         
-        public System.Web.UI.WebControls.ImageButton ResetButton;
+        public System.Web.UI.WebControls.Literal RegistrationsCountControl;
         
-        public System.Web.UI.WebControls.ImageButton SearchButton;
-        
-        public System.Web.UI.WebControls.TextBox SearchText;
-        
-        public System.Web.UI.WebControls.Label SortByLabel;
-        
+        public OLR.UI.Controls.Show_FieldTrips_Table.RegistrationsTableControl RegistrationsTableControl;
+          
         public System.Web.UI.WebControls.Literal Title0;
             
-        public System.Web.UI.WebControls.ImageButton WordButton;
-        
         public ValidationSummary ValidationSummary1;
 
   
@@ -440,6 +430,10 @@ public partial class Show_FieldTrips_Table
               case "FieldTripsTableControl":
                  SetFieldTripsTableControl();
                  break;
+          
+              case "RegistrationsTableControl":
+                 SetRegistrationsTableControl();
+                 break;
                
           }
         
@@ -451,6 +445,8 @@ public partial class Show_FieldTrips_Table
       {
       
         this.FieldTripsTableControl.SaveData();
+        
+        this.RegistrationsTableControl.SaveData();
         
       }
       
@@ -523,17 +519,6 @@ public partial class Show_FieldTrips_Table
       }  
       
         
-    public static string[] GetAutoCompletionList_SearchText_Base(string prefixText, int count)
-    {
-        // Since this method is a shared/static method it does not maintain information about page or controls within the page.
-        // Hence we can not invoke any method associated with any controls.
-        // So, if we need to use any control in the page we need to instantiate it.
-        OLR.UI.Controls.Show_FieldTrips_Table.FieldTripsTableControl control = new OLR.UI.Controls.Show_FieldTrips_Table.FieldTripsTableControl();
-        
-        return control.GetAutoCompletionList_SearchText(prefixText, count);
-            
-    }
-      
 
     // Load data from database into UI controls.
     // Modify LoadData in Section 1 above to customize.  Or override DataBind() in
@@ -558,6 +543,8 @@ public partial class Show_FieldTrips_Table
                 // Load and bind data for each record and table UI control.
                 
         SetFieldTripsTableControl();
+        
+        SetRegistrationsTableControl();
         
     
                 // Load data for chart.
@@ -653,6 +640,16 @@ public partial class Show_FieldTrips_Table
             {
                 FieldTripsTableControl.LoadData();
                 FieldTripsTableControl.DataBind();
+            }
+        }
+      
+        public void SetRegistrationsTableControl_Base()           
+        
+        {        
+            if (RegistrationsTableControl.Visible)
+            {
+                RegistrationsTableControl.LoadData();
+                RegistrationsTableControl.DataBind();
             }
         }
           

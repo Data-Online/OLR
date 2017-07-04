@@ -621,34 +621,6 @@
     <Compile Include="FieldTrips\Show-FieldTrips-Gallery1.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FieldTrips\Show-FieldTrips-Table.aspx.cs">
-      <DependentUpon>Show-FieldTrips-Table.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FieldTrips\Show-FieldTrips-Table.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="FieldTrips\Show-FieldTrips-Table1.aspx.cs">
-      <DependentUpon>Show-FieldTrips-Table1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FieldTrips\Show-FieldTrips-Table1.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="FieldTrips\Show-FieldTrips-Table2.aspx.cs">
-      <DependentUpon>Show-FieldTrips-Table2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FieldTrips\Show-FieldTrips-Table2.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="FieldTrips\Show-FieldTrips-Table3.aspx.cs">
-      <DependentUpon>Show-FieldTrips-Table3.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FieldTrips\Show-FieldTrips-Table3.Controls.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="FieldTrips\Show-FieldTrips.aspx.cs">
       <DependentUpon>Show-FieldTrips.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1101,17 +1073,25 @@
     <Compile Include="view_FieldTripStats\Show-View-FieldTripStats-Table.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="view_Stats\Show-View-Stats-Table.aspx.cs" >
+    <Compile Include="view_Stats\Show-View-Stats-Table.aspx.cs">
       <DependentUpon>Show-View-Stats-Table.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="view_Stats\Show-View-Stats-Table.Controls.cs" >
+    <Compile Include="view_Stats\Show-View-Stats-Table.Controls.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FieldTrips\Show-FieldTrips-Table.aspx.cs" >
+      <DependentUpon>Show-FieldTrips-Table.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FieldTrips\Show-FieldTrips-Table.Controls.cs" >
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="BaseClasses\Readme.txt" />
     <Content Include="Default.aspx" />
+    <Content Include="Images\natcon2018_logo.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1418,10 +1398,6 @@
     <Content Include="FieldTrips\FieldTrips-QuickSelector.aspx" />
     <Content Include="FieldTrips\Show-FieldTrips-Gallery.aspx" />
     <Content Include="FieldTrips\Show-FieldTrips-Gallery1.aspx" />
-    <Content Include="FieldTrips\Show-FieldTrips-Table.aspx" />
-    <Content Include="FieldTrips\Show-FieldTrips-Table1.aspx" />
-    <Content Include="FieldTrips\Show-FieldTrips-Table2.aspx" />
-    <Content Include="FieldTrips\Show-FieldTrips-Table3.aspx" />
     <Content Include="FieldTrips\Show-FieldTrips.aspx" />
     <Content Include="Header and Footer\EmailFooter.ascx" />
     <Content Include="HomeTowns\HomeTowns-QuickSelector.aspx" />
@@ -1487,7 +1463,8 @@
     <Content Include="FieldTrips\Show-FieldTrips-Gallery2.aspx" />
     <Content Include="Registrations\EditRegistration.aspx" />
     <Content Include="view_FieldTripStats\Show-View-FieldTripStats-Table.aspx" />
-    <Content Include="view_Stats\Show-View-Stats-Table.aspx"  />
+    <Content Include="view_Stats\Show-View-Stats-Table.aspx" />
+    <Content Include="FieldTrips\Show-FieldTrips-Table.aspx"  />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Global.asax.resx">
