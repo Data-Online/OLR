@@ -1080,11 +1080,11 @@
     <Compile Include="view_Stats\Show-View-Stats-Table.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FieldTrips\Show-FieldTrips-Table.aspx.cs" >
+    <Compile Include="FieldTrips\Show-FieldTrips-Table.aspx.cs">
       <DependentUpon>Show-FieldTrips-Table.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FieldTrips\Show-FieldTrips-Table.Controls.cs" >
+    <Compile Include="FieldTrips\Show-FieldTrips-Table.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -1450,7 +1450,6 @@
     <Content Include="view_Registered\Show-View-Registered-Table.aspx" />
     <Content Include="view_Registered\View-Registered-QuickSelector.aspx" />
     <Content Include="Registrations\NotActive.aspx" />
-    <Content Include="Registrations\Edit-Registration.aspx" />
     <Content Include="Honours\Honours-QuickSelector.aspx" />
     <Content Include="HonourContactLinks\Add-HonourContactLinks.aspx" />
     <Content Include="HonourContactLinks\Edit-HonourContactLinks.aspx" />
@@ -1464,7 +1463,7 @@
     <Content Include="Registrations\EditRegistration.aspx" />
     <Content Include="view_FieldTripStats\Show-View-FieldTripStats-Table.aspx" />
     <Content Include="view_Stats\Show-View-Stats-Table.aspx" />
-    <Content Include="FieldTrips\Show-FieldTrips-Table.aspx"  />
+    <Content Include="FieldTrips\Show-FieldTrips-Table.aspx" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Global.asax.resx">
