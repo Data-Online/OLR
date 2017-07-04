@@ -230,11 +230,17 @@ public partial class Edit_FieldTrips_Table
         }
         
     
+        public ThemeButtonWithArrow Actions1Button;
+                
         public ThemeButtonWithArrow ActionsButton;
                 
         public System.Web.UI.WebControls.ImageButton AddButton;
         
+        public System.Web.UI.WebControls.ImageButton AddButton1;
+        
         public System.Web.UI.WebControls.ImageButton DeleteButton;
+        
+        public System.Web.UI.WebControls.ImageButton DeleteButton1;
         
         public System.Web.UI.WebControls.Literal DescriptionLabel1;
         
@@ -252,6 +258,8 @@ public partial class Edit_FieldTrips_Table
         
         public System.Web.UI.WebControls.ImageButton SaveButton;
         
+        public System.Web.UI.WebControls.ImageButton SaveButton1;
+        
         public System.Web.UI.WebControls.ImageButton SearchButton;
         
         public System.Web.UI.WebControls.TextBox SearchText;
@@ -260,7 +268,11 @@ public partial class Edit_FieldTrips_Table
         
         public System.Web.UI.WebControls.Literal Title0;
             
+        public System.Web.UI.WebControls.Literal Title1;
+            
         public System.Web.UI.WebControls.CheckBox ToggleAll;
+        
+        public System.Web.UI.WebControls.CheckBox ToggleAll1;
         
         public ValidationSummary ValidationSummary1;
 

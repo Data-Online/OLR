@@ -155,10 +155,6 @@ public class BaseFieldTripChoicesTableControl1Row : OLR.UI.BaseApplicationRecord
           
                     this.FieldTripAllocated.Click += FieldTripAllocated_Click;
                         
-                    this.FieldTripAllocated2.Click += FieldTripAllocated2_Click;
-                        
-                    this.FieldTripAllocated3.Click += FieldTripAllocated3_Click;
-                        
                     this.FieldTripId1.Click += FieldTripId1_Click;
                         
                     this.FieldTripOptionId1.Click += FieldTripOptionId1_Click;
@@ -223,10 +219,6 @@ public class BaseFieldTripChoicesTableControl1Row : OLR.UI.BaseApplicationRecord
             // Call the Set methods for each controls on the panel
         
                 SetFieldTripAllocated();
-                SetFieldTripAllocated2();
-                SetFieldTripAllocated2Label();
-                SetFieldTripAllocated3();
-                SetFieldTripAllocated3Label();
                 SetFieldTripAllocatedLabel();
                 SetFieldTripId1();
                 SetFieldTripOptionId1();
@@ -294,88 +286,6 @@ public class BaseFieldTripChoicesTableControl1Row : OLR.UI.BaseApplicationRecord
                 // Default Value could also be NULL.
         
               this.FieldTripAllocated.Text = FieldTripChoicesTable.FieldTripAllocated.Format(FieldTripChoicesTable.FieldTripAllocated.DefaultValue);
-            		
-            }
-                               
-        }
-                
-        public virtual void SetFieldTripAllocated2()
-        {
-            
-                    
-            // Set the FieldTripAllocated2 LinkButton on the webpage with value from the
-            // DatabaseOLR_db%dbo.FieldTripChoices database record.
-
-            // this.DataSource is the DatabaseOLR_db%dbo.FieldTripChoices record retrieved from the database.
-            // this.FieldTripAllocated2 is the ASP:LinkButton on the webpage.
-                  
-            if (this.DataSource != null && this.DataSource.FieldTripAllocated2Specified) {
-                								
-                // If the FieldTripAllocated2 is non-NULL, then format the value.
-                // The Format method will return the Display Foreign Key As (DFKA) value
-               string formattedValue = "";
-               Boolean _isExpandableNonCompositeForeignKey = FieldTripChoicesTable.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(FieldTripChoicesTable.FieldTripAllocated2);
-               if(_isExpandableNonCompositeForeignKey &&FieldTripChoicesTable.FieldTripAllocated2.IsApplyDisplayAs)
-                                  
-                     formattedValue = FieldTripChoicesTable.GetDFKA(this.DataSource.FieldTripAllocated2.ToString(),FieldTripChoicesTable.FieldTripAllocated2, null);
-                                    
-               if ((!_isExpandableNonCompositeForeignKey) || (String.IsNullOrEmpty(formattedValue)))
-                     formattedValue = this.DataSource.Format(FieldTripChoicesTable.FieldTripAllocated2);
-                                  
-                                
-                this.FieldTripAllocated2.Text = formattedValue;
-                
-                  this.FieldTripAllocated2.ToolTip = "Go to " + this.FieldTripAllocated2.Text.Replace("<wbr/>", "");
-                   
-            } 
-            
-            else {
-            
-                // FieldTripAllocated2 is NULL in the database, so use the Default Value.  
-                // Default Value could also be NULL.
-        
-              this.FieldTripAllocated2.Text = FieldTripChoicesTable.FieldTripAllocated2.Format(FieldTripChoicesTable.FieldTripAllocated2.DefaultValue);
-            		
-            }
-                               
-        }
-                
-        public virtual void SetFieldTripAllocated3()
-        {
-            
-                    
-            // Set the FieldTripAllocated3 LinkButton on the webpage with value from the
-            // DatabaseOLR_db%dbo.FieldTripChoices database record.
-
-            // this.DataSource is the DatabaseOLR_db%dbo.FieldTripChoices record retrieved from the database.
-            // this.FieldTripAllocated3 is the ASP:LinkButton on the webpage.
-                  
-            if (this.DataSource != null && this.DataSource.FieldTripAllocated3Specified) {
-                								
-                // If the FieldTripAllocated3 is non-NULL, then format the value.
-                // The Format method will return the Display Foreign Key As (DFKA) value
-               string formattedValue = "";
-               Boolean _isExpandableNonCompositeForeignKey = FieldTripChoicesTable.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(FieldTripChoicesTable.FieldTripAllocated3);
-               if(_isExpandableNonCompositeForeignKey &&FieldTripChoicesTable.FieldTripAllocated3.IsApplyDisplayAs)
-                                  
-                     formattedValue = FieldTripChoicesTable.GetDFKA(this.DataSource.FieldTripAllocated3.ToString(),FieldTripChoicesTable.FieldTripAllocated3, null);
-                                    
-               if ((!_isExpandableNonCompositeForeignKey) || (String.IsNullOrEmpty(formattedValue)))
-                     formattedValue = this.DataSource.Format(FieldTripChoicesTable.FieldTripAllocated3);
-                                  
-                                
-                this.FieldTripAllocated3.Text = formattedValue;
-                
-                  this.FieldTripAllocated3.ToolTip = "Go to " + this.FieldTripAllocated3.Text.Replace("<wbr/>", "");
-                   
-            } 
-            
-            else {
-            
-                // FieldTripAllocated3 is NULL in the database, so use the Default Value.  
-                // Default Value could also be NULL.
-        
-              this.FieldTripAllocated3.Text = FieldTripChoicesTable.FieldTripAllocated3.Format(FieldTripChoicesTable.FieldTripAllocated3.DefaultValue);
             		
             }
                                
@@ -543,18 +453,6 @@ public class BaseFieldTripChoicesTableControl1Row : OLR.UI.BaseApplicationRecord
             		
             }
                                
-        }
-                
-        public virtual void SetFieldTripAllocated2Label()
-                  {
-                  
-                    
-        }
-                
-        public virtual void SetFieldTripAllocated3Label()
-                  {
-                  
-                    
         }
                 
         public virtual void SetFieldTripAllocatedLabel()
@@ -756,8 +654,6 @@ public class BaseFieldTripChoicesTableControl1Row : OLR.UI.BaseApplicationRecord
             // Call the Get methods for each of the user interface controls.
         
             GetFieldTripAllocated();
-            GetFieldTripAllocated2();
-            GetFieldTripAllocated3();
             GetFieldTripId1();
             GetFieldTripOptionId1();
             GetFieldTripOptionId21();
@@ -766,16 +662,6 @@ public class BaseFieldTripChoicesTableControl1Row : OLR.UI.BaseApplicationRecord
         
         
         public virtual void GetFieldTripAllocated()
-        {
-            
-        }
-                
-        public virtual void GetFieldTripAllocated2()
-        {
-            
-        }
-                
-        public virtual void GetFieldTripAllocated3()
         {
             
         }
@@ -940,102 +826,6 @@ public class BaseFieldTripChoicesTableControl1Row : OLR.UI.BaseApplicationRecord
             // redirected to the URL.
             
             string url = @"../FieldTripOptions/Show-FieldTripOptions.aspx?FieldTripOptions={FieldTripChoicesTableControl1Row:FK:FK_FieldTripChoices_FieldTripOptions3}";
-            
-            if (!string.IsNullOrEmpty(this.Page.Request["RedirectStyle"]))
-                url += "&RedirectStyle=" + this.Page.Request["RedirectStyle"];
-            
-        bool shouldRedirect = true;
-        string target = null;
-        if (target == null) target = ""; // avoid warning on VS
-      
-            try {
-                // Enclose all database retrieval/update code within a Transaction boundary
-                DbUtils.StartTransaction();
-                
-                url = this.ModifyRedirectUrl(url, "",true);
-                url = this.Page.ModifyRedirectUrl(url, "",true);
-              
-            } catch (Exception ex) {
-                  // Upon error, rollback the transaction
-                  this.Page.RollBackTransaction(sender);
-                  shouldRedirect = false;
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-                DbUtils.EndTransaction();
-            }
-            if (shouldRedirect) {
-                this.Page.ShouldSaveControlsToSession = true;
-      this.Page.Response.Redirect(url);
-        
-            }
-        
-        }
-            
-            
-        
-        // event handler for LinkButton
-        public virtual void FieldTripAllocated2_Click(object sender, EventArgs args)
-        {
-              
-            // The redirect URL is set on the Properties, Custom Properties or Actions.
-            // The ModifyRedirectURL call resolves the parameters before the
-            // Response.Redirect redirects the page to the URL.  
-            // Any code after the Response.Redirect call will not be executed, since the page is
-            // redirected to the URL.
-            
-            string url = @"../FieldTripOptions/Show-FieldTripOptions.aspx?FieldTripOptions={FieldTripChoicesTableControl1Row:FK:FK_FieldTripChoices_FieldTripOptions4}";
-            
-            if (!string.IsNullOrEmpty(this.Page.Request["RedirectStyle"]))
-                url += "&RedirectStyle=" + this.Page.Request["RedirectStyle"];
-            
-        bool shouldRedirect = true;
-        string target = null;
-        if (target == null) target = ""; // avoid warning on VS
-      
-            try {
-                // Enclose all database retrieval/update code within a Transaction boundary
-                DbUtils.StartTransaction();
-                
-                url = this.ModifyRedirectUrl(url, "",true);
-                url = this.Page.ModifyRedirectUrl(url, "",true);
-              
-            } catch (Exception ex) {
-                  // Upon error, rollback the transaction
-                  this.Page.RollBackTransaction(sender);
-                  shouldRedirect = false;
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-                DbUtils.EndTransaction();
-            }
-            if (shouldRedirect) {
-                this.Page.ShouldSaveControlsToSession = true;
-      this.Page.Response.Redirect(url);
-        
-            }
-        
-        }
-            
-            
-        
-        // event handler for LinkButton
-        public virtual void FieldTripAllocated3_Click(object sender, EventArgs args)
-        {
-              
-            // The redirect URL is set on the Properties, Custom Properties or Actions.
-            // The ModifyRedirectURL call resolves the parameters before the
-            // Response.Redirect redirects the page to the URL.  
-            // Any code after the Response.Redirect call will not be executed, since the page is
-            // redirected to the URL.
-            
-            string url = @"../FieldTripOptions/Show-FieldTripOptions.aspx?FieldTripOptions={FieldTripChoicesTableControl1Row:FK:FK_FieldTripChoices_FieldTripOptions5}";
             
             if (!string.IsNullOrEmpty(this.Page.Request["RedirectStyle"]))
                 url += "&RedirectStyle=" + this.Page.Request["RedirectStyle"];
@@ -1360,30 +1150,6 @@ public class BaseFieldTripChoicesTableControl1Row : OLR.UI.BaseApplicationRecord
             }
         }
             
-        public System.Web.UI.WebControls.LinkButton FieldTripAllocated2 {
-            get {
-                return (System.Web.UI.WebControls.LinkButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FieldTripAllocated2");
-            }
-        }
-            
-        public System.Web.UI.WebControls.Literal FieldTripAllocated2Label {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FieldTripAllocated2Label");
-            }
-        }
-        
-        public System.Web.UI.WebControls.LinkButton FieldTripAllocated3 {
-            get {
-                return (System.Web.UI.WebControls.LinkButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FieldTripAllocated3");
-            }
-        }
-            
-        public System.Web.UI.WebControls.Literal FieldTripAllocated3Label {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FieldTripAllocated3Label");
-            }
-        }
-        
         public System.Web.UI.WebControls.Literal FieldTripAllocatedLabel {
             get {
                 return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FieldTripAllocatedLabel");
@@ -1853,8 +1619,6 @@ public class BaseFieldTripChoicesTableControl1 : OLR.UI.BaseApplicationTableCont
             }
           
             this.Page.PregetDfkaRecords(FieldTripChoicesTable.FieldTripAllocated, this.DataSource);
-            this.Page.PregetDfkaRecords(FieldTripChoicesTable.FieldTripAllocated2, this.DataSource);
-            this.Page.PregetDfkaRecords(FieldTripChoicesTable.FieldTripAllocated3, this.DataSource);
             this.Page.PregetDfkaRecords(FieldTripChoicesTable.FieldTripId, this.DataSource);
             this.Page.PregetDfkaRecords(FieldTripChoicesTable.FieldTripOptionId, this.DataSource);
             this.Page.PregetDfkaRecords(FieldTripChoicesTable.FieldTripOptionId2, this.DataSource);
@@ -2292,14 +2056,6 @@ public class BaseFieldTripChoicesTableControl1 : OLR.UI.BaseApplicationTableCont
         
                         if (recControl.FieldTripAllocated.Text != "") {
                             rec.Parse(recControl.FieldTripAllocated.Text, FieldTripChoicesTable.FieldTripAllocated);
-                  }
-                
-                        if (recControl.FieldTripAllocated2.Text != "") {
-                            rec.Parse(recControl.FieldTripAllocated2.Text, FieldTripChoicesTable.FieldTripAllocated2);
-                  }
-                
-                        if (recControl.FieldTripAllocated3.Text != "") {
-                            rec.Parse(recControl.FieldTripAllocated3.Text, FieldTripChoicesTable.FieldTripAllocated3);
                   }
                 
                         if (recControl.FieldTripId1.Text != "") {

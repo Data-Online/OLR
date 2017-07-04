@@ -174,6 +174,8 @@ public class BaseFieldTripsRecordControl : OLR.UI.BaseApplicationRecordControl
               
             // LoadData for DataSource for chart and report if they exist
           
+                  LoadData_FieldTripsCountQuery();
+       
             // Store the checksum. The checksum is used to
             // ensure the record was not changed by another user.
             if (this.DataSource.GetCheckSumValue() != null)
@@ -186,6 +188,9 @@ public class BaseFieldTripsRecordControl : OLR.UI.BaseApplicationRecordControl
                 SetDateLabel();
                 SetDescription();
                 SetDescriptionLabel();
+                
+                SetFieldTripId();
+                
                 
                 SetTime();
                 SetTimeLabel();
@@ -212,6 +217,8 @@ public class BaseFieldTripsRecordControl : OLR.UI.BaseApplicationRecordControl
             bool shouldResetControl = false;
             if (shouldResetControl) { }; // prototype usage to void compiler warnings
             
+        SetFieldTripsCountChart();
+        
         }
         
         
@@ -295,6 +302,38 @@ public class BaseFieldTripsRecordControl : OLR.UI.BaseApplicationRecordControl
                                      
         }
                 
+        public virtual void SetFieldTripId()
+        {
+            
+                    
+            // Set the FieldTripId Literal on the webpage with value from the
+            // DatabaseOLR_db%dbo.FieldTrips database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.FieldTrips record retrieved from the database.
+            // this.FieldTripId is the ASP:Literal on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.FieldTripIdSpecified) {
+                								
+                // If the FieldTripId is non-NULL, then format the value.
+                // The Format method will use the Display Format
+               string formattedValue = this.DataSource.Format(FieldTripsTable.FieldTripId);
+                                
+                formattedValue = HttpUtility.HtmlEncode(formattedValue);
+                this.FieldTripId.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // FieldTripId is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.FieldTripId.Text = FieldTripsTable.FieldTripId.Format(FieldTripsTable.FieldTripId.DefaultValue);
+            		
+            }
+                               
+        }
+                
         public virtual void SetTime()
         {
             
@@ -347,6 +386,98 @@ public class BaseFieldTripsRecordControl : OLR.UI.BaseApplicationRecordControl
                     
         }
                 
+        public virtual void SetFieldTripsCountChart()           
+                
+        {
+                
+            if (!FieldTripsCountQuery.DataChanged) return;
+          
+            System.Web.UI.DataVisualization.Charting.Chart chartControl = FieldTripsCountChart;
+            
+            // clear ChartAreas, Legends, Series, and Titles.  Otherwise, exception happens during postback
+            chartControl.ChartAreas.Clear();
+            chartControl.Legends.Clear();
+            chartControl.Series.Clear();
+            chartControl.Titles.Clear();
+            
+            // collect data to be displayed on the chart
+            
+            string[] indexArray = FieldTripsCountQuery.GetComposedStringColumn("Description", EvaluateFormulaDelegate, null);
+            
+            decimal[] valueArray = FieldTripsCountQuery.GetComposedDecimalColumn("FieldTripsCount", EvaluateFormulaDelegate);
+              
+            // define redirect URL
+            string[] legendURL = FieldTripsCountQuery.GetComposedStringColumn("\"../FieldTrips/Show-FieldTrips-Table.aspx?Description=\" + UrlEncode(Description.ToString())", EvaluateFormulaDelegate, null);
+            string[] dataPointURL = FieldTripsCountQuery.GetComposedStringColumn("\"../FieldTrips/Show-FieldTrips-Table.aspx?Description=\" + UrlEncode(Description.ToString())", EvaluateFormulaDelegate, null);
+          
+          
+            
+            // Reverse the index and value in order to show smallest first              
+                
+            if (indexArray != null) Array.Reverse(indexArray, 0, indexArray.Length);
+            if (valueArray != null) Array.Reverse(valueArray, 0, valueArray.Length);
+            if (legendURL != null) Array.Reverse(legendURL, 0, legendURL.Length);
+            if (dataPointURL != null) Array.Reverse(dataPointURL, 0, dataPointURL.Length);
+                
+            // define the chart properties based on the setting you have set on the Properties Windows and the Application Generation Option Dialog.          
+            int barThickness = 10;
+            string chartType = "Column";
+            bool usePalette = false;
+            System.Web.UI.DataVisualization.Charting.ChartColorPalette palette = (System.Web.UI.DataVisualization.Charting.ChartColorPalette)(System.Web.UI.DataVisualization.Charting.ChartColorPalette.Parse(typeof(System.Web.UI.DataVisualization.Charting.ChartColorPalette), "Bright"));
+            System.Drawing.Color color = System.Drawing.ColorTranslator.FromHtml("Blue");
+            System.Drawing.Color backGroundColor = System.Drawing.ColorTranslator.FromHtml("White");
+            System.Drawing.Color gridColor = System.Drawing.ColorTranslator.FromHtml("LightGray");
+            string fontFamily = "Arial";
+            System.Drawing.Color fontColor = System.Drawing.ColorTranslator.FromHtml("Black");
+            System.Drawing.Color internalLabelColor = System.Drawing.ColorTranslator.FromHtml("White");
+            string showInsideBar = "Value at bar end";
+            string title = "";
+            string indexAxisTitle = EvaluateFormula("\"Description\"");
+            string valueAxisTitle = EvaluateFormula("\"Field Trips\"");
+            int labelAngle = -50;
+            
+            bool generatePercentage = false;
+                        
+            string labelFormat = "0";
+            string chartTitleFontSize = "";
+            string axisTitleFontSize = "";
+            string scaleFontSize = "";
+            string labelInsideFontSize = "";
+            string customProperties = "";
+            
+            System.Collections.Generic.List<object> args = new System.Collections.Generic.List<object>();
+            args.Add(chartControl);
+            args.Add(indexArray);
+            args.Add(valueArray);
+            args.Add(legendURL);
+            args.Add(dataPointURL);
+            args.Add(barThickness);
+            args.Add(chartType);
+            args.Add(usePalette);
+            args.Add(palette);
+            args.Add(color);
+            args.Add(backGroundColor);
+            args.Add(gridColor);
+            args.Add(fontFamily);
+            args.Add(fontColor);
+            args.Add(internalLabelColor);
+            args.Add(showInsideBar);
+            args.Add(title);
+            args.Add(indexAxisTitle);
+            args.Add(valueAxisTitle);
+            args.Add(labelAngle);
+            args.Add(generatePercentage);
+            args.Add(labelFormat);
+            args.Add(chartTitleFontSize);
+            args.Add(axisTitleFontSize);
+            args.Add(scaleFontSize);
+            args.Add(labelInsideFontSize);
+            args.Add(customProperties);
+            
+            this.Page.InitializeChartControl(args.ToArray());
+            
+        }      
+      
         public virtual void SetTimeLabel()
                   {
                   
@@ -375,6 +506,10 @@ public class BaseFieldTripsRecordControl : OLR.UI.BaseApplicationRecordControl
             if (includeDS)
             {
                 
+                // add datasource as variables for formula evaluation
+                  
+                if (FieldTripsCountQuery != null) e.Variables.Add("FieldTripsCountQuery", FieldTripsCountQuery);                                                       
+                        
             }
             
             // All variables referred to in the formula are expected to be
@@ -516,6 +651,7 @@ public class BaseFieldTripsRecordControl : OLR.UI.BaseApplicationRecordControl
         
             GetDate0();
             GetDescription();
+            GetFieldTripId();
             GetTime();
         }
         
@@ -526,6 +662,11 @@ public class BaseFieldTripsRecordControl : OLR.UI.BaseApplicationRecordControl
         }
                 
         public virtual void GetDescription()
+        {
+            
+        }
+                
+        public virtual void GetFieldTripId()
         {
             
         }
@@ -745,6 +886,97 @@ public class BaseFieldTripsRecordControl : OLR.UI.BaseApplicationRecordControl
             return isAdded;
         }
         
+        private DataSource _FieldTripsCountQuery = new DataSource();
+        public DataSource FieldTripsCountQuery
+        {
+            get
+            {
+                return _FieldTripsCountQuery;
+             }
+        }
+      
+        public virtual void LoadData_FieldTripsCountQuery()
+        
+        {
+          
+              if (!(this.ResetData || this.DataChanged || _FieldTripsCountQuery.DataChanged) && this.Page.IsPostBack  && this.Page.Request["__EVENTTARGET"] != "isd_geo_location") return;
+        
+              _FieldTripsCountQuery.DataChanged = true;
+          
+              this._FieldTripsCountQuery.Initialize("FieldTripsCountQuery", FieldTripOptionsTable.Instance, 15, 0);                                            
+              
+               
+              // Add the primary key of the record
+              WhereClause wc = CreateWhereClause_FieldTripsCountQuery();
+              this._FieldTripsCountQuery.WhereClause.iAND(wc);                      
+          
+              // Define selects
+          
+              this._FieldTripsCountQuery.AddSelectItem(new SelectItem(FieldTripOptionsTable.Description, FieldTripOptionsTable.Instance, false, "", ""));
+              
+                    this._FieldTripsCountQuery.AddSelectItem(new SelectItem(SelectItem.Operation.COUNT, new SelectItem(SelectItem.ItemType.AllColumns, FieldTripsTable.Instance, "FieldTripsCount", ""), "FieldTripsCount"));
+              
+              // Define joins if there are any
+          
+              this._FieldTripsCountQuery.AddJoin(FieldTripOptionsTable.FieldTripId, FieldTripOptionsTable.Instance, "", FieldTripsTable.FieldTripId, FieldTripsTable.Instance, "");
+          
+              this._FieldTripsCountQuery.AddAggregateOrderBy("FieldTripsCount", OrderByItem.OrderDir.Desc);
+              
+              this._FieldTripsCountQuery.LoadData(false, this._FieldTripsCountQuery.PageSize, this._FieldTripsCountQuery.PageIndex);                       
+                        
+        }
+      
+        public virtual WhereClause CreateWhereClause_FieldTripsCountQuery()
+        
+        {
+            WhereClause wc = new WhereClause();
+            // Compose the WHERE clause consist of:
+            // 1. Static clause defined at design tithis.
+            // 2. User selected search criteria.
+            // 3. User selected filter criteria.
+
+          
+            // Get the static clause defined at design time on the Query Wizard
+            WhereClause qc = this.CreateQueryClause_FieldTripsCountQuery();
+            if (qc != null) {
+                wc.iAND(qc);
+            }
+          
+      KeyValue selectedRecordKeyValue = new KeyValue();
+    FieldTripsRecordControl fieldTripsRecordControlObj = (MiscUtils.GetParentControlObject(this, "FieldTripsRecordControl") as FieldTripsRecordControl);
+          
+              if (fieldTripsRecordControlObj != null && fieldTripsRecordControlObj.GetRecord() != null && fieldTripsRecordControlObj.GetRecord().IsCreated)
+              {
+              wc.iAND(FieldTripsTable.FieldTripId, BaseFilter.ComparisonOperator.EqualsTo, fieldTripsRecordControlObj.GetRecord().FieldTripId.ToString());
+              selectedRecordKeyValue.AddElement(FieldTripsTable.FieldTripId.InternalName, fieldTripsRecordControlObj.GetRecord().FieldTripId.ToString());
+              }
+              else
+              {
+              wc.RunQuery = false;
+              return wc;
+              }
+            
+      HttpContext.Current.Session["FieldTripsCountQueryWhereClause"] = selectedRecordKeyValue.ToXmlString();
+                
+            return wc;
+        }
+      
+        public virtual WhereClause CreateQueryClause_FieldTripsCountQuery()
+        
+        {
+          
+            // Create a where clause for the Static clause defined at design time.
+            CompoundFilter filter = new CompoundFilter(CompoundFilter.CompoundingOperators.And_Operator, null);
+            WhereClause whereClause = new WhereClause();
+            
+            if (EvaluateFormula("FieldTripsRecordControl.FieldTripId.Text", false) != "")filter.AddFilter(new BaseClasses.Data.ColumnValueFilter(BaseClasses.Data.BaseTable.CreateInstance(@"OLR.Business.FieldTripsTable, OLR.Business").TableDefinition.ColumnList.GetByUniqueName(@"FieldTrips_.FieldTripId"), EvaluateFormula("FieldTripsRecordControl.FieldTripId.Text", false), BaseClasses.Data.BaseFilter.ComparisonOperator.EqualsTo, false));
+         if (EvaluateFormula("FieldTripsRecordControl.FieldTripId.Text", false) == "--PLEASE_SELECT--" || EvaluateFormula("FieldTripsRecordControl.FieldTripId.Text", false) == "--ANY--") whereClause.RunQuery = false;
+
+            whereClause.AddFilter(filter, CompoundFilter.CompoundingOperators.And_Operator);
+    
+            return whereClause;
+        }
+          
     
         public virtual void Validate()
         {
@@ -1049,6 +1281,18 @@ public class BaseFieldTripsRecordControl : OLR.UI.BaseApplicationRecordControl
         public System.Web.UI.WebControls.ImageButton DialogEditButton {
             get {
                 return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "DialogEditButton");
+            }
+        }
+        
+        public System.Web.UI.WebControls.Literal FieldTripId {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FieldTripId");
+            }
+        }
+            
+        public System.Web.UI.DataVisualization.Charting.Chart FieldTripsCountChart {
+            get {
+                return (System.Web.UI.DataVisualization.Charting.Chart)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FieldTripsCountChart");
             }
         }
         

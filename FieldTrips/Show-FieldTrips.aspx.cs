@@ -259,6 +259,10 @@ public partial class Show_FieldTrips
         
         public ThemeButton EditButton;
                 
+        public System.Web.UI.WebControls.Literal FieldTripId;
+            
+        public System.Web.UI.DataVisualization.Charting.Chart FieldTripsCountChart;
+        
         public OLR.UI.Controls.Show_FieldTrips.FieldTripsRecordControl FieldTripsRecordControl;
           
         public ThemeButton OKButton;

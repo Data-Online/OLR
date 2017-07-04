@@ -24663,7 +24663,7 @@
           <displayname>Title</displayname>
           <description>Specifies the Title settings for the charts.</description>
           <option name="ShowTitle" readonly="False" feature="Charting" displayorder="1">
-            <value>Yes</value>
+            <value>No</value>
             <datatype>System.String</datatype>
             <defaultvalue>Yes</defaultvalue>
             <displayname>Show Chart Title</displayname>
@@ -24739,7 +24739,7 @@
             </valuedescriptor>
           </option>
           <option name="IncludeRemainder" readonly="False" feature="Charting" displayorder="2">
-            <value>Yes</value>
+            <value>No</value>
             <datatype>System.String</datatype>
             <defaultvalue>Yes</defaultvalue>
             <displayname>Include remainder</displayname>
@@ -24847,14 +24847,14 @@
           <displayname>Outside Table Rows</displayname>
           <description>Specifies settings for charts present outside table rows.</description>
           <option name="OutsideRepeaterHeight" readonly="False" feature="Charting" displayorder="1">
-            <value>500</value>
+            <value>300</value>
             <datatype>System.UInt32</datatype>
             <defaultvalue>500</defaultvalue>
             <displayname>Height</displayname>
             <description>Specifies the height of the chart image in pixels outside table rows.</description>
           </option>
           <option name="OutsideRepeaterWidth" readonly="False" feature="Charting" displayorder="2">
-            <value>500</value>
+            <value>300</value>
             <datatype>System.UInt32</datatype>
             <defaultvalue>500</defaultvalue>
             <displayname>Width </displayname>

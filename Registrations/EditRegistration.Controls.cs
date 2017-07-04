@@ -186,10 +186,6 @@ public class BaseFieldTripChoicesTableControlRow : OLR.UI.BaseApplicationRecordC
             
               this.FieldTripAllocated.SelectedIndexChanged += FieldTripAllocated_SelectedIndexChanged;
             
-              this.FieldTripAllocated2.SelectedIndexChanged += FieldTripAllocated2_SelectedIndexChanged;
-            
-              this.FieldTripAllocated3.SelectedIndexChanged += FieldTripAllocated3_SelectedIndexChanged;
-            
         }
 
         public virtual void LoadData()  
@@ -245,8 +241,6 @@ public class BaseFieldTripChoicesTableControlRow : OLR.UI.BaseApplicationRecordC
 
             // Call the Set methods for each controls on the panel
         
-                SetFieldTripAllocated2Label();
-                SetFieldTripAllocated3Label();
                 SetFieldTripAllocatedLabel();
                 SetFieldTripId();
                 SetFieldTripId1();
@@ -258,8 +252,6 @@ public class BaseFieldTripChoicesTableControlRow : OLR.UI.BaseApplicationRecordC
                 SetFieldTripOptionIdLabel();
                 SetRegistrationId();
                 SetFieldTripAllocated();
-                SetFieldTripAllocated2();
-                SetFieldTripAllocated3();
 
       
 
@@ -286,7 +278,7 @@ public class BaseFieldTripChoicesTableControlRow : OLR.UI.BaseApplicationRecordC
         public virtual void SetFieldTripId()
         {
             
-            // Set AutoPostBack to true so that when the control value is changed, to refresh FieldTripAllocated,FieldTripAllocated2,FieldTripAllocated3,FieldTripOptionId,FieldTripOptionId2,FieldTripOptionId3 controls
+            // Set AutoPostBack to true so that when the control value is changed, to refresh FieldTripAllocated,FieldTripOptionId,FieldTripOptionId2,FieldTripOptionId3 controls
             this.FieldTripId.AutoPostBack = true;
             				
         
@@ -798,136 +790,6 @@ public class BaseFieldTripChoicesTableControlRow : OLR.UI.BaseApplicationRecordC
                   
         }
                 
-        public virtual void SetFieldTripAllocated2()
-        {
-            				
-        
-        
-            string selectedValue = null;
-            
-            // figure out the selectedValue
-                  
-            							
-            // If selection was retrieved from UI previously, restore it
-            if (this.PreviousUIData.ContainsKey(this.FieldTripAllocated2.ID))
-            {
-                if (this.PreviousUIData[this.FieldTripAllocated2.ID] == null)
-                    selectedValue = null;
-                else
-                    selectedValue = this.PreviousUIData[this.FieldTripAllocated2.ID].ToString();
-            }
-            
-            
-            // Set the FieldTripAllocated2 DropDownList on the webpage with value from the
-            // DatabaseOLR_db%dbo.FieldTripChoices database record.
-            
-            // this.DataSource is the DatabaseOLR_db%dbo.FieldTripChoices record retrieved from the database.
-            // this.FieldTripAllocated2 is the ASP:DropDownList on the webpage.
-            
-            // You can modify this method directly, or replace it with a call to
-            //     base.SetFieldTripAllocated2();
-            // and add your own custom code before or after the call to the base function.
-
-            
-            if (this.DataSource != null && this.DataSource.FieldTripAllocated2Specified)
-            {
-                            
-                // If the FieldTripAllocated2 is non-NULL, then format the value.
-                // The Format method will return the Display Foreign Key As (DFKA) value
-                selectedValue = this.DataSource.FieldTripAllocated2.ToString();
-                
-            }
-            else
-            {
-                
-                // FieldTripAllocated2 is NULL in the database, so use the Default Value.  
-                // Default Value could also be NULL.
-                if (this.DataSource != null && this.DataSource.IsCreated)
-                    selectedValue = null;
-                else
-                    selectedValue = FieldTripChoicesTable.FieldTripAllocated2.DefaultValue;
-                				
-            }			
-                            
-                  
-            // Populate the item(s) to the control
-            
-            this.PopulateFieldTripAllocated2DropDownList(selectedValue, 100);              
-                
-                  
-        }
-                
-        public virtual void SetFieldTripAllocated3()
-        {
-            				
-        
-        
-            string selectedValue = null;
-            
-            // figure out the selectedValue
-                  
-            							
-            // If selection was retrieved from UI previously, restore it
-            if (this.PreviousUIData.ContainsKey(this.FieldTripAllocated3.ID))
-            {
-                if (this.PreviousUIData[this.FieldTripAllocated3.ID] == null)
-                    selectedValue = null;
-                else
-                    selectedValue = this.PreviousUIData[this.FieldTripAllocated3.ID].ToString();
-            }
-            
-            
-            // Set the FieldTripAllocated3 DropDownList on the webpage with value from the
-            // DatabaseOLR_db%dbo.FieldTripChoices database record.
-            
-            // this.DataSource is the DatabaseOLR_db%dbo.FieldTripChoices record retrieved from the database.
-            // this.FieldTripAllocated3 is the ASP:DropDownList on the webpage.
-            
-            // You can modify this method directly, or replace it with a call to
-            //     base.SetFieldTripAllocated3();
-            // and add your own custom code before or after the call to the base function.
-
-            
-            if (this.DataSource != null && this.DataSource.FieldTripAllocated3Specified)
-            {
-                            
-                // If the FieldTripAllocated3 is non-NULL, then format the value.
-                // The Format method will return the Display Foreign Key As (DFKA) value
-                selectedValue = this.DataSource.FieldTripAllocated3.ToString();
-                
-            }
-            else
-            {
-                
-                // FieldTripAllocated3 is NULL in the database, so use the Default Value.  
-                // Default Value could also be NULL.
-                if (this.DataSource != null && this.DataSource.IsCreated)
-                    selectedValue = null;
-                else
-                    selectedValue = FieldTripChoicesTable.FieldTripAllocated3.DefaultValue;
-                				
-            }			
-                            
-                  
-            // Populate the item(s) to the control
-            
-            this.PopulateFieldTripAllocated3DropDownList(selectedValue, 100);              
-                
-                  
-        }
-                
-        public virtual void SetFieldTripAllocated2Label()
-                  {
-                  
-                    
-        }
-                
-        public virtual void SetFieldTripAllocated3Label()
-                  {
-                  
-                    
-        }
-                
         public virtual void SetFieldTripAllocatedLabel()
                   {
                   
@@ -1133,8 +995,6 @@ public class BaseFieldTripChoicesTableControlRow : OLR.UI.BaseApplicationRecordC
             GetFieldTripOptionId3();
             GetRegistrationId();
             GetFieldTripAllocated();
-            GetFieldTripAllocated2();
-            GetFieldTripAllocated3();
         }
         
         
@@ -1206,28 +1066,6 @@ public class BaseFieldTripChoicesTableControlRow : OLR.UI.BaseApplicationRecordC
             // Custom validation should be performed in Validate, not here.
             
             this.DataSource.Parse(MiscUtils.GetValueSelectedPageRequest(this.FieldTripAllocated), FieldTripChoicesTable.FieldTripAllocated);			
-                			 
-        }
-                
-        public virtual void GetFieldTripAllocated2()
-        {
-         // Retrieve the value entered by the user on the FieldTripAllocated2 ASP:DropDownList, and
-            // save it into the FieldTripAllocated2 field in DataSource DatabaseOLR_db%dbo.FieldTripChoices record.
-            
-            // Custom validation should be performed in Validate, not here.
-            
-            this.DataSource.Parse(MiscUtils.GetValueSelectedPageRequest(this.FieldTripAllocated2), FieldTripChoicesTable.FieldTripAllocated2);			
-                			 
-        }
-                
-        public virtual void GetFieldTripAllocated3()
-        {
-         // Retrieve the value entered by the user on the FieldTripAllocated3 ASP:DropDownList, and
-            // save it into the FieldTripAllocated3 field in DataSource DatabaseOLR_db%dbo.FieldTripChoices record.
-            
-            // Custom validation should be performed in Validate, not here.
-            
-            this.DataSource.Parse(MiscUtils.GetValueSelectedPageRequest(this.FieldTripAllocated3), FieldTripChoicesTable.FieldTripAllocated3);			
                 			 
         }
                 
@@ -1430,46 +1268,6 @@ public class BaseFieldTripChoicesTableControlRow : OLR.UI.BaseApplicationRecordC
         }
         
         public virtual WhereClause CreateWhereClause_FieldTripAllocatedDropDownList() 
-        {
-            // By default, we simply return a new WhereClause.
-            // Add additional where clauses to restrict the items shown in the dropdown list.
-            						
-            // This WhereClause is for the DatabaseOLR_db%dbo.FieldTripOptions table.
-            // Examples:
-            // wc.iAND(FieldTripOptionsTable.Description, BaseFilter.ComparisonOperator.EqualsTo, "XYZ");
-            // wc.iAND(FieldTripOptionsTable.Active, BaseFilter.ComparisonOperator.EqualsTo, "1");
-            CompoundFilter filter = new CompoundFilter(CompoundFilter.CompoundingOperators.And_Operator, null);
-            WhereClause whereClause = new WhereClause();
-            
-            if (EvaluateFormula("FieldTripChoicesTableControlRow.FieldTripId.SelectedValue", false) != "")filter.AddFilter(new BaseClasses.Data.ColumnValueFilter(BaseClasses.Data.BaseTable.CreateInstance(@"OLR.Business.FieldTripOptionsTable, OLR.Business").TableDefinition.ColumnList.GetByUniqueName(@"FieldTripOptions_.FieldTripId"), EvaluateFormula("FieldTripChoicesTableControlRow.FieldTripId.SelectedValue", false), BaseClasses.Data.BaseFilter.ComparisonOperator.EqualsTo, false));
-         if (EvaluateFormula("FieldTripChoicesTableControlRow.FieldTripId.SelectedValue", false) == "--PLEASE_SELECT--" || EvaluateFormula("FieldTripChoicesTableControlRow.FieldTripId.SelectedValue", false) == "--ANY--") whereClause.RunQuery = false;
-
-            whereClause.AddFilter(filter, CompoundFilter.CompoundingOperators.And_Operator);
-    
-            return whereClause;				
-        }
-        
-        public virtual WhereClause CreateWhereClause_FieldTripAllocated2DropDownList() 
-        {
-            // By default, we simply return a new WhereClause.
-            // Add additional where clauses to restrict the items shown in the dropdown list.
-            						
-            // This WhereClause is for the DatabaseOLR_db%dbo.FieldTripOptions table.
-            // Examples:
-            // wc.iAND(FieldTripOptionsTable.Description, BaseFilter.ComparisonOperator.EqualsTo, "XYZ");
-            // wc.iAND(FieldTripOptionsTable.Active, BaseFilter.ComparisonOperator.EqualsTo, "1");
-            CompoundFilter filter = new CompoundFilter(CompoundFilter.CompoundingOperators.And_Operator, null);
-            WhereClause whereClause = new WhereClause();
-            
-            if (EvaluateFormula("FieldTripChoicesTableControlRow.FieldTripId.SelectedValue", false) != "")filter.AddFilter(new BaseClasses.Data.ColumnValueFilter(BaseClasses.Data.BaseTable.CreateInstance(@"OLR.Business.FieldTripOptionsTable, OLR.Business").TableDefinition.ColumnList.GetByUniqueName(@"FieldTripOptions_.FieldTripId"), EvaluateFormula("FieldTripChoicesTableControlRow.FieldTripId.SelectedValue", false), BaseClasses.Data.BaseFilter.ComparisonOperator.EqualsTo, false));
-         if (EvaluateFormula("FieldTripChoicesTableControlRow.FieldTripId.SelectedValue", false) == "--PLEASE_SELECT--" || EvaluateFormula("FieldTripChoicesTableControlRow.FieldTripId.SelectedValue", false) == "--ANY--") whereClause.RunQuery = false;
-
-            whereClause.AddFilter(filter, CompoundFilter.CompoundingOperators.And_Operator);
-    
-            return whereClause;				
-        }
-        
-        public virtual WhereClause CreateWhereClause_FieldTripAllocated3DropDownList() 
         {
             // By default, we simply return a new WhereClause.
             // Add additional where clauses to restrict the items shown in the dropdown list.
@@ -2060,296 +1858,6 @@ public class BaseFieldTripChoicesTableControlRow : OLR.UI.BaseApplicationRecordC
                         
         }
                   
-        // Fill the FieldTripAllocated2 list.
-        protected virtual void PopulateFieldTripAllocated2DropDownList(string selectedValue, int maxItems) 
-        {
-            		  					                
-            this.FieldTripAllocated2.Items.Clear();
-            
-            // 1. Setup the static list items        
-            
-              // Add the Please Select item.
-              this.FieldTripAllocated2.Items.Insert(0, new ListItem(this.Page.GetResourceValue("Txt:PleaseSelect", "OLR"), "--PLEASE_SELECT--"));
-            		  			
-            // 2. Set up the WHERE and the ORDER BY clause by calling the CreateWhereClause_FieldTripAllocated2DropDownList function.
-            // It is better to customize the where clause there.
-            
-                      
-            WhereClause wc = CreateWhereClause_FieldTripAllocated2DropDownList();
-                        
-                
-            // Create the ORDER BY clause to sort based on the displayed value.							
-                
-            OrderBy orderBy = new OrderBy(false, false);
-                          orderBy.Add(FieldTripOptionsTable.Description, OrderByItem.OrderDir.Asc);
-
-            System.Collections.Generic.IDictionary<string, object> variables = new System.Collections.Generic.Dictionary<string, object> ();
-            FormulaEvaluator evaluator = new FormulaEvaluator();
-
-            // 3. Read a total of maxItems from the database and insert them into the FieldTripAllocated2DropDownList.
-            FieldTripOptionsRecord[] itemValues  = null;
-            if (wc.RunQuery)
-            {
-                int counter = 0;
-                int pageNum = 0;	
-                ArrayList listDuplicates = new ArrayList();
-
-                do
-                {
-                    itemValues = FieldTripOptionsTable.GetRecords(wc, orderBy, pageNum, maxItems);
-                    foreach (FieldTripOptionsRecord itemValue in itemValues) 
-                    {
-                        // Create the item and add to the list.
-                        string cvalue = null;
-                        string fvalue = null;
-                        if (itemValue.FieldTripOptionIdSpecified) 
-                        {
-                            cvalue = itemValue.FieldTripOptionId.ToString().ToString();
-                            if (counter < maxItems && this.FieldTripAllocated2.Items.FindByValue(cvalue) == null)
-                            {
-                                     
-                                System.Collections.Generic.IDictionary<string, object> variables2 = new System.Collections.Generic.Dictionary<string, object>();
-
-                                      
-                                variables2.Add(itemValue.TableAccess.TableDefinition.TableCodeName, itemValue);
-                            
-                                fvalue = EvaluateFormula("= FieldTripOptions.Description", itemValue, variables2, evaluator);
-                                    		
-
-                                if (fvalue == null || fvalue.Trim() == "") 
-                                    fvalue = cvalue;
-
-                                if (fvalue == null) {
-                                    fvalue = "";
-                                }
-
-                                fvalue = fvalue.Trim();
-
-                                if ( fvalue.Length > 50 ) {
-                                    fvalue = fvalue.Substring(0, 50) + "...";
-                                }
-
-                                ListItem dupItem = this.FieldTripAllocated2.Items.FindByText(fvalue);
-								
-                                if (dupItem != null) {
-                                    listDuplicates.Add(fvalue);
-                                    if (!string.IsNullOrEmpty(dupItem.Value))
-                                    {
-                                        dupItem.Text = fvalue + " (ID " + dupItem.Value.Substring(0, Math.Min(dupItem.Value.Length,38)) + ")";
-                                    }
-                                }
-
-                                ListItem newItem = new ListItem(fvalue, cvalue);
-                                this.FieldTripAllocated2.Items.Add(newItem);
-
-                                if (listDuplicates.Contains(fvalue) &&  !string.IsNullOrEmpty(cvalue)) {
-                                    newItem.Text = fvalue + " (ID " + cvalue.Substring(0, Math.Min(cvalue.Length,38)) + ")";
-                                }
-
-                                counter += 1;
-                            }
-                        }
-                    }
-                    pageNum++;
-                }
-                while (itemValues.Length == maxItems && counter < maxItems);
-            }
-                        
-                                        
-            // 4. Set the selected value (insert if not already present).
-              
-            if (selectedValue != null &&
-                selectedValue.Trim() != "" &&
-                !MiscUtils.SetSelectedValue(this.FieldTripAllocated2, selectedValue) &&
-                !MiscUtils.SetSelectedDisplayText(this.FieldTripAllocated2, selectedValue))
-            {
-
-                // construct a whereclause to query a record with DatabaseOLR_db%dbo.FieldTripOptions.FieldTripOptionId = selectedValue
-                    
-                CompoundFilter filter2 = new CompoundFilter(CompoundFilter.CompoundingOperators.And_Operator, null);
-                WhereClause whereClause2 = new WhereClause();
-                filter2.AddFilter(new BaseClasses.Data.ColumnValueFilter(FieldTripOptionsTable.FieldTripOptionId, selectedValue, BaseClasses.Data.BaseFilter.ComparisonOperator.EqualsTo, false));
-                whereClause2.AddFilter(filter2, CompoundFilter.CompoundingOperators.And_Operator);
-
-                // Execute the query
-                try
-                {
-                    FieldTripOptionsRecord[] rc = FieldTripOptionsTable.GetRecords(whereClause2, new OrderBy(false, false), 0, 1);
-                    System.Collections.Generic.IDictionary<string, object> vars = new System.Collections.Generic.Dictionary<string, object> ();
-                    // if find a record, add it to the dropdown and set it as selected item
-                    if (rc != null && rc.Length == 1)
-                    {
-                        FieldTripOptionsRecord itemValue = rc[0];
-                        string cvalue = null;
-                        string fvalue = null;                        
-                        if (itemValue.FieldTripOptionIdSpecified)
-                            cvalue = itemValue.FieldTripOptionId.ToString(); 
-                        FormulaEvaluator evaluator2 = new FormulaEvaluator();      
-                        System.Collections.Generic.IDictionary<string, object> variables2 = new System.Collections.Generic.Dictionary<string, object>();
-
-                              
-                        variables2.Add(itemValue.TableAccess.TableDefinition.TableCodeName, itemValue);
-                    
-                        fvalue = EvaluateFormula("= FieldTripOptions.Description", itemValue, variables2, evaluator2);
-                            					
-                        if (fvalue == null || fvalue.Trim() == "") fvalue = cvalue;
-                        MiscUtils.ResetSelectedItem(this.FieldTripAllocated2, new ListItem(fvalue, cvalue));                      
-                    }
-                }
-                catch
-                {
-                }
-
-                    					
-            }					
-                        
-        }
-                  
-        // Fill the FieldTripAllocated3 list.
-        protected virtual void PopulateFieldTripAllocated3DropDownList(string selectedValue, int maxItems) 
-        {
-            		  					                
-            this.FieldTripAllocated3.Items.Clear();
-            
-            // 1. Setup the static list items        
-            
-              // Add the Please Select item.
-              this.FieldTripAllocated3.Items.Insert(0, new ListItem(this.Page.GetResourceValue("Txt:PleaseSelect", "OLR"), "--PLEASE_SELECT--"));
-            		  			
-            // 2. Set up the WHERE and the ORDER BY clause by calling the CreateWhereClause_FieldTripAllocated3DropDownList function.
-            // It is better to customize the where clause there.
-            
-                      
-            WhereClause wc = CreateWhereClause_FieldTripAllocated3DropDownList();
-                        
-                
-            // Create the ORDER BY clause to sort based on the displayed value.							
-                
-            OrderBy orderBy = new OrderBy(false, false);
-                          orderBy.Add(FieldTripOptionsTable.Description, OrderByItem.OrderDir.Asc);
-
-            System.Collections.Generic.IDictionary<string, object> variables = new System.Collections.Generic.Dictionary<string, object> ();
-            FormulaEvaluator evaluator = new FormulaEvaluator();
-
-            // 3. Read a total of maxItems from the database and insert them into the FieldTripAllocated3DropDownList.
-            FieldTripOptionsRecord[] itemValues  = null;
-            if (wc.RunQuery)
-            {
-                int counter = 0;
-                int pageNum = 0;	
-                ArrayList listDuplicates = new ArrayList();
-
-                do
-                {
-                    itemValues = FieldTripOptionsTable.GetRecords(wc, orderBy, pageNum, maxItems);
-                    foreach (FieldTripOptionsRecord itemValue in itemValues) 
-                    {
-                        // Create the item and add to the list.
-                        string cvalue = null;
-                        string fvalue = null;
-                        if (itemValue.FieldTripOptionIdSpecified) 
-                        {
-                            cvalue = itemValue.FieldTripOptionId.ToString().ToString();
-                            if (counter < maxItems && this.FieldTripAllocated3.Items.FindByValue(cvalue) == null)
-                            {
-                                     
-                                System.Collections.Generic.IDictionary<string, object> variables2 = new System.Collections.Generic.Dictionary<string, object>();
-
-                                      
-                                variables2.Add(itemValue.TableAccess.TableDefinition.TableCodeName, itemValue);
-                            
-                                fvalue = EvaluateFormula("= FieldTripOptions.Description", itemValue, variables2, evaluator);
-                                    		
-
-                                if (fvalue == null || fvalue.Trim() == "") 
-                                    fvalue = cvalue;
-
-                                if (fvalue == null) {
-                                    fvalue = "";
-                                }
-
-                                fvalue = fvalue.Trim();
-
-                                if ( fvalue.Length > 50 ) {
-                                    fvalue = fvalue.Substring(0, 50) + "...";
-                                }
-
-                                ListItem dupItem = this.FieldTripAllocated3.Items.FindByText(fvalue);
-								
-                                if (dupItem != null) {
-                                    listDuplicates.Add(fvalue);
-                                    if (!string.IsNullOrEmpty(dupItem.Value))
-                                    {
-                                        dupItem.Text = fvalue + " (ID " + dupItem.Value.Substring(0, Math.Min(dupItem.Value.Length,38)) + ")";
-                                    }
-                                }
-
-                                ListItem newItem = new ListItem(fvalue, cvalue);
-                                this.FieldTripAllocated3.Items.Add(newItem);
-
-                                if (listDuplicates.Contains(fvalue) &&  !string.IsNullOrEmpty(cvalue)) {
-                                    newItem.Text = fvalue + " (ID " + cvalue.Substring(0, Math.Min(cvalue.Length,38)) + ")";
-                                }
-
-                                counter += 1;
-                            }
-                        }
-                    }
-                    pageNum++;
-                }
-                while (itemValues.Length == maxItems && counter < maxItems);
-            }
-                        
-                                        
-            // 4. Set the selected value (insert if not already present).
-              
-            if (selectedValue != null &&
-                selectedValue.Trim() != "" &&
-                !MiscUtils.SetSelectedValue(this.FieldTripAllocated3, selectedValue) &&
-                !MiscUtils.SetSelectedDisplayText(this.FieldTripAllocated3, selectedValue))
-            {
-
-                // construct a whereclause to query a record with DatabaseOLR_db%dbo.FieldTripOptions.FieldTripOptionId = selectedValue
-                    
-                CompoundFilter filter2 = new CompoundFilter(CompoundFilter.CompoundingOperators.And_Operator, null);
-                WhereClause whereClause2 = new WhereClause();
-                filter2.AddFilter(new BaseClasses.Data.ColumnValueFilter(FieldTripOptionsTable.FieldTripOptionId, selectedValue, BaseClasses.Data.BaseFilter.ComparisonOperator.EqualsTo, false));
-                whereClause2.AddFilter(filter2, CompoundFilter.CompoundingOperators.And_Operator);
-
-                // Execute the query
-                try
-                {
-                    FieldTripOptionsRecord[] rc = FieldTripOptionsTable.GetRecords(whereClause2, new OrderBy(false, false), 0, 1);
-                    System.Collections.Generic.IDictionary<string, object> vars = new System.Collections.Generic.Dictionary<string, object> ();
-                    // if find a record, add it to the dropdown and set it as selected item
-                    if (rc != null && rc.Length == 1)
-                    {
-                        FieldTripOptionsRecord itemValue = rc[0];
-                        string cvalue = null;
-                        string fvalue = null;                        
-                        if (itemValue.FieldTripOptionIdSpecified)
-                            cvalue = itemValue.FieldTripOptionId.ToString(); 
-                        FormulaEvaluator evaluator2 = new FormulaEvaluator();      
-                        System.Collections.Generic.IDictionary<string, object> variables2 = new System.Collections.Generic.Dictionary<string, object>();
-
-                              
-                        variables2.Add(itemValue.TableAccess.TableDefinition.TableCodeName, itemValue);
-                    
-                        fvalue = EvaluateFormula("= FieldTripOptions.Description", itemValue, variables2, evaluator2);
-                            					
-                        if (fvalue == null || fvalue.Trim() == "") fvalue = cvalue;
-                        MiscUtils.ResetSelectedItem(this.FieldTripAllocated3, new ListItem(fvalue, cvalue));                      
-                    }
-                }
-                catch
-                {
-                }
-
-                    					
-            }					
-                        
-        }
-                  
         protected virtual void FieldTripId_SelectedIndexChanged(object sender, EventArgs args)
         {
           
@@ -2366,8 +1874,6 @@ public class BaseFieldTripChoicesTableControlRow : OLR.UI.BaseApplicationRecordC
                 SetFieldTripOptionId2();
                 SetFieldTripOptionId3();
                 SetFieldTripAllocated();
-                SetFieldTripAllocated2();
-                SetFieldTripAllocated3();
                             
                     this.Page.CommitTransaction(sender);
                 }
@@ -2449,36 +1955,6 @@ public class BaseFieldTripChoicesTableControlRow : OLR.UI.BaseApplicationRecordC
 	            this.FieldTripAllocated.SelectedIndex = this.FieldTripAllocated.Items.Count - 1;
 	            this.Page.Session.Remove(FieldTripAllocated.ClientID + "_SelectedValue");
 	            this.Page.Session.Remove(FieldTripAllocated.ClientID + "_SelectedDisplayText");
-            }
-           						
-        }
-            
-        protected virtual void FieldTripAllocated2_SelectedIndexChanged(object sender, EventArgs args)
-        {
-            // for the value inserted by quick add button or large list selector, 
-            // the value is necessary to be inserted by this event during postback 
-            string val = (string)(this.Page.Session[FieldTripAllocated2.ClientID + "_SelectedValue"]);
-            string displayText = (string)(this.Page.Session[FieldTripAllocated2.ClientID + "_SelectedDisplayText"]);
-            if (!string.IsNullOrEmpty(displayText) && !string.IsNullOrEmpty(val)) {
-	            this.FieldTripAllocated2.Items.Add(new ListItem(displayText, val));
-	            this.FieldTripAllocated2.SelectedIndex = this.FieldTripAllocated2.Items.Count - 1;
-	            this.Page.Session.Remove(FieldTripAllocated2.ClientID + "_SelectedValue");
-	            this.Page.Session.Remove(FieldTripAllocated2.ClientID + "_SelectedDisplayText");
-            }
-           						
-        }
-            
-        protected virtual void FieldTripAllocated3_SelectedIndexChanged(object sender, EventArgs args)
-        {
-            // for the value inserted by quick add button or large list selector, 
-            // the value is necessary to be inserted by this event during postback 
-            string val = (string)(this.Page.Session[FieldTripAllocated3.ClientID + "_SelectedValue"]);
-            string displayText = (string)(this.Page.Session[FieldTripAllocated3.ClientID + "_SelectedDisplayText"]);
-            if (!string.IsNullOrEmpty(displayText) && !string.IsNullOrEmpty(val)) {
-	            this.FieldTripAllocated3.Items.Add(new ListItem(displayText, val));
-	            this.FieldTripAllocated3.SelectedIndex = this.FieldTripAllocated3.Items.Count - 1;
-	            this.Page.Session.Remove(FieldTripAllocated3.ClientID + "_SelectedValue");
-	            this.Page.Session.Remove(FieldTripAllocated3.ClientID + "_SelectedDisplayText");
             }
            						
         }
@@ -2572,18 +2048,6 @@ public class BaseFieldTripChoicesTableControlRow : OLR.UI.BaseApplicationRecordC
        
 #region "Helper Properties"
         
-        public System.Web.UI.WebControls.Literal FieldTripAllocated2Label {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FieldTripAllocated2Label");
-            }
-        }
-        
-        public System.Web.UI.WebControls.Literal FieldTripAllocated3Label {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FieldTripAllocated3Label");
-            }
-        }
-        
         public System.Web.UI.WebControls.Literal FieldTripAllocatedLabel {
             get {
                 return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FieldTripAllocatedLabel");
@@ -2647,18 +2111,6 @@ public class BaseFieldTripChoicesTableControlRow : OLR.UI.BaseApplicationRecordC
         public System.Web.UI.WebControls.DropDownList FieldTripAllocated {
             get {
                 return (System.Web.UI.WebControls.DropDownList)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FieldTripAllocated");
-            }
-        }
-            
-        public System.Web.UI.WebControls.DropDownList FieldTripAllocated2 {
-            get {
-                return (System.Web.UI.WebControls.DropDownList)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FieldTripAllocated2");
-            }
-        }
-            
-        public System.Web.UI.WebControls.DropDownList FieldTripAllocated3 {
-            get {
-                return (System.Web.UI.WebControls.DropDownList)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FieldTripAllocated3");
             }
         }
             
@@ -3089,8 +2541,6 @@ public class BaseFieldTripChoicesTableControl : OLR.UI.BaseApplicationTableContr
             this.Page.PregetDfkaRecords(FieldTripChoicesTable.FieldTripOptionId3, this.DataSource);
             this.Page.PregetDfkaRecords(FieldTripChoicesTable.RegistrationId, this.DataSource);
             this.Page.PregetDfkaRecords(FieldTripChoicesTable.FieldTripAllocated, this.DataSource);
-            this.Page.PregetDfkaRecords(FieldTripChoicesTable.FieldTripAllocated2, this.DataSource);
-            this.Page.PregetDfkaRecords(FieldTripChoicesTable.FieldTripAllocated3, this.DataSource);
         }
         
 
@@ -3539,12 +2989,6 @@ public class BaseFieldTripChoicesTableControl : OLR.UI.BaseApplicationTableContr
                         }
                         if (MiscUtils.IsValueSelected(recControl.FieldTripAllocated)) {
                             rec.Parse(recControl.FieldTripAllocated.SelectedItem.Value, FieldTripChoicesTable.FieldTripAllocated);
-                        }
-                        if (MiscUtils.IsValueSelected(recControl.FieldTripAllocated2)) {
-                            rec.Parse(recControl.FieldTripAllocated2.SelectedItem.Value, FieldTripChoicesTable.FieldTripAllocated2);
-                        }
-                        if (MiscUtils.IsValueSelected(recControl.FieldTripAllocated3)) {
-                            rec.Parse(recControl.FieldTripAllocated3.SelectedItem.Value, FieldTripChoicesTable.FieldTripAllocated3);
                         }
               newUIDataList.Add(recControl.PreservedUIData());
               newRecordList.Add(rec);

@@ -215,11 +215,7 @@
 <asp:DropDownList runat="server" id="FieldTripOptionId3" cssclass="field_input" onkeypress="dropDownListTypeAhead(this,false)"></asp:DropDownList></span>
  </td><td class="tableCellValue"><BaseClasses:QuickSelector runat="server" id="RegistrationId" redirecturl="" visible="False"></BaseClasses:QuickSelector></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="FieldTripAllocatedLabel" Text="Field Trip Allocated">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:DropDownList runat="server" id="FieldTripAllocated" cssclass="field_input" onkeypress="dropDownListTypeAhead(this,false)"></asp:DropDownList></span>
-</td><td class="tableCellLabel"><asp:Literal runat="server" id="FieldTripAllocated2Label" Text="Field Trip Allocated 2">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
-<asp:DropDownList runat="server" id="FieldTripAllocated2" cssclass="field_input" onkeypress="dropDownListTypeAhead(this,false)"></asp:DropDownList></span>
-</td><td class="tableCellLabel"><asp:Literal runat="server" id="FieldTripAllocated3Label" Text="Field Trip Allocated 3">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
-<asp:DropDownList runat="server" id="FieldTripAllocated3" cssclass="field_input" onkeypress="dropDownListTypeAhead(this,false)"></asp:DropDownList></span>
-</td><td class="tableCellValue"></td></tr><tr><td class="tableRowDivider" colspan="4"></td><td class="tableRowDivider"></td><td class="tableRowDivider"></td><td class="tableRowDivider"></td></tr></OLR:FieldTripChoicesTableControlRow>
+</td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableRowDivider" colspan="4"></td><td class="tableRowDivider"></td><td class="tableRowDivider"></td><td class="tableRowDivider"></td></tr></OLR:FieldTripChoicesTableControlRow>
 </ITEMTEMPLATE>
 
 </asp:Repeater>

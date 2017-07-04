@@ -270,6 +270,323 @@
       </PassthroughAttributes>
     </ContainedComponent>
     <ContainedComponent>
+      <Name>FieldTripId</Name>
+      <Type>FieldValue</Type>
+      <Field>FieldTripId</Field>
+      <FieldValueStyle>Literal</FieldValueStyle>
+      <Table>DatabaseOLR_db%dbo.FieldTrips</Table>
+      <PassthroughAttributes>
+        <Attribute>
+          <Name>FieldMaxLength</Name>
+          <Value>Default</Value>
+        </Attribute>
+        <Attribute>
+          <Name>HTMLEncodeValue</Name>
+          <Value>Default</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:ApplySaveToField</Name>
+          <Value>False</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:DataSource</Name>
+          <Value>Parent</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupDisplay</Name>
+          <Value>Default</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupThreshold</Name>
+          <Value>Default</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowHeight</Name>
+          <Value>200</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowPersist</Name>
+          <Value>False</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowScrollBar</Name>
+          <Value>True</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowTitle</Name>
+          <Value>%ISD_DEFAULT%</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowWidth</Name>
+          <Value>300</Value>
+        </Attribute>
+        <Attribute>
+          <Name>TextFormat</Name>
+          <Value>{0}</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Visible</Name>
+          <Value>False</Value>
+        </Attribute>
+      </PassthroughAttributes>
+      <InsideControl>FieldTripsRecordControl</InsideControl>
+    </ContainedComponent>
+    <ContainedComponent>
+      <Name>FieldTripsCountChart</Name>
+      <Type>Aspx</Type>
+      <PassthroughAttributes>
+        <Attribute>
+          <Name>BackgroundColor</Name>
+          <Value>White</Value>
+        </Attribute>
+        <Attribute>
+          <Name>BarWidth</Name>
+          <Value>10</Value>
+        </Attribute>
+        <Attribute>
+          <Name>ChartHeight</Name>
+          <Value>300</Value>
+        </Attribute>
+        <Attribute>
+          <Name>ChartType</Name>
+          <Value>Column</Value>
+        </Attribute>
+        <Attribute>
+          <Name>ChartWidth</Name>
+          <Value>300</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Color</Name>
+          <Value>Blue</Value>
+        </Attribute>
+        <Attribute>
+          <Name>CustomProperties</Name>
+          <Value />
+        </Attribute>
+        <Attribute>
+          <Name>DataSourceName</Name>
+          <Value>FieldTripsCountQuery</Value>
+        </Attribute>
+        <Attribute>
+          <Name>FontColor</Name>
+          <Value>Black</Value>
+        </Attribute>
+        <Attribute>
+          <Name>FontType</Name>
+          <Value>Arial</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Formula:ApplyChartTitle</Name>
+          <Value>False</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Formula:ApplyRemainderLabel</Name>
+          <Value>False</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Formula:ChartTitle</Name>
+          <Value>"Field Trips" + "  x  " + "Description"</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Formula:DataPointURL</Name>
+          <Value>"../FieldTrips/Show-FieldTrips-Table.aspx?Description=" + UrlEncode(Description.ToString())</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Formula:IndexLabel</Name>
+          <Value>Description</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Formula:IndexTitle</Name>
+          <Value>"Description"</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Formula:LegendURL</Name>
+          <Value>"../FieldTrips/Show-FieldTrips-Table.aspx?Description=" + UrlEncode(Description.ToString())</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Formula:RemainderLabel</Name>
+          <Value>Resource("Txt:RemainderLabel")</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Formula:ValueData</Name>
+          <Value>FieldTripsCount</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Formula:ValueTitle</Name>
+          <Value>"Field Trips"</Value>
+        </Attribute>
+        <Attribute>
+          <Name>GeneratePercentage</Name>
+          <Value>False</Value>
+        </Attribute>
+        <Attribute>
+          <Name>GridColor</Name>
+          <Value>LightGray</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalLabelColor</Name>
+          <Value>White</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:TreatAs</Name>
+          <Value>FieldValue</Value>
+        </Attribute>
+        <Attribute>
+          <Name>LabelFormat</Name>
+          <Value>0</Value>
+        </Attribute>
+        <Attribute>
+          <Name>LargestFirst</Name>
+          <Value>False</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Palette</Name>
+          <Value>Bright</Value>
+        </Attribute>
+        <Attribute>
+          <Name>ShowInsideBar</Name>
+          <Value>Value at bar end</Value>
+        </Attribute>
+        <Attribute>
+          <Name>ShowTitle</Name>
+          <Value>False</Value>
+        </Attribute>
+        <Attribute>
+          <Name>ShowXAxisTitle</Name>
+          <Value>True</Value>
+        </Attribute>
+        <Attribute>
+          <Name>ShowYAxisTitle</Name>
+          <Value>True</Value>
+        </Attribute>
+        <Attribute>
+          <Name>ToolTip</Name>
+          <Value>Field Trips  x  Description</Value>
+        </Attribute>
+        <Attribute>
+          <Name>UseDefaultColorScheme</Name>
+          <Value>True</Value>
+        </Attribute>
+        <Attribute>
+          <Name>UsePalette</Name>
+          <Value>False</Value>
+        </Attribute>
+        <Attribute>
+          <Name>XAxisLabelAngle</Name>
+          <Value>-50</Value>
+        </Attribute>
+      </PassthroughAttributes>
+      <InsideControl>FieldTripsRecordControl</InsideControl>
+      <ControlClass>System.Web.UI.DataVisualization.Charting.Chart</ControlClass>
+    </ContainedComponent>
+    <ContainedComponent>
+      <Name>FieldTripsCountQuery</Name>
+      <Type>DataSource</Type>
+      <Table>DatabaseOLR_db%dbo.FieldTripOptions</Table>
+      <QueryDefinition>
+        <WhereClause>
+          <Position>1</Position>
+          <TableAlias>DatabaseOLR_db%dbo.FieldTrips_</TableAlias>
+          <Field>[DatabaseOLR_db%dbo.FieldTrips_].[FieldTripId]</Field>
+          <Operator>=</Operator>
+          <Operand>
+            <Type>Formula</Type>
+            <Value>FieldTripsRecordControl.FieldTripId.Text</Value>
+          </Operand>
+          <IgnoreBlankString>Yes</IgnoreBlankString>
+        </WhereClause>
+        <Operators>
+          <Operator xsi:nil="true" />
+        </Operators>
+        <TableAliases>
+          <Alias>
+            <AliasName>DatabaseOLR_db%dbo.FieldTrips_</AliasName>
+            <TableName>DatabaseOLR_db%dbo.FieldTrips</TableName>
+          </Alias>
+        </TableAliases>
+      </QueryDefinition>
+      <PassthroughAttributes>
+        <Attribute>
+          <Name>DataReaderSortBy</Name>
+          <Value>FieldTripsCount Desc</Value>
+        </Attribute>
+        <Attribute>
+          <Name>GenerateReminder</Name>
+          <Value>False</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:DataSource</Name>
+          <Value>TableOrQuery</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:DataSourceArg</Name>
+          <Value />
+        </Attribute>
+        <Attribute>
+          <Name>Top</Name>
+          <Value>15</Value>
+        </Attribute>
+      </PassthroughAttributes>
+      <InsideControl>FieldTripsRecordControl</InsideControl>
+      <Querys>
+        <Query>
+          <LeftQueryContent>
+            <Type>TableField</Type>
+            <Prefix>DatabaseOLR_db%dbo.FieldTrips</Prefix>
+            <Suffix>FieldTripId</Suffix>
+          </LeftQueryContent>
+          <RightQueryContent>
+            <Type>Control</Type>
+            <Prefix>FieldTripsRecordControl</Prefix>
+            <Suffix>FieldTripId</Suffix>
+          </RightQueryContent>
+          <ForeignKeyName />
+        </Query>
+      </Querys>
+      <Selects>
+        <Select>
+          <Position>0</Position>
+          <Table>DatabaseOLR_db%dbo.FieldTripOptions</Table>
+          <Field>Description</Field>
+          <SelectAs />
+          <SQLOperation>None</SQLOperation>
+          <SetDistinct>false</SetDistinct>
+        </Select>
+        <Select>
+          <Position>1</Position>
+          <Table>DatabaseOLR_db%dbo.FieldTrips</Table>
+          <SelectAs>FieldTripsCount</SelectAs>
+          <SQLOperation>COUNT</SQLOperation>
+          <SetDistinct>false</SetDistinct>
+        </Select>
+      </Selects>
+      <Joins>
+        <JoinList>
+          <Join>
+            <Position>0</Position>
+            <TableToJoin>DatabaseOLR_db%dbo.FieldTrips</TableToJoin>
+            <LeftJoinContent>
+              <Table>DatabaseOLR_db%dbo.FieldTripOptions</Table>
+              <Field>FieldTripId</Field>
+            </LeftJoinContent>
+            <RightJoinContent>
+              <Table>DatabaseOLR_db%dbo.FieldTrips</Table>
+              <Field>FieldTripId</Field>
+            </RightJoinContent>
+          </Join>
+          <TableToJoin>DatabaseOLR_db%dbo.FieldTrips</TableToJoin>
+          <TableToJoinAlias />
+        </JoinList>
+      </Joins>
+      <OrderBys>
+        <OrderBy>
+          <Position>0</Position>
+          <ColumnName>FieldTripsCount</ColumnName>
+          <Direction>Desc</Direction>
+        </OrderBy>
+      </OrderBys>
+    </ContainedComponent>
+    <ContainedComponent>
       <Name>FieldTripsRecordControl</Name>
       <Type>Record</Type>
       <PanelStyle>ShowRec_DTB_Parent</PanelStyle>
@@ -470,7 +787,9 @@
         &lt;Value&gt;
                         &amp;lt;GEN:RECORD NAME="FieldTripsRecordControl"&amp;gt;&amp;lt;/GEN:RECORD&amp;gt;
             &lt;/Value&gt;
+        &lt;CellAttributes /&gt;
       &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
@@ -482,6 +801,7 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
     &lt;Epilog&gt;
       &lt;Value&gt;
@@ -515,6 +835,7 @@
     &lt;/TableAttributes&gt;
   &lt;/Layout&gt;
   &lt;Layout Name="FieldTripsRecordControl" Type="RecordPanel" PanelControlName="FieldTripsRecordControl"&gt;
+    &lt;Prolog /&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
         &lt;Value&gt;&amp;lt;img src="../Images/space.gif" class="panelTLSpace" alt="" /&amp;gt;&lt;/Value&gt;
@@ -542,6 +863,7 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
@@ -571,6 +893,7 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
@@ -585,6 +908,7 @@
         &lt;Value&gt;
                   &amp;lt;asp:panel id="CollapsibleRegion" runat="server"&amp;gt;&amp;lt;GEN:PANEL NAME="Panel"/&amp;gt;&amp;lt;/asp:panel&amp;gt;
                 &lt;/Value&gt;
+        &lt;CellAttributes /&gt;
       &lt;/Cell&gt;
       &lt;Cell&gt;
         &lt;CellAttributes&gt;
@@ -594,6 +918,7 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
@@ -622,7 +947,9 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
+    &lt;Epilog /&gt;
     &lt;TableAttributes&gt;
       &lt;Attribute&gt;
         &lt;Name&gt;class&lt;/Name&gt;
@@ -643,6 +970,7 @@
     &lt;/TableAttributes&gt;
   &lt;/Layout&gt;
   &lt;Layout Name="Header" Type="PanelHeader" PanelControlName="FieldTripsRecordControl"&gt;
+    &lt;Prolog /&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
         &lt;Value&gt;&amp;lt;img src="../Images/space.gif" alt=""/&amp;gt;&lt;/Value&gt;
@@ -671,7 +999,9 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
+    &lt;Epilog /&gt;
     &lt;TableAttributes&gt;
       &lt;Attribute&gt;
         &lt;Name&gt;cellpadding&lt;/Name&gt;
@@ -692,6 +1022,7 @@
     &lt;/TableAttributes&gt;
   &lt;/Layout&gt;
   &lt;Layout Name="TitleRegion" PanelControlName="FieldTripsRecordControl"&gt;
+    &lt;Prolog /&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
         &lt;Value&gt;
@@ -719,37 +1050,9 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
-    &lt;TableAttributes&gt;
-      &lt;Attribute&gt;
-        &lt;Name&gt;cellpadding&lt;/Name&gt;
-        &lt;AttributeValue&gt;0&lt;/AttributeValue&gt;
-      &lt;/Attribute&gt;
-      &lt;Attribute&gt;
-        &lt;Name&gt;cellspacing&lt;/Name&gt;
-        &lt;AttributeValue&gt;0&lt;/AttributeValue&gt;
-      &lt;/Attribute&gt;
-      &lt;Attribute&gt;
-        &lt;Name&gt;border&lt;/Name&gt;
-        &lt;AttributeValue&gt;0&lt;/AttributeValue&gt;
-      &lt;/Attribute&gt;
-    &lt;/TableAttributes&gt;
-  &lt;/Layout&gt;
-  &lt;Layout Name="TitleRegionPanel" Type="BlankPanel" PanelControlName="FieldTripsRecordControl"&gt;
-    &lt;Row&gt;
-      &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;GEN:HTML NAME="Title0"/&amp;gt;&lt;/Value&gt;
-      &lt;/Cell&gt;
-      &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;GEN:IMAGEBUTTON NAME="DialogEditButton" /&amp;gt;&lt;/Value&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;dhir&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-    &lt;/Row&gt;
+    &lt;Epilog /&gt;
     &lt;TableAttributes&gt;
       &lt;Attribute&gt;
         &lt;Name&gt;cellpadding&lt;/Name&gt;
@@ -766,6 +1069,7 @@
     &lt;/TableAttributes&gt;
   &lt;/Layout&gt;
   &lt;Layout Name="Panel" PanelControlName="FieldTripsRecordControl"&gt;
+    &lt;Prolog /&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
         &lt;Value&gt;
@@ -773,7 +1077,9 @@
                   &lt;/Value&gt;
         &lt;CellAttributes /&gt;
       &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
+    &lt;Epilog /&gt;
     &lt;TableAttributes&gt;
       &lt;Attribute&gt;
         &lt;Name&gt;class&lt;/Name&gt;
@@ -798,6 +1104,7 @@
     &lt;/TableAttributes&gt;
   &lt;/Layout&gt;
   &lt;Layout Name="Fields" Type="RecordGrid" PanelControlName="FieldTripsRecordControl"&gt;
+    &lt;Prolog /&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
         &lt;Value&gt;&amp;lt;GEN:FIELDLABEL NAME="DescriptionLabel"/&amp;gt;&lt;/Value&gt;
@@ -817,6 +1124,16 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;Value&gt;&amp;lt;GEN:FIELDVALUE NAME="FieldTripId" /&amp;gt;&lt;/Value&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
@@ -837,6 +1154,15 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
@@ -857,7 +1183,60 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
+    &lt;Row&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellLabel&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
+    &lt;/Row&gt;
+    &lt;Row&gt;
+      &lt;Cell&gt;
+        &lt;Value&gt;&amp;lt;asp:chart id="FieldTripsCountChart"  AlternateText ="Field Trips  x  Description" width="300" height="300" runat="server" enableviewstate="true"/&amp;gt;&lt;/Value&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellLabel&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;colspan&lt;/Name&gt;
+            &lt;AttributeValue&gt;3&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
+    &lt;/Row&gt;
+    &lt;Epilog /&gt;
     &lt;TableAttributes&gt;
       &lt;Attribute&gt;
         &lt;Name&gt;cellpadding&lt;/Name&gt;
@@ -878,11 +1257,15 @@
     &lt;/TableAttributes&gt;
   &lt;/Layout&gt;
   &lt;Layout Name="PageButtons" Type="PageButton"&gt;
+    &lt;Prolog /&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
         &lt;Value&gt;&amp;lt;GEN:PANEL NAME="PageButtonsPanel"/&amp;gt;&lt;/Value&gt;
+        &lt;CellAttributes /&gt;
       &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
+    &lt;Epilog /&gt;
     &lt;TableAttributes&gt;
       &lt;Attribute&gt;
         &lt;Name&gt;cellpadding&lt;/Name&gt;
@@ -903,14 +1286,19 @@
     &lt;/TableAttributes&gt;
   &lt;/Layout&gt;
   &lt;Layout Name="PageButtonsPanel" Type="BlankPanel"&gt;
+    &lt;Prolog /&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
         &lt;Value&gt;&amp;lt;GEN:BUTTON NAME="OKButton"/&amp;gt;&lt;/Value&gt;
+        &lt;CellAttributes /&gt;
       &lt;/Cell&gt;
       &lt;Cell&gt;
         &lt;Value&gt;&amp;lt;GEN:BUTTON NAME="EditButton"/&amp;gt;&lt;/Value&gt;
+        &lt;CellAttributes /&gt;
       &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
+    &lt;Epilog /&gt;
     &lt;TableAttributes&gt;
       &lt;Attribute&gt;
         &lt;Name&gt;cellpadding&lt;/Name&gt;

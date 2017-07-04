@@ -197,22 +197,40 @@
     <Compile Include="BaseView_RegisteredSqlView.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HonourContactLinksDefinition.cs" >
+    <Compile Include="HonourContactLinksDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HonourContactLinksSqlTable.cs" >
+    <Compile Include="HonourContactLinksSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseHonourContactLinksSqlTable.cs" >
+    <Compile Include="BaseHonourContactLinksSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HonoursDefinition.cs" >
+    <Compile Include="HonoursDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HonoursSqlTable.cs" >
+    <Compile Include="HonoursSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseHonoursSqlTable.cs" >
+    <Compile Include="BaseHonoursSqlTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View_FieldTripStatsDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View_FieldTripStatsSqlView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseView_FieldTripStatsSqlView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View_StatsDefinition.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View_StatsSqlView.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseView_StatsSqlView.cs" >
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

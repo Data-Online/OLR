@@ -38,11 +38,13 @@
 
                 </td><td class="panelHeaderR"></td></tr><tr><td class="panelL"></td><td>
                   <asp:panel id="CollapsibleRegion" runat="server"><table class="dBody" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td>
-                    <asp:panel id="FieldTripsRecordControlPanel" runat="server"><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tableCellLabel"><asp:Literal runat="server" id="DescriptionLabel" Text="Description">	</asp:Literal></td><td class="tableCellValue"><asp:Literal runat="server" id="Description"></asp:Literal> </td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="DateLabel" Text="Date">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
+                    <asp:panel id="FieldTripsRecordControlPanel" runat="server"><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tableCellLabel"><asp:Literal runat="server" id="DescriptionLabel" Text="Description">	</asp:Literal></td><td class="tableCellValue"><asp:Literal runat="server" id="Description"></asp:Literal> </td><td class="tableCellValue"><span style="white-space:nowrap;">
+<asp:Literal runat="server" id="FieldTripId" visible="False"></asp:Literal></span>
+</td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="DateLabel" Text="Date">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:Literal runat="server" id="Date0"></asp:Literal></span>
- </td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="TimeLabel" Text="Time">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
+ </td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="TimeLabel" Text="Time">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:Literal runat="server" id="Time"></asp:Literal></span>
- </td></tr></table></asp:panel>
+ </td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel" colspan="3"><asp:chart id="FieldTripsCountChart" AlternateText="Field Trips  x  Description" width="300" height="300" runat="server" enableviewstate="true" /></td></tr></table></asp:panel>
 
                   </td></tr></table>
 </asp:panel>

@@ -224,28 +224,52 @@
     <Compile Include="BaseView_RegisteredRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HonourContactLinksTable.cs" >
+    <Compile Include="HonourContactLinksTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseHonourContactLinksTable.cs" >
+    <Compile Include="BaseHonourContactLinksTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HonourContactLinksRecord.cs" >
+    <Compile Include="HonourContactLinksRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseHonourContactLinksRecord.cs" >
+    <Compile Include="BaseHonourContactLinksRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HonoursTable.cs" >
+    <Compile Include="HonoursTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseHonoursTable.cs" >
+    <Compile Include="BaseHonoursTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HonoursRecord.cs" >
+    <Compile Include="HonoursRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseHonoursRecord.cs" >
+    <Compile Include="BaseHonoursRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View_FieldTripStatsView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseView_FieldTripStatsView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View_FieldTripStatsRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseView_FieldTripStatsRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View_StatsView.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseView_StatsView.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View_StatsRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseView_StatsRecord.cs" >
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

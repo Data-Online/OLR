@@ -69,8 +69,6 @@ public class BaseFieldTripChoicesTable : PrimaryKeyTable
         FieldTripIdColumn.CodeName = "FieldTripId";
         RecordDeletedColumn.CodeName = "RecordDeleted";
         FieldTripAllocatedColumn.CodeName = "FieldTripAllocated";
-        FieldTripAllocated2Column.CodeName = "FieldTripAllocated2";
-        FieldTripAllocated3Column.CodeName = "FieldTripAllocated3";
 
         
     }
@@ -290,56 +288,6 @@ public class BaseFieldTripChoicesTable : PrimaryKeyTable
         get
         {
             return FieldTripChoicesTable.Instance.FieldTripAllocatedColumn;
-        }
-    }
-    
-    
-    /// <summary>
-    /// This is a convenience property that provides direct access to the table's FieldTripChoices_.FieldTripAllocated2 column object.
-    /// </summary>
-    public BaseClasses.Data.NumberColumn FieldTripAllocated2Column
-    {
-        get
-        {
-            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[8];
-        }
-    }
-    
-
-    
-    /// <summary>
-    /// This is a convenience property that provides direct access to the table's FieldTripChoices_.FieldTripAllocated2 column object.
-    /// </summary>
-    public static BaseClasses.Data.NumberColumn FieldTripAllocated2
-    {
-        get
-        {
-            return FieldTripChoicesTable.Instance.FieldTripAllocated2Column;
-        }
-    }
-    
-    
-    /// <summary>
-    /// This is a convenience property that provides direct access to the table's FieldTripChoices_.FieldTripAllocated3 column object.
-    /// </summary>
-    public BaseClasses.Data.NumberColumn FieldTripAllocated3Column
-    {
-        get
-        {
-            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[9];
-        }
-    }
-    
-
-    
-    /// <summary>
-    /// This is a convenience property that provides direct access to the table's FieldTripChoices_.FieldTripAllocated3 column object.
-    /// </summary>
-    public static BaseClasses.Data.NumberColumn FieldTripAllocated3
-    {
-        get
-        {
-            return FieldTripChoicesTable.Instance.FieldTripAllocated3Column;
         }
     }
     
@@ -875,9 +823,7 @@ public class BaseFieldTripChoicesTable : PrimaryKeyTable
         string FieldTripOptionId3Value, 
         string FieldTripIdValue, 
         string RecordDeletedValue, 
-        string FieldTripAllocatedValue, 
-        string FieldTripAllocated2Value, 
-        string FieldTripAllocated3Value
+        string FieldTripAllocatedValue
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
@@ -888,8 +834,6 @@ public class BaseFieldTripChoicesTable : PrimaryKeyTable
         rec.SetString(FieldTripIdValue, FieldTripIdColumn);
         rec.SetString(RecordDeletedValue, RecordDeletedColumn);
         rec.SetString(FieldTripAllocatedValue, FieldTripAllocatedColumn);
-        rec.SetString(FieldTripAllocated2Value, FieldTripAllocated2Column);
-        rec.SetString(FieldTripAllocated3Value, FieldTripAllocated3Column);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized
