@@ -61,7 +61,8 @@ public class BasePhotoClubContactLinksRecord : PrimaryKeyRecord
                 PhotoClubContactLinksRecord PhotoClubContactLinksRec = (PhotoClubContactLinksRecord)sender;
         Validate_Inserting();
         if(PhotoClubContactLinksRec != null && !PhotoClubContactLinksRec.IsReadOnly ){
-                }
+               PhotoClubContactLinksRec.Parse(EvaluateFormula("false",this,null),PhotoClubContactLinksTable.RecordDeleted);
+        }
     
     }
     

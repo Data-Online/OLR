@@ -62,6 +62,7 @@ public class BasePhotoClubContactLinksTable : PrimaryKeyTable
         PhotoClubIdColumn.CodeName = "PhotoClubId";
         PhotoClubContactIdColumn.CodeName = "PhotoClubContactId";
         RecordDeletedColumn.CodeName = "RecordDeleted";
+        RecordDeletedColumn.DefaultValue = EvaluateFormula("\"false\"");
 
         
     }

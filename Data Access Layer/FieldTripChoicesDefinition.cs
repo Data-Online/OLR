@@ -12,7 +12,7 @@ namespace OLR.Business
 public class FieldTripChoicesDefinition
 {
 #region "Definition (XML) for FieldTripChoicesDefinition table"
-	//Next 373 lines contain Table Definition (XML) for table "FieldTripChoicesDefinition"
+	//Next 375 lines contain Table Definition (XML) for table "FieldTripChoicesDefinition"
 	private static string _DefinitionString = "";
 	
 #endregion
@@ -305,37 +305,39 @@ public class FieldTripChoicesDefinition
          tbf.Append(      @"<columnType>Boolean</columnType>");
          tbf.Append(      @"<columnDBType>bit</columnDBType>");
          tbf.Append(      @"<columnLengthSet></columnLengthSet>");
-         tbf.Append(      @"<columnDefault></columnDefault>");
-         tbf.Append(      @"<columnDBDefault></columnDBDefault>");
+         tbf.Append(      @"<columnDefault>= &quot;false&quot;</columnDefault>");
+         tbf.Append(      @"<columnDBDefault Source=""User""></columnDBDefault>");
          tbf.Append(      @"<columnIndex>N</columnIndex>");
          tbf.Append(      @"<columnUnique>N</columnUnique>");
          tbf.Append(      @"<columnFunction></columnFunction>");
          tbf.Append(      @"<columnDBFormat></columnDBFormat>");
          tbf.Append(      @"<columnPK>N</columnPK>");
          tbf.Append(      @"<columnPermanent>N</columnPermanent>");
-         tbf.Append(      @"<columnComputed>N</columnComputed>");
-         tbf.Append(      @"<columnIdentity>N</columnIdentity>");
-         tbf.Append(      @"<columnReadOnly>N</columnReadOnly>");
+         tbf.Append(      @"<columnComputed Source=""User"">N</columnComputed>");
+         tbf.Append(      @"<columnIdentity Source=""User"">N</columnIdentity>");
+         tbf.Append(      @"<columnReadOnly Source=""User"">N</columnReadOnly>");
          tbf.Append(      @"<columnRequired>N</columnRequired>");
          tbf.Append(      @"<columnNotNull>N</columnNotNull>");
-         tbf.Append(      @"<columnCaseSensitive>N</columnCaseSensitive>");
+         tbf.Append(      @"<columnCaseSensitive Source=""User"">N</columnCaseSensitive>");
          tbf.Append(      @"<columnCollation></columnCollation>");
-         tbf.Append(      @"<columnFullText>N</columnFullText>");
+         tbf.Append(      @"<columnFullText Source=""User"">N</columnFullText>");
          tbf.Append(      @"<columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>");
          tbf.Append(      @"<columnTableAliasName></columnTableAliasName>");
          tbf.Append(      @"<applyLabelText>Y</applyLabelText>");
          tbf.Append(      @"<applyDFKA>N</applyDFKA>");
-         tbf.Append(      @"<applyInitializeInsertingRecord>N</applyInitializeInsertingRecord>");
+         tbf.Append(      @"<applyInitializeInsertingRecord>Y</applyInitializeInsertingRecord>");
          tbf.Append(      @"<applyInitializeReadingRecord>N</applyInitializeReadingRecord>");
          tbf.Append(      @"<applyInitializeUpdatingRecord>N</applyInitializeUpdatingRecord>");
          tbf.Append(      @"<applyValidateInsertingRecord>N</applyValidateInsertingRecord>");
          tbf.Append(      @"<applyValidateUpdatingRecord>N</applyValidateUpdatingRecord>");
-         tbf.Append(      @"<applyDefaultValue>N</applyDefaultValue>");
-         tbf.Append(      @"<insertingRecordFormula></insertingRecordFormula>");
+         tbf.Append(      @"<applyDefaultValue>Y</applyDefaultValue>");
+         tbf.Append(      @"<insertingRecordFormula>= &quot;false&quot;</insertingRecordFormula>");
          tbf.Append(      @"<readingRecordFormula></readingRecordFormula>");
          tbf.Append(      @"<updatingRecordFormula></updatingRecordFormula>");
          tbf.Append(      @"<insertingFormula></insertingFormula>");
          tbf.Append(      @"<updatingFormula></updatingFormula>");
+         tbf.Append(      @"<InternalName>6</InternalName>");
+         tbf.Append(      @"<columnTableClassName></columnTableClassName>");
          tbf.Append(    "</Column>");
          tbf.Append(    @"<Column InternalName=""7"" Priority=""8"" ColumnNum=""7"">");
          tbf.Append(      @"<columnName>FieldTripAllocated</columnName>");

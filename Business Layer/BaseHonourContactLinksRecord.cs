@@ -61,7 +61,8 @@ public class BaseHonourContactLinksRecord : PrimaryKeyRecord
                 HonourContactLinksRecord HonourContactLinksRec = (HonourContactLinksRecord)sender;
         Validate_Inserting();
         if(HonourContactLinksRec != null && !HonourContactLinksRec.IsReadOnly ){
-                }
+               HonourContactLinksRec.Parse(EvaluateFormula("\"false\"",this,null),HonourContactLinksTable.RecordDeleted);
+        }
     
     }
     

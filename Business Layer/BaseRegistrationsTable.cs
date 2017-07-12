@@ -69,6 +69,7 @@ public class BaseRegistrationsTable : PrimaryKeyTable
         DatePaidColumn.CodeName = "DatePaid";
         InitialCreationDateColumn.CodeName = "InitialCreationDate";
         RecordDeletedColumn.CodeName = "RecordDeleted";
+        RecordDeletedColumn.DefaultValue = EvaluateFormula("\"false\"");
 
         
     }

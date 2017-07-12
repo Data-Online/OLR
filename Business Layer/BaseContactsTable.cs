@@ -72,6 +72,7 @@ public class BaseContactsTable : PrimaryKeyTable
         FirstNameColumn.CodeName = "FirstName";
         LastNameColumn.CodeName = "LastName";
         RecordDeletedColumn.CodeName = "RecordDeleted";
+        RecordDeletedColumn.DefaultValue = EvaluateFormula("\"false\"");
 
         
     }

@@ -68,6 +68,7 @@ public class BaseFieldTripChoicesTable : PrimaryKeyTable
         FieldTripOptionId3Column.Name = EvaluateFormula("\"Third Choice\"");
         FieldTripIdColumn.CodeName = "FieldTripId";
         RecordDeletedColumn.CodeName = "RecordDeleted";
+        RecordDeletedColumn.DefaultValue = EvaluateFormula("\"false\"");
         FieldTripAllocatedColumn.CodeName = "FieldTripAllocated";
 
         

@@ -61,7 +61,8 @@ public class BaseContactsRecord : PrimaryKeyRecord
                 ContactsRecord ContactsRec = (ContactsRecord)sender;
         Validate_Inserting();
         if(ContactsRec != null && !ContactsRec.IsReadOnly ){
-                }
+               ContactsRec.Parse(EvaluateFormula("\"false\"",this,null),ContactsTable.RecordDeleted);
+        }
     
     }
     

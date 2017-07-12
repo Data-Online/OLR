@@ -61,7 +61,8 @@ public class BaseFieldTripChoicesRecord : PrimaryKeyRecord
                 FieldTripChoicesRecord FieldTripChoicesRec = (FieldTripChoicesRecord)sender;
         Validate_Inserting();
         if(FieldTripChoicesRec != null && !FieldTripChoicesRec.IsReadOnly ){
-                }
+               FieldTripChoicesRec.Parse(EvaluateFormula("\"false\"",this,null),FieldTripChoicesTable.RecordDeleted);
+        }
     
     }
     

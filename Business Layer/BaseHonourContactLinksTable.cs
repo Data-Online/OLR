@@ -62,6 +62,7 @@ public class BaseHonourContactLinksTable : PrimaryKeyTable
         ContactIdColumn.CodeName = "ContactId";
         HonourContactLinkIdColumn.CodeName = "HonourContactLinkId";
         RecordDeletedColumn.CodeName = "RecordDeleted";
+        RecordDeletedColumn.DefaultValue = EvaluateFormula("\"false\"");
 
         
     }

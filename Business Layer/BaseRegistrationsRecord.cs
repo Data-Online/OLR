@@ -61,7 +61,8 @@ public class BaseRegistrationsRecord : PrimaryKeyRecord
                 RegistrationsRecord RegistrationsRec = (RegistrationsRecord)sender;
         Validate_Inserting();
         if(RegistrationsRec != null && !RegistrationsRec.IsReadOnly ){
-                }
+               RegistrationsRec.Parse(EvaluateFormula("false",this,null),RegistrationsTable.RecordDeleted);
+        }
     
     }
     

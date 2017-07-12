@@ -12,7 +12,7 @@ namespace OLR.Business
 public class RegistrationsDefinition
 {
 #region "Definition (XML) for RegistrationsDefinition table"
-	//Next 453 lines contain Table Definition (XML) for table "RegistrationsDefinition"
+	//Next 467 lines contain Table Definition (XML) for table "RegistrationsDefinition"
 	private static string _DefinitionString = "";
 	
 #endregion
@@ -443,25 +443,39 @@ public class RegistrationsDefinition
          tbf.Append(      @"<columnType>Boolean</columnType>");
          tbf.Append(      @"<columnDBType>bit</columnDBType>");
          tbf.Append(      @"<columnLengthSet></columnLengthSet>");
-         tbf.Append(      @"<columnDefault></columnDefault>");
-         tbf.Append(      @"<columnDBDefault></columnDBDefault>");
+         tbf.Append(      @"<columnDefault>= &quot;false&quot;</columnDefault>");
+         tbf.Append(      @"<columnDBDefault Source=""User""></columnDBDefault>");
          tbf.Append(      @"<columnIndex>N</columnIndex>");
          tbf.Append(      @"<columnUnique>N</columnUnique>");
          tbf.Append(      @"<columnFunction></columnFunction>");
          tbf.Append(      @"<columnDBFormat></columnDBFormat>");
          tbf.Append(      @"<columnPK>N</columnPK>");
          tbf.Append(      @"<columnPermanent>N</columnPermanent>");
-         tbf.Append(      @"<columnComputed>N</columnComputed>");
-         tbf.Append(      @"<columnIdentity>N</columnIdentity>");
-         tbf.Append(      @"<columnReadOnly>N</columnReadOnly>");
+         tbf.Append(      @"<columnComputed Source=""User"">N</columnComputed>");
+         tbf.Append(      @"<columnIdentity Source=""User"">N</columnIdentity>");
+         tbf.Append(      @"<columnReadOnly Source=""User"">N</columnReadOnly>");
          tbf.Append(      @"<columnRequired>N</columnRequired>");
          tbf.Append(      @"<columnNotNull>N</columnNotNull>");
-         tbf.Append(      @"<columnCaseSensitive>N</columnCaseSensitive>");
+         tbf.Append(      @"<columnCaseSensitive Source=""User"">N</columnCaseSensitive>");
          tbf.Append(      @"<columnCollation></columnCollation>");
-         tbf.Append(      @"<columnFullText>N</columnFullText>");
+         tbf.Append(      @"<columnFullText Source=""User"">N</columnFullText>");
          tbf.Append(      @"<columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>");
          tbf.Append(      @"<columnTableAliasName></columnTableAliasName>");
          tbf.Append(      @"<applyLabelText>Y</applyLabelText>");
+         tbf.Append(      @"<applyDefaultValue>Y</applyDefaultValue>");
+         tbf.Append(      @"<InternalName>10</InternalName>");
+         tbf.Append(      @"<columnTableClassName></columnTableClassName>");
+         tbf.Append(      @"<applyInitializeReadingRecord>N</applyInitializeReadingRecord>");
+         tbf.Append(      @"<applyInitializeInsertingRecord>Y</applyInitializeInsertingRecord>");
+         tbf.Append(      @"<applyInitializeUpdatingRecord>N</applyInitializeUpdatingRecord>");
+         tbf.Append(      @"<applyValidateInsertingRecord>N</applyValidateInsertingRecord>");
+         tbf.Append(      @"<applyValidateUpdatingRecord>N</applyValidateUpdatingRecord>");
+         tbf.Append(      @"<applyDFKA>N</applyDFKA>");
+         tbf.Append(      @"<readingRecordFormula></readingRecordFormula>");
+         tbf.Append(      @"<insertingRecordFormula>= false</insertingRecordFormula>");
+         tbf.Append(      @"<updatingRecordFormula></updatingRecordFormula>");
+         tbf.Append(      @"<insertingFormula></insertingFormula>");
+         tbf.Append(      @"<updatingFormula></updatingFormula>");
          tbf.Append(    "</Column>");
          tbf.Append(  "</ColumnDefinition>");
          tbf.Append(  @"<TableName>Registrations</TableName>");
