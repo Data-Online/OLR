@@ -1087,6 +1087,27 @@
     <Compile Include="FieldTrips\Show-FieldTrips-Table.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AvailableWorkshops\Edit-AvailableWorkshops-Table.aspx.cs">
+      <DependentUpon>Edit-AvailableWorkshops-Table.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AvailableWorkshops\Edit-AvailableWorkshops-Table.Controls.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AvailableWorkshops\Show-AvailableWorkshops-Table.aspx.cs" >
+      <DependentUpon>Show-AvailableWorkshops-Table.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AvailableWorkshops\Show-AvailableWorkshops-Table.Controls.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AvailableWorkshops\AvailableWorkshops-QuickSelector.aspx.cs" >
+      <DependentUpon>AvailableWorkshops-QuickSelector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AvailableWorkshops\AvailableWorkshops-QuickSelector.Controls.cs" >
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="BaseClasses\Readme.txt" />
@@ -1464,6 +1485,9 @@
     <Content Include="view_FieldTripStats\Show-View-FieldTripStats-Table.aspx" />
     <Content Include="view_Stats\Show-View-Stats-Table.aspx" />
     <Content Include="FieldTrips\Show-FieldTrips-Table.aspx" />
+    <Content Include="AvailableWorkshops\Edit-AvailableWorkshops-Table.aspx" />
+    <Content Include="AvailableWorkshops\Show-AvailableWorkshops-Table.aspx"  />
+    <Content Include="AvailableWorkshops\AvailableWorkshops-QuickSelector.aspx"  />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Global.asax.resx">

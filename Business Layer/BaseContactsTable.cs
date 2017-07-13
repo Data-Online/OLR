@@ -73,6 +73,7 @@ public class BaseContactsTable : PrimaryKeyTable
         LastNameColumn.CodeName = "LastName";
         RecordDeletedColumn.CodeName = "RecordDeleted";
         RecordDeletedColumn.DefaultValue = EvaluateFormula("\"false\"");
+        NZIPPMemberColumn.CodeName = "NZIPPMember";
 
         
     }
@@ -417,6 +418,31 @@ public class BaseContactsTable : PrimaryKeyTable
         get
         {
             return ContactsTable.Instance.RecordDeletedColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's Contacts_.NZIPPMember column object.
+    /// </summary>
+    public BaseClasses.Data.BooleanColumn NZIPPMemberColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.BooleanColumn)this.TableDefinition.ColumnList[13];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's Contacts_.NZIPPMember column object.
+    /// </summary>
+    public static BaseClasses.Data.BooleanColumn NZIPPMember
+    {
+        get
+        {
+            return ContactsTable.Instance.NZIPPMemberColumn;
         }
     }
     
@@ -957,7 +983,8 @@ public class BaseContactsTable : PrimaryKeyTable
         string PSNZAppliedForValue, 
         string FirstNameValue, 
         string LastNameValue, 
-        string RecordDeletedValue
+        string RecordDeletedValue, 
+        string NZIPPMemberValue
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
@@ -973,6 +1000,7 @@ public class BaseContactsTable : PrimaryKeyTable
         rec.SetString(FirstNameValue, FirstNameColumn);
         rec.SetString(LastNameValue, LastNameColumn);
         rec.SetString(RecordDeletedValue, RecordDeletedColumn);
+        rec.SetString(NZIPPMemberValue, NZIPPMemberColumn);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized

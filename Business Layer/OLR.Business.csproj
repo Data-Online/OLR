@@ -260,16 +260,40 @@
     <Compile Include="BaseView_FieldTripStatsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View_StatsView.cs" >
+    <Compile Include="View_StatsView.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseView_StatsView.cs" >
+    <Compile Include="BaseView_StatsView.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View_StatsRecord.cs" >
+    <Compile Include="View_StatsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseView_StatsRecord.cs" >
+    <Compile Include="BaseView_StatsRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AvailableWorkshopsTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseAvailableWorkshopsTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AvailableWorkshopsRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseAvailableWorkshopsRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WorkshopsTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseWorkshopsTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WorkshopsRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseWorkshopsRecord.cs" >
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

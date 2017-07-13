@@ -303,6 +303,10 @@ public partial class RegisterMe
         
         public System.Web.UI.WebControls.ImageButton NewButton1;
         
+        public System.Web.UI.WebControls.CheckBox NZIPPMember;
+            
+        public System.Web.UI.WebControls.Literal NZIPPMemberLabel;
+        
         public System.Web.UI.WebControls.Literal PageTitle;
         
         public OLR.UI.Controls.RegisterMe.PhotoClubContactLinksTableControl PhotoClubContactLinksTableControl;
@@ -319,6 +323,8 @@ public partial class RegisterMe
             
         public OLR.UI.Controls.RegisterMe.RegistrationsRecordControl RegistrationsRecordControl;
           
+        public AjaxControlToolkit.TabContainer RegistrationsRecordControlTabContainer;
+        
         public System.Web.UI.WebControls.RadioButtonList RegistrationTypeId;
             
         public System.Web.UI.WebControls.Literal RegistrationTypeIdLabel;
@@ -327,12 +333,16 @@ public partial class RegisterMe
                 
         public System.Web.UI.WebControls.Literal SpecialRequirementsLabel;
         
+        public System.Web.UI.WebControls.Literal Title0;
+            
         public System.Web.UI.WebControls.Literal Title1;
             
         public System.Web.UI.WebControls.Literal Title2;
             
         public System.Web.UI.WebControls.Literal Title3;
             
+        public OLR.UI.Controls.RegisterMe.WorkshopsTableControl WorkshopsTableControl;
+          
         public ValidationSummary ValidationSummary1;
 
   

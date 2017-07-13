@@ -61,4 +61,13 @@
     text-transform: none;
     white-space: nowrap;
 }
+.ajax__tab_xp span.ajax__tab_tab, .ajax__tab_xp div.ajax__tab_header .ajax__tab_tab {
+    background-image: none;
+    color: Blue;
+    padding-bottom: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 2px;
+}
+
 

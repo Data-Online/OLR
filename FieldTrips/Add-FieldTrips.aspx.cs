@@ -267,6 +267,8 @@ public partial class Add_FieldTrips
         
         public System.Web.UI.WebControls.Literal DescriptionLabel;
         
+        public System.Web.UI.WebControls.Literal EventId;
+            
         public OLR.UI.Controls.Add_FieldTrips.FieldTripsRecordControl FieldTripsRecordControl;
           
         public System.Web.UI.WebControls.Literal PageTitle;

@@ -3038,7 +3038,7 @@ public class BaseFieldTripsRecordControl : OLR.UI.BaseApplicationRecordControl
                         if(_isExpandableNonCompositeForeignKey && FieldTripsTable.EventId.IsApplyDisplayAs)
                             fvalue = FieldTripsTable.GetDFKA(itemValue, FieldTripsTable.EventId);
                         if ((!_isExpandableNonCompositeForeignKey) || (String.IsNullOrEmpty(fvalue)))
-                            fvalue = itemValue.Format(EventsTable.EventName);
+                            fvalue = itemValue.Format(EventsTable.EventId);
                             					
                         if (fvalue == null || fvalue.Trim() == "") fvalue = cvalue;
                         MiscUtils.ResetSelectedItem(this.EventId, new ListItem(fvalue, cvalue));                      
@@ -3055,7 +3055,7 @@ public class BaseFieldTripsRecordControl : OLR.UI.BaseApplicationRecordControl
               
               url = this.Page.ModifyRedirectUrl(url, "", true);                                  
               
-              url += "?Target=" + this.EventId.ClientID + "&DFKA=" + (this.Page as BaseApplicationPage).Encrypt("EventName")+ "&IndexField=" + (this.Page as BaseApplicationPage).Encrypt("EventId")+ "&EmptyValue=" + (this.Page as BaseApplicationPage).Encrypt("--PLEASE_SELECT--") + "&EmptyDisplayText=" + (this.Page as BaseApplicationPage).Encrypt(this.Page.GetResourceValue("Txt:PleaseSelect"))+ "&Mode=" + (this.Page as BaseApplicationPage).Encrypt("FieldValueSingleSelection") + "&RedirectStyle=" + (this.Page as BaseApplicationPage).Encrypt("Popup");
+              url += "?Target=" + this.EventId.ClientID + "&Formula=" + (this.Page as BaseApplicationPage).Encrypt("=Events.EventName")+ "&IndexField=" + (this.Page as BaseApplicationPage).Encrypt("EventId")+ "&EmptyValue=" + (this.Page as BaseApplicationPage).Encrypt("--PLEASE_SELECT--") + "&EmptyDisplayText=" + (this.Page as BaseApplicationPage).Encrypt(this.Page.GetResourceValue("Txt:PleaseSelect"))+ "&Mode=" + (this.Page as BaseApplicationPage).Encrypt("FieldValueSingleSelection") + "&RedirectStyle=" + (this.Page as BaseApplicationPage).Encrypt("Popup");
               
               this.EventId.Attributes["onClick"] = "initializePopupPage(this, '" + url + "', " + Convert.ToString(EventId.AutoPostBack).ToLower() + ", event); return false;";
                   

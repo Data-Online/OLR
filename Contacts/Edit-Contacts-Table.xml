@@ -1114,6 +1114,14 @@
           <Name>RecordDeleted Desc</Name>
           <Value>Record Deleted {Txt:Descending}</Value>
         </Item>
+        <Item>
+          <Name>NZIPPMember Asc</Name>
+          <Value>NZIPP Member {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>NZIPPMember Desc</Name>
+          <Value>NZIPP Member {Txt:Descending}</Value>
+        </Item>
       </SpecifiedItems>
       <PassthroughAttributes>
         <Attribute>

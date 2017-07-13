@@ -36,7 +36,9 @@
                 </td><td class="panelHeaderR"></td></tr><tr><td class="panelL"></td><td>
                   <asp:panel id="CollapsibleRegion" runat="server"><table class="dBody" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td>
                     <asp:panel id="FieldTripsRecordControlPanel" runat="server"><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tableCellLabel"><asp:Literal runat="server" id="DescriptionLabel" Text="Description">	</asp:Literal></td><td class="tableCellValue"><asp:TextBox runat="server" id="Description" MaxLength="100" columns="50" cssclass="field_input" rows="2" textmode="MultiLine"></asp:TextBox>&nbsp;
-<BaseClasses:TextBoxMaxLengthValidator runat="server" id="DescriptionTextBoxMaxLengthValidator" ControlToValidate="Description" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueTooLong&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, &quot;Description&quot;) %>"></BaseClasses:TextBoxMaxLengthValidator> </td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="DateLabel" Text="Date">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
+<BaseClasses:TextBoxMaxLengthValidator runat="server" id="DescriptionTextBoxMaxLengthValidator" ControlToValidate="Description" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueTooLong&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, &quot;Description&quot;) %>"></BaseClasses:TextBoxMaxLengthValidator> </td><td class="tableCellValue"><span style="white-space:nowrap;">
+<asp:Literal runat="server" id="EventId" visible="False"></asp:Literal></span>
+</td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="DateLabel" Text="Date">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
 <table border="0" cellpadding="0" cellspacing="0">
 <tr>
 <td style="padding-right: 5px; vertical-align:top">
@@ -48,10 +50,10 @@
 </tr>
 </table>
 </span>
- </td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="TimeLabel" Text="Time">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
+ </td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="TimeLabel" Text="Time">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:TextBox runat="server" id="Time" Columns="20" MaxLength="30" cssclass="field_input"></asp:TextBox>&nbsp;
 <BaseClasses:TextBoxMaxLengthValidator runat="server" id="TimeTextBoxMaxLengthValidator" ControlToValidate="Time" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueTooLong&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, &quot;Time&quot;) %>"></BaseClasses:TextBoxMaxLengthValidator></span>
- </td></tr></table></asp:panel>
+ </td><td class="tableCellValue"></td></tr></table></asp:panel>
 
                   </td></tr></table>
 </asp:panel>

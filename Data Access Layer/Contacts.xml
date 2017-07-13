@@ -601,7 +601,7 @@
       <columnLengthSet>
       </columnLengthSet>
       <columnDefault>= "false"</columnDefault>
-      <columnDBDefault Source="User">
+      <columnDBDefault>
       </columnDBDefault>
       <columnIndex>N</columnIndex>
       <columnUnique>N</columnUnique>
@@ -611,32 +611,29 @@
       </columnDBFormat>
       <columnPK>N</columnPK>
       <columnPermanent>N</columnPermanent>
-      <columnComputed Source="User">N</columnComputed>
-      <columnIdentity Source="User">N</columnIdentity>
-      <columnReadOnly Source="User">N</columnReadOnly>
+      <columnComputed>N</columnComputed>
+      <columnIdentity>N</columnIdentity>
+      <columnReadOnly>N</columnReadOnly>
       <columnRequired>N</columnRequired>
       <columnNotNull>N</columnNotNull>
-      <columnCaseSensitive Source="User">N</columnCaseSensitive>
+      <columnCaseSensitive>N</columnCaseSensitive>
       <columnCollation>
       </columnCollation>
-      <columnFullText Source="User">N</columnFullText>
+      <columnFullText>N</columnFullText>
       <columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>
       <columnTableAliasName>
       </columnTableAliasName>
       <applyLabelText>Y</applyLabelText>
-      <applyDefaultValue>Y</applyDefaultValue>
-      <InternalName>12</InternalName>
-      <columnTableClassName>
-      </columnTableClassName>
-      <applyInitializeReadingRecord>N</applyInitializeReadingRecord>
+      <applyDFKA>N</applyDFKA>
       <applyInitializeInsertingRecord>Y</applyInitializeInsertingRecord>
+      <applyInitializeReadingRecord>N</applyInitializeReadingRecord>
       <applyInitializeUpdatingRecord>N</applyInitializeUpdatingRecord>
       <applyValidateInsertingRecord>N</applyValidateInsertingRecord>
       <applyValidateUpdatingRecord>N</applyValidateUpdatingRecord>
-      <applyDFKA>N</applyDFKA>
+      <applyDefaultValue>Y</applyDefaultValue>
+      <insertingRecordFormula>= "false"</insertingRecordFormula>
       <readingRecordFormula>
       </readingRecordFormula>
-      <insertingRecordFormula>= "false"</insertingRecordFormula>
       <updatingRecordFormula>
       </updatingRecordFormula>
       <insertingFormula>
@@ -644,9 +641,42 @@
       <updatingFormula>
       </updatingFormula>
     </Column>
+    <Column InternalName="13" Priority="14" ColumnNum="13">
+      <columnName>NZIPPMember</columnName>
+      <columnUIName>%ISD_DEFAULT%</columnUIName>
+      <columnType>Boolean</columnType>
+      <columnDBType>bit</columnDBType>
+      <columnLengthSet>
+      </columnLengthSet>
+      <columnDefault>
+      </columnDefault>
+      <columnDBDefault>
+      </columnDBDefault>
+      <columnIndex>N</columnIndex>
+      <columnUnique>N</columnUnique>
+      <columnFunction>
+      </columnFunction>
+      <columnDBFormat>
+      </columnDBFormat>
+      <columnPK>N</columnPK>
+      <columnPermanent>N</columnPermanent>
+      <columnComputed>N</columnComputed>
+      <columnIdentity>N</columnIdentity>
+      <columnReadOnly>N</columnReadOnly>
+      <columnRequired>N</columnRequired>
+      <columnNotNull>N</columnNotNull>
+      <columnCaseSensitive>N</columnCaseSensitive>
+      <columnCollation>
+      </columnCollation>
+      <columnFullText>N</columnFullText>
+      <columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>
+      <columnTableAliasName>
+      </columnTableAliasName>
+      <applyLabelText>Y</applyLabelText>
+    </Column>
   </ColumnDefinition>
   <TableName>Contacts</TableName>
-  <Version>5</Version>
+  <Version>6</Version>
   <Owner>dbo</Owner>
   <TableAliasName>Contacts_</TableAliasName>
   <ConnectionName>DatabaseOLR_db</ConnectionName>

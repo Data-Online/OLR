@@ -12,7 +12,7 @@ namespace OLR.Business
 public class FieldTripsDefinition
 {
 #region "Definition (XML) for FieldTripsDefinition table"
-	//Next 247 lines contain Table Definition (XML) for table "FieldTripsDefinition"
+	//Next 249 lines contain Table Definition (XML) for table "FieldTripsDefinition"
 	private static string _DefinitionString = "";
 	
 #endregion
@@ -191,22 +191,22 @@ public class FieldTripsDefinition
          tbf.Append(      @"<columnType>Number</columnType>");
          tbf.Append(      @"<columnDBType>int</columnDBType>");
          tbf.Append(      @"<columnLengthSet>10.0</columnLengthSet>");
-         tbf.Append(      @"<columnDefault></columnDefault>");
-         tbf.Append(      @"<columnDBDefault></columnDBDefault>");
+         tbf.Append(      @"<columnDefault>= Session(&quot;ActiveEventId&quot;)</columnDefault>");
+         tbf.Append(      @"<columnDBDefault Source=""User""></columnDBDefault>");
          tbf.Append(      @"<columnIndex>N</columnIndex>");
          tbf.Append(      @"<columnUnique>N</columnUnique>");
          tbf.Append(      @"<columnFunction></columnFunction>");
          tbf.Append(      @"<columnDBFormat></columnDBFormat>");
          tbf.Append(      @"<columnPK>N</columnPK>");
          tbf.Append(      @"<columnPermanent>N</columnPermanent>");
-         tbf.Append(      @"<columnComputed>N</columnComputed>");
-         tbf.Append(      @"<columnIdentity>N</columnIdentity>");
-         tbf.Append(      @"<columnReadOnly>N</columnReadOnly>");
+         tbf.Append(      @"<columnComputed Source=""User"">N</columnComputed>");
+         tbf.Append(      @"<columnIdentity Source=""User"">N</columnIdentity>");
+         tbf.Append(      @"<columnReadOnly Source=""User"">N</columnReadOnly>");
          tbf.Append(      @"<columnRequired>N</columnRequired>");
          tbf.Append(      @"<columnNotNull>N</columnNotNull>");
-         tbf.Append(      @"<columnCaseSensitive>N</columnCaseSensitive>");
+         tbf.Append(      @"<columnCaseSensitive Source=""User"">N</columnCaseSensitive>");
          tbf.Append(      @"<columnCollation></columnCollation>");
-         tbf.Append(      @"<columnFullText>N</columnFullText>");
+         tbf.Append(      @"<columnFullText Source=""User"">N</columnFullText>");
          tbf.Append(      @"<columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>");
          tbf.Append(      @"<columnTableAliasName></columnTableAliasName>");
          tbf.Append(      @"<applyLabelText>Y</applyLabelText>");
@@ -215,7 +215,7 @@ public class FieldTripsDefinition
          tbf.Append(        @"<columnFKTable>OLR.Business.EventsTable, OLR.Business</columnFKTable>");
          tbf.Append(        @"<columnFKOwner>dbo</columnFKOwner>");
          tbf.Append(        @"<columnFKColumn>EventId</columnFKColumn>");
-         tbf.Append(        @"<columnFKColumnDisplay>EventName</columnFKColumnDisplay>");
+         tbf.Append(        @"<columnFKColumnDisplay>=Events.EventName</columnFKColumnDisplay>");
          tbf.Append(        @"<foreignKeyType>Explicit</foreignKeyType>");
          tbf.Append(      "</foreignKey>");
          tbf.Append(      @"<applyDFKA>Y</applyDFKA>");
@@ -224,12 +224,14 @@ public class FieldTripsDefinition
          tbf.Append(      @"<applyInitializeUpdatingRecord>N</applyInitializeUpdatingRecord>");
          tbf.Append(      @"<applyValidateInsertingRecord>N</applyValidateInsertingRecord>");
          tbf.Append(      @"<applyValidateUpdatingRecord>N</applyValidateUpdatingRecord>");
-         tbf.Append(      @"<applyDefaultValue>N</applyDefaultValue>");
+         tbf.Append(      @"<applyDefaultValue>Y</applyDefaultValue>");
          tbf.Append(      @"<insertingRecordFormula></insertingRecordFormula>");
          tbf.Append(      @"<readingRecordFormula></readingRecordFormula>");
          tbf.Append(      @"<updatingRecordFormula></updatingRecordFormula>");
          tbf.Append(      @"<insertingFormula></insertingFormula>");
          tbf.Append(      @"<updatingFormula></updatingFormula>");
+         tbf.Append(      @"<InternalName>4</InternalName>");
+         tbf.Append(      @"<columnTableClassName></columnTableClassName>");
          tbf.Append(    "</Column>");
          tbf.Append(    @"<Column InternalName=""5"" Priority=""6"" ColumnNum=""5"">");
          tbf.Append(      @"<columnName>DisplaySequence</columnName>");

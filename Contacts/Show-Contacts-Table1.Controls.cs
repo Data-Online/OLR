@@ -2461,6 +2461,10 @@ public class BaseContactsTableControl : OLR.UI.BaseApplicationTableControl
               
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Record Deleted {Txt:Descending}"), "RecordDeleted Desc"));
               
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("NZIPP Member {Txt:Ascending}"), "NZIPPMember Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("NZIPP Member {Txt:Descending}"), "NZIPPMember Desc"));
+              
             try
             {          
                 // Set the selected value.

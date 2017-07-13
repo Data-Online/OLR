@@ -177,6 +177,7 @@ public class BaseFieldTripsRecordControl : OLR.UI.BaseApplicationRecordControl
                 SetDateLabel();
                 SetDescription();
                 SetDescriptionLabel();
+                SetEventId();
                 SetTime();
                 SetTimeLabel();
                 
@@ -266,6 +267,46 @@ public class BaseFieldTripsRecordControl : OLR.UI.BaseApplicationRecordControl
             }
             
               this.Description.TextChanged += Description_TextChanged;
+                               
+        }
+                
+        public virtual void SetEventId()
+        {
+            
+                    
+            // Set the EventId Literal on the webpage with value from the
+            // DatabaseOLR_db%dbo.FieldTrips database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.FieldTrips record retrieved from the database.
+            // this.EventId is the ASP:Literal on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.IsCreated) {
+                								
+                // If the EventId is non-NULL, then format the value.
+                // The Format method will return the Display Foreign Key As (DFKA) value
+               string formattedValue = "";
+               Boolean _isExpandableNonCompositeForeignKey = FieldTripsTable.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(FieldTripsTable.EventId);
+               if(_isExpandableNonCompositeForeignKey &&FieldTripsTable.EventId.IsApplyDisplayAs)
+                                  
+                     formattedValue = FieldTripsTable.GetDFKA(this.DataSource.EventId.ToString(),FieldTripsTable.EventId, null);
+                                    
+               if ((!_isExpandableNonCompositeForeignKey) || (String.IsNullOrEmpty(formattedValue)))
+                     formattedValue = this.DataSource.Format(FieldTripsTable.EventId);
+                                  
+                                
+                formattedValue = HttpUtility.HtmlEncode(formattedValue);
+                this.EventId.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // EventId is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.EventId.Text = EvaluateFormula("Session(\"ActiveEventId\")", this.DataSource);
+            		
+            }
                                
         }
                 
@@ -478,6 +519,7 @@ public class BaseFieldTripsRecordControl : OLR.UI.BaseApplicationRecordControl
         
             GetDate0();
             GetDescription();
+            GetEventId();
             GetTime();
         }
         
@@ -511,6 +553,11 @@ public class BaseFieldTripsRecordControl : OLR.UI.BaseApplicationRecordControl
             this.DataSource.Parse(this.Description.Text, FieldTripsTable.Description);							
                           
                       
+        }
+                
+        public virtual void GetEventId()
+        {
+            
         }
                 
         public virtual void GetTime()
@@ -1008,6 +1055,12 @@ public class BaseFieldTripsRecordControl : OLR.UI.BaseApplicationRecordControl
             }
         }
         
+        public System.Web.UI.WebControls.Literal EventId {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "EventId");
+            }
+        }
+            
         public System.Web.UI.WebControls.TextBox Time {
             get {
                 return (System.Web.UI.WebControls.TextBox)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Time");

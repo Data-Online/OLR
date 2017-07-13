@@ -615,6 +615,46 @@ public class BaseContactsRecord : PrimaryKeyRecord
 		ColumnValue cv = new ColumnValue(val);
 		this.SetValue(cv, TableUtils.RecordDeletedColumn);
 	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's Contacts_.NZIPPMember field.
+	/// </summary>
+	public ColumnValue GetNZIPPMemberValue()
+	{
+		return this.GetValue(TableUtils.NZIPPMemberColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's Contacts_.NZIPPMember field.
+	/// </summary>
+	public bool GetNZIPPMemberFieldValue()
+	{
+		return this.GetValue(TableUtils.NZIPPMemberColumn).ToBoolean();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's Contacts_.NZIPPMember field.
+	/// </summary>
+	public void SetNZIPPMemberFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.NZIPPMemberColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's Contacts_.NZIPPMember field.
+	/// </summary>
+	public void SetNZIPPMemberFieldValue(string val)
+	{
+		this.SetString(val, TableUtils.NZIPPMemberColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's Contacts_.NZIPPMember field.
+	/// </summary>
+	public void SetNZIPPMemberFieldValue(bool val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.NZIPPMemberColumn);
+	}
 
 
 #endregion
@@ -1182,6 +1222,50 @@ public class BaseContactsRecord : PrimaryKeyRecord
 		get
 		{
 			return TableUtils.RecordDeletedColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's Contacts_.NZIPPMember field.
+	/// </summary>
+	public bool NZIPPMember
+	{
+		get
+		{
+			return this.GetValue(TableUtils.NZIPPMemberColumn).ToBoolean();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+	   		this.SetValue(cv, TableUtils.NZIPPMemberColumn);
+		}
+	}
+	
+	
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool NZIPPMemberSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.NZIPPMemberColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's Contacts_.NZIPPMember field.
+	/// </summary>
+	public string NZIPPMemberDefault
+	{
+		get
+		{
+			return TableUtils.NZIPPMemberColumn.DefaultValue;
 		}
 	}
 

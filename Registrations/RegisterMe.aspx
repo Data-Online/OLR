@@ -63,7 +63,8 @@
 </tr>
 </table>
 </span>
- </td><td class="tableCellLabel"><asp:Literal runat="server" id="HometownIdLabel" Text="Hometown">	</asp:Literal></td><td class="tableCellValue"><BaseClasses:QuickSelector runat="server" id="HometownId"></BaseClasses:QuickSelector> </td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="PSNZMemberLabel" Text="PSNZ Member">	</asp:Literal></td><td class="tableCellValue"><asp:CheckBox runat="server" id="PSNZMember"></asp:CheckBox> </td><td class="tableCellLabel"><asp:Literal runat="server" id="PSNZAppliedForLabel" Text="PSNZ Applied For">	</asp:Literal></td><td class="tableCellValue"><asp:CheckBox runat="server" id="PSNZAppliedFor"></asp:CheckBox></td></tr></table>
+ </td><td class="tableCellLabel"><asp:Literal runat="server" id="HometownIdLabel" Text="Hometown">	</asp:Literal></td><td class="tableCellValue"><BaseClasses:QuickSelector runat="server" id="HometownId"></BaseClasses:QuickSelector> </td></tr><tr><td class="tableCellLabel" colspan="4"><table><tr><td class="tableCellLabel"><asp:Literal runat="server" id="PSNZMemberLabel" Text="PSNZ Member">	</asp:Literal></td><td class="tableCellValue"><asp:CheckBox runat="server" id="PSNZMember"></asp:CheckBox> </td><td class="tableCellLabel"><img src="../Images/space.gif" class="panelBRSpace" alt="" /></td><td class="tableCellLabel"><img src="../Images/space.gif" class="panelBRSpace" alt="" /></td><td class="tableCellLabel"><asp:Literal runat="server" id="PSNZAppliedForLabel" Text="PSNZ Applied For">	</asp:Literal></td><td class="tableCellValue"><asp:CheckBox runat="server" id="PSNZAppliedFor"></asp:CheckBox></td><td class="tableCellLabel"><img src="../Images/space.gif" class="panelBRSpace" alt="" /></td><td class="tableCellValue"><img src="../Images/space.gif" class="panelBRSpace" alt="" /></td><td><asp:Literal runat="server" id="NZIPPMemberLabel" Text="NZIPP Member">	</asp:Literal></td><td><asp:CheckBox runat="server" id="NZIPPMember"></asp:CheckBox></td></tr></table>
+</td></tr></table>
 </td></tr><tr><td class="tableCellLabel"></td><td class="tableCellLabel"><OLR:PhotoClubContactLinksTableControl runat="server" id="PhotoClubContactLinksTableControl">	<table class="dv" cellpadding="0" cellspacing="0" border="0"><tr><td class="panelTL"><img src="../Images/space.gif" class="panelTLSpace" alt="" /></td><td class="panelT"></td><td class="panelTR"><img src="../Images/space.gif" class="panelTRSpace" alt="" /></td></tr><tr><td class="panelHeaderL"></td><td class="dh">
                   <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="dhel"><img src="../Images/space.gif" alt="" /></td><td class="dhb"><table cellpadding="0" cellspacing="0" border="0"><tr><td class="dht" valign="middle">
                         <asp:Literal runat="server" id="Title1" Text="&lt;%#String.Concat(&quot;Photographic clubs you belong to&quot;) %>">	</asp:Literal>
@@ -152,7 +153,9 @@
                   </td></tr></table>
 </asp:panel>
                 </td><td class="panelR"></td></tr><tr><td class="panelBL"><img src="../Images/space.gif" class="panelBLSpace" alt="" /></td><td class="panelB"></td><td class="panelBR"><img src="../Images/space.gif" class="panelBRSpace" alt="" /></td></tr></table>
-</td></tr><tr><td class="dht" valign="middle" style="vertical-align:top;"><OLR:FieldTripChoicesTableControl runat="server" id="FieldTripChoicesTableControl">	<table class="dv" cellpadding="0" cellspacing="0" border="0"><tr><td class="panelTL"><img src="../Images/space.gif" class="panelTLSpace" alt="" /></td><td class="panelT"></td><td class="panelTR"><img src="../Images/space.gif" class="panelTRSpace" alt="" /></td></tr><tr><td class="panelHeaderL"></td><td class="dh">
+</td></tr><tr><td class="dht" valign="middle" style="vertical-align:top;"><BaseClasses:TabContainer runat="server" id="RegistrationsRecordControlTabContainer" onclientactivetabchanged="fixedHeaderTab" panellayout="Tabbed"> 
+ <BaseClasses:TabPanel runat="server" id="TabPanel" HeaderText="Field Trip Choices">	<ContentTemplate> 
+  <OLR:FieldTripChoicesTableControl runat="server" id="FieldTripChoicesTableControl">	<table class="dv" cellpadding="0" cellspacing="0" border="0"><tr><td class="panelTL"><img src="../Images/space.gif" class="panelTLSpace" alt="" /></td><td class="panelT"></td><td class="panelTR"><img src="../Images/space.gif" class="panelTRSpace" alt="" /></td></tr><tr><td class="panelHeaderL"></td><td class="dh">
                   <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="dhel"><img src="../Images/space.gif" alt="" /></td><td class="dhb"><table cellpadding="0" cellspacing="0" border="0"><tr><td class="largeText" valign="middle">
                         <asp:Literal runat="server" id="Title2" Text="&lt;%#String.Concat(&quot;Field Trip Choices&quot;) %>">	</asp:Literal>
                       </td></tr></table>
@@ -183,7 +186,34 @@
                 </td><td class="panelR"></td></tr><tr><td class="panelBL"><img src="../Images/space.gif" class="panelBLSpace" alt="" /></td><td class="panelB"></td><td class="panelBR"><img src="../Images/space.gif" class="panelBRSpace" alt="" /></td></tr></table>
 	<asp:hiddenfield id="FieldTripChoicesTableControl_PostbackTracker" runat="server" />
 </OLR:FieldTripChoicesTableControl>
-</td></tr></table></asp:panel>
+ 
+ </ContentTemplate></BaseClasses:TabPanel> 
+ <BaseClasses:TabPanel runat="server" id="TabPanel1" HeaderText="Workshops">	<ContentTemplate> 
+  <table><tr width="100%"><td><OLR:WorkshopsTableControl runat="server" id="WorkshopsTableControl">	<table class="dv" cellpadding="0" cellspacing="0" border="0"><tr><td class="panelTL"><img src="../Images/space.gif" class="panelTLSpace" alt="" /></td><td class="panelT"></td><td class="panelTR"><img src="../Images/space.gif" class="panelTRSpace" alt="" /></td></tr><tr><td class="panelHeaderL"></td><td class="dh">
+                  <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="dhel"><img src="../Images/space.gif" alt="" /></td><td class="dhb"><table cellpadding="0" cellspacing="0" border="0"><tr><td class="largeText" valign="middle">
+                        <asp:Literal runat="server" id="Title0" Text="&lt;%#String.Concat(&quot;Workshops&quot;) %>">	</asp:Literal>
+                      </td></tr></table>
+</td><td class="dhb"></td><td class="dher"><img src="../Images/space.gif" alt="" /></td></tr></table>
+
+                </td><td class="panelHeaderR"></td></tr><tr><td class="panelL"></td><td>
+                  <asp:panel id="CollapsibleRegion7" runat="server"><table class="dBody" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tre">
+                    <table id="WorkshopsTableControlGrid" cellpadding="0" cellspacing="0" border="0" width="100%" onkeydown="captureUpDownKey(this, event)"><asp:Repeater runat="server" id="WorkshopsTableControlRepeater">		<ITEMTEMPLATE>		<OLR:WorkshopsTableControlRow runat="server" id="WorkshopsTableControlRow">
+<tr><td class="dht" colspan="3" style="text-align:left;"><asp:Literal runat="server" id="AvailableWorkshopId"></asp:Literal></td><td>&nbsp;</td><td>&nbsp;</td><td class="tableCellLabel"><asp:Literal runat="server" id="AttendingLabel" Text="EvaluateFormula(&quot;= \&quot;I would like to attend this workshop\&quot;&quot;, true)">	</asp:Literal> 
+</td><td class="tableCellValue"><asp:CheckBox runat="server" id="Attending"></asp:CheckBox> </td></tr><tr><td class="tableRowDivider" colspan="3"></td><td class="tableRowDivider"></td><td class="tableRowDivider"></td><td class="tableRowDivider"></td><td class="tableRowDivider"></td></tr></OLR:WorkshopsTableControlRow>
+</ITEMTEMPLATE>
+
+</asp:Repeater>
+</table>
+
+                  </td></tr></table>
+</asp:panel>
+                </td><td class="panelR"></td></tr><tr><td class="panelL"></td><td class="panelPaginationC"></td><td class="panelR"></td></tr><tr><td class="panelBL"><img src="../Images/space.gif" class="panelBLSpace" alt="" /></td><td class="panelB"></td><td class="panelBR"><img src="../Images/space.gif" class="panelBRSpace" alt="" /></td></tr></table>
+	<asp:hiddenfield id="WorkshopsTableControl_PostbackTracker" runat="server" />
+</OLR:WorkshopsTableControl>
+</td></tr></table>
+ 
+ </ContentTemplate></BaseClasses:TabPanel> 
+</BaseClasses:TabContainer></td></tr></table></asp:panel>
 
                   </td></tr></table>
 </asp:panel>

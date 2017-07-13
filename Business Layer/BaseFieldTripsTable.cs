@@ -63,6 +63,7 @@ public class BaseFieldTripsTable : PrimaryKeyTable
         Date0Column.CodeName = "Date0";
         TimeColumn.CodeName = "Time";
         EventIdColumn.CodeName = "EventId";
+        EventIdColumn.DefaultValue = EvaluateFormula("Session(\"ActiveEventId\")");
         DisplaySequenceColumn.CodeName = "DisplaySequence";
 
         

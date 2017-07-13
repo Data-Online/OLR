@@ -224,13 +224,31 @@
     <Compile Include="BaseView_FieldTripStatsSqlView.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View_StatsDefinition.cs" >
+    <Compile Include="View_StatsDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View_StatsSqlView.cs" >
+    <Compile Include="View_StatsSqlView.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseView_StatsSqlView.cs" >
+    <Compile Include="BaseView_StatsSqlView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AvailableWorkshopsDefinition.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AvailableWorkshopsSqlTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseAvailableWorkshopsSqlTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WorkshopsDefinition.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WorkshopsSqlTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseWorkshopsSqlTable.cs" >
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

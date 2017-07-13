@@ -217,6 +217,10 @@ public void SetRegistrationsTableControl()
         {
             SetRegistrationsTableControl_Base(); 
         }
+public void SetWorkshopsTableControl()
+        {
+            SetWorkshopsTableControl_Base(); 
+        }
 #endregion
 
 #region "Section 2: Do not modify this section."
@@ -246,7 +250,13 @@ public void SetRegistrationsTableControl()
         
         public System.Web.UI.WebControls.Literal PageTitle;
         
+        public System.Web.UI.WebControls.Literal PlacesAvailable2;
+            
+        public System.Web.UI.WebControls.Label PlacesAvailableLabel;
+        
         public System.Web.UI.WebControls.LinkButton PlacesAvailableLabel1;
+        
+        public System.Web.UI.WebControls.Label PlacesRequestedLabel;
         
         public System.Web.UI.WebControls.Literal RegistrationsCountControl;
         
@@ -254,6 +264,10 @@ public void SetRegistrationsTableControl()
           
         public System.Web.UI.WebControls.Literal Title0;
             
+        public System.Web.UI.WebControls.Literal Title1;
+            
+        public OLR.UI.Controls.Show_FieldTrips_Table.WorkshopsTableControl WorkshopsTableControl;
+          
         public ValidationSummary ValidationSummary1;
 
   
@@ -433,6 +447,10 @@ public void SetRegistrationsTableControl()
           
               case "RegistrationsTableControl":
                  SetRegistrationsTableControl();
+                 break;
+          
+              case "WorkshopsTableControl":
+                 SetWorkshopsTableControl();
                  break;
                
           }
@@ -650,6 +668,16 @@ public void SetRegistrationsTableControl()
             {
                 RegistrationsTableControl.LoadData();
                 RegistrationsTableControl.DataBind();
+            }
+        }
+      
+        public void SetWorkshopsTableControl_Base()           
+        
+        {        
+            if (WorkshopsTableControl.Visible)
+            {
+                WorkshopsTableControl.LoadData();
+                WorkshopsTableControl.DataBind();
             }
         }
           
