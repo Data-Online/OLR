@@ -1491,6 +1491,14 @@
           <Name>RecordDeleted Desc</Name>
           <Value>Record Deleted {Txt:Descending}</Value>
         </Item>
+        <Item>
+          <Name>ValidationUid Asc</Name>
+          <Value>Validation UID {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>ValidationUid Desc</Name>
+          <Value>Validation UID {Txt:Descending}</Value>
+        </Item>
       </SpecifiedItems>
       <PassthroughAttributes>
         <Attribute>

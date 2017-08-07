@@ -284,6 +284,10 @@
           <Value>Txt:EditRecord</Value>
           <Type>ResourceReference</Type>
         </Attribute>
+        <Attribute>
+          <Name>Visible</Name>
+          <Value>False</Value>
+        </Attribute>
       </PassthroughAttributes>
       <InsideControl>AvailableWorkshopsTableControl</InsideControl>
       <InsideItemTemplate>true</InsideItemTemplate>
@@ -841,6 +845,14 @@
           <Name>RecordDeleted Desc</Name>
           <Value>Record Deleted {Txt:Descending}</Value>
         </Item>
+        <Item>
+          <Name>Cost Asc</Name>
+          <Value>Cost {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>Cost Desc</Name>
+          <Value>Cost {Txt:Descending}</Value>
+        </Item>
       </SpecifiedItems>
       <PassthroughAttributes>
         <Attribute>
@@ -954,6 +966,10 @@
           <Name>ToolTip</Name>
           <Value>Txt:ViewRecord</Value>
           <Type>ResourceReference</Type>
+        </Attribute>
+        <Attribute>
+          <Name>Visible</Name>
+          <Value>False</Value>
         </Attribute>
       </PassthroughAttributes>
       <InsideControl>AvailableWorkshopsTableControl</InsideControl>

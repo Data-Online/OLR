@@ -233,22 +233,40 @@
     <Compile Include="BaseView_StatsSqlView.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AvailableWorkshopsDefinition.cs" >
+    <Compile Include="AvailableWorkshopsDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AvailableWorkshopsSqlTable.cs" >
+    <Compile Include="AvailableWorkshopsSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseAvailableWorkshopsSqlTable.cs" >
+    <Compile Include="BaseAvailableWorkshopsSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="WorkshopsDefinition.cs" >
+    <Compile Include="WorkshopsDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="WorkshopsSqlTable.cs" >
+    <Compile Include="WorkshopsSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseWorkshopsSqlTable.cs" >
+    <Compile Include="BaseWorkshopsSqlTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OtherCostsDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OtherCostsSqlTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseOtherCostsSqlTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View_FieldTripSelectionsDefinition.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View_FieldTripSelectionsSqlView.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseView_FieldTripSelectionsSqlView.cs" >
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

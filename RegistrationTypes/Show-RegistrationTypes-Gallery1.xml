@@ -590,6 +590,30 @@
           <Name>RegistrationType Desc</Name>
           <Value>Registration Type {Txt:Descending}</Value>
         </Item>
+        <Item>
+          <Name>CostMember Asc</Name>
+          <Value>Cost Member {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>CostMember Desc</Name>
+          <Value>Cost Member {Txt:Descending}</Value>
+        </Item>
+        <Item>
+          <Name>CostNonMember Asc</Name>
+          <Value>Cost NON Member {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>CostNonMember Desc</Name>
+          <Value>Cost NON Member {Txt:Descending}</Value>
+        </Item>
+        <Item>
+          <Name>Default Asc</Name>
+          <Value>Default {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>Default Desc</Name>
+          <Value>Default {Txt:Descending}</Value>
+        </Item>
       </SpecifiedItems>
       <PassthroughAttributes>
         <Attribute>

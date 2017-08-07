@@ -14,7 +14,7 @@
     <Layout>Registrations\RegisterMe.xml</Layout>
     <DisplayName>RegisterMe</DisplayName>
     <Description>Standard record panel.</Description>
-    <LoginRequired>&lt;PRoles&gt;Everyone&lt;/PRoles&gt;</LoginRequired>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>791467108-9935</CheckSum>
   </Self>
   <ComposedOf>
@@ -1897,6 +1897,10 @@
       <FieldValueStyle>RadioButtonList</FieldValueStyle>
       <Table>DatabaseOLR_db%dbo.Registrations</Table>
       <PassthroughAttributes>
+        <Attribute>
+          <Name>AutoPostBack</Name>
+          <Value>True</Value>
+        </Attribute>
         <Attribute>
           <Name>InternalUse:ApplyStaticList</Name>
           <Value>false</Value>

@@ -236,6 +236,162 @@ public class BaseRegistrationTypesRecord : PrimaryKeyRecord
 		ColumnValue cv = new ColumnValue(val);
 		this.SetValue(cv, TableUtils.RegistrationTypeColumn);
 	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's RegistrationTypes_.CostMember field.
+	/// </summary>
+	public ColumnValue GetCostMemberValue()
+	{
+		return this.GetValue(TableUtils.CostMemberColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's RegistrationTypes_.CostMember field.
+	/// </summary>
+	public Decimal GetCostMemberFieldValue()
+	{
+		return this.GetValue(TableUtils.CostMemberColumn).ToDecimal();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.CostMember field.
+	/// </summary>
+	public void SetCostMemberFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.CostMemberColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.CostMember field.
+	/// </summary>
+	public void SetCostMemberFieldValue(string val)
+	{
+		this.SetString(val, TableUtils.CostMemberColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.CostMember field.
+	/// </summary>
+	public void SetCostMemberFieldValue(double val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.CostMemberColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.CostMember field.
+	/// </summary>
+	public void SetCostMemberFieldValue(decimal val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.CostMemberColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.CostMember field.
+	/// </summary>
+	public void SetCostMemberFieldValue(long val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.CostMemberColumn);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's RegistrationTypes_.CostNonMember field.
+	/// </summary>
+	public ColumnValue GetCostNonMemberValue()
+	{
+		return this.GetValue(TableUtils.CostNonMemberColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's RegistrationTypes_.CostNonMember field.
+	/// </summary>
+	public Decimal GetCostNonMemberFieldValue()
+	{
+		return this.GetValue(TableUtils.CostNonMemberColumn).ToDecimal();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.CostNonMember field.
+	/// </summary>
+	public void SetCostNonMemberFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.CostNonMemberColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.CostNonMember field.
+	/// </summary>
+	public void SetCostNonMemberFieldValue(string val)
+	{
+		this.SetString(val, TableUtils.CostNonMemberColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.CostNonMember field.
+	/// </summary>
+	public void SetCostNonMemberFieldValue(double val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.CostNonMemberColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.CostNonMember field.
+	/// </summary>
+	public void SetCostNonMemberFieldValue(decimal val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.CostNonMemberColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.CostNonMember field.
+	/// </summary>
+	public void SetCostNonMemberFieldValue(long val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.CostNonMemberColumn);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's RegistrationTypes_.Default field.
+	/// </summary>
+	public ColumnValue GetDefault0Value()
+	{
+		return this.GetValue(TableUtils.Default0Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's RegistrationTypes_.Default field.
+	/// </summary>
+	public bool GetDefault0FieldValue()
+	{
+		return this.GetValue(TableUtils.Default0Column).ToBoolean();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.Default field.
+	/// </summary>
+	public void SetDefault0FieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.Default0Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.Default field.
+	/// </summary>
+	public void SetDefault0FieldValue(string val)
+	{
+		this.SetString(val, TableUtils.Default0Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.Default field.
+	/// </summary>
+	public void SetDefault0FieldValue(bool val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Default0Column);
+	}
 
 
 #endregion
@@ -369,6 +525,136 @@ public class BaseRegistrationTypesRecord : PrimaryKeyRecord
 		get
 		{
 			return TableUtils.RegistrationTypeColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's RegistrationTypes_.CostMember field.
+	/// </summary>
+	public Decimal CostMember
+	{
+		get
+		{
+			return this.GetValue(TableUtils.CostMemberColumn).ToDecimal();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.CostMemberColumn);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool CostMemberSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.CostMemberColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.CostMember field.
+	/// </summary>
+	public string CostMemberDefault
+	{
+		get
+		{
+			return TableUtils.CostMemberColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's RegistrationTypes_.CostNonMember field.
+	/// </summary>
+	public Decimal CostNonMember
+	{
+		get
+		{
+			return this.GetValue(TableUtils.CostNonMemberColumn).ToDecimal();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.CostNonMemberColumn);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool CostNonMemberSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.CostNonMemberColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.CostNonMember field.
+	/// </summary>
+	public string CostNonMemberDefault
+	{
+		get
+		{
+			return TableUtils.CostNonMemberColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's RegistrationTypes_.Default field.
+	/// </summary>
+	public bool Default0
+	{
+		get
+		{
+			return this.GetValue(TableUtils.Default0Column).ToBoolean();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+	   		this.SetValue(cv, TableUtils.Default0Column);
+		}
+	}
+	
+	
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool Default0Specified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.Default0Column);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.Default field.
+	/// </summary>
+	public string Default0Default
+	{
+		get
+		{
+			return TableUtils.Default0Column.DefaultValue;
 		}
 	}
 

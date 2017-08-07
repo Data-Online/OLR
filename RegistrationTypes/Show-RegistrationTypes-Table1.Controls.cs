@@ -1949,7 +1949,7 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
               
               url = this.Page.ModifyRedirectUrl(url, "", true);                                  
               
-              url += "?Target=" + this.EventIdFilter.ClientID + "&DFKA=" + (this.Page as BaseApplicationPage).Encrypt("EventName")+ "&IndexField=" + (this.Page as BaseApplicationPage).Encrypt("EventId")+ "&EmptyValue=" + (this.Page as BaseApplicationPage).Encrypt("--ANY--") + "&EmptyDisplayText=" + (this.Page as BaseApplicationPage).Encrypt(this.Page.GetResourceValue("Txt:All")) + "&RedirectStyle=" + (this.Page as BaseApplicationPage).Encrypt("Popup");
+              url += "?Target=" + this.EventIdFilter.ClientID + "&Formula=" + (this.Page as BaseApplicationPage).Encrypt("=Events.EventName")+ "&IndexField=" + (this.Page as BaseApplicationPage).Encrypt("EventId")+ "&EmptyValue=" + (this.Page as BaseApplicationPage).Encrypt("--ANY--") + "&EmptyDisplayText=" + (this.Page as BaseApplicationPage).Encrypt(this.Page.GetResourceValue("Txt:All")) + "&RedirectStyle=" + (this.Page as BaseApplicationPage).Encrypt("Popup");
               
               this.EventIdFilter.Attributes["onClick"] = "initializePopupPage(this, '" + url + "', " + Convert.ToString(EventIdFilter.AutoPostBack).ToLower() + ", event); return false;";
                   
@@ -1976,6 +1976,18 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Registration Type {Txt:Ascending}"), "RegistrationType Asc"));
               
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Registration Type {Txt:Descending}"), "RegistrationType Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Cost Member {Txt:Ascending}"), "CostMember Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Cost Member {Txt:Descending}"), "CostMember Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Cost NON Member {Txt:Ascending}"), "CostNonMember Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Cost NON Member {Txt:Descending}"), "CostNonMember Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Default {Txt:Ascending}"), "Default Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Default {Txt:Descending}"), "Default Desc"));
               
             try
             {          
@@ -2045,7 +2057,7 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                                 if(_isExpandableNonCompositeForeignKey && RegistrationTypesTable.EventId.IsApplyDisplayAs)
                                      fvalue = RegistrationTypesTable.GetDFKA(itemValue, RegistrationTypesTable.EventId);
                                 if ((!_isExpandableNonCompositeForeignKey) || (String.IsNullOrEmpty(fvalue)))
-                                     fvalue = itemValue.Format(EventsTable.EventName);
+                                     fvalue = itemValue.Format(EventsTable.EventId);
                                    					
                                 if (fvalue == null || fvalue.Trim() == "") fvalue = cvalue;
 
@@ -2822,7 +2834,7 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                 // The 3rd parameter represents the text format of the column detail
                 // The 4th parameter represents the horizontal alignment of the column detail
                 // The 5th parameter represents the relative width of the column
-                 report.AddColumn(RegistrationTypesTable.EventId.Name, ReportEnum.Align.Left, "${EventId}", ReportEnum.Align.Left, 28);
+                 report.AddColumn(RegistrationTypesTable.EventId.Name, ReportEnum.Align.Left, "${EventId}", ReportEnum.Align.Left, 16);
 
   
                 int rowsPerQuery = 5000;
@@ -2983,7 +2995,7 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                 // The 3rd parameter represents the text format of the column detail
                 // The 4th parameter represents the horizontal alignment of the column detail
                 // The 5th parameter represents the relative width of the column
-                 report.AddColumn(RegistrationTypesTable.EventId.Name, ReportEnum.Align.Left, "${EventId}", ReportEnum.Align.Left, 28);
+                 report.AddColumn(RegistrationTypesTable.EventId.Name, ReportEnum.Align.Left, "${EventId}", ReportEnum.Align.Left, 16);
 
                 WhereClause whereClause = null;
                 whereClause = CreateWhereClause();

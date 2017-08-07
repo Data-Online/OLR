@@ -294,6 +294,64 @@ public class BaseAvailableWorkshopsRecord : PrimaryKeyRecord
 		ColumnValue cv = new ColumnValue(val);
 		this.SetValue(cv, TableUtils.PlacesAvailableColumn);
 	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's AvailableWorkshops_.Cost field.
+	/// </summary>
+	public ColumnValue GetCostValue()
+	{
+		return this.GetValue(TableUtils.CostColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's AvailableWorkshops_.Cost field.
+	/// </summary>
+	public Decimal GetCostFieldValue()
+	{
+		return this.GetValue(TableUtils.CostColumn).ToDecimal();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's AvailableWorkshops_.Cost field.
+	/// </summary>
+	public void SetCostFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.CostColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's AvailableWorkshops_.Cost field.
+	/// </summary>
+	public void SetCostFieldValue(string val)
+	{
+		this.SetString(val, TableUtils.CostColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's AvailableWorkshops_.Cost field.
+	/// </summary>
+	public void SetCostFieldValue(double val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.CostColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's AvailableWorkshops_.Cost field.
+	/// </summary>
+	public void SetCostFieldValue(decimal val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.CostColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's AvailableWorkshops_.Cost field.
+	/// </summary>
+	public void SetCostFieldValue(long val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.CostColumn);
+	}
 
 
 #endregion
@@ -470,6 +528,49 @@ public class BaseAvailableWorkshopsRecord : PrimaryKeyRecord
 		get
 		{
 			return TableUtils.PlacesAvailableColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's AvailableWorkshops_.Cost field.
+	/// </summary>
+	public Decimal Cost
+	{
+		get
+		{
+			return this.GetValue(TableUtils.CostColumn).ToDecimal();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.CostColumn);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool CostSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.CostColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's AvailableWorkshops_.Cost field.
+	/// </summary>
+	public string CostDefault
+	{
+		get
+		{
+			return TableUtils.CostColumn.DefaultValue;
 		}
 	}
 

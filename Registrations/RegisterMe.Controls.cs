@@ -127,6 +127,13 @@ namespace OLR.UI.Controls.RegisterMe
 
         // This is the ideal place to add your code customizations. For example, you can override the LoadData, 
         // CreateWhereClause, DataBind, SaveData, GetUIData, and Validate methods.
+        protected override void RegistrationTypeId_SelectedIndexChanged(object sender, EventArgs args)
+        {
+            base.RegistrationTypeId_SelectedIndexChanged(sender, args);
+
+            var ss = (ContactsRecordControl)this.FindControl("PSNZMember");
+
+        }
 
         protected override WhereClause CreateQueryClause()
         {

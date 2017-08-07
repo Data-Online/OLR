@@ -26,11 +26,12 @@ using OLR.Business;
 using OLR.Data;
 using OLR.UI;
 using OLR;
-		
+//using OLR.UI.Helpers;
+
 
 #endregion
 
-  
+
 namespace OLR.UI.Controls.Show_View_Registered_Table
 {
   
@@ -57,6 +58,59 @@ public class View_RegisteredTableControlRow : BaseView_RegisteredTableControlRow
                 this.Page.Response.Redirect("../view_Registered/Show-View-Registered-Table.aspx");
             else
                 BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", "Error deleteing record");
+
+        }
+
+        public override void EditRowButton_Click(object sender, ImageClickEventArgs args)
+        {
+
+            string targetUrl = System.Configuration.ConfigurationManager.AppSettings["RegistrationUrlApi"];
+            //Settings.RegistrationUrlApi;
+            // The redirect URL is set on the Properties, Custom Properties or Actions.
+            // The ModifyRedirectURL call resolves the parameters before the
+            // Response.Redirect redirects the page to the URL.  
+            // Any code after the Response.Redirect call will not be executed, since the page is
+            // redirected to the URL.
+            var validationUid = this.ValidationUid.Text;
+            string url = String.Format(targetUrl, validationUid);
+            //string url = String.Format("http://localhost:60892/Home/RegisterMe?Registration={0}", validationUid);
+            if (!string.IsNullOrEmpty(this.Page.Request["RedirectStyle"]))
+                url += "&RedirectStyle=" + this.Page.Request["RedirectStyle"];
+
+            bool shouldRedirect = true;
+            string target = null;
+            if (target == null) target = ""; // avoid warning on VS
+
+            try
+            {
+                // Enclose all database retrieval/update code within a Transaction boundary
+                DbUtils.StartTransaction();
+
+                url = this.ModifyRedirectUrl(url, "", false);
+                url = this.Page.ModifyRedirectUrl(url, "", false);
+
+            }
+            catch (Exception ex)
+            {
+                // Upon error, rollback the transaction
+                this.Page.RollBackTransaction(sender);
+                shouldRedirect = false;
+                this.Page.ErrorOnPage = true;
+
+                // Report the error message to the end user
+                BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
+
+            }
+            finally
+            {
+                DbUtils.EndTransaction();
+            }
+            if (shouldRedirect)
+            {
+                this.Page.ShouldSaveControlsToSession = true;
+                this.Page.Response.Redirect(url);
+
+            }
 
         }
     }
@@ -2632,6 +2686,7 @@ public class BaseView_RegisteredTableControlRow : OLR.UI.BaseApplicationRecordCo
                 SetSpecialRequirements();
                 SetSpecialRequirementsLabel();
                 SetTownName();
+                SetValidationUid();
                 SetDeleteRowButton();
               
                 SetEditRowButton();
@@ -3382,6 +3437,46 @@ public class BaseView_RegisteredTableControlRow : OLR.UI.BaseApplicationRecordCo
                                      
         }
                 
+        public virtual void SetValidationUid()
+        {
+            
+                    
+            // Set the ValidationUid Literal on the webpage with value from the
+            // DatabaseOLR_db%dbo.view_Registered database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.view_Registered record retrieved from the database.
+            // this.ValidationUid is the ASP:Literal on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.ValidationUidSpecified) {
+                								
+                // If the ValidationUid is non-NULL, then format the value.
+                // The Format method will use the Display Format
+               string formattedValue = this.DataSource.Format(View_RegisteredView.ValidationUid);
+                                
+                formattedValue = HttpUtility.HtmlEncode(formattedValue);
+                this.ValidationUid.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // ValidationUid is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.ValidationUid.Text = View_RegisteredView.ValidationUid.Format(View_RegisteredView.ValidationUid.DefaultValue);
+            		
+            }
+            
+            // If the ValidationUid is NULL or blank, then use the value specified  
+            // on Properties.
+            if (this.ValidationUid.Text == null ||
+                this.ValidationUid.Text.Trim().Length == 0) {
+                // Set the value specified on the Properties.
+                this.ValidationUid.Text = "&nbsp;";
+            }
+                                     
+        }
+                
         public virtual void SetSpecialRequirementsLabel()
                   {
                   
@@ -3574,6 +3669,7 @@ public class BaseView_RegisteredTableControlRow : OLR.UI.BaseApplicationRecordCo
             GetRegistrationType();
             GetSpecialRequirements();
             GetTownName();
+            GetValidationUid();
         }
         
         
@@ -3663,6 +3759,11 @@ public class BaseView_RegisteredTableControlRow : OLR.UI.BaseApplicationRecordCo
         }
                 
         public virtual void GetTownName()
+        {
+            
+        }
+                
+        public virtual void GetValidationUid()
         {
             
         }
@@ -3850,7 +3951,7 @@ public class BaseView_RegisteredTableControlRow : OLR.UI.BaseApplicationRecordCo
             // Any code after the Response.Redirect call will not be executed, since the page is
             // redirected to the URL.
             
-            string url = @"../Registrations/EditRegistration.aspx?Contact={View_RegisteredTableControlRow:PK}";
+            string url = @"http://localhost:60892/Home/RegisterMe?Registration={View_RegisteredTableControlRow:NoUrlEncode:FV:ValidationUid}";
             
             if (!string.IsNullOrEmpty(this.Page.Request["RedirectStyle"]))
                 url += "&RedirectStyle=" + this.Page.Request["RedirectStyle"];
@@ -4106,6 +4207,12 @@ public class BaseView_RegisteredTableControlRow : OLR.UI.BaseApplicationRecordCo
         public System.Web.UI.WebControls.Literal TownName {
             get {
                 return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "TownName");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal ValidationUid {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "ValidationUid");
             }
         }
             
@@ -4919,6 +5026,12 @@ public class BaseView_RegisteredTableControl : OLR.UI.BaseApplicationTableContro
             // 3. User selected filter criteria.
             
         
+            // Get the static clause defined at design time on the Table Panel Wizard
+            WhereClause qc = this.CreateQueryClause();
+            if (qc != null) {
+                wc.iAND(qc);
+            }
+          
             if (MiscUtils.IsValueSelected(this.SearchText)) {
                 if (this.SearchText.Text == BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null) ) {
                         this.SearchText.Text = "";
@@ -4980,6 +5093,12 @@ public class BaseView_RegisteredTableControl : OLR.UI.BaseApplicationTableContro
             
             String appRelativeVirtualPath = (String)HttpContext.Current.Session["AppRelativeVirtualPath"];
             
+            // Get the static clause defined at design time on the Table Panel Wizard
+            WhereClause qc = this.CreateQueryClause();
+            if (qc != null) {
+                wc.iAND(qc);
+            }
+            
             // Adds clauses if values are selected in Filter controls which are configured in the page.
           
             if (MiscUtils.IsValueSelected(searchText) && fromSearchControl == "SearchText") {
@@ -5037,6 +5156,19 @@ public class BaseView_RegisteredTableControl : OLR.UI.BaseApplicationTableContro
         }
 
         
+        protected virtual WhereClause CreateQueryClause()
+        {
+            // Create a where clause for the Static clause defined at design time.
+            CompoundFilter filter = new CompoundFilter(CompoundFilter.CompoundingOperators.And_Operator, null);
+            WhereClause whereClause = new WhereClause();
+            
+            filter.AddFilter(new BaseClasses.Data.ColumnValueFilter(BaseClasses.Data.BaseTable.CreateInstance(@"OLR.Business.View_RegisteredView, OLR.Business").TableDefinition.ColumnList.GetByUniqueName(@"view_Registered_.RegistrationType"), null, BaseClasses.Data.BaseFilter.ComparisonOperator.Not_Equals, false));
+
+            whereClause.AddFilter(filter, CompoundFilter.CompoundingOperators.And_Operator);
+    
+            return whereClause;
+        }
+          
         public virtual string[] GetAutoCompletionList_SearchText(String prefixText,int count)
         {
             ArrayList resultList = new ArrayList();
@@ -5330,6 +5462,10 @@ public class BaseView_RegisteredTableControl : OLR.UI.BaseApplicationTableContro
                             rec.Parse(recControl.TownName.Text, View_RegisteredView.TownName);
                   }
                 
+                        if (recControl.ValidationUid.Text != "") {
+                            rec.Parse(recControl.ValidationUid.Text, View_RegisteredView.ValidationUid);
+                  }
+                
               newUIDataList.Add(recControl.PreservedUIData());
               newRecordList.Add(rec);
             }
@@ -5577,6 +5713,10 @@ public class BaseView_RegisteredTableControl : OLR.UI.BaseApplicationTableContro
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Record Deleted {Txt:Ascending}"), "RecordDeleted Asc"));
               
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Record Deleted {Txt:Descending}"), "RecordDeleted Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Validation UID {Txt:Ascending}"), "ValidationUid Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Validation UID {Txt:Descending}"), "ValidationUid Desc"));
               
             try
             {          

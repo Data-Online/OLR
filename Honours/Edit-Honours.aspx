@@ -35,10 +35,7 @@
 
                 </td><td class="panelHeaderR"></td></tr><tr><td class="panelL"></td><td>
                   <asp:panel id="CollapsibleRegion" runat="server"><table class="dBody" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td>
-                    <asp:panel id="HonoursRecordControlPanel" runat="server"><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tableCellLabel"><asp:Literal runat="server" id="HonourLabel" Text="Honour">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
-<asp:TextBox runat="server" id="Honour" Columns="40" MaxLength="50" cssclass="field_input"></asp:TextBox>&nbsp;
-<BaseClasses:TextBoxMaxLengthValidator runat="server" id="HonourTextBoxMaxLengthValidator" ControlToValidate="Honour" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueTooLong&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, &quot;Honour&quot;) %>"></BaseClasses:TextBoxMaxLengthValidator></span>
- </td></tr></table></asp:panel>
+                    <asp:panel id="HonoursRecordControlPanel" runat="server"><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tableCellLabel"></td><td class="tableCellValue"> </td></tr></table></asp:panel>
 
                   </td></tr></table>
 </asp:panel>

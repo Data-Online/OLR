@@ -93,6 +93,116 @@
       <InsideControl>RegistrationTypesTableControl</InsideControl>
     </ContainedComponent>
     <ContainedComponent>
+      <Name>CostMember</Name>
+      <Type>FieldValue</Type>
+      <Field>CostMember</Field>
+      <FieldValueStyle>TextBox</FieldValueStyle>
+      <Table>DatabaseOLR_db%dbo.RegistrationTypes</Table>
+      <PassthroughAttributes>
+        <Attribute>
+          <Name>CostMemberRequiredFieldValidator:Enabled</Name>
+          <Value>False</Value>
+        </Attribute>
+        <Attribute>
+          <Name>CostMemberRequiredFieldValidator:Text</Name>
+          <Value>*</Value>
+        </Attribute>
+        <Attribute>
+          <Name>CssClass</Name>
+          <Value>field_input</Value>
+        </Attribute>
+        <Attribute>
+          <Name>EnableIncrementDecrementButtons</Name>
+          <Value>Default</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:DataSource</Name>
+          <Value>Parent</Value>
+        </Attribute>
+      </PassthroughAttributes>
+      <InsideControl>RegistrationTypesTableControl</InsideControl>
+      <InsideItemTemplate>true</InsideItemTemplate>
+    </ContainedComponent>
+    <ContainedComponent>
+      <Name>CostMemberLabel</Name>
+      <Type>Literal</Type>
+      <PassthroughAttributes>
+        <Attribute>
+          <Name>Consumers</Name>
+          <Value>RegistrationTypesTableControl</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:Field</Name>
+          <Value>CostMember</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:Table</Name>
+          <Value>DatabaseOLR_db%dbo.RegistrationTypes</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Text</Name>
+          <Value>%ISD_DEFAULT%DatabaseOLR_db%dbo.RegistrationTypes%CostMember</Value>
+        </Attribute>
+      </PassthroughAttributes>
+      <InsideControl>RegistrationTypesTableControl</InsideControl>
+      <InsideItemTemplate>true</InsideItemTemplate>
+    </ContainedComponent>
+    <ContainedComponent>
+      <Name>CostNonMember</Name>
+      <Type>FieldValue</Type>
+      <Field>CostNonMember</Field>
+      <FieldValueStyle>TextBox</FieldValueStyle>
+      <Table>DatabaseOLR_db%dbo.RegistrationTypes</Table>
+      <PassthroughAttributes>
+        <Attribute>
+          <Name>CostNonMemberRequiredFieldValidator:Enabled</Name>
+          <Value>False</Value>
+        </Attribute>
+        <Attribute>
+          <Name>CostNonMemberRequiredFieldValidator:Text</Name>
+          <Value>*</Value>
+        </Attribute>
+        <Attribute>
+          <Name>CssClass</Name>
+          <Value>field_input</Value>
+        </Attribute>
+        <Attribute>
+          <Name>EnableIncrementDecrementButtons</Name>
+          <Value>Default</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:DataSource</Name>
+          <Value>Parent</Value>
+        </Attribute>
+      </PassthroughAttributes>
+      <InsideControl>RegistrationTypesTableControl</InsideControl>
+      <InsideItemTemplate>true</InsideItemTemplate>
+    </ContainedComponent>
+    <ContainedComponent>
+      <Name>CostNonMemberLabel</Name>
+      <Type>Literal</Type>
+      <PassthroughAttributes>
+        <Attribute>
+          <Name>Consumers</Name>
+          <Value>RegistrationTypesTableControl</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:Field</Name>
+          <Value>CostNonMember</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:Table</Name>
+          <Value>DatabaseOLR_db%dbo.RegistrationTypes</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Text</Name>
+          <Value>%ISD_DEFAULT%DatabaseOLR_db%dbo.RegistrationTypes%CostNonMember</Value>
+        </Attribute>
+      </PassthroughAttributes>
+      <InsideControl>RegistrationTypesTableControl</InsideControl>
+      <InsideItemTemplate>true</InsideItemTemplate>
+    </ContainedComponent>
+    <ContainedComponent>
       <Name>DeleteButton</Name>
       <Type>ImageButton</Type>
       <PassthroughAttributes>
@@ -196,235 +306,6 @@
       <InsideItemTemplate>true</InsideItemTemplate>
     </ContainedComponent>
     <ContainedComponent>
-      <Name>EditRowButton</Name>
-      <Type>ImageButton</Type>
-      <PassthroughAttributes>
-        <Attribute>
-          <Name>CausesValidation</Name>
-          <Value>False</Value>
-        </Attribute>
-        <Attribute>
-          <Name>CommandName</Name>
-          <Value>Redirect</Value>
-        </Attribute>
-        <Attribute>
-          <Name>CssClass</Name>
-          <Value>button_link</Value>
-        </Attribute>
-        <Attribute>
-          <Name>ImageURL</Name>
-          <Value>../Images/icon_edit.gif</Value>
-        </Attribute>
-        <Attribute>
-          <Name>onmouseout</Name>
-          <Value>this.src='../Images/icon_edit.gif'</Value>
-        </Attribute>
-        <Attribute>
-          <Name>onmouseover</Name>
-          <Value>this.src='../Images/icon_edit_over.gif'</Value>
-        </Attribute>
-        <Attribute>
-          <Name>PostBack</Name>
-          <Value>False</Value>
-        </Attribute>
-        <Attribute>
-          <Name>RedirectURL</Name>
-          <Value>../RegistrationTypes/Edit-RegistrationTypes.aspx?RegistrationTypes={PK}</Value>
-        </Attribute>
-        <Attribute>
-          <Name>ToolTip</Name>
-          <Value>Txt:EditRecord</Value>
-          <Type>ResourceReference</Type>
-        </Attribute>
-      </PassthroughAttributes>
-      <InsideControl>RegistrationTypesTableControl</InsideControl>
-      <InsideItemTemplate>true</InsideItemTemplate>
-    </ContainedComponent>
-    <ContainedComponent>
-      <Name>EventId</Name>
-      <Type>FieldValue</Type>
-      <Field>EventId</Field>
-      <FieldValueStyle>QuickSelector</FieldValueStyle>
-      <Table>DatabaseOLR_db%dbo.RegistrationTypes</Table>
-      <PassthroughAttributes>
-        <Attribute>
-          <Name>InternalUse:DataSource</Name>
-          <Value>Parent</Value>
-        </Attribute>
-        <Attribute>
-          <Name>RedirectURL</Name>
-          <Value />
-        </Attribute>
-      </PassthroughAttributes>
-      <InsideControl>RegistrationTypesTableControl</InsideControl>
-      <InsideItemTemplate>true</InsideItemTemplate>
-    </ContainedComponent>
-    <ContainedComponent>
-      <Name>EventIdFilter</Name>
-      <Type>FieldFilter</Type>
-      <FieldValueStyle>QuickSelector</FieldValueStyle>
-      <PassthroughAttributes>
-        <Attribute>
-          <Name>Consumers</Name>
-          <Value>RegistrationTypesTableControl</Value>
-        </Attribute>
-        <Attribute>
-          <Name>EnterKeyCaptureToButton</Name>
-          <Value>FilterButton</Value>
-        </Attribute>
-        <Attribute>
-          <Name>Field</Name>
-          <Value>EventId</Value>
-        </Attribute>
-        <Attribute>
-          <Name>FilterOperator</Name>
-          <Value>=</Value>
-        </Attribute>
-        <Attribute>
-          <Name>InternalUse:ApplyInitializeFormula</Name>
-          <Value>True</Value>
-        </Attribute>
-        <Attribute>
-          <Name>InternalUse:InitializeFormula</Name>
-          <Value>URL("EventId")</Value>
-        </Attribute>
-        <Attribute>
-          <Name>InternalUse:Table</Name>
-          <Value>DatabaseOLR_db%dbo.RegistrationTypes</Value>
-        </Attribute>
-        <Attribute>
-          <Name>onkeypress</Name>
-          <Value>dropDownListTypeAhead(this,false)</Value>
-        </Attribute>
-        <Attribute>
-          <Name>RedirectURL</Name>
-          <Value />
-        </Attribute>
-        <Attribute>
-          <Name>SelectionMode</Name>
-          <Value>Single</Value>
-        </Attribute>
-      </PassthroughAttributes>
-      <InsideControl>RegistrationTypesTableControl</InsideControl>
-      <ControlsToFilter>
-        <ControlToFilter>
-          <Active>true</Active>
-          <ControlName>RegistrationTypesTableControl</ControlName>
-        </ControlToFilter>
-      </ControlsToFilter>
-    </ContainedComponent>
-    <ContainedComponent>
-      <Name>EventIdLabel</Name>
-      <Type>Literal</Type>
-      <PassthroughAttributes>
-        <Attribute>
-          <Name>Consumers</Name>
-          <Value>RegistrationTypesTableControl</Value>
-        </Attribute>
-        <Attribute>
-          <Name>InternalUse:Field</Name>
-          <Value>EventId</Value>
-        </Attribute>
-        <Attribute>
-          <Name>InternalUse:Table</Name>
-          <Value>DatabaseOLR_db%dbo.RegistrationTypes</Value>
-        </Attribute>
-        <Attribute>
-          <Name>Text</Name>
-          <Value>%ISD_DEFAULT%DatabaseOLR_db%dbo.RegistrationTypes%EventId</Value>
-        </Attribute>
-      </PassthroughAttributes>
-      <InsideControl>RegistrationTypesTableControl</InsideControl>
-      <InsideItemTemplate>true</InsideItemTemplate>
-    </ContainedComponent>
-    <ContainedComponent>
-      <Name>EventIdLabel1</Name>
-      <Type>Literal</Type>
-      <PassthroughAttributes>
-        <Attribute>
-          <Name>InternalUse:Field</Name>
-          <Value>EventId</Value>
-        </Attribute>
-        <Attribute>
-          <Name>InternalUse:Table</Name>
-          <Value>DatabaseOLR_db%dbo.RegistrationTypes</Value>
-        </Attribute>
-        <Attribute>
-          <Name>Text</Name>
-          <Value>%ISD_DEFAULT%DatabaseOLR_db%dbo.RegistrationTypes%EventId</Value>
-        </Attribute>
-      </PassthroughAttributes>
-      <InsideControl>RegistrationTypesTableControl</InsideControl>
-    </ContainedComponent>
-    <ContainedComponent>
-      <Name>FilterButton</Name>
-      <Type>Button</Type>
-      <Layout>..\Shared\ThemeButton.ascx</Layout>
-      <PassthroughAttributes>
-        <Attribute>
-          <Name>Button-CausesValidation</Name>
-          <Value>False</Value>
-        </Attribute>
-        <Attribute>
-          <Name>Button-CommandName</Name>
-          <Value>Search</Value>
-        </Attribute>
-        <Attribute>
-          <Name>Button-Consumers</Name>
-          <Value>EventIdFilter</Value>
-        </Attribute>
-        <Attribute>
-          <Name>Button-Text</Name>
-          <Value>Btn:SearchGoButtonText</Value>
-          <Type>ResourceReference</Type>
-        </Attribute>
-        <Attribute>
-          <Name>Button-ToolTip</Name>
-          <Value>Btn:SearchGoButtonText</Value>
-          <Type>ResourceReference</Type>
-        </Attribute>
-        <Attribute>
-          <Name>PostBack</Name>
-          <Value>False</Value>
-        </Attribute>
-      </PassthroughAttributes>
-      <InsideControl>RegistrationTypesTableControl</InsideControl>
-    </ContainedComponent>
-    <ContainedComponent>
-      <Name>FiltersButton</Name>
-      <Type>Button</Type>
-      <Layout>..\Shared\ThemeButtonWithArrow.html</Layout>
-      <PassthroughAttributes>
-        <Attribute>
-          <Name>Button-CausesValidation</Name>
-          <Value>False</Value>
-        </Attribute>
-        <Attribute>
-          <Name>Button-CommandName</Name>
-          <Value>Custom</Value>
-        </Attribute>
-        <Attribute>
-          <Name>Button-Consumers</Name>
-          <Value>page</Value>
-        </Attribute>
-        <Attribute>
-          <Name>Button-Onclientclick</Name>
-          <Value>return ISD_ShowPopupPanel('FiltersDiv','FiltersButton',this);</Value>
-        </Attribute>
-        <Attribute>
-          <Name>Button-Text</Name>
-          <Value>Btn:Filters</Value>
-          <Type>ResourceReference</Type>
-        </Attribute>
-        <Attribute>
-          <Name>Button-ToolTip</Name>
-          <Value>Btn:Filters</Value>
-          <Type>ResourceReference</Type>
-        </Attribute>
-      </PassthroughAttributes>
-      <InsideControl>RegistrationTypesTableControl</InsideControl>
-    </ContainedComponent>
-    <ContainedComponent>
       <Name>PageTitle</Name>
       <Type>Literal</Type>
       <PassthroughAttributes>
@@ -465,6 +346,77 @@
         </Attribute>
       </PassthroughAttributes>
       <InsideControl>RegistrationTypesTableControl</InsideControl>
+    </ContainedComponent>
+    <ContainedComponent>
+      <Name>RegistrationType</Name>
+      <Type>FieldValue</Type>
+      <Field>RegistrationType</Field>
+      <FieldValueStyle>TextBox</FieldValueStyle>
+      <Table>DatabaseOLR_db%dbo.RegistrationTypes</Table>
+      <PassthroughAttributes>
+        <Attribute>
+          <Name>Columns</Name>
+          <Value>50</Value>
+        </Attribute>
+        <Attribute>
+          <Name>CssClass</Name>
+          <Value>field_input</Value>
+        </Attribute>
+        <Attribute>
+          <Name>EnableIncrementDecrementButtons</Name>
+          <Value>False</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:DataSource</Name>
+          <Value>Parent</Value>
+        </Attribute>
+        <Attribute>
+          <Name>RegistrationTypeRequiredFieldValidator:Enabled</Name>
+          <Value>False</Value>
+        </Attribute>
+        <Attribute>
+          <Name>RegistrationTypeRequiredFieldValidator:Text</Name>
+          <Value>*</Value>
+        </Attribute>
+        <Attribute>
+          <Name>RichTextEditorType</Name>
+          <Value>ASP Multi-line</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Rows</Name>
+          <Value>2</Value>
+        </Attribute>
+        <Attribute>
+          <Name>TextMode</Name>
+          <Value>MultiLine</Value>
+        </Attribute>
+      </PassthroughAttributes>
+      <InsideControl>RegistrationTypesTableControl</InsideControl>
+      <InsideItemTemplate>true</InsideItemTemplate>
+    </ContainedComponent>
+    <ContainedComponent>
+      <Name>RegistrationTypeLabel</Name>
+      <Type>Literal</Type>
+      <PassthroughAttributes>
+        <Attribute>
+          <Name>Consumers</Name>
+          <Value>RegistrationTypesTableControl</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:Field</Name>
+          <Value>RegistrationType</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:Table</Name>
+          <Value>DatabaseOLR_db%dbo.RegistrationTypes</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Text</Name>
+          <Value>%ISD_DEFAULT%DatabaseOLR_db%dbo.RegistrationTypes%RegistrationType</Value>
+        </Attribute>
+      </PassthroughAttributes>
+      <InsideControl>RegistrationTypesTableControl</InsideControl>
+      <InsideItemTemplate>true</InsideItemTemplate>
     </ContainedComponent>
     <ContainedComponent>
       <Name>RegistrationTypesTableControl</Name>
@@ -515,46 +467,6 @@
       </PassthroughAttributes>
     </ContainedComponent>
     <ContainedComponent>
-      <Name>ResetButton</Name>
-      <Type>ImageButton</Type>
-      <PassthroughAttributes>
-        <Attribute>
-          <Name>CausesValidation</Name>
-          <Value>False</Value>
-        </Attribute>
-        <Attribute>
-          <Name>CommandName</Name>
-          <Value>ResetFilters</Value>
-        </Attribute>
-        <Attribute>
-          <Name>Consumers</Name>
-          <Value>RegistrationTypesTableControl</Value>
-        </Attribute>
-        <Attribute>
-          <Name>ImageURL</Name>
-          <Value>../Images/ButtonBarReset.gif</Value>
-        </Attribute>
-        <Attribute>
-          <Name>onmouseout</Name>
-          <Value>this.src='../Images/ButtonBarReset.gif'</Value>
-        </Attribute>
-        <Attribute>
-          <Name>onmouseover</Name>
-          <Value>this.src='../Images/ButtonBarResetOver.gif'</Value>
-        </Attribute>
-        <Attribute>
-          <Name>PostBack</Name>
-          <Value>False</Value>
-        </Attribute>
-        <Attribute>
-          <Name>ToolTip</Name>
-          <Value>Btn:Reset</Value>
-          <Type>ResourceReference</Type>
-        </Attribute>
-      </PassthroughAttributes>
-      <InsideControl>RegistrationTypesTableControl</InsideControl>
-    </ContainedComponent>
-    <ContainedComponent>
       <Name>SaveButton</Name>
       <Type>ImageButton</Type>
       <PassthroughAttributes>
@@ -595,38 +507,6 @@
       <InsideControl>RegistrationTypesTableControl</InsideControl>
     </ContainedComponent>
     <ContainedComponent>
-      <Name>SearchButton</Name>
-      <Type>ImageButton</Type>
-      <PassthroughAttributes>
-        <Attribute>
-          <Name>CausesValidation</Name>
-          <Value>False</Value>
-        </Attribute>
-        <Attribute>
-          <Name>CommandName</Name>
-          <Value>Search</Value>
-        </Attribute>
-        <Attribute>
-          <Name>Consumers</Name>
-          <Value />
-        </Attribute>
-        <Attribute>
-          <Name>ImageURL</Name>
-          <Value>../Images/panelSearchButton.png</Value>
-        </Attribute>
-        <Attribute>
-          <Name>PostBack</Name>
-          <Value>False</Value>
-        </Attribute>
-        <Attribute>
-          <Name>ToolTip</Name>
-          <Value>Btn:SearchGoButtonText</Value>
-          <Type>ResourceReference</Type>
-        </Attribute>
-      </PassthroughAttributes>
-      <InsideControl>RegistrationTypesTableControl</InsideControl>
-    </ContainedComponent>
-    <ContainedComponent>
       <Name>SelectRow</Name>
       <Type>Selection</Type>
       <PassthroughAttributes>
@@ -637,80 +517,6 @@
       </PassthroughAttributes>
       <InsideControl>RegistrationTypesTableControl</InsideControl>
       <InsideItemTemplate>true</InsideItemTemplate>
-    </ContainedComponent>
-    <ContainedComponent>
-      <Name>SortByLabel</Name>
-      <Type>Label</Type>
-      <PassthroughAttributes>
-        <Attribute>
-          <Name>Text</Name>
-          <Value>Txt:SortBy</Value>
-          <Type>ResourceReference</Type>
-        </Attribute>
-      </PassthroughAttributes>
-      <InsideControl>RegistrationTypesTableControl</InsideControl>
-    </ContainedComponent>
-    <ContainedComponent>
-      <Name>SortControl</Name>
-      <Type>OrderSort</Type>
-      <FieldValueStyle>DropDownList</FieldValueStyle>
-      <SpecifiedItems>
-        <Item>
-          <Name>--PLEASE_SELECT--</Name>
-          <Value>{Txt:PleaseSelect}</Value>
-        </Item>
-        <Item>
-          <Name>EventId Asc</Name>
-          <Value>Event {Txt:Ascending}</Value>
-        </Item>
-        <Item>
-          <Name>EventId Desc</Name>
-          <Value>Event {Txt:Descending}</Value>
-        </Item>
-        <Item>
-          <Name>RegistrationType Asc</Name>
-          <Value>Registration Type {Txt:Ascending}</Value>
-        </Item>
-        <Item>
-          <Name>RegistrationType Desc</Name>
-          <Value>Registration Type {Txt:Descending}</Value>
-        </Item>
-      </SpecifiedItems>
-      <PassthroughAttributes>
-        <Attribute>
-          <Name>AutoPostBack</Name>
-          <Value>True</Value>
-        </Attribute>
-        <Attribute>
-          <Name>CssClass</Name>
-          <Value>Filter_Input</Value>
-        </Attribute>
-        <Attribute>
-          <Name>InternalUse:ApplyQuery</Name>
-          <Value>False</Value>
-        </Attribute>
-        <Attribute>
-          <Name>InternalUse:ApplyStaticList</Name>
-          <Value>True</Value>
-        </Attribute>
-        <Attribute>
-          <Name>InternalUse:GenerateSpecificItems</Name>
-          <Value>True</Value>
-        </Attribute>
-        <Attribute>
-          <Name>InternalUse:Table</Name>
-          <Value>DatabaseOLR_db%dbo.RegistrationTypes</Value>
-        </Attribute>
-        <Attribute>
-          <Name>InternalUse:TreatAs</Name>
-          <Value>FieldFilter</Value>
-        </Attribute>
-        <Attribute>
-          <Name>PriorityNo</Name>
-          <Value>1</Value>
-        </Attribute>
-      </PassthroughAttributes>
-      <InsideControl>RegistrationTypesTableControl</InsideControl>
     </ContainedComponent>
     <ContainedComponent>
       <Name>Title0</Name>
@@ -748,51 +554,6 @@
         </Attribute>
       </PassthroughAttributes>
     </ContainedComponent>
-    <ContainedComponent>
-      <Name>ViewRowButton</Name>
-      <Type>ImageButton</Type>
-      <PassthroughAttributes>
-        <Attribute>
-          <Name>CausesValidation</Name>
-          <Value>False</Value>
-        </Attribute>
-        <Attribute>
-          <Name>CommandName</Name>
-          <Value>Redirect</Value>
-        </Attribute>
-        <Attribute>
-          <Name>CssClass</Name>
-          <Value>button_link</Value>
-        </Attribute>
-        <Attribute>
-          <Name>ImageURL</Name>
-          <Value>../Images/icon_view.gif</Value>
-        </Attribute>
-        <Attribute>
-          <Name>onmouseout</Name>
-          <Value>this.src='../Images/icon_view.gif'</Value>
-        </Attribute>
-        <Attribute>
-          <Name>onmouseover</Name>
-          <Value>this.src='../Images/icon_view_over.gif'</Value>
-        </Attribute>
-        <Attribute>
-          <Name>PostBack</Name>
-          <Value>False</Value>
-        </Attribute>
-        <Attribute>
-          <Name>RedirectURL</Name>
-          <Value>../RegistrationTypes/Show-RegistrationTypes.aspx?RegistrationTypes={PK}</Value>
-        </Attribute>
-        <Attribute>
-          <Name>ToolTip</Name>
-          <Value>Txt:ViewRecord</Value>
-          <Type>ResourceReference</Type>
-        </Attribute>
-      </PassthroughAttributes>
-      <InsideControl>RegistrationTypesTableControl</InsideControl>
-      <InsideItemTemplate>true</InsideItemTemplate>
-    </ContainedComponent>
   </ComposedOf>
   <LayoutDefinition>&lt;![CDATA[&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;LayoutDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
@@ -809,7 +570,9 @@
         &lt;Value&gt;
                         &amp;lt;GEN:TABLE NAME="RegistrationTypesTableControl"&amp;gt;&amp;lt;/GEN:TABLE&amp;gt;
             &lt;/Value&gt;
+        &lt;CellAttributes /&gt;
       &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
     &lt;Epilog&gt;
       &lt;Value&gt;
@@ -843,6 +606,7 @@
     &lt;/TableAttributes&gt;
   &lt;/Layout&gt;
   &lt;Layout Name="RegistrationTypesTableControl" Type="TablePanel" PanelControlName="RegistrationTypesTableControl"&gt;
+    &lt;Prolog /&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
         &lt;Value&gt;&amp;lt;img src="../Images/space.gif" class="panelTLSpace" alt="" /&amp;gt;&lt;/Value&gt;
@@ -870,6 +634,7 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
@@ -899,6 +664,7 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
@@ -913,6 +679,7 @@
         &lt;Value&gt;
                   &amp;lt;asp:panel id="CollapsibleRegion" runat="server"&amp;gt;&amp;lt;GEN:PANEL NAME="Panel"/&amp;gt;&amp;lt;/asp:panel&amp;gt;
                 &lt;/Value&gt;
+        &lt;CellAttributes /&gt;
       &lt;/Cell&gt;
       &lt;Cell&gt;
         &lt;CellAttributes&gt;
@@ -922,6 +689,7 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
@@ -952,6 +720,7 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
@@ -980,7 +749,9 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
+    &lt;Epilog /&gt;
     &lt;TableAttributes&gt;
       &lt;Attribute&gt;
         &lt;Name&gt;class&lt;/Name&gt;
@@ -1001,6 +772,7 @@
     &lt;/TableAttributes&gt;
   &lt;/Layout&gt;
   &lt;Layout Name="Header" Type="PanelHeader" PanelControlName="RegistrationTypesTableControl"&gt;
+    &lt;Prolog /&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
         &lt;Value&gt;&amp;lt;img src="../Images/space.gif" alt=""/&amp;gt;&lt;/Value&gt;
@@ -1039,11 +811,7 @@
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
       &lt;Cell&gt;
-        &lt;Value&gt;
-                          &amp;lt;div id="FiltersDiv" runat="server" class="popupWrapper" &amp;gt;
-                          &amp;lt;GEN:PANEL NAME="Filters"/&amp;gt;
-                          &amp;lt;/div&amp;gt;
-                        &lt;/Value&gt;
+        &lt;CellAttributes /&gt;
       &lt;/Cell&gt;
       &lt;Cell&gt;
         &lt;Value&gt;&amp;lt;img src="../Images/space.gif" alt=""/&amp;gt;&lt;/Value&gt;
@@ -1054,7 +822,9 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
+    &lt;Epilog /&gt;
     &lt;TableAttributes&gt;
       &lt;Attribute&gt;
         &lt;Name&gt;cellpadding&lt;/Name&gt;
@@ -1075,6 +845,7 @@
     &lt;/TableAttributes&gt;
   &lt;/Layout&gt;
   &lt;Layout Name="TitleRegion" PanelControlName="RegistrationTypesTableControl"&gt;
+    &lt;Prolog /&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
         &lt;Value&gt;
@@ -1091,259 +862,9 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
-    &lt;/Row&gt;
-    &lt;TableAttributes&gt;
-      &lt;Attribute&gt;
-        &lt;Name&gt;cellpadding&lt;/Name&gt;
-        &lt;AttributeValue&gt;0&lt;/AttributeValue&gt;
-      &lt;/Attribute&gt;
-      &lt;Attribute&gt;
-        &lt;Name&gt;cellspacing&lt;/Name&gt;
-        &lt;AttributeValue&gt;0&lt;/AttributeValue&gt;
-      &lt;/Attribute&gt;
-      &lt;Attribute&gt;
-        &lt;Name&gt;border&lt;/Name&gt;
-        &lt;AttributeValue&gt;0&lt;/AttributeValue&gt;
-      &lt;/Attribute&gt;
-    &lt;/TableAttributes&gt;
-  &lt;/Layout&gt;
-  &lt;Layout Name="TitleRegionPanel" Type="BlankPanel" PanelControlName="RegistrationTypesTableControl"&gt;
-    &lt;Row&gt;
-      &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;GEN:HTML NAME="Title0"/&amp;gt;&lt;/Value&gt;
-      &lt;/Cell&gt;
-    &lt;/Row&gt;
-    &lt;TableAttributes&gt;
-      &lt;Attribute&gt;
-        &lt;Name&gt;cellpadding&lt;/Name&gt;
-        &lt;AttributeValue&gt;0&lt;/AttributeValue&gt;
-      &lt;/Attribute&gt;
-      &lt;Attribute&gt;
-        &lt;Name&gt;cellspacing&lt;/Name&gt;
-        &lt;AttributeValue&gt;0&lt;/AttributeValue&gt;
-      &lt;/Attribute&gt;
-      &lt;Attribute&gt;
-        &lt;Name&gt;border&lt;/Name&gt;
-        &lt;AttributeValue&gt;0&lt;/AttributeValue&gt;
-      &lt;/Attribute&gt;
-    &lt;/TableAttributes&gt;
-  &lt;/Layout&gt;
-  &lt;Layout Name="Panel" PanelControlName="RegistrationTypesTableControl"&gt;
-    &lt;Row&gt;
-      &lt;Cell&gt;
-        &lt;Value&gt;
-                    &amp;lt;GEN:PANEL NAME="Fields"/&amp;gt;
-                  &lt;/Value&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;tre&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-    &lt;/Row&gt;
-    &lt;TableAttributes&gt;
-      &lt;Attribute&gt;
-        &lt;Name&gt;class&lt;/Name&gt;
-        &lt;AttributeValue&gt;dBody&lt;/AttributeValue&gt;
-      &lt;/Attribute&gt;
-      &lt;Attribute&gt;
-        &lt;Name&gt;cellpadding&lt;/Name&gt;
-        &lt;AttributeValue&gt;0&lt;/AttributeValue&gt;
-      &lt;/Attribute&gt;
-      &lt;Attribute&gt;
-        &lt;Name&gt;cellspacing&lt;/Name&gt;
-        &lt;AttributeValue&gt;0&lt;/AttributeValue&gt;
-      &lt;/Attribute&gt;
-      &lt;Attribute&gt;
-        &lt;Name&gt;border&lt;/Name&gt;
-        &lt;AttributeValue&gt;0&lt;/AttributeValue&gt;
-      &lt;/Attribute&gt;
-      &lt;Attribute&gt;
-        &lt;Name&gt;width&lt;/Name&gt;
-        &lt;AttributeValue&gt;100%&lt;/AttributeValue&gt;
-      &lt;/Attribute&gt;
-    &lt;/TableAttributes&gt;
-  &lt;/Layout&gt;
-  &lt;Layout Name="Filters" Type="SearchAndFilter" PanelControlName="RegistrationTypesTableControl"&gt;
-    &lt;Row&gt;
-      &lt;Cell&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;popupTableCellLabel&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-      &lt;Cell&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;popupTableCellValue&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-      &lt;Cell&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;popupTableCellValue&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-      &lt;Cell&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;popupTableCellValue&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-      &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;input type="image" src="../Images/closeButton.gif" onmouseover="this.src='../Images/closeButtonOver.gif'" onmouseout="this.src='../Images/closeButton.gif'" alt="" onclick="ISD_HidePopupPanel();return false;" align="top" /&amp;gt;&amp;lt;br/&amp;gt;&lt;/Value&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;style&lt;/Name&gt;
-            &lt;AttributeValue&gt;text-align: right;&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;popupTableCellValue&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
       &lt;RowAttributes /&gt;
     &lt;/Row&gt;
-    &lt;Row&gt;
-      &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;GEN:FIELDLABEL NAME="EventIdLabel1"/&amp;gt;&lt;/Value&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;popupTableCellLabel&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-      &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;GEN:FIELDFILTER NAME="EventIdFilter"/&amp;gt;&lt;/Value&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;colspan&lt;/Name&gt;
-            &lt;AttributeValue&gt;2&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;popupTableCellValue&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-      &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;GEN:BUTTON NAME="FilterButton"/&amp;gt;&lt;/Value&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;popupTableCellValue&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-      &lt;Cell&gt;
-        &lt;Value&gt;
-                                  &amp;lt;GEN:IMAGEBUTTON NAME="ResetButton" /&amp;gt;
-                                &lt;/Value&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;popupTableCellValue&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-    &lt;/Row&gt;
-    &lt;Row&gt;
-      &lt;Cell&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;popupTableCellLabel&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-      &lt;Cell&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;popupTableCellValue&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-      &lt;Cell&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;popupTableCellValue&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-      &lt;Cell&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;popupTableCellValue&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-      &lt;Cell&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;popupTableCellValue&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-    &lt;/Row&gt;
-    &lt;Row&gt;
-      &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;GEN:LABEL NAME="SortByLabel"/&amp;gt;&lt;/Value&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;popupTableCellLabel&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-      &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;GEN:ORDERSORT NAME="SortControl"/&amp;gt;&lt;/Value&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;popupTableCellValue&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-      &lt;Cell&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;popupTableCellValue&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-      &lt;Cell&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;popupTableCellValue&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-      &lt;Cell&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;popupTableCellValue&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-    &lt;/Row&gt;
+    &lt;Epilog /&gt;
     &lt;TableAttributes&gt;
       &lt;Attribute&gt;
         &lt;Name&gt;cellpadding&lt;/Name&gt;
@@ -1360,8 +881,11 @@
     &lt;/TableAttributes&gt;
   &lt;/Layout&gt;
   &lt;Layout Name="Actions" Type="PanelButton" PanelControlName="RegistrationTypesTableControl"&gt;
+    &lt;Prolog /&gt;
     &lt;Row&gt;
-      &lt;Cell /&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes /&gt;
+      &lt;/Cell&gt;
       &lt;Cell&gt;
         &lt;CellAttributes&gt;
           &lt;Attribute&gt;
@@ -1382,6 +906,7 @@
         &lt;Value&gt;&amp;lt;div id="ActionsDiv" runat="server" class="popupWrapper" &amp;gt;
                 &amp;lt;GEN:PANEL NAME="ActionsPanel"/&amp;gt;
                 &amp;lt;/div&amp;gt;&lt;/Value&gt;
+        &lt;CellAttributes /&gt;
       &lt;/Cell&gt;
       &lt;Cell&gt;
         &lt;CellAttributes&gt;
@@ -1413,9 +938,6 @@
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
       &lt;Cell&gt;
-        &lt;Value&gt;
-            &amp;lt;GEN:Button NAME="FiltersButton"  /&amp;gt;
-          &lt;/Value&gt;
         &lt;CellAttributes&gt;
           &lt;Attribute&gt;
             &lt;Name&gt;class&lt;/Name&gt;
@@ -1437,7 +959,6 @@
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
       &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;GEN:PANEL NAME="ActionsSearch"/&amp;gt;&lt;/Value&gt;
         &lt;CellAttributes&gt;
           &lt;Attribute&gt;
             &lt;Name&gt;class&lt;/Name&gt;
@@ -1454,8 +975,9 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
-      &lt;Cell /&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
+    &lt;Epilog /&gt;
     &lt;TableAttributes&gt;
       &lt;Attribute&gt;
         &lt;Name&gt;cellpadding&lt;/Name&gt;
@@ -1476,11 +998,20 @@
     &lt;/TableAttributes&gt;
   &lt;/Layout&gt;
   &lt;Layout Name="ActionsPanel" Type="BlankPanel" PanelControlName="RegistrationTypesTableControl"&gt;
+    &lt;Prolog /&gt;
     &lt;Row&gt;
-      &lt;Cell /&gt;
-      &lt;Cell /&gt;
-      &lt;Cell /&gt;
-      &lt;Cell /&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes /&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes /&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes /&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes /&gt;
+      &lt;/Cell&gt;
       &lt;Cell&gt;
         &lt;Value&gt;&amp;lt;input type="image" src="../Images/closeButton.gif" onmouseover="this.src='../Images/closeButtonOver.gif'" onmouseout="this.src='../Images/closeButton.gif'" alt="" onclick="ISD_HidePopupPanel();return false;" align="top" /&amp;gt;&amp;lt;br/&amp;gt;&lt;/Value&gt;
         &lt;CellAttributes&gt;
@@ -1494,32 +1025,52 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
     &lt;Row&gt;
-      &lt;Cell /&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes /&gt;
+      &lt;/Cell&gt;
       &lt;Cell&gt;
         &lt;Value&gt;
                     &amp;lt;GEN:ImageButton NAME="AddButton" /&amp;gt;
                   &lt;/Value&gt;
+        &lt;CellAttributes /&gt;
       &lt;/Cell&gt;
       &lt;Cell&gt;
         &lt;Value&gt;
                     &amp;lt;GEN:ImageButton NAME="DeleteButton" /&amp;gt;
                   &lt;/Value&gt;
+        &lt;CellAttributes /&gt;
       &lt;/Cell&gt;
       &lt;Cell&gt;
         &lt;Value&gt;
                     &amp;lt;GEN:ImageButton NAME="SaveButton" /&amp;gt;
                   &lt;/Value&gt;
+        &lt;CellAttributes /&gt;
       &lt;/Cell&gt;
-      &lt;Cell /&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes /&gt;
+      &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
     &lt;Row&gt;
-      &lt;Cell /&gt;
-      &lt;Cell /&gt;
-      &lt;Cell /&gt;
-      &lt;Cell /&gt;
-      &lt;Cell /&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes /&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes /&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes /&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes /&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes /&gt;
+      &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
     &lt;Epilog /&gt;
     &lt;TableAttributes&gt;
@@ -1537,7 +1088,48 @@
       &lt;/Attribute&gt;
     &lt;/TableAttributes&gt;
   &lt;/Layout&gt;
+  &lt;Layout Name="Panel" PanelControlName="RegistrationTypesTableControl"&gt;
+    &lt;Prolog /&gt;
+    &lt;Row&gt;
+      &lt;Cell&gt;
+        &lt;Value&gt;
+                    &amp;lt;GEN:PANEL NAME="Fields"/&amp;gt;
+                  &lt;/Value&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tre&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
+    &lt;/Row&gt;
+    &lt;Epilog /&gt;
+    &lt;TableAttributes&gt;
+      &lt;Attribute&gt;
+        &lt;Name&gt;class&lt;/Name&gt;
+        &lt;AttributeValue&gt;dBody&lt;/AttributeValue&gt;
+      &lt;/Attribute&gt;
+      &lt;Attribute&gt;
+        &lt;Name&gt;cellpadding&lt;/Name&gt;
+        &lt;AttributeValue&gt;0&lt;/AttributeValue&gt;
+      &lt;/Attribute&gt;
+      &lt;Attribute&gt;
+        &lt;Name&gt;cellspacing&lt;/Name&gt;
+        &lt;AttributeValue&gt;0&lt;/AttributeValue&gt;
+      &lt;/Attribute&gt;
+      &lt;Attribute&gt;
+        &lt;Name&gt;border&lt;/Name&gt;
+        &lt;AttributeValue&gt;0&lt;/AttributeValue&gt;
+      &lt;/Attribute&gt;
+      &lt;Attribute&gt;
+        &lt;Name&gt;width&lt;/Name&gt;
+        &lt;AttributeValue&gt;100%&lt;/AttributeValue&gt;
+      &lt;/Attribute&gt;
+    &lt;/TableAttributes&gt;
+  &lt;/Layout&gt;
   &lt;Layout Name="Fields" Type="TableGridRegular" PanelControlName="RegistrationTypesTableControl"&gt;
+    &lt;Prolog /&gt;
     &lt;Row Type="Header"&gt;
       &lt;Cell&gt;
         &lt;Value&gt;&amp;lt;GEN:SELECTION NAME="ToggleAll"&amp;gt;&amp;lt;/GEN:SELECTION&amp;gt;&lt;/Value&gt;
@@ -1629,9 +1221,9 @@
       &lt;/Cell&gt;
       &lt;Cell&gt;
         &lt;Value&gt;
-                          &amp;lt;GEN:IMAGEBUTTON NAME="ViewRowButton"&amp;gt;&amp;lt;/GEN:IMAGEBUTTON&amp;gt;
+                          
                         
-                          &amp;lt;GEN:IMAGEBUTTON NAME="EditRowButton"&amp;gt;&amp;lt;/GEN:IMAGEBUTTON&amp;gt;
+                          
                         
                           &amp;lt;GEN:IMAGEBUTTON NAME="DeleteRowButton"&amp;gt;&amp;lt;/GEN:IMAGEBUTTON&amp;gt;
                         &lt;/Value&gt;
@@ -1643,8 +1235,7 @@
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
       &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;GEN:FIELDLABEL NAME="DescriptionLabel"/&amp;gt; 
-&lt;/Value&gt;
+        &lt;Value&gt;&amp;lt;GEN:FIELDLABEL NAME="RegistrationTypeLabel" /&amp;gt;&lt;/Value&gt;
         &lt;CellAttributes&gt;
           &lt;Attribute&gt;
             &lt;Name&gt;class&lt;/Name&gt;
@@ -1653,17 +1244,79 @@
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
       &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;GEN:FIELDVALUE NAME="Description"/&amp;gt; &lt;/Value&gt;
+        &lt;Value&gt;&amp;lt;GEN:FIELDVALUE NAME="RegistrationType" /&amp;gt;&lt;/Value&gt;
         &lt;CellAttributes&gt;
           &lt;Attribute&gt;
             &lt;Name&gt;class&lt;/Name&gt;
             &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
           &lt;/Attribute&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;colspan&lt;/Name&gt;
+            &lt;AttributeValue&gt;3&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
+    &lt;/Row&gt;
+    &lt;Row Type="Repeater"&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellSelectCheckbox&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;scope&lt;/Name&gt;
+            &lt;AttributeValue&gt;row&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;style&lt;/Name&gt;
+            &lt;AttributeValue&gt;font-size: 5px;&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
       &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;GEN:FIELDLABEL NAME="EventIdLabel"/&amp;gt; 
-&lt;/Value&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellSelectCheckbox&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;scope&lt;/Name&gt;
+            &lt;AttributeValue&gt;row&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;style&lt;/Name&gt;
+            &lt;AttributeValue&gt;font-size: 5px;&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellSelectCheckbox&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;scope&lt;/Name&gt;
+            &lt;AttributeValue&gt;row&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;style&lt;/Name&gt;
+            &lt;AttributeValue&gt;font-size: 5px;&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableRowButtonsCellVertical&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;Value&gt;&amp;lt;GEN:FIELDLABEL NAME="CostMemberLabel" /&amp;gt;&lt;/Value&gt;
         &lt;CellAttributes&gt;
           &lt;Attribute&gt;
             &lt;Name&gt;class&lt;/Name&gt;
@@ -1672,7 +1325,7 @@
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
       &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;GEN:FIELDVALUE NAME="EventId"/&amp;gt; &lt;/Value&gt;
+        &lt;Value&gt;&amp;lt;GEN:FIELDVALUE NAME="CostMember" /&amp;gt;&lt;/Value&gt;
         &lt;CellAttributes&gt;
           &lt;Attribute&gt;
             &lt;Name&gt;class&lt;/Name&gt;
@@ -1680,6 +1333,25 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;Value&gt;&amp;lt;GEN:FIELDLABEL NAME="CostNonMemberLabel" /&amp;gt;&lt;/Value&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellLabel&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;Value&gt;&amp;lt;GEN:FIELDVALUE NAME="CostNonMember" /&amp;gt;&lt;/Value&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
     &lt;Row Type="Repeater"&gt;
       &lt;Cell&gt;
@@ -1694,7 +1366,9 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
     &lt;/Row&gt;
+    &lt;Epilog /&gt;
     &lt;TableAttributes&gt;
       &lt;Attribute&gt;
         &lt;Name&gt;cellpadding&lt;/Name&gt;
@@ -1717,20 +1391,6 @@
         &lt;AttributeValue&gt;captureUpDownKey(this, event)&lt;/AttributeValue&gt;
       &lt;/Attribute&gt;
     &lt;/TableAttributes&gt;
-  &lt;/Layout&gt;
-  &lt;Layout Name="ActionsSearch" Type="SearchAndFilter" PanelControlName="RegistrationTypesTableControl"&gt;
-    &lt;Row&gt;
-      &lt;Cell&gt;
-        &lt;Value&gt;
-                &amp;lt;GEN:SEARCHFILTER NAME="SearchText"/&amp;gt;
-              &lt;/Value&gt;
-      &lt;/Cell&gt;
-      &lt;Cell&gt;
-        &lt;Value&gt;
-                &amp;lt;GEN:IMAGEBUTTON NAME="SearchButton"/&amp;gt;
-              &lt;/Value&gt;
-      &lt;/Cell&gt;
-    &lt;/Row&gt;
   &lt;/Layout&gt;
 &lt;/LayoutDefinition&gt;]]&gt;</LayoutDefinition>
 </ComponentDefinition>

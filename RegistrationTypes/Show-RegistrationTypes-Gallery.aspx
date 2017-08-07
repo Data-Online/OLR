@@ -75,7 +75,9 @@
 		<asp:Repeater runat="server" id="RegistrationTypesTableControlRepeater1">				<ITEMTEMPLATE>
 <tr><asp:Repeater runat="server" id="RegistrationTypesTableControlCellRepeater">		<ITEMTEMPLATE>		<OLR:RegistrationTypesTableControlRow runat="server" id="RegistrationTypesTableControlRow">
 <td class="galleryttc" style="width:33%;"> <br />
-<asp:LinkButton runat="server" id="EventId" causesvalidation="False" commandname="Redirect"></asp:LinkButton> <br />
+<span style="white-space:nowrap;">
+<asp:LinkButton runat="server" id="EventId" causesvalidation="False" commandname="Redirect"></asp:LinkButton></span>
+ <br />
 </td></OLR:RegistrationTypesTableControlRow>
 </ITEMTEMPLATE>
 

@@ -62,6 +62,7 @@ public class BaseFieldTripOptionsTable : PrimaryKeyTable
         FieldTripIdColumn.CodeName = "FieldTripId";
         PlacesAvailableColumn.CodeName = "PlacesAvailable";
         DescriptionColumn.CodeName = "Description";
+        CostColumn.CodeName = "Cost";
 
         
     }
@@ -168,6 +169,31 @@ public class BaseFieldTripOptionsTable : PrimaryKeyTable
         get
         {
             return FieldTripOptionsTable.Instance.DescriptionColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's FieldTripOptions_.Cost column object.
+    /// </summary>
+    public BaseClasses.Data.NumberColumn CostColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[4];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's FieldTripOptions_.Cost column object.
+    /// </summary>
+    public static BaseClasses.Data.NumberColumn Cost
+    {
+        get
+        {
+            return FieldTripOptionsTable.Instance.CostColumn;
         }
     }
     
@@ -699,13 +725,15 @@ public class BaseFieldTripOptionsTable : PrimaryKeyTable
         public KeyValue NewRecord(
         string FieldTripIdValue, 
         string PlacesAvailableValue, 
-        string DescriptionValue
+        string DescriptionValue, 
+        string CostValue
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
                     rec.SetString(FieldTripIdValue, FieldTripIdColumn);
         rec.SetString(PlacesAvailableValue, PlacesAvailableColumn);
         rec.SetString(DescriptionValue, DescriptionColumn);
+        rec.SetString(CostValue, CostColumn);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized

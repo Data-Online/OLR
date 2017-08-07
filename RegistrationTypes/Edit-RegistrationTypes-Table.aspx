@@ -4,8 +4,6 @@
 
 <%@ Register Tagprefix="OLR" TagName="PaginationModern" Src="../Shared/PaginationModern.ascx" %>
 
-<%@ Register Tagprefix="OLR" TagName="ThemeButton" Src="../Shared/ThemeButton.ascx" %>
-
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Page Language="C#" EnableEventValidation="false" AutoEventWireup="false" Codebehind="Edit-RegistrationTypes-Table.aspx.cs" Culture="en-NZ" MasterPageFile="../Master Pages/HorizontalMenu.master" Inherits="OLR.UI.Edit_RegistrationTypes_Table" %>
 <%@ Register Tagprefix="BaseClasses" Namespace="BaseClasses.Web.UI.WebControls" Assembly="BaseClasses" %>
@@ -42,26 +40,8 @@
 	</asp:ImageButton>
                   </td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></table>
 
-                </div></td><td class="prbbc"></td><td class="prspace"></td><td class="prbbc" style="text-align:right"><OLR:ThemeButtonWithArrow runat="server" id="ActionsButton" button-causesvalidation="False" button-commandname="Custom" button-onclientclick="return ISD_ShowPopupPanel(&#39;ActionsDiv&#39;,&#39;ActionsButton&#39;,this);" button-text="&lt;%# GetResourceValue(&quot;Btn:Actions&quot;, &quot;OLR&quot;) %>" button-tooltip="&lt;%# GetResourceValue(&quot;Btn:Actions&quot;, &quot;OLR&quot;) %>"></OLR:ThemeButtonWithArrow></td><td class="prbbc" style="text-align:right">
-            <OLR:ThemeButtonWithArrow runat="server" id="FiltersButton" button-causesvalidation="False" button-commandname="Custom" button-onclientclick="return ISD_ShowPopupPanel(&#39;FiltersDiv&#39;,&#39;FiltersButton&#39;,this);" button-text="&lt;%# GetResourceValue(&quot;Btn:Filters&quot;, &quot;OLR&quot;) %>" button-tooltip="&lt;%# GetResourceValue(&quot;Btn:Filters&quot;, &quot;OLR&quot;) %>"></OLR:ThemeButtonWithArrow>
-          </td><td class="prbbc"><img src="../Images/space.gif" alt="" style="width: 10px" /></td><td class="panelSearchBox"><table><tr><td>
-                
-              </td><td>
-                <asp:ImageButton runat="server" id="SearchButton" causesvalidation="False" commandname="Search" imageurl="../Images/panelSearchButton.png" tooltip="&lt;%# GetResourceValue(&quot;Btn:SearchGoButtonText&quot;, &quot;OLR&quot;) %>">		
-	</asp:ImageButton>
-              </td></tr></table>
-</td><td class="prspaceEnd">&nbsp;</td><td></td></tr></table>
-</td><td class="dher"><img src="../Images/space.gif" alt="" /></td><td>
-                          <div id="FiltersDiv" runat="server" class="popupWrapper">
-                          <table cellpadding="0" cellspacing="0" border="0"><tr><td class="popupTableCellLabel"></td><td class="popupTableCellValue"></td><td class="popupTableCellValue"></td><td class="popupTableCellValue"></td><td style="text-align: right;" class="popupTableCellValue"><input type="image" src="../Images/closeButton.gif" onmouseover="this.src='../Images/closeButtonOver.gif'" onmouseout="this.src='../Images/closeButton.gif'" alt="" onclick="ISD_HidePopupPanel();return false;" align="top" /><br /></td></tr><tr><td class="popupTableCellLabel"><asp:Literal runat="server" id="EventIdLabel1" Text="Event">	</asp:Literal></td><td colspan="2" class="popupTableCellValue"><%= SystemUtils.GenerateEnterKeyCaptureBeginTag(FindControlRecursively("FilterButton"))%>
-<BaseClasses:QuickSelector runat="server" id="EventIdFilter" onkeypress="dropDownListTypeAhead(this,false)" redirecturl="" selectionmode="Single">	</BaseClasses:QuickSelector><%= SystemUtils.GenerateEnterKeyCaptureEndTag(FindControlRecursively("FilterButton"))%>
-</td><td class="popupTableCellValue"><OLR:ThemeButton runat="server" id="FilterButton" button-causesvalidation="False" button-commandname="Search" button-text="&lt;%# GetResourceValue(&quot;Btn:SearchGoButtonText&quot;, &quot;OLR&quot;) %>" button-tooltip="&lt;%# GetResourceValue(&quot;Btn:SearchGoButtonText&quot;, &quot;OLR&quot;) %>" postback="False"></OLR:ThemeButton></td><td class="popupTableCellValue">
-                                  <asp:ImageButton runat="server" id="ResetButton" causesvalidation="False" commandname="ResetFilters" imageurl="../Images/ButtonBarReset.gif" onmouseout="this.src=&#39;../Images/ButtonBarReset.gif&#39;" onmouseover="this.src=&#39;../Images/ButtonBarResetOver.gif&#39;" tooltip="&lt;%# GetResourceValue(&quot;Btn:Reset&quot;, &quot;OLR&quot;) %>">		
-	</asp:ImageButton>
-                                </td></tr><tr><td class="popupTableCellLabel"></td><td class="popupTableCellValue"></td><td class="popupTableCellValue"></td><td class="popupTableCellValue"></td><td class="popupTableCellValue"></td></tr><tr><td class="popupTableCellLabel"><asp:Label runat="server" id="SortByLabel" Text="&lt;%# GetResourceValue(&quot;Txt:SortBy&quot;, &quot;OLR&quot;) %>">	</asp:Label></td><td class="popupTableCellValue"><asp:DropDownList runat="server" id="SortControl" autopostback="True" cssclass="Filter_Input" priorityno="1">	</asp:DropDownList></td><td class="popupTableCellValue"></td><td class="popupTableCellValue"></td><td class="popupTableCellValue"></td></tr></table>
-
-                          </div>
-                        </td><td class="dher"><img src="../Images/space.gif" alt="" /></td></tr></table>
+                </div></td><td class="prbbc"></td><td class="prspace"></td><td class="prbbc" style="text-align:right"><OLR:ThemeButtonWithArrow runat="server" id="ActionsButton" button-causesvalidation="False" button-commandname="Custom" button-onclientclick="return ISD_ShowPopupPanel(&#39;ActionsDiv&#39;,&#39;ActionsButton&#39;,this);" button-text="&lt;%# GetResourceValue(&quot;Btn:Actions&quot;, &quot;OLR&quot;) %>" button-tooltip="&lt;%# GetResourceValue(&quot;Btn:Actions&quot;, &quot;OLR&quot;) %>"></OLR:ThemeButtonWithArrow></td><td class="prbbc" style="text-align:right"></td><td class="prbbc"><img src="../Images/space.gif" alt="" style="width: 10px" /></td><td class="panelSearchBox"></td><td class="prspaceEnd">&nbsp;</td></tr></table>
+</td><td class="dher"><img src="../Images/space.gif" alt="" /></td><td></td><td class="dher"><img src="../Images/space.gif" alt="" /></td></tr></table>
 
                 </td><td class="panelHeaderR"></td></tr><tr><td class="panelL"></td><td>
                   <asp:panel id="CollapsibleRegion" runat="server"><table class="dBody" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tre">
@@ -69,17 +49,36 @@
 <tr><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;" colspan="3">
                               <asp:CheckBox runat="server" id="SelectRow" onclick="moveToThisTableRow(this);">	</asp:CheckBox>                              
                             </td><td class="tableRowButtonsCellVertical">
-                          <asp:ImageButton runat="server" id="ViewRowButton" causesvalidation="False" commandname="Redirect" cssclass="button_link" imageurl="../Images/icon_view.gif" onmouseout="this.src=&#39;../Images/icon_view.gif&#39;" onmouseover="this.src=&#39;../Images/icon_view_over.gif&#39;" tooltip="&lt;%# GetResourceValue(&quot;Txt:ViewRecord&quot;, &quot;OLR&quot;) %>">		
-	</asp:ImageButton>
+                          
                         
-                          <asp:ImageButton runat="server" id="EditRowButton" causesvalidation="False" commandname="Redirect" cssclass="button_link" imageurl="../Images/icon_edit.gif" onmouseout="this.src=&#39;../Images/icon_edit.gif&#39;" onmouseover="this.src=&#39;../Images/icon_edit_over.gif&#39;" tooltip="&lt;%# GetResourceValue(&quot;Txt:EditRecord&quot;, &quot;OLR&quot;) %>">		
-	</asp:ImageButton>
+                          
                         
                           <asp:ImageButton runat="server" id="DeleteRowButton" causesvalidation="False" commandargument="DeleteOnUpdate" commandname="DeleteRecord" cssclass="button_link" imageurl="../Images/icon_delete.gif" onmouseout="this.src=&#39;../Images/icon_delete.gif&#39;" onmouseover="this.src=&#39;../Images/icon_delete_over.gif&#39;" tooltip="&lt;%# GetResourceValue(&quot;Txt:DeleteRecord&quot;, &quot;OLR&quot;) %>">		
 	</asp:ImageButton>
-                        </td><td class="tableCellLabel"> 
-</td><td class="tableCellValue"> </td><td class="tableCellLabel"><asp:Literal runat="server" id="EventIdLabel" Text="Event">	</asp:Literal> 
-</td><td class="tableCellValue"><BaseClasses:QuickSelector runat="server" id="EventId" redirecturl=""></BaseClasses:QuickSelector> </td></tr><tr><td class="tableRowDivider" colspan="8"></td></tr></OLR:RegistrationTypesTableControlRow>
+                        </td><td class="tableCellLabel"><asp:Literal runat="server" id="RegistrationTypeLabel" Text="Registration Type">	</asp:Literal></td><td class="tableCellValue" colspan="3"><asp:TextBox runat="server" id="RegistrationType" MaxLength="100" columns="50" cssclass="field_input" rows="2" textmode="MultiLine"></asp:TextBox>&nbsp;
+<BaseClasses:TextBoxMaxLengthValidator runat="server" id="RegistrationTypeTextBoxMaxLengthValidator" ControlToValidate="RegistrationType" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueTooLong&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, &quot;Registration Type&quot;) %>"></BaseClasses:TextBoxMaxLengthValidator></td></tr><tr><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableRowButtonsCellVertical"></td><td class="tableCellLabel"><asp:Literal runat="server" id="CostMemberLabel" Text="Cost Member">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td style="padding-right: 5px; vertical-align:top">
+<asp:TextBox runat="server" id="CostMember" Columns="10" MaxLength="20" cssclass="field_input"></asp:TextBox></td>
+<td>
+&nbsp;
+<BaseClasses:TextBoxMaxLengthValidator runat="server" id="CostMemberTextBoxMaxLengthValidator" ControlToValidate="CostMember" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueTooLong&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, &quot;Cost Member&quot;) %>"></BaseClasses:TextBoxMaxLengthValidator></td>
+</tr>
+</table>
+</span>
+</td><td class="tableCellLabel"><asp:Literal runat="server" id="CostNonMemberLabel" Text="EvaluateFormula(&quot;= \&quot;Cost Non Member\&quot;&quot;, true)">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td style="padding-right: 5px; vertical-align:top">
+<asp:TextBox runat="server" id="CostNonMember" Columns="10" MaxLength="20" cssclass="field_input"></asp:TextBox></td>
+<td>
+&nbsp;
+<BaseClasses:TextBoxMaxLengthValidator runat="server" id="CostNonMemberTextBoxMaxLengthValidator" ControlToValidate="CostNonMember" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueTooLong&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, EvaluateFormula(&quot;= \&quot;Cost Non Member\&quot;&quot;, true)) %>"></BaseClasses:TextBoxMaxLengthValidator></td>
+</tr>
+</table>
+</span>
+</td></tr><tr><td class="tableRowDivider" colspan="8"></td></tr></OLR:RegistrationTypesTableControlRow>
 </ITEMTEMPLATE>
 
 </asp:Repeater>

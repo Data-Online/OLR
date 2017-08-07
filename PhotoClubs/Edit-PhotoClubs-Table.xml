@@ -380,6 +380,10 @@
           <Value>Txt:EditRecord</Value>
           <Type>ResourceReference</Type>
         </Attribute>
+        <Attribute>
+          <Name>Visible</Name>
+          <Value>False</Value>
+        </Attribute>
       </PassthroughAttributes>
       <InsideControl>PhotoClubsTableControl</InsideControl>
       <InsideItemTemplate>true</InsideItemTemplate>
@@ -875,6 +879,10 @@
           <Name>ToolTip</Name>
           <Value>Txt:ViewRecord</Value>
           <Type>ResourceReference</Type>
+        </Attribute>
+        <Attribute>
+          <Name>Visible</Name>
+          <Value>False</Value>
         </Attribute>
       </PassthroughAttributes>
       <InsideControl>PhotoClubsTableControl</InsideControl>

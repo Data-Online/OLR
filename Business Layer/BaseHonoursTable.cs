@@ -59,7 +59,7 @@ public class BaseHonoursTable : PrimaryKeyTable
 		
         this.TableDefinition.AdapterMetaData = this.DataAdapter.AdapterMetaData;
         HonourIdColumn.CodeName = "HonourId";
-        HonourColumn.CodeName = "Honour";
+        DescriptionColumn.CodeName = "Description";
 
         
     }
@@ -96,9 +96,9 @@ public class BaseHonoursTable : PrimaryKeyTable
     
     
     /// <summary>
-    /// This is a convenience property that provides direct access to the table's Honours_.Honour column object.
+    /// This is a convenience property that provides direct access to the table's Honours_.Description column object.
     /// </summary>
-    public BaseClasses.Data.StringColumn HonourColumn
+    public BaseClasses.Data.StringColumn DescriptionColumn
     {
         get
         {
@@ -109,13 +109,13 @@ public class BaseHonoursTable : PrimaryKeyTable
 
     
     /// <summary>
-    /// This is a convenience property that provides direct access to the table's Honours_.Honour column object.
+    /// This is a convenience property that provides direct access to the table's Honours_.Description column object.
     /// </summary>
-    public static BaseClasses.Data.StringColumn Honour
+    public static BaseClasses.Data.StringColumn Description
     {
         get
         {
-            return HonoursTable.Instance.HonourColumn;
+            return HonoursTable.Instance.DescriptionColumn;
         }
     }
     
@@ -645,11 +645,11 @@ public class BaseHonoursTable : PrimaryKeyTable
 
         //Convenience method for creating a record
         public KeyValue NewRecord(
-        string HonourValue
+        string DescriptionValue
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
-                    rec.SetString(HonourValue, HonourColumn);
+                    rec.SetString(DescriptionValue, DescriptionColumn);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized

@@ -405,7 +405,7 @@ public class BaseHonourContactLinksRecordControl : OLR.UI.BaseApplicationRecordC
                         if(_isExpandableNonCompositeForeignKey && HonourContactLinksTable.HonourId.IsApplyDisplayAs)
                             fvalue = HonourContactLinksTable.GetDFKA(itemValue, HonourContactLinksTable.HonourId);
                         if ((!_isExpandableNonCompositeForeignKey) || (String.IsNullOrEmpty(fvalue)))
-                            fvalue = itemValue.Format(HonoursTable.Honour);
+                            fvalue = itemValue.Format(HonoursTable.HonourId);
                             					
                         if (fvalue == null || fvalue.Trim() == "") fvalue = cvalue;
                         MiscUtils.ResetSelectedItem(this.HonourId, new ListItem(fvalue, cvalue));                      
@@ -422,7 +422,7 @@ public class BaseHonourContactLinksRecordControl : OLR.UI.BaseApplicationRecordC
               
               url = this.Page.ModifyRedirectUrl(url, "", true);                                  
               
-              url += "?Target=" + this.HonourId.ClientID + "&DFKA=" + (this.Page as BaseApplicationPage).Encrypt("Honour")+ "&IndexField=" + (this.Page as BaseApplicationPage).Encrypt("HonourId")+ "&EmptyValue=" + (this.Page as BaseApplicationPage).Encrypt("--PLEASE_SELECT--") + "&EmptyDisplayText=" + (this.Page as BaseApplicationPage).Encrypt(this.Page.GetResourceValue("Txt:PleaseSelect"))+ "&Mode=" + (this.Page as BaseApplicationPage).Encrypt("FieldValueSingleSelection") + "&RedirectStyle=" + (this.Page as BaseApplicationPage).Encrypt("Popup");
+              url += "?Target=" + this.HonourId.ClientID + "&Formula=" + (this.Page as BaseApplicationPage).Encrypt("= Honours.Description")+ "&IndexField=" + (this.Page as BaseApplicationPage).Encrypt("HonourId")+ "&EmptyValue=" + (this.Page as BaseApplicationPage).Encrypt("--PLEASE_SELECT--") + "&EmptyDisplayText=" + (this.Page as BaseApplicationPage).Encrypt(this.Page.GetResourceValue("Txt:PleaseSelect"))+ "&Mode=" + (this.Page as BaseApplicationPage).Encrypt("FieldValueSingleSelection") + "&RedirectStyle=" + (this.Page as BaseApplicationPage).Encrypt("Popup");
               
               this.HonourId.Attributes["onClick"] = "initializePopupPage(this, '" + url + "', " + Convert.ToString(HonourId.AutoPostBack).ToLower() + ", event); return false;";
                   

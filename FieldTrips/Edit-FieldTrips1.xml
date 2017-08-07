@@ -855,6 +855,14 @@
           <Name>PlacesAvailable Desc</Name>
           <Value>Places Available {Txt:Descending}</Value>
         </Item>
+        <Item>
+          <Name>Cost Asc</Name>
+          <Value>Cost {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>Cost Desc</Name>
+          <Value>Cost {Txt:Descending}</Value>
+        </Item>
       </SpecifiedItems>
       <PassthroughAttributes>
         <Attribute>

@@ -51,7 +51,7 @@
       </updatingFormula>
     </Column>
     <Column InternalName="1" Priority="2" ColumnNum="1">
-      <columnName>Honour</columnName>
+      <columnName>Description</columnName>
       <columnUIName>%ISD_DEFAULT%</columnUIName>
       <columnType>String</columnType>
       <columnDBType>nvarchar</columnDBType>
@@ -80,27 +80,10 @@
       <columnTableAliasName>
       </columnTableAliasName>
       <applyLabelText>Y</applyLabelText>
-      <applyDFKA>N</applyDFKA>
-      <applyInitializeInsertingRecord>N</applyInitializeInsertingRecord>
-      <applyInitializeReadingRecord>N</applyInitializeReadingRecord>
-      <applyInitializeUpdatingRecord>N</applyInitializeUpdatingRecord>
-      <applyValidateInsertingRecord>N</applyValidateInsertingRecord>
-      <applyValidateUpdatingRecord>N</applyValidateUpdatingRecord>
-      <applyDefaultValue>N</applyDefaultValue>
-      <insertingRecordFormula>
-      </insertingRecordFormula>
-      <readingRecordFormula>
-      </readingRecordFormula>
-      <updatingRecordFormula>
-      </updatingRecordFormula>
-      <insertingFormula>
-      </insertingFormula>
-      <updatingFormula>
-      </updatingFormula>
     </Column>
   </ColumnDefinition>
   <TableName>Honours</TableName>
-  <Version>3</Version>
+  <Version>4</Version>
   <Owner>dbo</Owner>
   <TableAliasName>Honours_</TableAliasName>
   <ConnectionName>DatabaseOLR_db</ConnectionName>

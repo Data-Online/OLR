@@ -60,7 +60,12 @@ public class BaseRegistrationTypesTable : PrimaryKeyTable
         this.TableDefinition.AdapterMetaData = this.DataAdapter.AdapterMetaData;
         RegistrationTypeIdColumn.CodeName = "RegistrationTypeId";
         EventIdColumn.CodeName = "EventId";
+        EventIdColumn.DefaultValue = EvaluateFormula("Session(\"ActiveEventId\")");
         RegistrationTypeColumn.CodeName = "RegistrationType";
+        CostMemberColumn.CodeName = "CostMember";
+        CostNonMemberColumn.CodeName = "CostNonMember";
+        CostNonMemberColumn.Name = EvaluateFormula("\"Cost Non Member\"");
+        Default0Column.CodeName = "Default0";
 
         
     }
@@ -155,6 +160,81 @@ public class BaseRegistrationTypesTable : PrimaryKeyTable
         get
         {
             return RegistrationTypesTable.Instance.RegistrationTypeColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's RegistrationTypes_.CostMember column object.
+    /// </summary>
+    public BaseClasses.Data.NumberColumn CostMemberColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[3];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's RegistrationTypes_.CostMember column object.
+    /// </summary>
+    public static BaseClasses.Data.NumberColumn CostMember
+    {
+        get
+        {
+            return RegistrationTypesTable.Instance.CostMemberColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's RegistrationTypes_.CostNonMember column object.
+    /// </summary>
+    public BaseClasses.Data.NumberColumn CostNonMemberColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[4];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's RegistrationTypes_.CostNonMember column object.
+    /// </summary>
+    public static BaseClasses.Data.NumberColumn CostNonMember
+    {
+        get
+        {
+            return RegistrationTypesTable.Instance.CostNonMemberColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's RegistrationTypes_.Default column object.
+    /// </summary>
+    public BaseClasses.Data.BooleanColumn Default0Column
+    {
+        get
+        {
+            return (BaseClasses.Data.BooleanColumn)this.TableDefinition.ColumnList[5];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's RegistrationTypes_.Default column object.
+    /// </summary>
+    public static BaseClasses.Data.BooleanColumn Default0
+    {
+        get
+        {
+            return RegistrationTypesTable.Instance.Default0Column;
         }
     }
     
@@ -685,12 +765,18 @@ public class BaseRegistrationTypesTable : PrimaryKeyTable
         //Convenience method for creating a record
         public KeyValue NewRecord(
         string EventIdValue, 
-        string RegistrationTypeValue
+        string RegistrationTypeValue, 
+        string CostMemberValue, 
+        string CostNonMemberValue, 
+        string Default0Value
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
                     rec.SetString(EventIdValue, EventIdColumn);
         rec.SetString(RegistrationTypeValue, RegistrationTypeColumn);
+        rec.SetString(CostMemberValue, CostMemberColumn);
+        rec.SetString(CostNonMemberValue, CostNonMemberColumn);
+        rec.SetString(Default0Value, Default0Column);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized

@@ -878,6 +878,46 @@ public class BaseView_RegisteredRecord : PrimaryKeyRecord
 		ColumnValue cv = new ColumnValue(val);
 		this.SetValue(cv, TableUtils.RecordDeletedColumn);
 	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_Registered_.ValidationUid field.
+	/// </summary>
+	public ColumnValue GetValidationUidValue()
+	{
+		return this.GetValue(TableUtils.ValidationUidColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_Registered_.ValidationUid field.
+	/// </summary>
+	public System.Guid GetValidationUidFieldValue()
+	{
+		return this.GetValue(TableUtils.ValidationUidColumn).ToGuid();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_Registered_.ValidationUid field.
+	/// </summary>
+	public void SetValidationUidFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.ValidationUidColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_Registered_.ValidationUid field.
+	/// </summary>
+	public void SetValidationUidFieldValue(string val)
+	{
+		this.SetString(val, TableUtils.ValidationUidColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_Registered_.ValidationUid field.
+	/// </summary>
+	public void SetValidationUidFieldValue(System.Guid val)
+	{
+		ColumnValue cv = new ColumnValue(val, System.TypeCode.Object);
+		this.SetValue(cv, TableUtils.ValidationUidColumn);
+	}
 
 
 #endregion
@@ -1749,6 +1789,49 @@ public class BaseView_RegisteredRecord : PrimaryKeyRecord
 		get
 		{
 			return TableUtils.RecordDeletedColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_Registered_.ValidationUid field.
+	/// </summary>
+	public System.Guid ValidationUid
+	{
+		get
+		{
+			return this.GetValue(TableUtils.ValidationUidColumn).ToGuid();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value, System.TypeCode.Object);
+			this.SetValue(cv, TableUtils.ValidationUidColumn);
+		}
+	}
+		
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool ValidationUidSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.ValidationUidColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_Registered_.ValidationUid field.
+	/// </summary>
+	public string ValidationUidDefault
+	{
+		get
+		{
+			return TableUtils.ValidationUidColumn.DefaultValue;
 		}
 	}
 

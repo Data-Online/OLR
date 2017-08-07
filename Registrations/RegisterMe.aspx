@@ -102,7 +102,9 @@
                   <asp:panel id="CollapsibleRegion4" runat="server"><table class="dBody" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tre">
                     <table id="HonourContactLinksTableControlGrid" cellpadding="0" cellspacing="0" border="0" width="100%" onkeydown="captureUpDownKey(this, event)"><tr class="tch"><th class="thc" style="display:none" colspan="3"></th></tr><asp:Repeater runat="server" id="HonourContactLinksTableControlRepeater">		<ITEMTEMPLATE>
 <tr><asp:Repeater runat="server" id="HonourContactLinksTableControlCellRepeater">		<ITEMTEMPLATE>		<OLR:HonourContactLinksTableControlRow runat="server" id="HonourContactLinksTableControlRow">
-<td class="galleryttc" style="width:33%;"><asp:Literal runat="server" id="HonourId"></asp:Literal> 
+<td class="galleryttc" style="width:33%;"><span style="white-space:nowrap;">
+<asp:Literal runat="server" id="HonourId"></asp:Literal></span>
+ 
 <asp:ImageButton runat="server" id="DeleteRowButton1" causesvalidation="False" commandname="DeleteRecord" cssclass="button_link" imageurl="../Images/icon_delete.gif" onmouseout="this.src=&#39;../Images/icon_delete.gif&#39;" onmouseover="this.src=&#39;../Images/icon_delete_over.gif&#39;" tooltip="Remove">		
 	</asp:ImageButton></td></OLR:HonourContactLinksTableControlRow>
 </ITEMTEMPLATE>
@@ -141,7 +143,7 @@
 
                 </td><td class="panelHeaderR"></td></tr><tr><td class="panelL"></td><td>
                   <asp:panel id="CollapsibleRegion5" runat="server"><table class="dBody" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tre">
-                    <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tableCellLabel"><asp:Literal runat="server" id="RegistrationTypeIdLabel" Text="Registration Type">	</asp:Literal></td><td class="tableCellValue" rowspan="2"><asp:RadioButtonList runat="server" id="RegistrationTypeId" RepeatLayout="Flow"></asp:RadioButtonList>&nbsp;
+                    <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tableCellLabel"><asp:Literal runat="server" id="RegistrationTypeIdLabel" Text="Registration Type">	</asp:Literal></td><td class="tableCellValue" rowspan="2"><asp:RadioButtonList runat="server" id="RegistrationTypeId" RepeatLayout="Flow" autopostback="True"></asp:RadioButtonList>&nbsp;
 <asp:RequiredFieldValidator runat="server" id="RegistrationTypeIdRequiredFieldValidator" ControlToValidate="RegistrationTypeId" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueIsRequired&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, &quot;Registration Type&quot;) %>" enabled="True" text="*"></asp:RequiredFieldValidator></td><td class="tableCellLabel"><asp:Literal runat="server" id="AdditionalDinnerTicketLabel" Text="Additional Dinner Ticket">	</asp:Literal></td><td class="tableCellValue" style="padding-right:318px"><asp:CheckBox runat="server" id="AdditionalDinnerTicket" autopostback="True" tooltip="Select if you require an additional diner" width="100%"></asp:CheckBox></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><span style="white-space:nowrap;">
 <asp:Literal runat="server" id="RegistrationId1" visible="False"></asp:Literal></span>
 </td><td class="tableCellLabel"><asp:Literal runat="server" id="AdditionalDinnerNameLabel" Text="Additional Dinner Name" visible="False">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">

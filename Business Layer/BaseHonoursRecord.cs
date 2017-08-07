@@ -147,36 +147,36 @@ public class BaseHonoursRecord : PrimaryKeyRecord
 	}
 
 	/// <summary>
-	/// This is a convenience method that provides direct access to the value of the record's Honours_.Honour field.
+	/// This is a convenience method that provides direct access to the value of the record's Honours_.Description field.
 	/// </summary>
-	public ColumnValue GetHonourValue()
+	public ColumnValue GetDescriptionValue()
 	{
-		return this.GetValue(TableUtils.HonourColumn);
+		return this.GetValue(TableUtils.DescriptionColumn);
 	}
 
 	/// <summary>
-	/// This is a convenience method that provides direct access to the value of the record's Honours_.Honour field.
+	/// This is a convenience method that provides direct access to the value of the record's Honours_.Description field.
 	/// </summary>
-	public string GetHonourFieldValue()
+	public string GetDescriptionFieldValue()
 	{
-		return this.GetValue(TableUtils.HonourColumn).ToString();
+		return this.GetValue(TableUtils.DescriptionColumn).ToString();
 	}
 
 	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's Honours_.Honour field.
+	/// This is a convenience method that allows direct modification of the value of the record's Honours_.Description field.
 	/// </summary>
-	public void SetHonourFieldValue(ColumnValue val)
+	public void SetDescriptionFieldValue(ColumnValue val)
 	{
-		this.SetValue(val, TableUtils.HonourColumn);
+		this.SetValue(val, TableUtils.DescriptionColumn);
 	}
 
 	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's Honours_.Honour field.
+	/// This is a convenience method that allows direct modification of the value of the record's Honours_.Description field.
 	/// </summary>
-	public void SetHonourFieldValue(string val)
+	public void SetDescriptionFieldValue(string val)
 	{
 		ColumnValue cv = new ColumnValue(val);
-		this.SetValue(cv, TableUtils.HonourColumn);
+		this.SetValue(cv, TableUtils.DescriptionColumn);
 	}
 
 
@@ -228,18 +228,18 @@ public class BaseHonoursRecord : PrimaryKeyRecord
 		}
 	}
 	/// <summary>
-	/// This is a property that provides direct access to the value of the record's Honours_.Honour field.
+	/// This is a property that provides direct access to the value of the record's Honours_.Description field.
 	/// </summary>
-	public string Honour
+	public string Description
 	{
 		get
 		{
-			return this.GetValue(TableUtils.HonourColumn).ToString();
+			return this.GetValue(TableUtils.DescriptionColumn).ToString();
 		}
 		set
 		{
 			ColumnValue cv = new ColumnValue(value);
-			this.SetValue(cv, TableUtils.HonourColumn);
+			this.SetValue(cv, TableUtils.DescriptionColumn);
 		}
 	}
 
@@ -247,11 +247,11 @@ public class BaseHonoursRecord : PrimaryKeyRecord
 	/// <summary>
 	/// This is a convenience method that can be used to determine that the column is set.
 	/// </summary>
-	public bool HonourSpecified
+	public bool DescriptionSpecified
 	{
 		get
 		{
-			ColumnValue val = this.GetValue(TableUtils.HonourColumn);
+			ColumnValue val = this.GetValue(TableUtils.DescriptionColumn);
             if (val == null || val.IsNull)
             {
                 return false;
@@ -261,13 +261,13 @@ public class BaseHonoursRecord : PrimaryKeyRecord
 	}
 
 	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's Honours_.Honour field.
+	/// This is a convenience method that allows direct modification of the value of the record's Honours_.Description field.
 	/// </summary>
-	public string HonourDefault
+	public string DescriptionDefault
 	{
 		get
 		{
-			return TableUtils.HonourColumn.DefaultValue;
+			return TableUtils.DescriptionColumn.DefaultValue;
 		}
 	}
 

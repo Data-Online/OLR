@@ -137,7 +137,9 @@
                   <asp:panel id="CollapsibleRegion4" runat="server"><table class="dBody" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tre">
                     <table id="HonourContactLinksTableControlGrid" cellpadding="0" cellspacing="0" border="0" width="100%" onkeydown="captureUpDownKey(this, event)"><tr class="tch"><th class="thc" style="display:none" colspan="3"></th></tr><asp:Repeater runat="server" id="HonourContactLinksTableControlRepeater">		<ITEMTEMPLATE>
 <tr><asp:Repeater runat="server" id="HonourContactLinksTableControlCellRepeater">		<ITEMTEMPLATE>		<OLR:HonourContactLinksTableControlRow runat="server" id="HonourContactLinksTableControlRow">
-<td class="galleryttc" style="width:33%;"><asp:Literal runat="server" id="HonourId"></asp:Literal> 
+<td class="galleryttc" style="width:33%;"><span style="white-space:nowrap;">
+<asp:Literal runat="server" id="HonourId"></asp:Literal></span>
+ 
 <asp:ImageButton runat="server" id="DeleteRowButton1" causesvalidation="False" commandname="DeleteRecord" cssclass="button_link" imageurl="../Images/icon_delete.gif" onmouseout="this.src=&#39;../Images/icon_delete.gif&#39;" onmouseover="this.src=&#39;../Images/icon_delete_over.gif&#39;" tooltip="Remove">		
 	</asp:ImageButton></td></OLR:HonourContactLinksTableControlRow>
 </ITEMTEMPLATE>

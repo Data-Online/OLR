@@ -2159,6 +2159,10 @@ public class BaseAvailableWorkshopsTableControl : OLR.UI.BaseApplicationTableCon
               
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Record Deleted {Txt:Descending}"), "RecordDeleted Desc"));
               
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Cost {Txt:Ascending}"), "Cost Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Cost {Txt:Descending}"), "Cost Desc"));
+              
             try
             {          
                 // Set the selected value.

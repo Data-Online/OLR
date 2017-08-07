@@ -102,12 +102,12 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
           
                     this.DeleteRowButton.Click += DeleteRowButton_Click;
                         
-                    this.EditRowButton.Click += EditRowButton_Click;
-                        
-                    this.ViewRowButton.Click += ViewRowButton_Click;
-                        
-              this.EventId.SelectedIndexChanged += EventId_SelectedIndexChanged;                  
-                
+              this.CostMember.TextChanged += CostMember_TextChanged;
+            
+              this.CostNonMember.TextChanged += CostNonMember_TextChanged;
+            
+              this.RegistrationType.TextChanged += RegistrationType_TextChanged;
+            
         }
 
         public virtual void LoadData()  
@@ -163,17 +163,15 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
 
             // Call the Set methods for each controls on the panel
         
+                SetCostMember();
+                SetCostMemberLabel();
+                SetCostNonMember();
+                SetCostNonMemberLabel();
                 
-                
-                SetEventId();
-                SetEventIdLabel();
-                
+                SetRegistrationType();
+                SetRegistrationTypeLabel();
                 
                 SetDeleteRowButton();
-              
-                SetEditRowButton();
-              
-                SetViewRowButton();
               
 
       
@@ -198,125 +196,147 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
         }
         
         
-        public virtual void SetEventId()
+        public virtual void SetCostMember()
         {
-            				
-        
-        
-            string selectedValue = null;
             
-            // figure out the selectedValue
-                  
-            							
-            // If selection was retrieved from UI previously, restore it
-            if (this.PreviousUIData.ContainsKey(this.EventId.ID))
+            // If data was retrieved from UI previously, restore it
+            if (this.PreviousUIData.ContainsKey(this.CostMember.ID))
             {
-                if (this.PreviousUIData[this.EventId.ID] == null)
-                    selectedValue = null;
-                else
-                    selectedValue = this.PreviousUIData[this.EventId.ID].ToString();
-            }
             
-            
-            // Set the EventId QuickSelector on the webpage with value from the
-            // DatabaseOLR_db%dbo.RegistrationTypes database record.
-            
-            // this.DataSource is the DatabaseOLR_db%dbo.RegistrationTypes record retrieved from the database.
-            // this.EventId is the ASP:QuickSelector on the webpage.
-            
-            // You can modify this method directly, or replace it with a call to
-            //     base.SetEventId();
-            // and add your own custom code before or after the call to the base function.
-
-            
-            if (this.DataSource != null && this.DataSource.EventIdSpecified)
-            {
-                            
-                // If the EventId is non-NULL, then format the value.
-                // The Format method will return the Display Foreign Key As (DFKA) value
-                selectedValue = this.DataSource.EventId.ToString();
-                
-            }
-            else
-            {
-                
-                // EventId is NULL in the database, so use the Default Value.  
-                // Default Value could also be NULL.
-                if (this.DataSource != null && this.DataSource.IsCreated)
-                    selectedValue = null;
-                else
-                    selectedValue = RegistrationTypesTable.EventId.DefaultValue;
-                				
-            }			
-                
-            // Add the Please Select item.
-            if (selectedValue == null || selectedValue == "")
-                  MiscUtils.ResetSelectedItem(this.EventId, new ListItem(this.Page.GetResourceValue("Txt:PleaseSelect", "OLR"), "--PLEASE_SELECT--"));
-                        
-                  
-            // Populate the item(s) to the control
-            
-            this.EventId.SetFieldMaxLength(50);
-            
-            System.Collections.Generic.IDictionary<string, object> variables = new System.Collections.Generic.Dictionary<string, object>();              
-            FormulaEvaluator evaluator = new FormulaEvaluator();
+                this.CostMember.Text = this.PreviousUIData[this.CostMember.ID].ToString();
               
-            if (selectedValue != null &&
-                selectedValue.Trim() != "" &&
-                !MiscUtils.SetSelectedValue(this.EventId, selectedValue) &&
-                !MiscUtils.SetSelectedDisplayText(this.EventId, selectedValue))
-            {
-
-                // construct a whereclause to query a record with DatabaseOLR_db%dbo.Events.EventId = selectedValue
+                return;
+            }
+            
                     
-                CompoundFilter filter2 = new CompoundFilter(CompoundFilter.CompoundingOperators.And_Operator, null);
-                WhereClause whereClause2 = new WhereClause();
-                filter2.AddFilter(new BaseClasses.Data.ColumnValueFilter(EventsTable.EventId, selectedValue, BaseClasses.Data.BaseFilter.ComparisonOperator.EqualsTo, false));
-                whereClause2.AddFilter(filter2, CompoundFilter.CompoundingOperators.And_Operator);
+            // Set the CostMember TextBox on the webpage with value from the
+            // DatabaseOLR_db%dbo.RegistrationTypes database record.
 
-                // Execute the query
-                try
-                {
-                    EventsRecord[] rc = EventsTable.GetRecords(whereClause2, new OrderBy(false, false), 0, 1);
-                    System.Collections.Generic.IDictionary<string, object> vars = new System.Collections.Generic.Dictionary<string, object> ();
-                    // if find a record, add it to the dropdown and set it as selected item
-                    if (rc != null && rc.Length == 1)
-                    {
-                        EventsRecord itemValue = rc[0];
-                        string cvalue = null;
-                        string fvalue = null;                        
-                        if (itemValue.EventIdSpecified)
-                            cvalue = itemValue.EventId.ToString(); 
-                        Boolean _isExpandableNonCompositeForeignKey = RegistrationTypesTable.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(RegistrationTypesTable.EventId);
-                        if(_isExpandableNonCompositeForeignKey && RegistrationTypesTable.EventId.IsApplyDisplayAs)
-                            fvalue = RegistrationTypesTable.GetDFKA(itemValue, RegistrationTypesTable.EventId);
-                        if ((!_isExpandableNonCompositeForeignKey) || (String.IsNullOrEmpty(fvalue)))
-                            fvalue = itemValue.Format(EventsTable.EventName);
-                            					
-                        if (fvalue == null || fvalue.Trim() == "") fvalue = cvalue;
-                        MiscUtils.ResetSelectedItem(this.EventId, new ListItem(fvalue, cvalue));                      
-                    }
-                }
-                catch
-                {
-                }
-
-                    					
-            }					
-                        
-              string url = this.ModifyRedirectUrl("../Events/Events-QuickSelector.aspx", "", true);
-              
-              url = this.Page.ModifyRedirectUrl(url, "", true);                                  
-              
-              url += "?Target=" + this.EventId.ClientID + "&DFKA=" + (this.Page as BaseApplicationPage).Encrypt("EventName")+ "&IndexField=" + (this.Page as BaseApplicationPage).Encrypt("EventId")+ "&EmptyValue=" + (this.Page as BaseApplicationPage).Encrypt("--PLEASE_SELECT--") + "&EmptyDisplayText=" + (this.Page as BaseApplicationPage).Encrypt(this.Page.GetResourceValue("Txt:PleaseSelect"))+ "&Mode=" + (this.Page as BaseApplicationPage).Encrypt("FieldValueSingleSelection") + "&RedirectStyle=" + (this.Page as BaseApplicationPage).Encrypt("Popup");
-              
-              this.EventId.Attributes["onClick"] = "initializePopupPage(this, '" + url + "', " + Convert.ToString(EventId.AutoPostBack).ToLower() + ", event); return false;";
+            // this.DataSource is the DatabaseOLR_db%dbo.RegistrationTypes record retrieved from the database.
+            // this.CostMember is the ASP:TextBox on the webpage.
                   
-                
-                  
+            if (this.DataSource != null && this.DataSource.CostMemberSpecified) {
+                								
+                // If the CostMember is non-NULL, then format the value.
+                // The Format method will use the Display Format
+               string formattedValue = this.DataSource.Format(RegistrationTypesTable.CostMember);
+                                
+                this.CostMember.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // CostMember is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.CostMember.Text = RegistrationTypesTable.CostMember.Format(RegistrationTypesTable.CostMember.DefaultValue);
+            		
+            }
+            
+              this.CostMember.TextChanged += CostMember_TextChanged;
+                               
         }
                 
-        public virtual void SetEventIdLabel()
+        public virtual void SetCostNonMember()
+        {
+            
+            // If data was retrieved from UI previously, restore it
+            if (this.PreviousUIData.ContainsKey(this.CostNonMember.ID))
+            {
+            
+                this.CostNonMember.Text = this.PreviousUIData[this.CostNonMember.ID].ToString();
+              
+                return;
+            }
+            
+                    
+            // Set the CostNonMember TextBox on the webpage with value from the
+            // DatabaseOLR_db%dbo.RegistrationTypes database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.RegistrationTypes record retrieved from the database.
+            // this.CostNonMember is the ASP:TextBox on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.CostNonMemberSpecified) {
+                								
+                // If the CostNonMember is non-NULL, then format the value.
+                // The Format method will use the Display Format
+               string formattedValue = this.DataSource.Format(RegistrationTypesTable.CostNonMember);
+                                
+                this.CostNonMember.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // CostNonMember is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.CostNonMember.Text = RegistrationTypesTable.CostNonMember.Format(RegistrationTypesTable.CostNonMember.DefaultValue);
+            		
+            }
+            
+              this.CostNonMember.TextChanged += CostNonMember_TextChanged;
+                               
+        }
+                
+        public virtual void SetRegistrationType()
+        {
+            
+            // If data was retrieved from UI previously, restore it
+            if (this.PreviousUIData.ContainsKey(this.RegistrationType.ID))
+            {
+            
+                this.RegistrationType.Text = this.PreviousUIData[this.RegistrationType.ID].ToString();
+              
+                return;
+            }
+            
+                    
+            // Set the RegistrationType TextBox on the webpage with value from the
+            // DatabaseOLR_db%dbo.RegistrationTypes database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.RegistrationTypes record retrieved from the database.
+            // this.RegistrationType is the ASP:TextBox on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.RegistrationTypeSpecified) {
+                								
+                // If the RegistrationType is non-NULL, then format the value.
+                // The Format method will use the Display Format
+               string formattedValue = this.DataSource.Format(RegistrationTypesTable.RegistrationType);
+                                
+                this.RegistrationType.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // RegistrationType is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.RegistrationType.Text = RegistrationTypesTable.RegistrationType.Format(RegistrationTypesTable.RegistrationType.DefaultValue);
+            		
+            }
+            
+              this.RegistrationType.TextChanged += RegistrationType_TextChanged;
+                               
+        }
+                
+        public virtual void SetCostMemberLabel()
+                  {
+                  
+                    
+        }
+                
+        public virtual void SetCostNonMemberLabel()
+                  {
+                  
+                        this.CostNonMemberLabel.Text = EvaluateFormula("\"Cost Non Member\"");
+                      
+                    
+        }
+                
+        public virtual void SetRegistrationTypeLabel()
                   {
                   
                     
@@ -476,19 +496,52 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
       
             // Call the Get methods for each of the user interface controls.
         
-            GetEventId();
+            GetCostMember();
+            GetCostNonMember();
+            GetRegistrationType();
         }
         
         
-        public virtual void GetEventId()
+        public virtual void GetCostMember()
         {
-         // Retrieve the value entered by the user on the EventId ASP:QuickSelector, and
-            // save it into the EventId field in DataSource DatabaseOLR_db%dbo.RegistrationTypes record.
+            
+            // Retrieve the value entered by the user on the CostMember ASP:TextBox, and
+            // save it into the CostMember field in DataSource DatabaseOLR_db%dbo.RegistrationTypes record.
             
             // Custom validation should be performed in Validate, not here.
+                    
+            // Save the value to data source
+            this.DataSource.Parse(this.CostMember.Text, RegistrationTypesTable.CostMember);							
+                          
+                      
+        }
+                
+        public virtual void GetCostNonMember()
+        {
             
-            this.DataSource.Parse(MiscUtils.GetValueSelectedPageRequest(this.EventId), RegistrationTypesTable.EventId);			
-                			 
+            // Retrieve the value entered by the user on the CostNonMember ASP:TextBox, and
+            // save it into the CostNonMember field in DataSource DatabaseOLR_db%dbo.RegistrationTypes record.
+            
+            // Custom validation should be performed in Validate, not here.
+                    
+            // Save the value to data source
+            this.DataSource.Parse(this.CostNonMember.Text, RegistrationTypesTable.CostNonMember);							
+                          
+                      
+        }
+                
+        public virtual void GetRegistrationType()
+        {
+            
+            // Retrieve the value entered by the user on the RegistrationType ASP:TextBox, and
+            // save it into the RegistrationType field in DataSource DatabaseOLR_db%dbo.RegistrationTypes record.
+            
+            // Custom validation should be performed in Validate, not here.
+                    
+            // Save the value to data source
+            this.DataSource.Parse(this.RegistrationType.Text, RegistrationTypesTable.RegistrationType);							
+                          
+                      
         }
                 
 
@@ -624,20 +677,6 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
    
         }
             
-        public virtual void SetEditRowButton()                
-              
-        {
-        
-   
-        }
-            
-        public virtual void SetViewRowButton()                
-              
-        {
-        
-   
-        }
-            
         // event handler for ImageButton
         public virtual void DeleteRowButton_Click(object sender, ImageClickEventArgs args)
         {
@@ -674,109 +713,21 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
             
             
         
-        // event handler for ImageButton
-        public virtual void EditRowButton_Click(object sender, ImageClickEventArgs args)
+        protected virtual void CostMember_TextChanged(object sender, EventArgs args)
         {
-              
-            // The redirect URL is set on the Properties, Custom Properties or Actions.
-            // The ModifyRedirectURL call resolves the parameters before the
-            // Response.Redirect redirects the page to the URL.  
-            // Any code after the Response.Redirect call will not be executed, since the page is
-            // redirected to the URL.
-            
-            string url = @"../RegistrationTypes/Edit-RegistrationTypes.aspx?RegistrationTypes={PK}";
-            
-            if (!string.IsNullOrEmpty(this.Page.Request["RedirectStyle"]))
-                url += "&RedirectStyle=" + this.Page.Request["RedirectStyle"];
-            
-        bool shouldRedirect = true;
-        string target = null;
-        if (target == null) target = ""; // avoid warning on VS
-      
-            try {
-                // Enclose all database retrieval/update code within a Transaction boundary
-                DbUtils.StartTransaction();
-                
-                url = this.ModifyRedirectUrl(url, "",true);
-                url = this.Page.ModifyRedirectUrl(url, "",true);
-              
-            } catch (Exception ex) {
-                  // Upon error, rollback the transaction
-                  this.Page.RollBackTransaction(sender);
-                  shouldRedirect = false;
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-                DbUtils.EndTransaction();
-            }
-            if (shouldRedirect) {
-                this.Page.ShouldSaveControlsToSession = true;
-      this.Page.Response.Redirect(url);
-        
-            }
-        
-        }
-            
-            
-        
-        // event handler for ImageButton
-        public virtual void ViewRowButton_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            // The redirect URL is set on the Properties, Custom Properties or Actions.
-            // The ModifyRedirectURL call resolves the parameters before the
-            // Response.Redirect redirects the page to the URL.  
-            // Any code after the Response.Redirect call will not be executed, since the page is
-            // redirected to the URL.
-            
-            string url = @"../RegistrationTypes/Show-RegistrationTypes.aspx?RegistrationTypes={PK}";
-            
-            if (!string.IsNullOrEmpty(this.Page.Request["RedirectStyle"]))
-                url += "&RedirectStyle=" + this.Page.Request["RedirectStyle"];
-            
-        bool shouldRedirect = true;
-        string target = null;
-        if (target == null) target = ""; // avoid warning on VS
-      
-            try {
-                // Enclose all database retrieval/update code within a Transaction boundary
-                DbUtils.StartTransaction();
-                
-                url = this.ModifyRedirectUrl(url, "",true);
-                url = this.Page.ModifyRedirectUrl(url, "",true);
-              
-            } catch (Exception ex) {
-                  // Upon error, rollback the transaction
-                  this.Page.RollBackTransaction(sender);
-                  shouldRedirect = false;
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-                DbUtils.EndTransaction();
-            }
-            if (shouldRedirect) {
-                this.Page.ShouldSaveControlsToSession = true;
-      this.Page.Response.Redirect(url);
-        
-            }
-        
-        }
-            
-            
-        
-        protected virtual void EventId_SelectedIndexChanged(object sender, EventArgs args)
-        {
-          									
-
-        }
-                      
                     
+              }
+            
+        protected virtual void CostNonMember_TextChanged(object sender, EventArgs args)
+        {
+                    
+              }
+            
+        protected virtual void RegistrationType_TextChanged(object sender, EventArgs args)
+        {
+                    
+              }
+            
   
         private Hashtable _PreviousUIData = new Hashtable();
         public virtual Hashtable PreviousUIData {
@@ -866,27 +817,45 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
        
 #region "Helper Properties"
         
+        public System.Web.UI.WebControls.TextBox CostMember {
+            get {
+                return (System.Web.UI.WebControls.TextBox)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "CostMember");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal CostMemberLabel {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "CostMemberLabel");
+            }
+        }
+        
+        public System.Web.UI.WebControls.TextBox CostNonMember {
+            get {
+                return (System.Web.UI.WebControls.TextBox)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "CostNonMember");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal CostNonMemberLabel {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "CostNonMemberLabel");
+            }
+        }
+        
         public System.Web.UI.WebControls.ImageButton DeleteRowButton {
             get {
                 return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "DeleteRowButton");
             }
         }
         
-        public System.Web.UI.WebControls.ImageButton EditRowButton {
+        public System.Web.UI.WebControls.TextBox RegistrationType {
             get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "EditRowButton");
+                return (System.Web.UI.WebControls.TextBox)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "RegistrationType");
             }
         }
-        
-        public BaseClasses.Web.UI.WebControls.QuickSelector EventId {
-            get {
-                return (BaseClasses.Web.UI.WebControls.QuickSelector)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "EventId");
-            }
-        }              
             
-        public System.Web.UI.WebControls.Literal EventIdLabel {
+        public System.Web.UI.WebControls.Literal RegistrationTypeLabel {
             get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "EventIdLabel");
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "RegistrationTypeLabel");
             }
         }
         
@@ -896,12 +865,6 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
             }
         }              
             
-        public System.Web.UI.WebControls.ImageButton ViewRowButton {
-            get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "ViewRowButton");
-            }
-        }
-        
     #endregion
 
     #region "Helper Functions"
@@ -1019,67 +982,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
     
            // Setup the filter and search.
         
-            if (!this.Page.IsPostBack)
-            {
-                string initialVal = "";
-                
-                  if(StringUtils.InvariantEquals(initialVal, "Search for", true) || StringUtils.InvariantEquals(initialVal, BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null), true))
-                  {
-                  initialVal = "";
-                  }
-                
-                if  (this.InSession(this.SortControl)) 				
-                    initialVal = this.GetFromSession(this.SortControl);
-                
-                if (initialVal != null && initialVal != "")		
-                {
-                        
-                    this.SortControl.Items.Add(new ListItem(initialVal, initialVal));
-                        
-                    this.SortControl.SelectedValue = initialVal;
-                            
-                    }
-            }
-            if (!this.Page.IsPostBack)
-            {
-                string initialVal = "";
-                if  (this.InSession(this.EventIdFilter)) 				
-                    initialVal = this.GetFromSession(this.EventIdFilter);
-                
-                else
-                    
-                    initialVal = EvaluateFormula("URL(\"EventId\")");
-                
-                if(StringUtils.InvariantEquals(initialVal, "Search for", true) || StringUtils.InvariantEquals(initialVal, BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null), true))
-                {
-                initialVal = "";
-                }
-              
-                if (initialVal != null && initialVal != "")		
-                {
-                        
-                    string[] EventIdFilteritemListFromSession = initialVal.Split(',');
-                    int index = 0;
-                    foreach (string item in EventIdFilteritemListFromSession)
-                    {
-                        if (index == 0 && item.ToString().Equals(""))
-                        {
-                            // do nothing
-                        }
-                        else
-                        {
-                            this.EventIdFilter.Items.Add(item);
-                            this.EventIdFilter.Items[index].Selected = true;
-                            index += 1;
-                        }
-                    }
-                    foreach (ListItem listItem in this.EventIdFilter.Items)
-                    {
-                        listItem.Selected = true;
-                    }
-                        
-                    }
-            }
 
 
       
@@ -1136,22 +1038,10 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                         
                     this.DeleteButton.Click += DeleteButton_Click;
                         
-                    this.ResetButton.Click += ResetButton_Click;
-                        
                     this.SaveButton.Click += SaveButton_Click;
                         
-                    this.SearchButton.Click += SearchButton_Click;
-                        
                     this.ActionsButton.Button.Click += ActionsButton_Click;
-                        
-                    this.FilterButton.Button.Click += FilterButton_Click;
-                        
-                    this.FiltersButton.Button.Click += FiltersButton_Click;
-                        
-            this.SortControl.SelectedIndexChanged += new EventHandler(SortControl_SelectedIndexChanged);
-            
-              this.EventIdFilter.SelectedIndexChanged += EventIdFilter_SelectedIndexChanged;                  
-                        
+                                
         
          //' Setup events for others
                
@@ -1350,9 +1240,7 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
           }
           
           //  LoadData for DataSource for chart and report if they exist
-          
-            // Improve performance by prefetching display as records.
-            this.PreFetchForeignKeyValues();     
+               
 
             // Setup the pagination controls.
             BindPaginationControls();
@@ -1390,33 +1278,17 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                 
                 
                 
-                SetEventIdFilter();
-                SetEventIdLabel1();
                 
                 
-                
-                
-                
-                
-                SetSortByLabel();
-                SetSortControl();
                 
                 
                 SetAddButton();
               
                 SetDeleteButton();
               
-                SetResetButton();
-              
                 SetSaveButton();
               
-                SetSearchButton();
-              
                 SetActionsButton();
-              
-                SetFilterButton();
-              
-                SetFiltersButton();
               
             // setting the state of expand or collapse alternative rows
       
@@ -1428,9 +1300,7 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
             // this method calls the set method for controls with special formula like running total, sum, rank, etc
             SetFormulaControls();
             
-             
-              SetFiltersButton();
-                     
+                    
         }
         
         
@@ -1441,14 +1311,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
 
     }
 
-        
-        public void PreFetchForeignKeyValues() {
-            if (this.DataSource == null) {
-                return;
-            }
-          
-            this.Page.PregetDfkaRecords(RegistrationTypesTable.EventId, this.DataSource);
-        }
         
 
         public virtual void RegisterPostback()
@@ -1541,10 +1403,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
         {
 
 
-            
-            this.EventIdFilter.ClearSelection();
-            
-            this.SortControl.ClearSelection();
             
             this.CurrentSortOrder.Reset();
             if (this.InSession(this, "Order_By")) {
@@ -1683,30 +1541,7 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
             // 2. User selected search criteria.
             // 3. User selected filter criteria.
             
-        
-            if (MiscUtils.IsValueSelected(this.EventIdFilter)) {
-                        
-                int selectedItemCount = 0;
-                foreach (ListItem item in this.EventIdFilter.Items){
-                    if (item.Selected) {
-                        selectedItemCount += 1;
-                        
-                          
-                    }
-                }
-                WhereClause filter = new WhereClause();
-                foreach (ListItem item in this.EventIdFilter.Items){
-                    if ((item.Selected) && ((item.Value == "--ANY--") || (item.Value == "--PLEASE_SELECT--")) && (selectedItemCount > 1)){
-                        item.Selected = false;
-                    }
-                    if (item.Selected){
-                        filter.iOR(RegistrationTypesTable.EventId, BaseFilter.ComparisonOperator.EqualsTo, item.Value, false, false);
-                    }
-                }
-                wc.iAND(filter);
-                    
-            }
-                           
+             
             return wc;
         }
         
@@ -1726,30 +1561,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
             
             // Adds clauses if values are selected in Filter controls which are configured in the page.
           
-      String EventIdFilterSelectedValue = (String)HttpContext.Current.Session[HttpContext.Current.Session.SessionID + appRelativeVirtualPath + "EventIdFilter_Ajax"];
-            if (MiscUtils.IsValueSelected(EventIdFilterSelectedValue)) {
-
-              
-        if (EventIdFilterSelectedValue != null){
-                        string[] EventIdFilteritemListFromSession = EventIdFilterSelectedValue.Split(',');
-                        int index = 0;
-                        WhereClause filter = new WhereClause();
-                        foreach (string item in EventIdFilteritemListFromSession)
-                        {
-                            if (index == 0 && item.ToString().Equals(""))
-                            {
-                            }
-                            else
-                            {
-                                filter.iOR(RegistrationTypesTable.EventId, BaseFilter.ComparisonOperator.EqualsTo, item, false, false);
-                                index += 1;
-                            }
-                        }
-                        wc.iAND(filter);
-        }
-                
-      }
-                      
 
             return wc;
         }
@@ -1931,9 +1742,18 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
             if (recControl.Visible && recControl.IsNewRecord) {
       RegistrationTypesRecord rec = new RegistrationTypesRecord();
         
-                        if (MiscUtils.IsValueSelected(recControl.EventId)) {
-                            rec.Parse(recControl.EventId.SelectedItem.Value, RegistrationTypesTable.EventId);
-                        }
+                        if (recControl.CostMember.Text != "") {
+                            rec.Parse(recControl.CostMember.Text, RegistrationTypesTable.CostMember);
+                  }
+                
+                        if (recControl.CostNonMember.Text != "") {
+                            rec.Parse(recControl.CostNonMember.Text, RegistrationTypesTable.CostNonMember);
+                  }
+                
+                        if (recControl.RegistrationType.Text != "") {
+                            rec.Parse(recControl.RegistrationType.Text, RegistrationTypesTable.RegistrationType);
+                  }
+                
               newUIDataList.Add(recControl.PreservedUIData());
               newRecordList.Add(rec);
             }
@@ -2001,254 +1821,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
       
         // Create Set, WhereClause, and Populate Methods
         
-        public virtual void SetEventIdLabel1()
-                  {
-                  
-                    
-        }
-                
-        public virtual void SetSortByLabel()
-                  {
-                  
-                      //Code for the text property is generated inside the .aspx file. 
-                      //To override this property you can uncomment the following property and add you own value.
-                      //this.SortByLabel.Text = "Some value";
-                    
-                    
-        }
-                
-        public virtual void SetSortControl()
-        {
-            
-                this.PopulateSortControl(MiscUtils.GetSelectedValue(this.SortControl,  GetFromSession(this.SortControl)), 500);					
-                    
-
-        }
-            
-        public virtual void SetEventIdFilter()
-        {
-            
-            ArrayList EventIdFilterselectedFilterItemList = new ArrayList();
-            string EventIdFilteritemsString = null;
-            if (this.InSession(this.EventIdFilter))
-                EventIdFilteritemsString = this.GetFromSession(this.EventIdFilter);
-            
-            if (EventIdFilteritemsString != null)
-            {
-                string[] EventIdFilteritemListFromSession = EventIdFilteritemsString.Split(',');
-                foreach (string item in EventIdFilteritemListFromSession)
-                {
-                    EventIdFilterselectedFilterItemList.Add(item);
-                }
-            }
-              
-            			
-            this.PopulateEventIdFilter(MiscUtils.GetSelectedValueList(this.EventIdFilter, EventIdFilterselectedFilterItemList), 500);
-                    
-              string url = this.ModifyRedirectUrl("../Events/Events-QuickSelector.aspx", "", true);
-              
-              url = this.Page.ModifyRedirectUrl(url, "", true);                                  
-              
-              url += "?Target=" + this.EventIdFilter.ClientID + "&DFKA=" + (this.Page as BaseApplicationPage).Encrypt("EventName")+ "&IndexField=" + (this.Page as BaseApplicationPage).Encrypt("EventId")+ "&EmptyValue=" + (this.Page as BaseApplicationPage).Encrypt("--ANY--") + "&EmptyDisplayText=" + (this.Page as BaseApplicationPage).Encrypt(this.Page.GetResourceValue("Txt:All")) + "&RedirectStyle=" + (this.Page as BaseApplicationPage).Encrypt("Popup");
-              
-              this.EventIdFilter.Attributes["onClick"] = "initializePopupPage(this, '" + url + "', " + Convert.ToString(EventIdFilter.AutoPostBack).ToLower() + ", event); return false;";
-                  
-                             
-        }
-            
-        // Get the filters' data for SortControl.
-                
-        protected virtual void PopulateSortControl(string selectedValue, int maxItems)
-                    
-        {
-            
-              
-                this.SortControl.Items.Clear();
-                
-              // 1. Setup the static list items
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("{Txt:PleaseSelect}"), "--PLEASE_SELECT--"));
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Event {Txt:Ascending}"), "EventId Asc"));
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Event {Txt:Descending}"), "EventId Desc"));
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Registration Type {Txt:Ascending}"), "RegistrationType Asc"));
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Registration Type {Txt:Descending}"), "RegistrationType Desc"));
-              
-            try
-            {          
-                // Set the selected value.
-                MiscUtils.SetSelectedValue(this.SortControl, selectedValue);
-
-               
-            }
-            catch
-            {
-            }
-              
-            if (this.SortControl.SelectedValue != null && this.SortControl.Items.FindByValue(this.SortControl.SelectedValue) == null)
-                this.SortControl.SelectedValue = null;
-              
-        }
-            
-        // Get the filters' data for EventIdFilter.
-                
-        protected virtual void PopulateEventIdFilter(ArrayList selectedValue, int maxItems)
-                    
-        {
-        
-            
-            //Setup the WHERE clause.
-                        
-            WhereClause wc = this.CreateWhereClause_EventIdFilter();            
-            this.EventIdFilter.Items.Clear();
-            			  			
-            // Set up the WHERE and the ORDER BY clause by calling the CreateWhereClause_EventIdFilter function.
-            // It is better to customize the where clause there.
-             
-            OrderBy orderBy = new OrderBy(false, false);
-            
-
-            System.Collections.Generic.IDictionary<string, object> variables = new System.Collections.Generic.Dictionary<string, object> ();
-
-            
- 
-            string noValueFormat = Page.GetResourceValue("Txt:Other", "OLR");
-
-            EventsRecord[] itemValues  = null;
-            if (wc.RunQuery)
-            {
-                int counter = 0;
-                int pageNum = 0;
-                FormulaEvaluator evaluator = new FormulaEvaluator();
-                ArrayList listDuplicates = new ArrayList();
-                
-                do
-                {
-                    
-                    itemValues = EventsTable.GetRecords(wc, orderBy, pageNum, maxItems);
-                                    
-                    foreach (EventsRecord itemValue in itemValues) 
-                    {
-                        // Create the item and add to the list.
-                        string cvalue = null;
-                        string fvalue = null;
-                        if (itemValue.EventIdSpecified) 
-                        {
-                            cvalue = itemValue.EventId.ToString();
-                            if (counter < maxItems && this.EventIdFilter.Items.FindByValue(cvalue) == null)
-                            {
-                                    
-                                Boolean _isExpandableNonCompositeForeignKey = RegistrationTypesTable.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(RegistrationTypesTable.EventId);
-                                if(_isExpandableNonCompositeForeignKey && RegistrationTypesTable.EventId.IsApplyDisplayAs)
-                                     fvalue = RegistrationTypesTable.GetDFKA(itemValue, RegistrationTypesTable.EventId);
-                                if ((!_isExpandableNonCompositeForeignKey) || (String.IsNullOrEmpty(fvalue)))
-                                     fvalue = itemValue.Format(EventsTable.EventName);
-                                   					
-                                if (fvalue == null || fvalue.Trim() == "") fvalue = cvalue;
-
-                                if (fvalue == null) {
-                                    fvalue = "";
-                                }
-
-                                fvalue = fvalue.Trim();
-
-                                if ( fvalue.Length > 50 ) {
-                                   fvalue = fvalue.Substring(0, 50) + "...";
-                                }
-
-                                ListItem dupItem = this.EventIdFilter.Items.FindByText(fvalue);
-								
-                                if (dupItem != null) {
-                                    listDuplicates.Add(fvalue);
-                                    if (!string.IsNullOrEmpty(dupItem.Value))
-                                    {
-                                        dupItem.Text = fvalue + " (ID " + dupItem.Value.Substring(0, Math.Min(dupItem.Value.Length,38)) + ")";
-                                    }
-                                }
-
-                                ListItem newItem = new ListItem(fvalue, cvalue);
-                                this.EventIdFilter.Items.Add(newItem);
-
-                                if (listDuplicates.Contains(fvalue) &&  !string.IsNullOrEmpty(cvalue)) {
-                                    newItem.Text = fvalue + " (ID " + cvalue.Substring(0, Math.Min(cvalue.Length,38)) + ")";
-                                }
-
-                                counter += 1;
-                            }
-                        }
-                    }
-                    pageNum++;
-                }
-                while (itemValues.Length == maxItems && counter < maxItems);
-            }
-        
-                      
-            try
-            {
-      
-                
-            }
-            catch
-            {
-            }
-            
-            
-            this.EventIdFilter.SetFieldMaxLength(50);
-                                 
-                  
-            // Add the selected value.
-            if (this.EventIdFilter.Items.Count == 0)
-                this.EventIdFilter.Items.Add(new ListItem(Page.GetResourceValue("Txt:All", "OLR"), "--ANY--"));
-            
-            // Mark all items to be selected.
-            foreach (ListItem item in this.EventIdFilter.Items)
-            {
-                item.Selected = true;
-            }
-                               
-        }
-            
-        public virtual WhereClause CreateWhereClause_EventIdFilter()
-        {
-            // Create a where clause for the filter EventIdFilter.
-            // This function is called by the Populate method to load the items 
-            // in the EventIdFilterQuickSelector
-        
-            ArrayList EventIdFilterselectedFilterItemList = new ArrayList();
-            string EventIdFilteritemsString = null;
-            if (this.InSession(this.EventIdFilter))
-                EventIdFilteritemsString = this.GetFromSession(this.EventIdFilter);
-            
-            if (EventIdFilteritemsString != null)
-            {
-                string[] EventIdFilteritemListFromSession = EventIdFilteritemsString.Split(',');
-                foreach (string item in EventIdFilteritemListFromSession)
-                {
-                    EventIdFilterselectedFilterItemList.Add(item);
-                }
-            }
-              
-            EventIdFilterselectedFilterItemList = MiscUtils.GetSelectedValueList(this.EventIdFilter, EventIdFilterselectedFilterItemList); 
-            WhereClause wc = new WhereClause();
-            if (EventIdFilterselectedFilterItemList == null || EventIdFilterselectedFilterItemList.Count == 0)
-                wc.RunQuery = false;
-            else            
-            {
-                foreach (string item in EventIdFilterselectedFilterItemList)
-                {
-            	  
-                    wc.iOR(EventsTable.EventId, BaseFilter.ComparisonOperator.EqualsTo, item);                  
-                  
-                                 
-                }
-            }
-            return wc;
-        
-        }
-      
 
     
         protected virtual void Control_PreRender(object sender, System.EventArgs e)
@@ -2304,17 +1876,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
             base.SaveControlsToSession();
             // Save filter controls to values to session.
         
-            this.SaveToSession(this.SortControl, this.SortControl.SelectedValue);
-                  
-            ArrayList EventIdFilterselectedFilterItemList = MiscUtils.GetSelectedValueList(this.EventIdFilter, null);
-            string EventIdFilterSessionString = "";
-            if (EventIdFilterselectedFilterItemList != null){
-                foreach (string item in EventIdFilterselectedFilterItemList){
-                    EventIdFilterSessionString = String.Concat(EventIdFilterSessionString ,"," , item);
-                }
-            }
-            this.SaveToSession(this.EventIdFilter, EventIdFilterSessionString);
-                  
             
                     
             // Save pagination state to session.
@@ -2342,17 +1903,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
         {
             // Save filter controls to values to session.
           
-            this.SaveToSession(this.SortControl, this.SortControl.SelectedValue);
-                  
-            ArrayList EventIdFilterselectedFilterItemList = MiscUtils.GetSelectedValueList(this.EventIdFilter, null);
-            string EventIdFilterSessionString = "";
-            if (EventIdFilterselectedFilterItemList != null){
-                foreach (string item in EventIdFilterselectedFilterItemList){
-                    EventIdFilterSessionString = String.Concat(EventIdFilterSessionString ,"," , item);
-                }
-            }
-            this.SaveToSession("EventIdFilter_Ajax", EventIdFilterSessionString);
-          
            HttpContext.Current.Session["AppRelativeVirtualPath"] = this.Page.AppRelativeVirtualPath;
          
         }
@@ -2363,8 +1913,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
             base.ClearControlsFromSession();
             // Clear filter controls values from the session.
         
-            this.RemoveFromSession(this.SortControl);
-            this.RemoveFromSession(this.EventIdFilter);
             
             // Clear pagination state from session.
          
@@ -2464,13 +2012,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
    
         }
             
-        public virtual void SetResetButton()                
-              
-        {
-        
-   
-        }
-            
         public virtual void SetSaveButton()                
               
         {
@@ -2480,37 +2021,9 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
    
         }
             
-        public virtual void SetSearchButton()                
-              
-        {
-        
-   
-        }
-            
         public virtual void SetActionsButton()                
               
         {
-        
-   
-        }
-            
-        public virtual void SetFilterButton()                
-              
-        {
-        
-   
-        }
-            
-        public virtual void SetFiltersButton()                
-              
-        {
-                
-         IThemeButtonWithArrow themeButtonFiltersButton = (IThemeButtonWithArrow)(MiscUtils.FindControlRecursively(this, "FiltersButton"));
-         themeButtonFiltersButton.ArrowImage.ImageUrl = "../Images/ButtonExpandArrow.png";
-    
-      
-            if (MiscUtils.IsValueSelected(EventIdFilter))
-                themeButtonFiltersButton.ArrowImage.ImageUrl = "../Images/ButtonCheckmark.png";
         
    
         }
@@ -2703,46 +2216,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
             
         
         // event handler for ImageButton
-        public virtual void ResetButton_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            try {
-                
-              this.EventIdFilter.ClearSelection();
-            
-           
-            this.SortControl.ClearSelection();
-          
-              this.CurrentSortOrder.Reset();
-              if (this.InSession(this, "Order_By"))
-                  this.CurrentSortOrder = OrderBy.FromXmlString(this.GetFromSession(this, "Order_By", null));
-              else
-              {
-                  this.CurrentSortOrder = new OrderBy(true, false);
-                  
-              }
-                
-
-            // Setting the DataChanged to true results in the page being refreshed with
-            // the most recent data from the database.  This happens in PreRender event
-            // based on the current sort, search and filter criteria.
-            this.DataChanged = true;
-                
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
-        
-        // event handler for ImageButton
         public virtual void SaveButton_Click(object sender, ImageClickEventArgs args)
         {
               
@@ -2784,74 +2257,8 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
             
             
         
-        // event handler for ImageButton
-        public virtual void SearchButton_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            try {
-                
-            this.DataChanged = true;
-          
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
-        
         // event handler for Button
         public virtual void ActionsButton_Click(object sender, EventArgs args)
-        {
-              
-            try {
-                
-            //This method is initially empty to implement custom click handler.
-      
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
-        
-        // event handler for Button
-        public virtual void FilterButton_Click(object sender, EventArgs args)
-        {
-              
-            try {
-                
-            this.DataChanged = true;
-          
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
-        
-        // event handler for Button
-        public virtual void FiltersButton_Click(object sender, EventArgs args)
         {
               
             try {
@@ -2876,69 +2283,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
 
         // Generate the event handling functions for filter and search events.
         
-        // event handler for OrderSort
-        protected virtual void SortControl_SelectedIndexChanged(object sender, EventArgs args)
-        {
-              
-                  string SelVal1 = this.SortControl.SelectedValue.ToUpper();
-                  string[] words1 = SelVal1.Split(' ');
-                  if (SelVal1 != "" )
-                  {
-                  SelVal1 = SelVal1.Replace(words1[words1.Length - 1], "").TrimEnd();
-                  foreach (BaseClasses.Data.BaseColumn ColumnNam in RegistrationTypesTable.GetColumns())
-                  {
-                  if (ColumnNam.Name.ToUpper().Equals(SelVal1))
-                  {
-                  SelVal1 = ColumnNam.InternalName;
-                  }
-                  }
-                  }
-
-                
-                OrderByItem sd = this.CurrentSortOrder.Find(RegistrationTypesTable.GetColumnByName(SelVal1));
-                if (sd == null || this.CurrentSortOrder.Items != null)
-                {
-                // First time sort, so add sort order for Discontinued.
-                if (RegistrationTypesTable.GetColumnByName(SelVal1) != null)
-                {
-                  this.CurrentSortOrder.Reset();
-                }
-
-                //If default sort order was GeoProximity, create new CurrentSortOrder of OrderBy type
-                if ((this.CurrentSortOrder).GetType() == typeof(GeoOrderBy)) this.CurrentSortOrder = new OrderBy(true, false);
-
-                
-                  if (SelVal1 != "--PLEASE_SELECT--" && RegistrationTypesTable.GetColumnByName(SelVal1) != null)
-                  {
-                    if (words1[words1.Length - 1].Contains("ASC"))
-                  {
-                  this.CurrentSortOrder.Add(RegistrationTypesTable.GetColumnByName(SelVal1),OrderByItem.OrderDir.Asc);
-                    }
-                    else
-                    {
-                      if (words1[words1.Length - 1].Contains("DESC"))
-                  {
-                  this.CurrentSortOrder.Add(RegistrationTypesTable.GetColumnByName(SelVal1),OrderByItem.OrderDir.Desc );
-                      }
-                    }
-                  }
-                
-                }
-                this.DataChanged = true;
-              				
-        }
-            
-        // event handler for FieldFilter
-        protected virtual void EventIdFilter_SelectedIndexChanged(object sender, EventArgs args)
-        {
-            // Setting the DataChanged to True results in the page being refreshed with
-            // the most recent data from the database.  This happens in PreRender event
-            // based on the current sort, search and filter criteria.
-            this.DataChanged = true;
-            
-           				
-        }
-            
     
         // Generate the event handling functions for others
         	  
@@ -3031,39 +2375,9 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
             }
         }
         
-        public BaseClasses.Web.UI.WebControls.QuickSelector EventIdFilter {
-            get {
-                return (BaseClasses.Web.UI.WebControls.QuickSelector)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "EventIdFilter");
-            }
-        }              
-        
-        public System.Web.UI.WebControls.Literal EventIdLabel1 {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "EventIdLabel1");
-            }
-        }
-        
-        public OLR.UI.IThemeButton FilterButton {
-            get {
-                return (OLR.UI.IThemeButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FilterButton");
-            }
-        }
-        
-        public OLR.UI.IThemeButtonWithArrow FiltersButton {
-            get {
-                return (OLR.UI.IThemeButtonWithArrow)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FiltersButton");
-            }
-        }
-        
         public OLR.UI.IPaginationModern Pagination {
             get {
                 return (OLR.UI.IPaginationModern)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Pagination");
-            }
-        }
-        
-        public System.Web.UI.WebControls.ImageButton ResetButton {
-            get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "ResetButton");
             }
         }
         
@@ -3072,24 +2386,6 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                 return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "SaveButton");
             }
         }
-        
-        public System.Web.UI.WebControls.ImageButton SearchButton {
-            get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "SearchButton");
-            }
-        }
-        
-        public System.Web.UI.WebControls.Label SortByLabel {
-            get {
-                return (System.Web.UI.WebControls.Label)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "SortByLabel");
-            }
-        }
-        
-          public System.Web.UI.WebControls.DropDownList SortControl {
-          get {
-          return (System.Web.UI.WebControls.DropDownList)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "SortControl");
-          }
-          }
         
         public System.Web.UI.WebControls.Literal Title0 {
             get {

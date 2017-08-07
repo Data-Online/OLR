@@ -12,7 +12,7 @@ namespace OLR.Business
 public class HonoursDefinition
 {
 #region "Definition (XML) for HonoursDefinition table"
-	//Next 97 lines contain Table Definition (XML) for table "HonoursDefinition"
+	//Next 85 lines contain Table Definition (XML) for table "HonoursDefinition"
 	private static string _DefinitionString = "";
 	
 #endregion
@@ -70,8 +70,8 @@ public class HonoursDefinition
          tbf.Append(      @"<updatingFormula></updatingFormula>");
          tbf.Append(    "</Column>");
          tbf.Append(    @"<Column InternalName=""1"" Priority=""2"" ColumnNum=""1"">");
-         tbf.Append(      @"<columnName>Honour</columnName>");
-         tbf.Append(      @"<columnUIName>Honour</columnUIName>");
+         tbf.Append(      @"<columnName>Description</columnName>");
+         tbf.Append(      @"<columnUIName>Description</columnUIName>");
          tbf.Append(      @"<columnType>String</columnType>");
          tbf.Append(      @"<columnDBType>nvarchar</columnDBType>");
          tbf.Append(      @"<columnLengthSet>50</columnLengthSet>");
@@ -94,22 +94,10 @@ public class HonoursDefinition
          tbf.Append(      @"<columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>");
          tbf.Append(      @"<columnTableAliasName></columnTableAliasName>");
          tbf.Append(      @"<applyLabelText>Y</applyLabelText>");
-         tbf.Append(      @"<applyDFKA>N</applyDFKA>");
-         tbf.Append(      @"<applyInitializeInsertingRecord>N</applyInitializeInsertingRecord>");
-         tbf.Append(      @"<applyInitializeReadingRecord>N</applyInitializeReadingRecord>");
-         tbf.Append(      @"<applyInitializeUpdatingRecord>N</applyInitializeUpdatingRecord>");
-         tbf.Append(      @"<applyValidateInsertingRecord>N</applyValidateInsertingRecord>");
-         tbf.Append(      @"<applyValidateUpdatingRecord>N</applyValidateUpdatingRecord>");
-         tbf.Append(      @"<applyDefaultValue>N</applyDefaultValue>");
-         tbf.Append(      @"<insertingRecordFormula></insertingRecordFormula>");
-         tbf.Append(      @"<readingRecordFormula></readingRecordFormula>");
-         tbf.Append(      @"<updatingRecordFormula></updatingRecordFormula>");
-         tbf.Append(      @"<insertingFormula></insertingFormula>");
-         tbf.Append(      @"<updatingFormula></updatingFormula>");
          tbf.Append(    "</Column>");
          tbf.Append(  "</ColumnDefinition>");
          tbf.Append(  @"<TableName>Honours</TableName>");
-         tbf.Append(  @"<Version>3</Version>");
+         tbf.Append(  @"<Version>4</Version>");
          tbf.Append(  @"<Owner>dbo</Owner>");
          tbf.Append(  @"<TableAliasName>Honours_</TableAliasName>");
          tbf.Append(  @"<ConnectionName>DatabaseOLR_db</ConnectionName>");

@@ -14,7 +14,7 @@
     <Layout>PhotoClubContactLinks\Add-PhotoClubContactLinks.xml</Layout>
     <DisplayName>Add-PhotoClubContactLinks</DisplayName>
     <Description>Standard record panel.</Description>
-    <LoginRequired>&lt;PRoles&gt;Everyone&lt;/PRoles&gt;</LoginRequired>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>1852610969-7201</CheckSum>
   </Self>
   <ComposedOf>

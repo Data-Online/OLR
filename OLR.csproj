@@ -1094,18 +1094,53 @@
     <Compile Include="AvailableWorkshops\Edit-AvailableWorkshops-Table.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AvailableWorkshops\Show-AvailableWorkshops-Table.aspx.cs" >
+    <Compile Include="AvailableWorkshops\Show-AvailableWorkshops-Table.aspx.cs">
       <DependentUpon>Show-AvailableWorkshops-Table.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AvailableWorkshops\Show-AvailableWorkshops-Table.Controls.cs" >
+    <Compile Include="AvailableWorkshops\Show-AvailableWorkshops-Table.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AvailableWorkshops\AvailableWorkshops-QuickSelector.aspx.cs" >
+    <Compile Include="AvailableWorkshops\AvailableWorkshops-QuickSelector.aspx.cs">
       <DependentUpon>AvailableWorkshops-QuickSelector.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AvailableWorkshops\AvailableWorkshops-QuickSelector.Controls.cs" >
+    <Compile Include="AvailableWorkshops\AvailableWorkshops-QuickSelector.Controls.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OtherCosts\Edit-OtherCosts-Table.aspx.cs">
+      <DependentUpon>Edit-OtherCosts-Table.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OtherCosts\Edit-OtherCosts-Table.Controls.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OtherCosts\OtherCosts-QuickSelector.aspx.cs">
+      <DependentUpon>OtherCosts-QuickSelector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OtherCosts\OtherCosts-QuickSelector.Controls.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FieldTripChoices\Show-FieldTripChoices-Table.aspx.cs">
+      <DependentUpon>Show-FieldTripChoices-Table.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FieldTripChoices\Show-FieldTripChoices-Table.Controls.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="view_FieldTripSelections\Edit-View-FieldTripSelections-Table.aspx.cs">
+      <DependentUpon>Edit-View-FieldTripSelections-Table.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="view_FieldTripSelections\Edit-View-FieldTripSelections-Table.Controls.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HomeTowns\Edit-HomeTowns-Table.aspx.cs" >
+      <DependentUpon>Edit-HomeTowns-Table.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeTowns\Edit-HomeTowns-Table.Controls.cs" >
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -1486,8 +1521,13 @@
     <Content Include="view_Stats\Show-View-Stats-Table.aspx" />
     <Content Include="FieldTrips\Show-FieldTrips-Table.aspx" />
     <Content Include="AvailableWorkshops\Edit-AvailableWorkshops-Table.aspx" />
-    <Content Include="AvailableWorkshops\Show-AvailableWorkshops-Table.aspx"  />
-    <Content Include="AvailableWorkshops\AvailableWorkshops-QuickSelector.aspx"  />
+    <Content Include="AvailableWorkshops\Show-AvailableWorkshops-Table.aspx" />
+    <Content Include="AvailableWorkshops\AvailableWorkshops-QuickSelector.aspx" />
+    <Content Include="OtherCosts\Edit-OtherCosts-Table.aspx" />
+    <Content Include="OtherCosts\OtherCosts-QuickSelector.aspx" />
+    <Content Include="FieldTripChoices\Show-FieldTripChoices-Table.aspx" />
+    <Content Include="view_FieldTripSelections\Edit-View-FieldTripSelections-Table.aspx" />
+    <Content Include="HomeTowns\Edit-HomeTowns-Table.aspx"  />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Global.asax.resx">
@@ -1512,6 +1552,9 @@
       <Project>{65463E52-46DB-485C-AA9C-6B4222269D50}</Project>
       <Name>OLR.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v14.0\WebApplications\Microsoft.WebApplication.targets" />

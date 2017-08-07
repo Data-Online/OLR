@@ -236,25 +236,13 @@ public partial class Edit_RegistrationTypes_Table
         
         public System.Web.UI.WebControls.ImageButton DeleteButton;
         
-        public System.Web.UI.WebControls.Literal EventIdLabel1;
-        
-        public ThemeButton FilterButton;
-                
-        public ThemeButtonWithArrow FiltersButton;
-                
         public System.Web.UI.WebControls.Literal PageTitle;
         
         public PaginationModern Pagination;
                 
         public OLR.UI.Controls.Edit_RegistrationTypes_Table.RegistrationTypesTableControl RegistrationTypesTableControl;
           
-        public System.Web.UI.WebControls.ImageButton ResetButton;
-        
         public System.Web.UI.WebControls.ImageButton SaveButton;
-        
-        public System.Web.UI.WebControls.ImageButton SearchButton;
-        
-        public System.Web.UI.WebControls.Label SortByLabel;
         
         public System.Web.UI.WebControls.Literal Title0;
             

@@ -63,6 +63,7 @@ public class BaseAvailableWorkshopsTable : PrimaryKeyTable
         EventIdColumn.DefaultValue = EvaluateFormula("Session(\"ActiveEventId\")");
         WorkshopDescriptionColumn.CodeName = "WorkshopDescription";
         PlacesAvailableColumn.CodeName = "PlacesAvailable";
+        CostColumn.CodeName = "Cost";
 
         
     }
@@ -182,6 +183,31 @@ public class BaseAvailableWorkshopsTable : PrimaryKeyTable
         get
         {
             return AvailableWorkshopsTable.Instance.PlacesAvailableColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's AvailableWorkshops_.Cost column object.
+    /// </summary>
+    public BaseClasses.Data.NumberColumn CostColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[4];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's AvailableWorkshops_.Cost column object.
+    /// </summary>
+    public static BaseClasses.Data.NumberColumn Cost
+    {
+        get
+        {
+            return AvailableWorkshopsTable.Instance.CostColumn;
         }
     }
     
@@ -713,13 +739,15 @@ public class BaseAvailableWorkshopsTable : PrimaryKeyTable
         public KeyValue NewRecord(
         string EventIdValue, 
         string WorkshopDescriptionValue, 
-        string PlacesAvailableValue
+        string PlacesAvailableValue, 
+        string CostValue
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
                     rec.SetString(EventIdValue, EventIdColumn);
         rec.SetString(WorkshopDescriptionValue, WorkshopDescriptionColumn);
         rec.SetString(PlacesAvailableValue, PlacesAvailableColumn);
+        rec.SetString(CostValue, CostColumn);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized

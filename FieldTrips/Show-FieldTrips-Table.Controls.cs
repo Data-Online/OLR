@@ -7046,10 +7046,31 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
             // 2. User selected search criteria.
             // 3. User selected filter criteria.
 
+          
+            // Get the static clause defined at design time on the Query Wizard
+            WhereClause qc = this.CreateQueryClause_RegistrationsCountQuery();
+            if (qc != null) {
+                wc.iAND(qc);
+            }
                       
             return wc;
         }
       
+        public virtual WhereClause CreateQueryClause_RegistrationsCountQuery()
+        
+        {
+          
+            // Create a where clause for the Static clause defined at design time.
+            CompoundFilter filter = new CompoundFilter(CompoundFilter.CompoundingOperators.And_Operator, null);
+            WhereClause whereClause = new WhereClause();
+            
+            filter.AddFilter(new BaseClasses.Data.ColumnValueFilter(BaseClasses.Data.BaseTable.CreateInstance(@"OLR.Business.RegistrationsTable, OLR.Business").TableDefinition.ColumnList.GetByUniqueName(@"Registrations_.RegistrationTypeId"), null, BaseClasses.Data.BaseFilter.ComparisonOperator.Not_Equals, false));
+
+            whereClause.AddFilter(filter, CompoundFilter.CompoundingOperators.And_Operator);
+    
+            return whereClause;
+        }
+          
         public virtual void LoadData_RegistrationsCountQuery()
         
         {

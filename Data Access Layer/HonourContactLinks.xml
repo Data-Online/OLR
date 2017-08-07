@@ -9,7 +9,7 @@
       <columnLengthSet>10.0</columnLengthSet>
       <columnDefault>
       </columnDefault>
-      <columnDBDefault>
+      <columnDBDefault Source="User">
       </columnDBDefault>
       <columnIndex>N</columnIndex>
       <columnUnique>N</columnUnique>
@@ -19,15 +19,15 @@
       </columnDBFormat>
       <columnPK>N</columnPK>
       <columnPermanent>N</columnPermanent>
-      <columnComputed>N</columnComputed>
-      <columnIdentity>N</columnIdentity>
-      <columnReadOnly>N</columnReadOnly>
+      <columnComputed Source="User">N</columnComputed>
+      <columnIdentity Source="User">N</columnIdentity>
+      <columnReadOnly Source="User">N</columnReadOnly>
       <columnRequired>N</columnRequired>
       <columnNotNull>N</columnNotNull>
-      <columnCaseSensitive>N</columnCaseSensitive>
+      <columnCaseSensitive Source="User">N</columnCaseSensitive>
       <columnCollation>
       </columnCollation>
-      <columnFullText>N</columnFullText>
+      <columnFullText Source="User">N</columnFullText>
       <columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>
       <columnTableAliasName>
       </columnTableAliasName>
@@ -37,7 +37,7 @@
         <columnFKTable>Honours</columnFKTable>
         <columnFKOwner>dbo</columnFKOwner>
         <columnFKColumn>HonourId</columnFKColumn>
-        <columnFKColumnDisplay>Honour</columnFKColumnDisplay>
+        <columnFKColumnDisplay>= Honours.Description</columnFKColumnDisplay>
         <foreignKeyType>Explicit</foreignKeyType>
       </foreignKey>
       <applyDFKA>Y</applyDFKA>
@@ -57,6 +57,9 @@
       </insertingFormula>
       <updatingFormula>
       </updatingFormula>
+      <InternalName>0</InternalName>
+      <columnTableClassName>
+      </columnTableClassName>
     </Column>
     <Column InternalName="1" Priority="2" ColumnNum="1">
       <columnName>ContactId</columnName>
@@ -172,7 +175,7 @@
       <columnLengthSet>
       </columnLengthSet>
       <columnDefault>= "false"</columnDefault>
-      <columnDBDefault Source="User">
+      <columnDBDefault>
       </columnDBDefault>
       <columnIndex>N</columnIndex>
       <columnUnique>N</columnUnique>
@@ -182,32 +185,29 @@
       </columnDBFormat>
       <columnPK>N</columnPK>
       <columnPermanent>N</columnPermanent>
-      <columnComputed Source="User">N</columnComputed>
-      <columnIdentity Source="User">N</columnIdentity>
-      <columnReadOnly Source="User">N</columnReadOnly>
+      <columnComputed>N</columnComputed>
+      <columnIdentity>N</columnIdentity>
+      <columnReadOnly>N</columnReadOnly>
       <columnRequired>N</columnRequired>
       <columnNotNull>N</columnNotNull>
-      <columnCaseSensitive Source="User">N</columnCaseSensitive>
+      <columnCaseSensitive>N</columnCaseSensitive>
       <columnCollation>
       </columnCollation>
-      <columnFullText Source="User">N</columnFullText>
+      <columnFullText>N</columnFullText>
       <columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>
       <columnTableAliasName>
       </columnTableAliasName>
       <applyLabelText>Y</applyLabelText>
-      <applyDefaultValue>Y</applyDefaultValue>
-      <InternalName>3</InternalName>
-      <columnTableClassName>
-      </columnTableClassName>
-      <applyInitializeReadingRecord>N</applyInitializeReadingRecord>
+      <applyDFKA>N</applyDFKA>
       <applyInitializeInsertingRecord>Y</applyInitializeInsertingRecord>
+      <applyInitializeReadingRecord>N</applyInitializeReadingRecord>
       <applyInitializeUpdatingRecord>N</applyInitializeUpdatingRecord>
       <applyValidateInsertingRecord>N</applyValidateInsertingRecord>
       <applyValidateUpdatingRecord>N</applyValidateUpdatingRecord>
-      <applyDFKA>N</applyDFKA>
+      <applyDefaultValue>Y</applyDefaultValue>
+      <insertingRecordFormula>= "false"</insertingRecordFormula>
       <readingRecordFormula>
       </readingRecordFormula>
-      <insertingRecordFormula>= "false"</insertingRecordFormula>
       <updatingRecordFormula>
       </updatingRecordFormula>
       <insertingFormula>
@@ -217,7 +217,7 @@
     </Column>
   </ColumnDefinition>
   <TableName>HonourContactLinks</TableName>
-  <Version>2</Version>
+  <Version>3</Version>
   <Owner>dbo</Owner>
   <TableAliasName>HonourContactLinks_</TableAliasName>
   <ConnectionName>DatabaseOLR_db</ConnectionName>

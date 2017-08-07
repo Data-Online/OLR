@@ -106,7 +106,7 @@ public class BaseHonoursTableControlRow : OLR.UI.BaseApplicationRecordControl
                         
                     this.ViewRowButton.Click += ViewRowButton_Click;
                         
-              this.Honour.TextChanged += Honour_TextChanged;
+              this.Description.TextChanged += Description_TextChanged;
             
         }
 
@@ -164,9 +164,8 @@ public class BaseHonoursTableControlRow : OLR.UI.BaseApplicationRecordControl
             // Call the Set methods for each controls on the panel
         
                 
+                SetDescription();
                 
-                SetHonour();
-                SetHonourLabel();
                 
                 
                 SetDeleteRowButton();
@@ -198,52 +197,46 @@ public class BaseHonoursTableControlRow : OLR.UI.BaseApplicationRecordControl
         }
         
         
-        public virtual void SetHonour()
+        public virtual void SetDescription()
         {
             
             // If data was retrieved from UI previously, restore it
-            if (this.PreviousUIData.ContainsKey(this.Honour.ID))
+            if (this.PreviousUIData.ContainsKey(this.Description.ID))
             {
             
-                this.Honour.Text = this.PreviousUIData[this.Honour.ID].ToString();
+                this.Description.Text = this.PreviousUIData[this.Description.ID].ToString();
               
                 return;
             }
             
                     
-            // Set the Honour TextBox on the webpage with value from the
+            // Set the Description TextBox on the webpage with value from the
             // DatabaseOLR_db%dbo.Honours database record.
 
             // this.DataSource is the DatabaseOLR_db%dbo.Honours record retrieved from the database.
-            // this.Honour is the ASP:TextBox on the webpage.
+            // this.Description is the ASP:TextBox on the webpage.
                   
-            if (this.DataSource != null && this.DataSource.HonourSpecified) {
+            if (this.DataSource != null && this.DataSource.DescriptionSpecified) {
                 								
-                // If the Honour is non-NULL, then format the value.
+                // If the Description is non-NULL, then format the value.
                 // The Format method will use the Display Format
-               string formattedValue = this.DataSource.Format(HonoursTable.Honour);
+               string formattedValue = this.DataSource.Format(HonoursTable.Description);
                                 
-                this.Honour.Text = formattedValue;
+                this.Description.Text = formattedValue;
                    
             } 
             
             else {
             
-                // Honour is NULL in the database, so use the Default Value.  
+                // Description is NULL in the database, so use the Default Value.  
                 // Default Value could also be NULL.
         
-              this.Honour.Text = HonoursTable.Honour.Format(HonoursTable.Honour.DefaultValue);
+              this.Description.Text = HonoursTable.Description.Format(HonoursTable.Description.DefaultValue);
             		
             }
             
-              this.Honour.TextChanged += Honour_TextChanged;
+              this.Description.TextChanged += Description_TextChanged;
                                
-        }
-                
-        public virtual void SetHonourLabel()
-                  {
-                  
-                    
         }
                 
         public BaseClasses.Data.DataSource.EvaluateFormulaDelegate EvaluateFormulaDelegate;
@@ -400,20 +393,20 @@ public class BaseHonoursTableControlRow : OLR.UI.BaseApplicationRecordControl
       
             // Call the Get methods for each of the user interface controls.
         
-            GetHonour();
+            GetDescription();
         }
         
         
-        public virtual void GetHonour()
+        public virtual void GetDescription()
         {
             
-            // Retrieve the value entered by the user on the Honour ASP:TextBox, and
-            // save it into the Honour field in DataSource DatabaseOLR_db%dbo.Honours record.
+            // Retrieve the value entered by the user on the Description ASP:TextBox, and
+            // save it into the Description field in DataSource DatabaseOLR_db%dbo.Honours record.
             
             // Custom validation should be performed in Validate, not here.
                     
             // Save the value to data source
-            this.DataSource.Parse(this.Honour.Text, HonoursTable.Honour);							
+            this.DataSource.Parse(this.Description.Text, HonoursTable.Description);							
                           
                       
         }
@@ -697,7 +690,7 @@ public class BaseHonoursTableControlRow : OLR.UI.BaseApplicationRecordControl
             
             
         
-        protected virtual void Honour_TextChanged(object sender, EventArgs args)
+        protected virtual void Description_TextChanged(object sender, EventArgs args)
         {
                     
               }
@@ -797,21 +790,15 @@ public class BaseHonoursTableControlRow : OLR.UI.BaseApplicationRecordControl
             }
         }
         
-        public System.Web.UI.WebControls.ImageButton EditRowButton {
+        public System.Web.UI.WebControls.TextBox Description {
             get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "EditRowButton");
-            }
-        }
-        
-        public System.Web.UI.WebControls.TextBox Honour {
-            get {
-                return (System.Web.UI.WebControls.TextBox)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Honour");
+                return (System.Web.UI.WebControls.TextBox)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Description");
             }
         }
             
-        public System.Web.UI.WebControls.Literal HonourLabel {
+        public System.Web.UI.WebControls.ImageButton EditRowButton {
             get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "HonourLabel");
+                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "EditRowButton");
             }
         }
         
@@ -965,46 +952,6 @@ public class BaseHonoursTableControl : OLR.UI.BaseApplicationTableControl
                             
                     }
             }
-            if (!this.Page.IsPostBack)
-            {
-                string initialVal = "";
-                if  (this.InSession(this.HonourFilter)) 				
-                    initialVal = this.GetFromSession(this.HonourFilter);
-                
-                else
-                    
-                    initialVal = EvaluateFormula("URL(\"Honour\")");
-                
-                if(StringUtils.InvariantEquals(initialVal, "Search for", true) || StringUtils.InvariantEquals(initialVal, BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null), true))
-                {
-                initialVal = "";
-                }
-              
-                if (initialVal != null && initialVal != "")		
-                {
-                        
-                    string[] HonourFilteritemListFromSession = initialVal.Split(',');
-                    int index = 0;
-                    foreach (string item in HonourFilteritemListFromSession)
-                    {
-                        if (index == 0 && item.ToString().Equals(""))
-                        {
-                            // do nothing
-                        }
-                        else
-                        {
-                            this.HonourFilter.Items.Add(item);
-                            this.HonourFilter.Items[index].Selected = true;
-                            index += 1;
-                        }
-                    }
-                    foreach (ListItem listItem in this.HonourFilter.Items)
-                    {
-                        listItem.Selected = true;
-                    }
-                        
-                    }
-            }
 
 
       
@@ -1072,9 +1019,7 @@ public class BaseHonoursTableControl : OLR.UI.BaseApplicationTableControl
                     this.FiltersButton.Button.Click += FiltersButton_Click;
                         
             this.SortControl.SelectedIndexChanged += new EventHandler(SortControl_SelectedIndexChanged);
-            
-              this.HonourFilter.SelectedIndexChanged += HonourFilter_SelectedIndexChanged;                  
-                        
+                    
         
          //' Setup events for others
                
@@ -1313,8 +1258,6 @@ public class BaseHonoursTableControl : OLR.UI.BaseApplicationTableControl
                 
                 
                 
-                SetHonourFilter();
-                SetHonourLabel1();
                 
                 
                 
@@ -1451,8 +1394,6 @@ public class BaseHonoursTableControl : OLR.UI.BaseApplicationTableControl
         {
 
 
-            
-            this.HonourFilter.ClearSelection();
             
             this.SortControl.ClearSelection();
             
@@ -1593,30 +1534,7 @@ public class BaseHonoursTableControl : OLR.UI.BaseApplicationTableControl
             // 2. User selected search criteria.
             // 3. User selected filter criteria.
             
-        
-            if (MiscUtils.IsValueSelected(this.HonourFilter)) {
-                        
-                int selectedItemCount = 0;
-                foreach (ListItem item in this.HonourFilter.Items){
-                    if (item.Selected) {
-                        selectedItemCount += 1;
-                        
-                          
-                    }
-                }
-                WhereClause filter = new WhereClause();
-                foreach (ListItem item in this.HonourFilter.Items){
-                    if ((item.Selected) && ((item.Value == "--ANY--") || (item.Value == "--PLEASE_SELECT--")) && (selectedItemCount > 1)){
-                        item.Selected = false;
-                    }
-                    if (item.Selected){
-                        filter.iOR(HonoursTable.Honour, BaseFilter.ComparisonOperator.EqualsTo, item.Value, false, false);
-                    }
-                }
-                wc.iAND(filter);
-                    
-            }
-                           
+             
             return wc;
         }
         
@@ -1636,30 +1554,6 @@ public class BaseHonoursTableControl : OLR.UI.BaseApplicationTableControl
             
             // Adds clauses if values are selected in Filter controls which are configured in the page.
           
-      String HonourFilterSelectedValue = (String)HttpContext.Current.Session[HttpContext.Current.Session.SessionID + appRelativeVirtualPath + "HonourFilter_Ajax"];
-            if (MiscUtils.IsValueSelected(HonourFilterSelectedValue)) {
-
-              
-        if (HonourFilterSelectedValue != null){
-                        string[] HonourFilteritemListFromSession = HonourFilterSelectedValue.Split(',');
-                        int index = 0;
-                        WhereClause filter = new WhereClause();
-                        foreach (string item in HonourFilteritemListFromSession)
-                        {
-                            if (index == 0 && item.ToString().Equals(""))
-                            {
-                            }
-                            else
-                            {
-                                filter.iOR(HonoursTable.Honour, BaseFilter.ComparisonOperator.EqualsTo, item, false, false);
-                                index += 1;
-                            }
-                        }
-                        wc.iAND(filter);
-        }
-                
-      }
-                      
 
             return wc;
         }
@@ -1841,8 +1735,8 @@ public class BaseHonoursTableControl : OLR.UI.BaseApplicationTableControl
             if (recControl.Visible && recControl.IsNewRecord) {
       HonoursRecord rec = new HonoursRecord();
         
-                        if (recControl.Honour.Text != "") {
-                            rec.Parse(recControl.Honour.Text, HonoursTable.Honour);
+                        if (recControl.Description.Text != "") {
+                            rec.Parse(recControl.Description.Text, HonoursTable.Description);
                   }
                 
               newUIDataList.Add(recControl.PreservedUIData());
@@ -1912,12 +1806,6 @@ public class BaseHonoursTableControl : OLR.UI.BaseApplicationTableControl
       
         // Create Set, WhereClause, and Populate Methods
         
-        public virtual void SetHonourLabel1()
-                  {
-                  
-                    
-        }
-                
         public virtual void SetSortByLabel()
                   {
                   
@@ -1936,37 +1824,6 @@ public class BaseHonoursTableControl : OLR.UI.BaseApplicationTableControl
 
         }
             
-        public virtual void SetHonourFilter()
-        {
-            
-            ArrayList HonourFilterselectedFilterItemList = new ArrayList();
-            string HonourFilteritemsString = null;
-            if (this.InSession(this.HonourFilter))
-                HonourFilteritemsString = this.GetFromSession(this.HonourFilter);
-            
-            if (HonourFilteritemsString != null)
-            {
-                string[] HonourFilteritemListFromSession = HonourFilteritemsString.Split(',');
-                foreach (string item in HonourFilteritemListFromSession)
-                {
-                    HonourFilterselectedFilterItemList.Add(item);
-                }
-            }
-              
-            			
-            this.PopulateHonourFilter(MiscUtils.GetSelectedValueList(this.HonourFilter, HonourFilterselectedFilterItemList), 500);
-                    
-              string url = this.ModifyRedirectUrl("../Honours/Honours-QuickSelector.aspx", "", true);
-              
-              url = this.Page.ModifyRedirectUrl(url, "", true);                                  
-              
-              url += "?Target=" + this.HonourFilter.ClientID + "&IndexField=" + (this.Page as BaseApplicationPage).Encrypt("Honour")+ "&EmptyValue=" + (this.Page as BaseApplicationPage).Encrypt("--ANY--") + "&EmptyDisplayText=" + (this.Page as BaseApplicationPage).Encrypt(this.Page.GetResourceValue("Txt:All")) + "&RedirectStyle=" + (this.Page as BaseApplicationPage).Encrypt("Popup");
-              
-              this.HonourFilter.Attributes["onClick"] = "initializePopupPage(this, '" + url + "', " + Convert.ToString(HonourFilter.AutoPostBack).ToLower() + ", event); return false;";
-                  
-                             
-        }
-            
         // Get the filters' data for SortControl.
                 
         protected virtual void PopulateSortControl(string selectedValue, int maxItems)
@@ -1980,9 +1837,9 @@ public class BaseHonoursTableControl : OLR.UI.BaseApplicationTableControl
               
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("{Txt:PleaseSelect}"), "--PLEASE_SELECT--"));
               
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Honour {Txt:Ascending}"), "Honour Asc"));
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Description {Txt:Ascending}"), "Description Asc"));
               
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Honour {Txt:Descending}"), "Honour Desc"));
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Description {Txt:Descending}"), "Description Desc"));
               
             try
             {          
@@ -2000,139 +1857,6 @@ public class BaseHonoursTableControl : OLR.UI.BaseApplicationTableControl
               
         }
             
-        // Get the filters' data for HonourFilter.
-                
-        protected virtual void PopulateHonourFilter(ArrayList selectedValue, int maxItems)
-                    
-        {
-        
-            
-            //Setup the WHERE clause.
-                        
-            WhereClause wc = this.CreateWhereClause_HonourFilter();            
-            this.HonourFilter.Items.Clear();
-            			  			
-            // Set up the WHERE and the ORDER BY clause by calling the CreateWhereClause_HonourFilter function.
-            // It is better to customize the where clause there.
-             
-            
-            
-            OrderBy orderBy = new OrderBy(false, false);
-            orderBy.Add(HonoursTable.Honour, OrderByItem.OrderDir.Asc);                
-            
-            
-            string[] values = new string[0];
-            if (wc.RunQuery)
-            {
-            
-                values = HonoursTable.GetValues(HonoursTable.Honour, wc, orderBy, maxItems);
-            
-            }
-            
-            ArrayList listDuplicates = new ArrayList();
-            foreach (string cvalue in values)
-            {
-            // Create the item and add to the list.
-            string fvalue;
-            if ( HonoursTable.Honour.IsColumnValueTypeBoolean()) {
-                    fvalue = cvalue;
-                }else {
-                    fvalue = HonoursTable.Honour.Format(cvalue);
-                }
-                if (fvalue == null) {
-                    fvalue = "";
-                }
-
-                fvalue = fvalue.Trim();
-
-                if ( fvalue.Length > 50 ) {
-                    fvalue = fvalue.Substring(0, 50) + "...";
-                }
-
-                ListItem dupItem = this.HonourFilter.Items.FindByText(fvalue);
-								
-                if (dupItem != null) {
-                    listDuplicates.Add(fvalue);
-                    if (!string.IsNullOrEmpty(dupItem.Value))
-                    {
-                        dupItem.Text = fvalue + " (ID " + dupItem.Value.Substring(0, Math.Min(dupItem.Value.Length,38)) + ")";
-                    }
-                }
-
-                ListItem newItem = new ListItem(fvalue, cvalue);
-                this.HonourFilter.Items.Add(newItem);
-
-                if (listDuplicates.Contains(fvalue) &&  !string.IsNullOrEmpty(cvalue)) {
-                    newItem.Text = fvalue + " (ID " + cvalue.Substring(0, Math.Min(cvalue.Length,38)) + ")";
-                }
-            }
-
-                          
-            try
-            {
-      
-                
-            }
-            catch
-            {
-            }
-            
-            
-            this.HonourFilter.SetFieldMaxLength(50);
-                                 
-                  
-            // Add the selected value.
-            if (this.HonourFilter.Items.Count == 0)
-                this.HonourFilter.Items.Add(new ListItem(Page.GetResourceValue("Txt:All", "OLR"), "--ANY--"));
-            
-            // Mark all items to be selected.
-            foreach (ListItem item in this.HonourFilter.Items)
-            {
-                item.Selected = true;
-            }
-                               
-        }
-            
-        public virtual WhereClause CreateWhereClause_HonourFilter()
-        {
-            // Create a where clause for the filter HonourFilter.
-            // This function is called by the Populate method to load the items 
-            // in the HonourFilterQuickSelector
-        
-            ArrayList HonourFilterselectedFilterItemList = new ArrayList();
-            string HonourFilteritemsString = null;
-            if (this.InSession(this.HonourFilter))
-                HonourFilteritemsString = this.GetFromSession(this.HonourFilter);
-            
-            if (HonourFilteritemsString != null)
-            {
-                string[] HonourFilteritemListFromSession = HonourFilteritemsString.Split(',');
-                foreach (string item in HonourFilteritemListFromSession)
-                {
-                    HonourFilterselectedFilterItemList.Add(item);
-                }
-            }
-              
-            HonourFilterselectedFilterItemList = MiscUtils.GetSelectedValueList(this.HonourFilter, HonourFilterselectedFilterItemList); 
-            WhereClause wc = new WhereClause();
-            if (HonourFilterselectedFilterItemList == null || HonourFilterselectedFilterItemList.Count == 0)
-                wc.RunQuery = false;
-            else            
-            {
-                foreach (string item in HonourFilterselectedFilterItemList)
-                {
-            
-      
-   
-                    wc.iOR(HonoursTable.Honour, BaseFilter.ComparisonOperator.EqualsTo, item);
-
-                                
-                }
-            }
-            return wc;
-        
-        }
-      
 
     
         protected virtual void Control_PreRender(object sender, System.EventArgs e)
@@ -2190,15 +1914,6 @@ public class BaseHonoursTableControl : OLR.UI.BaseApplicationTableControl
         
             this.SaveToSession(this.SortControl, this.SortControl.SelectedValue);
                   
-            ArrayList HonourFilterselectedFilterItemList = MiscUtils.GetSelectedValueList(this.HonourFilter, null);
-            string HonourFilterSessionString = "";
-            if (HonourFilterselectedFilterItemList != null){
-                foreach (string item in HonourFilterselectedFilterItemList){
-                    HonourFilterSessionString = String.Concat(HonourFilterSessionString ,"," , item);
-                }
-            }
-            this.SaveToSession(this.HonourFilter, HonourFilterSessionString);
-                  
             
                     
             // Save pagination state to session.
@@ -2228,15 +1943,6 @@ public class BaseHonoursTableControl : OLR.UI.BaseApplicationTableControl
           
             this.SaveToSession(this.SortControl, this.SortControl.SelectedValue);
                   
-            ArrayList HonourFilterselectedFilterItemList = MiscUtils.GetSelectedValueList(this.HonourFilter, null);
-            string HonourFilterSessionString = "";
-            if (HonourFilterselectedFilterItemList != null){
-                foreach (string item in HonourFilterselectedFilterItemList){
-                    HonourFilterSessionString = String.Concat(HonourFilterSessionString ,"," , item);
-                }
-            }
-            this.SaveToSession("HonourFilter_Ajax", HonourFilterSessionString);
-          
            HttpContext.Current.Session["AppRelativeVirtualPath"] = this.Page.AppRelativeVirtualPath;
          
         }
@@ -2248,7 +1954,6 @@ public class BaseHonoursTableControl : OLR.UI.BaseApplicationTableControl
             // Clear filter controls values from the session.
         
             this.RemoveFromSession(this.SortControl);
-            this.RemoveFromSession(this.HonourFilter);
             
             // Clear pagination state from session.
          
@@ -2386,9 +2091,6 @@ public class BaseHonoursTableControl : OLR.UI.BaseApplicationTableControl
          themeButtonFiltersButton.ArrowImage.ImageUrl = "../Images/ButtonExpandArrow.png";
     
       
-            if (MiscUtils.IsValueSelected(HonourFilter))
-                themeButtonFiltersButton.ArrowImage.ImageUrl = "../Images/ButtonCheckmark.png";
-        
    
         }
                
@@ -2585,8 +2287,6 @@ public class BaseHonoursTableControl : OLR.UI.BaseApplicationTableControl
               
             try {
                 
-              this.HonourFilter.ClearSelection();
-            
            
             this.SortControl.ClearSelection();
           
@@ -2783,17 +2483,6 @@ public class BaseHonoursTableControl : OLR.UI.BaseApplicationTableControl
               				
         }
             
-        // event handler for FieldFilter
-        protected virtual void HonourFilter_SelectedIndexChanged(object sender, EventArgs args)
-        {
-            // Setting the DataChanged to True results in the page being refreshed with
-            // the most recent data from the database.  This happens in PreRender event
-            // based on the current sort, search and filter criteria.
-            this.DataChanged = true;
-            
-           				
-        }
-            
     
         // Generate the event handling functions for others
         	  
@@ -2895,18 +2584,6 @@ public class BaseHonoursTableControl : OLR.UI.BaseApplicationTableControl
         public OLR.UI.IThemeButtonWithArrow FiltersButton {
             get {
                 return (OLR.UI.IThemeButtonWithArrow)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FiltersButton");
-            }
-        }
-        
-        public BaseClasses.Web.UI.WebControls.QuickSelector HonourFilter {
-            get {
-                return (BaseClasses.Web.UI.WebControls.QuickSelector)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "HonourFilter");
-            }
-        }              
-        
-        public System.Web.UI.WebControls.Literal HonourLabel1 {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "HonourLabel1");
             }
         }
         

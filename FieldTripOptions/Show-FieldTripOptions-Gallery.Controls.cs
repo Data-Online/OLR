@@ -1795,6 +1795,10 @@ public class BaseFieldTripOptionsTableControl : OLR.UI.BaseApplicationTableContr
               
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Description {Txt:Descending}"), "Description Desc"));
               
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Cost {Txt:Ascending}"), "Cost Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Cost {Txt:Descending}"), "Cost Desc"));
+              
             try
             {          
                 // Set the selected value.

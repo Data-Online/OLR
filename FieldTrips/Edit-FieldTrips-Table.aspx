@@ -91,8 +91,8 @@
                           <asp:ImageButton runat="server" id="DeleteRowButton1" causesvalidation="False" commandargument="DeleteOnUpdate" commandname="DeleteRecord" cssclass="button_link" imageurl="../Images/icon_delete.gif" onmouseout="this.src=&#39;../Images/icon_delete.gif&#39;" onmouseover="this.src=&#39;../Images/icon_delete_over.gif&#39;" tooltip="&lt;%# GetResourceValue(&quot;Txt:DeleteRecord&quot;, &quot;OLR&quot;) %>">		
 	</asp:ImageButton>
                         </td><td class="tableCellLabel"><asp:Literal runat="server" id="DescriptionLabel2" Text="Description">	</asp:Literal> 
-</td><td class="tableCellValue"><asp:TextBox runat="server" id="Description1" MaxLength="100" columns="50" cssclass="field_input" rows="2" textmode="MultiLine"></asp:TextBox>&nbsp;
-<BaseClasses:TextBoxMaxLengthValidator runat="server" id="Description1TextBoxMaxLengthValidator" ControlToValidate="Description1" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueTooLong&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, &quot;Description&quot;) %>"></BaseClasses:TextBoxMaxLengthValidator> </td><td class="tableCellLabel"><asp:Literal runat="server" id="PlacesAvailableLabel" Text="Places Available">	</asp:Literal> 
+</td><td class="tableCellValue" rowspan="2"><asp:TextBox runat="server" id="Description1" MaxLength="100" columns="50" cssclass="field_input" rows="2" textmode="MultiLine"></asp:TextBox>&nbsp;
+<BaseClasses:TextBoxMaxLengthValidator runat="server" id="Description1TextBoxMaxLengthValidator" ControlToValidate="Description1" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueTooLong&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, &quot;Description&quot;) %>"></BaseClasses:TextBoxMaxLengthValidator></td><td class="tableCellLabel"><asp:Literal runat="server" id="PlacesAvailableLabel" Text="Places Available">	</asp:Literal> 
 </td><td class="tableCellValue"><span style="white-space:nowrap;">
 <table border="0" cellpadding="0" cellspacing="0">
 <tr>
@@ -104,7 +104,18 @@
 </tr>
 </table>
 </span>
- </td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableRowDivider" colspan="8"></td></tr></OLR:FieldTripOptionsTableControlRow>
+ </td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableRowButtonsCellVertical"></td><td class="tableCellLabel"></td><td class="tableCellLabel"><asp:Literal runat="server" id="CostLabel" Text="Cost">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td style="padding-right: 5px; vertical-align:top">
+<asp:TextBox runat="server" id="Cost" Columns="10" MaxLength="20" cssclass="field_input"></asp:TextBox></td>
+<td>
+&nbsp;
+<BaseClasses:TextBoxMaxLengthValidator runat="server" id="CostTextBoxMaxLengthValidator" ControlToValidate="Cost" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueTooLong&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, &quot;Cost&quot;) %>"></BaseClasses:TextBoxMaxLengthValidator></td>
+</tr>
+</table>
+</span>
+</td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableRowDivider" colspan="8"></td></tr></OLR:FieldTripOptionsTableControlRow>
 </ITEMTEMPLATE>
 
 </asp:Repeater>

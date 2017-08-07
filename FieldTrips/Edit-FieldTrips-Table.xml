@@ -93,6 +93,61 @@
       <InsideControl>FieldTripOptionsTableControl</InsideControl>
     </ContainedComponent>
     <ContainedComponent>
+      <Name>Cost</Name>
+      <Type>FieldValue</Type>
+      <Field>Cost</Field>
+      <FieldValueStyle>TextBox</FieldValueStyle>
+      <Table>DatabaseOLR_db%dbo.FieldTripOptions</Table>
+      <PassthroughAttributes>
+        <Attribute>
+          <Name>CostRequiredFieldValidator:Enabled</Name>
+          <Value>False</Value>
+        </Attribute>
+        <Attribute>
+          <Name>CostRequiredFieldValidator:Text</Name>
+          <Value>*</Value>
+        </Attribute>
+        <Attribute>
+          <Name>CssClass</Name>
+          <Value>field_input</Value>
+        </Attribute>
+        <Attribute>
+          <Name>EnableIncrementDecrementButtons</Name>
+          <Value>Default</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:DataSource</Name>
+          <Value>Parent</Value>
+        </Attribute>
+      </PassthroughAttributes>
+      <InsideControl>FieldTripOptionsTableControl</InsideControl>
+      <InsideItemTemplate>true</InsideItemTemplate>
+    </ContainedComponent>
+    <ContainedComponent>
+      <Name>CostLabel</Name>
+      <Type>Literal</Type>
+      <PassthroughAttributes>
+        <Attribute>
+          <Name>Consumers</Name>
+          <Value>FieldTripOptionsTableControl</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:Field</Name>
+          <Value>Cost</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:Table</Name>
+          <Value>DatabaseOLR_db%dbo.FieldTripOptions</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Text</Name>
+          <Value>%ISD_DEFAULT%DatabaseOLR_db%dbo.FieldTripOptions%Cost</Value>
+        </Attribute>
+      </PassthroughAttributes>
+      <InsideControl>FieldTripOptionsTableControl</InsideControl>
+      <InsideItemTemplate>true</InsideItemTemplate>
+    </ContainedComponent>
+    <ContainedComponent>
       <Name>Date0</Name>
       <Type>FieldValue</Type>
       <Field>Date</Field>
@@ -2140,11 +2195,15 @@
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
       &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;GEN:FIELDVALUE NAME="Description1"/&amp;gt; &lt;/Value&gt;
+        &lt;Value&gt;&amp;lt;GEN:FIELDVALUE NAME="Description1"/&amp;gt;&lt;/Value&gt;
         &lt;CellAttributes&gt;
           &lt;Attribute&gt;
             &lt;Name&gt;class&lt;/Name&gt;
             &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;rowspan&lt;/Name&gt;
+            &lt;AttributeValue&gt;2&lt;/AttributeValue&gt;
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
@@ -2160,6 +2219,75 @@
       &lt;/Cell&gt;
       &lt;Cell&gt;
         &lt;Value&gt;&amp;lt;GEN:FIELDVALUE NAME="PlacesAvailable"/&amp;gt; &lt;/Value&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellLabel&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
+    &lt;/Row&gt;
+    &lt;Row Type="Repeater"&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellSelectCheckbox&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;scope&lt;/Name&gt;
+            &lt;AttributeValue&gt;row&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;style&lt;/Name&gt;
+            &lt;AttributeValue&gt;font-size: 5px;&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableRowButtonsCellVertical&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellLabel&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;Value&gt;&amp;lt;GEN:FIELDLABEL NAME="CostLabel" /&amp;gt;&lt;/Value&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellLabel&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;Value&gt;&amp;lt;GEN:FIELDVALUE NAME="Cost" /&amp;gt;&lt;/Value&gt;
         &lt;CellAttributes&gt;
           &lt;Attribute&gt;
             &lt;Name&gt;class&lt;/Name&gt;

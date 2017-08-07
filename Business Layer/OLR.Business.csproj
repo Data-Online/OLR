@@ -272,28 +272,52 @@
     <Compile Include="BaseView_StatsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AvailableWorkshopsTable.cs" >
+    <Compile Include="AvailableWorkshopsTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseAvailableWorkshopsTable.cs" >
+    <Compile Include="BaseAvailableWorkshopsTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AvailableWorkshopsRecord.cs" >
+    <Compile Include="AvailableWorkshopsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseAvailableWorkshopsRecord.cs" >
+    <Compile Include="BaseAvailableWorkshopsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="WorkshopsTable.cs" >
+    <Compile Include="WorkshopsTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseWorkshopsTable.cs" >
+    <Compile Include="BaseWorkshopsTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="WorkshopsRecord.cs" >
+    <Compile Include="WorkshopsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseWorkshopsRecord.cs" >
+    <Compile Include="BaseWorkshopsRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OtherCostsTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseOtherCostsTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OtherCostsRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseOtherCostsRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View_FieldTripSelectionsView.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseView_FieldTripSelectionsView.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View_FieldTripSelectionsRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseView_FieldTripSelectionsRecord.cs" >
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

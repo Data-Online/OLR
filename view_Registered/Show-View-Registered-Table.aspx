@@ -90,7 +90,8 @@
 	</asp:ImageButton></td><td class="tableCellValue"><asp:Literal runat="server" id="FirstName"></asp:Literal> 
 <span style="white-space:nowrap;">
 <asp:Literal runat="server" id="ContactId" visible="False"></asp:Literal></span>
-</td><td class="tableCellValue"><asp:Literal runat="server" id="LastName"></asp:Literal></td><td class="tableCellValue"><asp:Literal runat="server" id="Email"></asp:Literal> <br />
+ 
+<asp:Literal runat="server" id="ValidationUid" visible="False"></asp:Literal></td><td class="tableCellValue"><asp:Literal runat="server" id="LastName"></asp:Literal></td><td class="tableCellValue"><asp:Literal runat="server" id="Email"></asp:Literal> <br />
 <asp:Literal runat="server" id="MobileNumber"></asp:Literal></td><td class="tableCellValue"><asp:Literal runat="server" id="AdditionalDinnerTicket"></asp:Literal> <br />
 <asp:Literal runat="server" id="AdditionalDinnerName"></asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:Literal runat="server" id="InitialCreationDate"></asp:Literal></span>

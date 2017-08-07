@@ -689,7 +689,7 @@
         </Attribute>
         <Attribute>
           <Name>RedirectURL</Name>
-          <Value>../Registrations/EditRegistration.aspx?Contact={View_RegisteredTableControlRow:PK}</Value>
+          <Value>http://localhost:60892/Home/RegisterMe?Registration={View_RegisteredTableControlRow:NoUrlEncode:FV:ValidationUid}</Value>
         </Attribute>
         <Attribute>
           <Name>ToolTip</Name>
@@ -2388,6 +2388,14 @@
           <Name>RecordDeleted Desc</Name>
           <Value>Record Deleted {Txt:Descending}</Value>
         </Item>
+        <Item>
+          <Name>ValidationUid Asc</Name>
+          <Value>Validation UID {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>ValidationUid Desc</Name>
+          <Value>Validation UID {Txt:Descending}</Value>
+        </Item>
       </SpecifiedItems>
       <PassthroughAttributes>
         <Attribute>
@@ -2643,10 +2651,94 @@
       </PassthroughAttributes>
     </ContainedComponent>
     <ContainedComponent>
+      <Name>ValidationUid</Name>
+      <Type>FieldValue</Type>
+      <Field>ValidationUid</Field>
+      <FieldValueStyle>Literal</FieldValueStyle>
+      <Table>DatabaseOLR_db%dbo.view_Registered</Table>
+      <PassthroughAttributes>
+        <Attribute>
+          <Name>FieldMaxLength</Name>
+          <Value>Default</Value>
+        </Attribute>
+        <Attribute>
+          <Name>HTMLEncodeValue</Name>
+          <Value>Default</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:ApplySaveToField</Name>
+          <Value>False</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:DataSource</Name>
+          <Value>Parent</Value>
+        </Attribute>
+        <Attribute>
+          <Name>NullValueText</Name>
+          <Value>&amp;nbsp;</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupDisplay</Name>
+          <Value>Default</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupThreshold</Name>
+          <Value>Default</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowHeight</Name>
+          <Value>200</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowPersist</Name>
+          <Value>False</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowScrollBar</Name>
+          <Value>True</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowTitle</Name>
+          <Value>%ISD_DEFAULT%</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowWidth</Name>
+          <Value>300</Value>
+        </Attribute>
+        <Attribute>
+          <Name>TextFormat</Name>
+          <Value>{0}</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Visible</Name>
+          <Value>False</Value>
+        </Attribute>
+      </PassthroughAttributes>
+      <InsideControl>View_RegisteredTableControl</InsideControl>
+      <InsideItemTemplate>true</InsideItemTemplate>
+    </ContainedComponent>
+    <ContainedComponent>
       <Name>View_RegisteredTableControl</Name>
       <Type>Table</Type>
       <PanelStyle>RecInTable_RISepC_Parent</PanelStyle>
       <Table>DatabaseOLR_db%dbo.view_Registered</Table>
+      <QueryDefinition>
+        <WhereClause>
+          <Position>1</Position>
+          <TableAlias>DatabaseOLR_db%dbo.view_Registered_</TableAlias>
+          <Field>[DatabaseOLR_db%dbo.view_Registered_].[RegistrationType]</Field>
+          <Operator>!null</Operator>
+        </WhereClause>
+        <Operators>
+          <Operator xsi:nil="true" />
+        </Operators>
+        <TableAliases>
+          <Alias>
+            <AliasName>DatabaseOLR_db%dbo.view_Registered_</AliasName>
+            <TableName>DatabaseOLR_db%dbo.view_Registered</TableName>
+          </Alias>
+        </TableAliases>
+      </QueryDefinition>
       <PassthroughAttributes>
         <Attribute>
           <Name>HasScrolling</Name>
@@ -2663,6 +2755,10 @@
         <Attribute>
           <Name>InternalUse:DataSource</Name>
           <Value>TableOrQuery</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:DataSourceArg</Name>
+          <Value />
         </Attribute>
         <Attribute>
           <Name>NumberOfColumns</Name>
@@ -2689,6 +2785,7 @@
           <Value>Pagination-TotalPages</Value>
         </Attribute>
       </PassthroughAttributes>
+      <OrderBys />
     </ContainedComponent>
     <ContainedComponent>
       <Name>WordButton</Name>
@@ -3665,7 +3762,8 @@
       &lt;/Cell&gt;
       &lt;Cell&gt;
         &lt;Value&gt;&amp;lt;GEN:FIELDVALUE NAME="FirstName" /&amp;gt; 
-&amp;lt;GEN:FIELDVALUE NAME="ContactId" /&amp;gt;&lt;/Value&gt;
+&amp;lt;GEN:FIELDVALUE NAME="ContactId" /&amp;gt; 
+&amp;lt;GEN:FIELDVALUE NAME="ValidationUid" /&amp;gt;&lt;/Value&gt;
         &lt;CellAttributes&gt;
           &lt;Attribute&gt;
             &lt;Name&gt;class&lt;/Name&gt;

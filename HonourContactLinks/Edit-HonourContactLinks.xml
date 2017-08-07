@@ -14,6 +14,7 @@
     <Layout>HonourContactLinks\Edit-HonourContactLinks.html</Layout>
     <DisplayName>Edit-HonourContactLinks</DisplayName>
     <Description>Standard record panel.</Description>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>2129432825-6052</CheckSum>
   </Self>
   <ComposedOf>

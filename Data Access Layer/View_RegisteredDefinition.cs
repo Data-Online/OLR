@@ -12,7 +12,7 @@ namespace OLR.Business
 public class View_RegisteredDefinition
 {
 #region "Definition (XML) for View_RegisteredDefinition table"
-	//Next 779 lines contain Table Definition (XML) for table "View_RegisteredDefinition"
+	//Next 817 lines contain Table Definition (XML) for table "View_RegisteredDefinition"
 	private static string _DefinitionString = "";
 	
 #endregion
@@ -789,10 +789,48 @@ public class View_RegisteredDefinition
          tbf.Append(      @"<columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>");
          tbf.Append(      @"<columnTableAliasName></columnTableAliasName>");
          tbf.Append(      @"<applyLabelText>Y</applyLabelText>");
+         tbf.Append(      @"<applyDFKA>N</applyDFKA>");
+         tbf.Append(      @"<applyInitializeInsertingRecord>N</applyInitializeInsertingRecord>");
+         tbf.Append(      @"<applyInitializeReadingRecord>N</applyInitializeReadingRecord>");
+         tbf.Append(      @"<applyInitializeUpdatingRecord>N</applyInitializeUpdatingRecord>");
+         tbf.Append(      @"<applyValidateInsertingRecord>N</applyValidateInsertingRecord>");
+         tbf.Append(      @"<applyValidateUpdatingRecord>N</applyValidateUpdatingRecord>");
+         tbf.Append(      @"<applyDefaultValue>N</applyDefaultValue>");
+         tbf.Append(      @"<insertingRecordFormula></insertingRecordFormula>");
+         tbf.Append(      @"<readingRecordFormula></readingRecordFormula>");
+         tbf.Append(      @"<updatingRecordFormula></updatingRecordFormula>");
+         tbf.Append(      @"<insertingFormula></insertingFormula>");
+         tbf.Append(      @"<updatingFormula></updatingFormula>");
+         tbf.Append(    "</Column>");
+         tbf.Append(    @"<Column InternalName=""20"" Priority=""21"" ColumnNum=""20"">");
+         tbf.Append(      @"<columnName>ValidationUid</columnName>");
+         tbf.Append(      @"<columnUIName>Validation UID</columnUIName>");
+         tbf.Append(      @"<columnType>Unique Identifier</columnType>");
+         tbf.Append(      @"<columnDBType>uniqueidentifier</columnDBType>");
+         tbf.Append(      @"<columnLengthSet></columnLengthSet>");
+         tbf.Append(      @"<columnDefault></columnDefault>");
+         tbf.Append(      @"<columnDBDefault></columnDBDefault>");
+         tbf.Append(      @"<columnIndex>N</columnIndex>");
+         tbf.Append(      @"<columnUnique>N</columnUnique>");
+         tbf.Append(      @"<columnFunction></columnFunction>");
+         tbf.Append(      @"<columnDBFormat></columnDBFormat>");
+         tbf.Append(      @"<columnPK>N</columnPK>");
+         tbf.Append(      @"<columnPermanent>N</columnPermanent>");
+         tbf.Append(      @"<columnComputed>N</columnComputed>");
+         tbf.Append(      @"<columnIdentity>N</columnIdentity>");
+         tbf.Append(      @"<columnReadOnly>N</columnReadOnly>");
+         tbf.Append(      @"<columnRequired>N</columnRequired>");
+         tbf.Append(      @"<columnNotNull>N</columnNotNull>");
+         tbf.Append(      @"<columnCaseSensitive>N</columnCaseSensitive>");
+         tbf.Append(      @"<columnCollation></columnCollation>");
+         tbf.Append(      @"<columnFullText>N</columnFullText>");
+         tbf.Append(      @"<columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>");
+         tbf.Append(      @"<columnTableAliasName></columnTableAliasName>");
+         tbf.Append(      @"<applyLabelText>Y</applyLabelText>");
          tbf.Append(    "</Column>");
          tbf.Append(  "</ColumnDefinition>");
          tbf.Append(  @"<TableName>view_Registered</TableName>");
-         tbf.Append(  @"<Version>5</Version>");
+         tbf.Append(  @"<Version>6</Version>");
          tbf.Append(  @"<Owner>dbo</Owner>");
          tbf.Append(  @"<TableAliasName>view_Registered_</TableAliasName>");
          tbf.Append(  @"<ConnectionName>DatabaseOLR_db</ConnectionName>");

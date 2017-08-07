@@ -49,7 +49,7 @@
 </table>
 
                   </td></tr></table>
-</asp:panel></td></tr><tr><td class="panelBL"><asp:Label runat="server" id="Label4" Text="Total Registrations">	</asp:Label> 
+</asp:panel></td></tr><tr><td class="panelBL"><asp:Label runat="server" id="Label4" Text="Total Completed Registrations">	</asp:Label> 
 <asp:Literal runat="server" id="RegistrationsCountControl">	</asp:Literal></td></tr></table>
 	<asp:hiddenfield id="RegistrationsTableControl_PostbackTracker" runat="server" />
 </OLR:RegistrationsTableControl>

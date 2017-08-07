@@ -56,8 +56,7 @@
       <columnType>Number</columnType>
       <columnDBType>int</columnDBType>
       <columnLengthSet>10.0</columnLengthSet>
-      <columnDefault>
-      </columnDefault>
+      <columnDefault>= Session("ActiveEventId")</columnDefault>
       <columnDBDefault>
       </columnDBDefault>
       <columnIndex>N</columnIndex>
@@ -86,7 +85,7 @@
         <columnFKTable>Events</columnFKTable>
         <columnFKOwner>dbo</columnFKOwner>
         <columnFKColumn>EventId</columnFKColumn>
-        <columnFKColumnDisplay>EventName</columnFKColumnDisplay>
+        <columnFKColumnDisplay>=Events.EventName</columnFKColumnDisplay>
         <foreignKeyType>Explicit</foreignKeyType>
       </foreignKey>
       <applyDFKA>Y</applyDFKA>
@@ -95,7 +94,7 @@
       <applyInitializeUpdatingRecord>N</applyInitializeUpdatingRecord>
       <applyValidateInsertingRecord>N</applyValidateInsertingRecord>
       <applyValidateUpdatingRecord>N</applyValidateUpdatingRecord>
-      <applyDefaultValue>N</applyDefaultValue>
+      <applyDefaultValue>Y</applyDefaultValue>
       <insertingRecordFormula>
       </insertingRecordFormula>
       <readingRecordFormula>
@@ -155,9 +154,140 @@
       <updatingFormula>
       </updatingFormula>
     </Column>
+    <Column InternalName="3" Priority="4" ColumnNum="3">
+      <columnName>CostMember</columnName>
+      <columnUIName>%ISD_DEFAULT%</columnUIName>
+      <columnType>Number</columnType>
+      <columnDBType>decimal</columnDBType>
+      <columnLengthSet>5.2</columnLengthSet>
+      <columnDefault>
+      </columnDefault>
+      <columnDBDefault>
+      </columnDBDefault>
+      <columnIndex>N</columnIndex>
+      <columnUnique>N</columnUnique>
+      <columnFunction>
+      </columnFunction>
+      <columnDBFormat>
+      </columnDBFormat>
+      <columnPK>N</columnPK>
+      <columnPermanent>N</columnPermanent>
+      <columnComputed>N</columnComputed>
+      <columnIdentity>N</columnIdentity>
+      <columnReadOnly>N</columnReadOnly>
+      <columnRequired>N</columnRequired>
+      <columnNotNull>N</columnNotNull>
+      <columnCaseSensitive>N</columnCaseSensitive>
+      <columnCollation>
+      </columnCollation>
+      <columnFullText>N</columnFullText>
+      <columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>
+      <columnTableAliasName>
+      </columnTableAliasName>
+      <applyLabelText>Y</applyLabelText>
+      <applyDFKA>N</applyDFKA>
+      <applyInitializeInsertingRecord>N</applyInitializeInsertingRecord>
+      <applyInitializeReadingRecord>N</applyInitializeReadingRecord>
+      <applyInitializeUpdatingRecord>N</applyInitializeUpdatingRecord>
+      <applyValidateInsertingRecord>N</applyValidateInsertingRecord>
+      <applyValidateUpdatingRecord>N</applyValidateUpdatingRecord>
+      <applyDefaultValue>N</applyDefaultValue>
+      <insertingRecordFormula>
+      </insertingRecordFormula>
+      <readingRecordFormula>
+      </readingRecordFormula>
+      <updatingRecordFormula>
+      </updatingRecordFormula>
+      <insertingFormula>
+      </insertingFormula>
+      <updatingFormula>
+      </updatingFormula>
+    </Column>
+    <Column InternalName="4" Priority="5" ColumnNum="4">
+      <columnName>CostNonMember</columnName>
+      <columnUIName Source="User">= "Cost Non Member"</columnUIName>
+      <columnType>Number</columnType>
+      <columnDBType>decimal</columnDBType>
+      <columnLengthSet>5.2</columnLengthSet>
+      <columnDefault>
+      </columnDefault>
+      <columnDBDefault>
+      </columnDBDefault>
+      <columnIndex>N</columnIndex>
+      <columnUnique>N</columnUnique>
+      <columnFunction>
+      </columnFunction>
+      <columnDBFormat>
+      </columnDBFormat>
+      <columnPK>N</columnPK>
+      <columnPermanent>N</columnPermanent>
+      <columnComputed>N</columnComputed>
+      <columnIdentity>N</columnIdentity>
+      <columnReadOnly>N</columnReadOnly>
+      <columnRequired>N</columnRequired>
+      <columnNotNull>N</columnNotNull>
+      <columnCaseSensitive>N</columnCaseSensitive>
+      <columnCollation>
+      </columnCollation>
+      <columnFullText>N</columnFullText>
+      <columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>
+      <columnTableAliasName>
+      </columnTableAliasName>
+      <applyLabelText>Y</applyLabelText>
+      <applyDFKA>N</applyDFKA>
+      <applyInitializeInsertingRecord>N</applyInitializeInsertingRecord>
+      <applyInitializeReadingRecord>N</applyInitializeReadingRecord>
+      <applyInitializeUpdatingRecord>N</applyInitializeUpdatingRecord>
+      <applyValidateInsertingRecord>N</applyValidateInsertingRecord>
+      <applyValidateUpdatingRecord>N</applyValidateUpdatingRecord>
+      <applyDefaultValue>N</applyDefaultValue>
+      <insertingRecordFormula>
+      </insertingRecordFormula>
+      <readingRecordFormula>
+      </readingRecordFormula>
+      <updatingRecordFormula>
+      </updatingRecordFormula>
+      <insertingFormula>
+      </insertingFormula>
+      <updatingFormula>
+      </updatingFormula>
+    </Column>
+    <Column InternalName="5" Priority="6" ColumnNum="5">
+      <columnName>Default</columnName>
+      <columnUIName>%ISD_DEFAULT%</columnUIName>
+      <columnType>Boolean</columnType>
+      <columnDBType>bit</columnDBType>
+      <columnLengthSet>
+      </columnLengthSet>
+      <columnDefault>
+      </columnDefault>
+      <columnDBDefault>
+      </columnDBDefault>
+      <columnIndex>N</columnIndex>
+      <columnUnique>N</columnUnique>
+      <columnFunction>
+      </columnFunction>
+      <columnDBFormat>
+      </columnDBFormat>
+      <columnPK>N</columnPK>
+      <columnPermanent>N</columnPermanent>
+      <columnComputed>N</columnComputed>
+      <columnIdentity>N</columnIdentity>
+      <columnReadOnly>N</columnReadOnly>
+      <columnRequired>N</columnRequired>
+      <columnNotNull>N</columnNotNull>
+      <columnCaseSensitive>N</columnCaseSensitive>
+      <columnCollation>
+      </columnCollation>
+      <columnFullText>N</columnFullText>
+      <columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>
+      <columnTableAliasName>
+      </columnTableAliasName>
+      <applyLabelText>Y</applyLabelText>
+    </Column>
   </ColumnDefinition>
   <TableName>RegistrationTypes</TableName>
-  <Version>2</Version>
+  <Version>5</Version>
   <Owner>dbo</Owner>
   <TableAliasName>RegistrationTypes_</TableAliasName>
   <ConnectionName>DatabaseOLR_db</ConnectionName>

@@ -91,8 +91,6 @@ public class BaseHonoursRecordControl : OLR.UI.BaseApplicationRecordControl
               // Register the event handlers.
 
           
-              this.Honour.TextChanged += Honour_TextChanged;
-            
         }
 
         public virtual void LoadData()  
@@ -169,8 +167,6 @@ public class BaseHonoursRecordControl : OLR.UI.BaseApplicationRecordControl
 
             // Call the Set methods for each controls on the panel
         
-                SetHonour();
-                SetHonourLabel();
                 
 
       
@@ -195,45 +191,6 @@ public class BaseHonoursRecordControl : OLR.UI.BaseApplicationRecordControl
         }
         
         
-        public virtual void SetHonour()
-        {
-            
-                    
-            // Set the Honour TextBox on the webpage with value from the
-            // DatabaseOLR_db%dbo.Honours database record.
-
-            // this.DataSource is the DatabaseOLR_db%dbo.Honours record retrieved from the database.
-            // this.Honour is the ASP:TextBox on the webpage.
-                  
-            if (this.DataSource != null && this.DataSource.HonourSpecified) {
-                								
-                // If the Honour is non-NULL, then format the value.
-                // The Format method will use the Display Format
-               string formattedValue = this.DataSource.Format(HonoursTable.Honour);
-                                
-                this.Honour.Text = formattedValue;
-                   
-            } 
-            
-            else {
-            
-                // Honour is NULL in the database, so use the Default Value.  
-                // Default Value could also be NULL.
-        
-              this.Honour.Text = HonoursTable.Honour.Format(HonoursTable.Honour.DefaultValue);
-            		
-            }
-            
-              this.Honour.TextChanged += Honour_TextChanged;
-                               
-        }
-                
-        public virtual void SetHonourLabel()
-                  {
-                  
-                    
-        }
-                
         public BaseClasses.Data.DataSource.EvaluateFormulaDelegate EvaluateFormulaDelegate;
 
         public virtual string EvaluateFormula(string formula, BaseClasses.Data.BaseRecord dataSourceForEvaluate, string format, System.Collections.Generic.IDictionary<string, object> variables, bool includeDS, FormulaEvaluator e)
@@ -390,24 +347,9 @@ public class BaseHonoursRecordControl : OLR.UI.BaseApplicationRecordControl
       
             // Call the Get methods for each of the user interface controls.
         
-            GetHonour();
         }
         
         
-        public virtual void GetHonour()
-        {
-            
-            // Retrieve the value entered by the user on the Honour ASP:TextBox, and
-            // save it into the Honour field in DataSource DatabaseOLR_db%dbo.Honours record.
-            
-            // Custom validation should be performed in Validate, not here.
-                    
-            // Save the value to data source
-            this.DataSource.Parse(this.Honour.Text, HonoursTable.Honour);							
-                          
-                      
-        }
-                
 
       // To customize, override this method in HonoursRecordControl.
       
@@ -735,11 +677,6 @@ public class BaseHonoursRecordControl : OLR.UI.BaseApplicationRecordControl
     
         // Generate set method for buttons
         
-        protected virtual void Honour_TextChanged(object sender, EventArgs args)
-        {
-                    
-              }
-            
   
         private Hashtable _PreviousUIData = new Hashtable();
         public virtual Hashtable PreviousUIData {
@@ -851,18 +788,6 @@ public class BaseHonoursRecordControl : OLR.UI.BaseApplicationRecordControl
         }
        
 #region "Helper Properties"
-        
-        public System.Web.UI.WebControls.TextBox Honour {
-            get {
-                return (System.Web.UI.WebControls.TextBox)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Honour");
-            }
-        }
-            
-        public System.Web.UI.WebControls.Literal HonourLabel {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "HonourLabel");
-            }
-        }
         
         public System.Web.UI.WebControls.Literal Title0 {
             get {

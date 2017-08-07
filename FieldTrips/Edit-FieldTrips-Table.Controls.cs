@@ -123,6 +123,8 @@ public class BaseFieldTripOptionsTableControlRow : OLR.UI.BaseApplicationRecordC
           
                     this.DeleteRowButton1.Click += DeleteRowButton1_Click;
                         
+              this.Cost.TextChanged += Cost_TextChanged;
+            
               this.Description1.TextChanged += Description1_TextChanged;
             
               this.PlacesAvailable.TextChanged += PlacesAvailable_TextChanged;
@@ -182,6 +184,8 @@ public class BaseFieldTripOptionsTableControlRow : OLR.UI.BaseApplicationRecordC
 
             // Call the Set methods for each controls on the panel
         
+                SetCost();
+                SetCostLabel();
                 
                 SetDescription1();
                 SetDescriptionLabel2();
@@ -213,6 +217,48 @@ public class BaseFieldTripOptionsTableControlRow : OLR.UI.BaseApplicationRecordC
         }
         
         
+        public virtual void SetCost()
+        {
+            
+            // If data was retrieved from UI previously, restore it
+            if (this.PreviousUIData.ContainsKey(this.Cost.ID))
+            {
+            
+                this.Cost.Text = this.PreviousUIData[this.Cost.ID].ToString();
+              
+                return;
+            }
+            
+                    
+            // Set the Cost TextBox on the webpage with value from the
+            // DatabaseOLR_db%dbo.FieldTripOptions database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.FieldTripOptions record retrieved from the database.
+            // this.Cost is the ASP:TextBox on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.CostSpecified) {
+                								
+                // If the Cost is non-NULL, then format the value.
+                // The Format method will use the Display Format
+               string formattedValue = this.DataSource.Format(FieldTripOptionsTable.Cost);
+                                
+                this.Cost.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // Cost is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.Cost.Text = FieldTripOptionsTable.Cost.Format(FieldTripOptionsTable.Cost.DefaultValue);
+            		
+            }
+            
+              this.Cost.TextChanged += Cost_TextChanged;
+                               
+        }
+                
         public virtual void SetDescription1()
         {
             
@@ -295,6 +341,12 @@ public class BaseFieldTripOptionsTableControlRow : OLR.UI.BaseApplicationRecordC
             
               this.PlacesAvailable.TextChanged += PlacesAvailable_TextChanged;
                                
+        }
+                
+        public virtual void SetCostLabel()
+                  {
+                  
+                    
         }
                 
         public virtual void SetDescriptionLabel2()
@@ -477,11 +529,26 @@ public class BaseFieldTripOptionsTableControlRow : OLR.UI.BaseApplicationRecordC
       
             // Call the Get methods for each of the user interface controls.
         
+            GetCost();
             GetDescription1();
             GetPlacesAvailable();
         }
         
         
+        public virtual void GetCost()
+        {
+            
+            // Retrieve the value entered by the user on the Cost ASP:TextBox, and
+            // save it into the Cost field in DataSource DatabaseOLR_db%dbo.FieldTripOptions record.
+            
+            // Custom validation should be performed in Validate, not here.
+                    
+            // Save the value to data source
+            this.DataSource.Parse(this.Cost.Text, FieldTripOptionsTable.Cost);							
+                          
+                      
+        }
+                
         public virtual void GetDescription1()
         {
             
@@ -682,6 +749,11 @@ public class BaseFieldTripOptionsTableControlRow : OLR.UI.BaseApplicationRecordC
             
             
         
+        protected virtual void Cost_TextChanged(object sender, EventArgs args)
+        {
+                    
+              }
+            
         protected virtual void Description1_TextChanged(object sender, EventArgs args)
         {
                     
@@ -780,6 +852,18 @@ public class BaseFieldTripOptionsTableControlRow : OLR.UI.BaseApplicationRecordC
         }
        
 #region "Helper Properties"
+        
+        public System.Web.UI.WebControls.TextBox Cost {
+            get {
+                return (System.Web.UI.WebControls.TextBox)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Cost");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal CostLabel {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "CostLabel");
+            }
+        }
         
         public System.Web.UI.WebControls.ImageButton DeleteRowButton1 {
             get {
@@ -1684,6 +1768,10 @@ public class BaseFieldTripOptionsTableControl : OLR.UI.BaseApplicationTableContr
             if (recControl.Visible && recControl.IsNewRecord) {
       FieldTripOptionsRecord rec = new FieldTripOptionsRecord();
         
+                        if (recControl.Cost.Text != "") {
+                            rec.Parse(recControl.Cost.Text, FieldTripOptionsTable.Cost);
+                  }
+                
                         if (recControl.Description1.Text != "") {
                             rec.Parse(recControl.Description1.Text, FieldTripOptionsTable.Description);
                   }

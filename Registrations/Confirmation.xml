@@ -14,7 +14,7 @@
     <Layout>Registrations\Confirmation.xml</Layout>
     <DisplayName>Confirmation</DisplayName>
     <Description>This is a blank page.</Description>
-    <LoginRequired>&lt;PRoles&gt;Everyone&lt;/PRoles&gt;</LoginRequired>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>-954704551-1286</CheckSum>
   </Self>
   <ComposedOf>

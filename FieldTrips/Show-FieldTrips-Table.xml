@@ -1464,7 +1464,7 @@
         </Attribute>
         <Attribute>
           <Name>Text</Name>
-          <Value>Total Registrations</Value>
+          <Value>Total Completed Registrations</Value>
         </Attribute>
       </PassthroughAttributes>
       <InsideControl>RegistrationsTableControl</InsideControl>
@@ -1771,6 +1771,33 @@
       <Name>RegistrationsCountQuery</Name>
       <Type>DataSource</Type>
       <Table>DatabaseOLR_db%dbo.Registrations</Table>
+      <QueryDefinition>
+        <WhereClause>
+          <Position>1</Position>
+          <TableAlias>DatabaseOLR_db%dbo.Registrations_</TableAlias>
+          <Field>[DatabaseOLR_db%dbo.Registrations_].[RegistrationTypeId]</Field>
+          <Operator>!null</Operator>
+        </WhereClause>
+        <Operators>
+          <Operator xsi:nil="true" />
+        </Operators>
+        <TableAliases>
+          <Alias>
+            <AliasName>DatabaseOLR_db%dbo.Registrations_</AliasName>
+            <TableName>DatabaseOLR_db%dbo.Registrations</TableName>
+          </Alias>
+        </TableAliases>
+      </QueryDefinition>
+      <PassthroughAttributes>
+        <Attribute>
+          <Name>InternalUse:DataSource</Name>
+          <Value>TableOrQuery</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:DataSourceArg</Name>
+          <Value />
+        </Attribute>
+      </PassthroughAttributes>
       <InsideControl>RegistrationsTableControl</InsideControl>
       <Selects>
         <Select>
@@ -1781,12 +1808,7 @@
           <SetDistinct>false</SetDistinct>
         </Select>
       </Selects>
-      <Joins>
-        <JoinList>
-          <TableToJoin>DatabaseOLR_db%dbo.Registrations</TableToJoin>
-          <TableToJoinAlias />
-        </JoinList>
-      </Joins>
+      <OrderBys />
     </ContainedComponent>
     <ContainedComponent>
       <Name>RegistrationsTableControl</Name>

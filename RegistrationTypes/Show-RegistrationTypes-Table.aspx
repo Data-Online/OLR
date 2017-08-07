@@ -80,7 +80,9 @@
 	</asp:ImageButton>                                 
                                 </td><td class="tableCellLabel"> 
 </td><td class="tableCellValue"> </td><td class="tableCellLabel"><asp:Literal runat="server" id="EventIdLabel" Text="Event">	</asp:Literal> 
-</td><td class="tableCellValue"><asp:LinkButton runat="server" id="EventId" causesvalidation="False" commandname="Redirect"></asp:LinkButton> </td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableRowDivider" colspan="8"></td></tr></OLR:RegistrationTypesTableControlRow>
+</td><td class="tableCellValue"><span style="white-space:nowrap;">
+<asp:LinkButton runat="server" id="EventId" causesvalidation="False" commandname="Redirect"></asp:LinkButton></span>
+ </td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableRowDivider" colspan="8"></td></tr></OLR:RegistrationTypesTableControlRow>
 </ITEMTEMPLATE>
 
 </asp:Repeater>

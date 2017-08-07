@@ -79,6 +79,7 @@ public class BaseView_RegisteredView : PrimaryKeyTable
         RegistrationTypeColumn.CodeName = "RegistrationType";
         RegistrationIdColumn.CodeName = "RegistrationId";
         RecordDeletedColumn.CodeName = "RecordDeleted";
+        ValidationUidColumn.CodeName = "ValidationUid";
 
         
     }
@@ -598,6 +599,31 @@ public class BaseView_RegisteredView : PrimaryKeyTable
         get
         {
             return View_RegisteredView.Instance.RecordDeletedColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_Registered_.ValidationUid column object.
+    /// </summary>
+    public BaseClasses.Data.UniqueIdentifierColumn ValidationUidColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.UniqueIdentifierColumn)this.TableDefinition.ColumnList[20];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_Registered_.ValidationUid column object.
+    /// </summary>
+    public static BaseClasses.Data.UniqueIdentifierColumn ValidationUid
+    {
+        get
+        {
+            return View_RegisteredView.Instance.ValidationUidColumn;
         }
     }
     
@@ -1146,7 +1172,8 @@ public class BaseView_RegisteredView : PrimaryKeyTable
         string TownNameValue, 
         string RegistrationTypeValue, 
         string RegistrationIdValue, 
-        string RecordDeletedValue
+        string RecordDeletedValue, 
+        string ValidationUidValue
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
@@ -1170,6 +1197,7 @@ public class BaseView_RegisteredView : PrimaryKeyTable
         rec.SetString(RegistrationTypeValue, RegistrationTypeColumn);
         rec.SetString(RegistrationIdValue, RegistrationIdColumn);
         rec.SetString(RecordDeletedValue, RecordDeletedColumn);
+        rec.SetString(ValidationUidValue, ValidationUidColumn);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized
