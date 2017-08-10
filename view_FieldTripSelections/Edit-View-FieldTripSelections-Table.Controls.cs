@@ -289,6 +289,7 @@ public class BaseView_FieldTripSelectionsTableControlRow : OLR.UI.BaseApplicatio
                 SetFieldTripId1();
                 SetFirstChoiceId();
                 SetInitialCreationDate();
+                SetPaymentRef();
                 SetSecondChoiceId();
                 SetThirdChoiceId();
                 SetValidationUid();
@@ -547,6 +548,38 @@ public class BaseView_FieldTripSelectionsTableControlRow : OLR.UI.BaseApplicatio
                 // Default Value could also be NULL.
         
               this.InitialCreationDate.Text = View_FieldTripSelectionsView.InitialCreationDate.Format(View_FieldTripSelectionsView.InitialCreationDate.DefaultValue, @"d");
+            		
+            }
+                               
+        }
+                
+        public virtual void SetPaymentRef()
+        {
+            
+                    
+            // Set the PaymentRef Literal on the webpage with value from the
+            // DatabaseOLR_db%dbo.view_FieldTripSelections database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.view_FieldTripSelections record retrieved from the database.
+            // this.PaymentRef is the ASP:Literal on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.PaymentRefSpecified) {
+                								
+                // If the PaymentRef is non-NULL, then format the value.
+                // The Format method will use the Display Format
+               string formattedValue = this.DataSource.Format(View_FieldTripSelectionsView.PaymentRef);
+                                
+                formattedValue = HttpUtility.HtmlEncode(formattedValue);
+                this.PaymentRef.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // PaymentRef is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.PaymentRef.Text = View_FieldTripSelectionsView.PaymentRef.Format(View_FieldTripSelectionsView.PaymentRef.DefaultValue);
             		
             }
                                
@@ -893,6 +926,7 @@ public class BaseView_FieldTripSelectionsTableControlRow : OLR.UI.BaseApplicatio
             GetFieldTripId1();
             GetFirstChoiceId();
             GetInitialCreationDate();
+            GetPaymentRef();
             GetSecondChoiceId();
             GetThirdChoiceId();
             GetValidationUid();
@@ -938,6 +972,11 @@ public class BaseView_FieldTripSelectionsTableControlRow : OLR.UI.BaseApplicatio
         }
                 
         public virtual void GetInitialCreationDate()
+        {
+            
+        }
+                
+        public virtual void GetPaymentRef()
         {
             
         }
@@ -1476,6 +1515,12 @@ public class BaseView_FieldTripSelectionsTableControlRow : OLR.UI.BaseApplicatio
             }
         }
             
+        public System.Web.UI.WebControls.Literal PaymentRef {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "PaymentRef");
+            }
+        }
+            
         public System.Web.UI.WebControls.Label SecondChoiceId {
             get {
                 return (System.Web.UI.WebControls.Label)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "SecondChoiceId");
@@ -1747,6 +1792,8 @@ public class BaseView_FieldTripSelectionsTableControl : OLR.UI.BaseApplicationTa
               this.FirstChoiceIdLabel.Click += FirstChoiceIdLabel_Click;
             
               this.InitialCreationDateLabel.Click += InitialCreationDateLabel_Click;
+            
+              this.PaymentRefLabel.Click += PaymentRefLabel_Click;
             
               this.SecondChoiceIdLabel.Click += SecondChoiceIdLabel_Click;
             
@@ -2028,6 +2075,7 @@ public class BaseView_FieldTripSelectionsTableControl : OLR.UI.BaseApplicationTa
                 SetFirstChoiceIdLabel();
                 SetInitialCreationDateLabel();
                 
+                SetPaymentRefLabel();
                 
                 
                 SetSecondChoiceIdLabel();
@@ -2588,6 +2636,10 @@ public class BaseView_FieldTripSelectionsTableControl : OLR.UI.BaseApplicationTa
                             rec.Parse(recControl.InitialCreationDate.Text, View_FieldTripSelectionsView.InitialCreationDate);
                   }
                 
+                        if (recControl.PaymentRef.Text != "") {
+                            rec.Parse(recControl.PaymentRef.Text, View_FieldTripSelectionsView.PaymentRef);
+                  }
+                
                         if (recControl.SecondChoiceId.Text != "") {
                             rec.Parse(recControl.SecondChoiceId.Text, View_FieldTripSelectionsView.SecondChoiceId);
                   }
@@ -2720,6 +2772,12 @@ public class BaseView_FieldTripSelectionsTableControl : OLR.UI.BaseApplicationTa
                     
         }
                 
+        public virtual void SetPaymentRefLabel()
+                  {
+                  
+                    
+        }
+                
         public virtual void SetSecondChoiceIdLabel()
                   {
                   
@@ -2812,6 +2870,10 @@ public class BaseView_FieldTripSelectionsTableControl : OLR.UI.BaseApplicationTa
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Validation UID {Txt:Ascending}"), "ValidationUid Asc"));
               
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Validation UID {Txt:Descending}"), "ValidationUid Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Payment Reference {Txt:Ascending}"), "PaymentRef Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Payment Reference {Txt:Descending}"), "PaymentRef Desc"));
               
             try
             {          
@@ -3652,6 +3714,36 @@ public class BaseView_FieldTripSelectionsTableControl : OLR.UI.BaseApplicationTa
               
         }
             
+        public virtual void PaymentRefLabel_Click(object sender, EventArgs args)
+        {
+            //Sorts by PaymentRef when clicked.
+              
+            // Get previous sorting state for PaymentRef.
+        
+            OrderByItem sd = this.CurrentSortOrder.Find(View_FieldTripSelectionsView.PaymentRef);
+            if (sd == null || (this.CurrentSortOrder.Items != null && this.CurrentSortOrder.Items.Length > 1)) {
+                // First time sort, so add sort order for PaymentRef.
+                this.CurrentSortOrder.Reset();
+
+    
+              //If default sort order was GeoProximity, create new CurrentSortOrder of OrderBy type
+              if ((this.CurrentSortOrder).GetType() == typeof(GeoOrderBy)) this.CurrentSortOrder = new OrderBy(true, false);
+
+              this.CurrentSortOrder.Add(View_FieldTripSelectionsView.PaymentRef, OrderByItem.OrderDir.Asc);
+            
+            } else {
+                // Previously sorted by PaymentRef, so just reverse.
+                sd.Reverse();
+            }
+        
+
+            // Setting the DataChanged to true results in the page being refreshed with
+            // the most recent data from the database.  This happens in PreRender event
+            // based on the current sort, search and filter criteria.
+            this.DataChanged = true;
+              
+        }
+            
         public virtual void SecondChoiceIdLabel_Click(object sender, EventArgs args)
         {
             //Sorts by SecondChoiceId when clicked.
@@ -3815,6 +3907,7 @@ public class BaseView_FieldTripSelectionsTableControl : OLR.UI.BaseApplicationTa
              View_FieldTripSelectionsView.SecondChoiceId,
              View_FieldTripSelectionsView.ThirdChoiceId,
              View_FieldTripSelectionsView.AllocatedId,
+             View_FieldTripSelectionsView.PaymentRef,
              null};
                 ExportDataToCSV exportData = new ExportDataToCSV(View_FieldTripSelectionsView.Instance,wc,orderBy,columns);
                 exportData.StartExport(this.Page.Response, true);
@@ -3878,6 +3971,7 @@ public class BaseView_FieldTripSelectionsTableControl : OLR.UI.BaseApplicationTa
              data.ColumnList.Add(new ExcelColumn(View_FieldTripSelectionsView.SecondChoiceId, "Default"));
              data.ColumnList.Add(new ExcelColumn(View_FieldTripSelectionsView.ThirdChoiceId, "Default"));
              data.ColumnList.Add(new ExcelColumn(View_FieldTripSelectionsView.AllocatedId, "Default"));
+             data.ColumnList.Add(new ExcelColumn(View_FieldTripSelectionsView.PaymentRef, "Default"));
 
 
               //  First write out the Column Headers
@@ -4354,6 +4448,12 @@ public class BaseView_FieldTripSelectionsTableControl : OLR.UI.BaseApplicationTa
         public OLR.UI.IPaginationModern Pagination {
             get {
                 return (OLR.UI.IPaginationModern)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Pagination");
+            }
+        }
+        
+        public System.Web.UI.WebControls.LinkButton PaymentRefLabel {
+            get {
+                return (System.Web.UI.WebControls.LinkButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "PaymentRefLabel");
             }
         }
         

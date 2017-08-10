@@ -70,6 +70,7 @@ public class BaseRegistrationsTable : PrimaryKeyTable
         InitialCreationDateColumn.CodeName = "InitialCreationDate";
         RecordDeletedColumn.CodeName = "RecordDeleted";
         RecordDeletedColumn.DefaultValue = EvaluateFormula("\"false\"");
+        PaymentRefColumn.CodeName = "PaymentRef";
 
         
     }
@@ -369,6 +370,31 @@ public class BaseRegistrationsTable : PrimaryKeyTable
         get
         {
             return RegistrationsTable.Instance.RecordDeletedColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's Registrations_.PaymentRef column object.
+    /// </summary>
+    public BaseClasses.Data.StringColumn PaymentRefColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.StringColumn)this.TableDefinition.ColumnList[11];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's Registrations_.PaymentRef column object.
+    /// </summary>
+    public static BaseClasses.Data.StringColumn PaymentRef
+    {
+        get
+        {
+            return RegistrationsTable.Instance.PaymentRefColumn;
         }
     }
     
@@ -907,7 +933,8 @@ public class BaseRegistrationsTable : PrimaryKeyTable
         string AdditionalDinnerNameValue, 
         string DatePaidValue, 
         string InitialCreationDateValue, 
-        string RecordDeletedValue
+        string RecordDeletedValue, 
+        string PaymentRefValue
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
@@ -921,6 +948,7 @@ public class BaseRegistrationsTable : PrimaryKeyTable
         rec.SetString(DatePaidValue, DatePaidColumn);
         rec.SetString(InitialCreationDateValue, InitialCreationDateColumn);
         rec.SetString(RecordDeletedValue, RecordDeletedColumn);
+        rec.SetString(PaymentRefValue, PaymentRefColumn);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized

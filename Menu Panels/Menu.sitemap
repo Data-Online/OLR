@@ -32,7 +32,7 @@ The tags are case-sensitive and should contain the following case-sensitive attr
 <siteMap>
   <siteMapNode>
     <siteMapNode title="Registrations" description="Registrations" url="~/view_Registered/Show-View-Registered-Table.aspx" imageUrl="" roles="" order="1" />
-    <siteMapNode title="Field Trip Selections" description="Field Trip Selections" url="~/view_FieldTripSelections/Edit-View-FieldTripSelections-Table.aspx?" imageUrl="" roles="" order="2" />
+    <siteMapNode title="Field Trips and Payments" description="Field Trips and Payments" url="~/view_FieldTripSelections/Edit-View-FieldTripSelections-Table.aspx?" imageUrl="" roles="" order="2" />
     <siteMapNode title="Administration" description="Administration" url="" imageUrl="" roles="" order="3">
       <siteMapNode title="Registration Types" description="Registration Types" url="~/RegistrationTypes/Edit-RegistrationTypes-Table.aspx" imageUrl="" roles="" order="1" />
       <siteMapNode title="Other Costs" description="Other Costs" url="~/OtherCosts/Edit-OtherCosts-Table.aspx" imageUrl="" roles="" order="2" />

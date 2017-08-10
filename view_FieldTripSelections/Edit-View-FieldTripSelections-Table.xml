@@ -491,6 +491,10 @@
           <Value>Txt:EditRecord</Value>
           <Type>ResourceReference</Type>
         </Attribute>
+        <Attribute>
+          <Name>Visible</Name>
+          <Value>False</Value>
+        </Attribute>
       </PassthroughAttributes>
       <InsideControl>View_FieldTripSelectionsTableControl</InsideControl>
       <InsideItemTemplate>true</InsideItemTemplate>
@@ -1039,6 +1043,92 @@
       <InsideControl>View_FieldTripSelectionsTableControl</InsideControl>
     </ContainedComponent>
     <ContainedComponent>
+      <Name>PaymentRef</Name>
+      <Type>FieldValue</Type>
+      <Field>PaymentRef</Field>
+      <FieldValueStyle>Literal</FieldValueStyle>
+      <Table>DatabaseOLR_db%dbo.view_FieldTripSelections</Table>
+      <PassthroughAttributes>
+        <Attribute>
+          <Name>FieldMaxLength</Name>
+          <Value>Default</Value>
+        </Attribute>
+        <Attribute>
+          <Name>HTMLEncodeValue</Name>
+          <Value>Default</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:DataSource</Name>
+          <Value>Parent</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PaymentRefRequiredFieldValidator:Enabled</Name>
+          <Value>False</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PaymentRefRequiredFieldValidator:Text</Name>
+          <Value>*</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupDisplay</Name>
+          <Value>True</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupThreshold</Name>
+          <Value>Default</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowHeight</Name>
+          <Value>200</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowPersist</Name>
+          <Value>False</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowScrollBar</Name>
+          <Value>True</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowTitle</Name>
+          <Value>%ISD_DEFAULT%</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowWidth</Name>
+          <Value>300</Value>
+        </Attribute>
+      </PassthroughAttributes>
+      <InsideControl>View_FieldTripSelectionsTableControl</InsideControl>
+      <InsideItemTemplate>true</InsideItemTemplate>
+    </ContainedComponent>
+    <ContainedComponent>
+      <Name>PaymentRefLabel</Name>
+      <Type>FieldSort</Type>
+      <PassthroughAttributes>
+        <Attribute>
+          <Name>Consumers</Name>
+          <Value>View_FieldTripSelectionsTableControl</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Field</Name>
+          <Value>PaymentRef</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Table</Name>
+          <Value>DatabaseOLR_db%dbo.view_FieldTripSelections</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Text</Name>
+          <Value>%ISD_DEFAULT%DatabaseOLR_db%dbo.view_FieldTripSelections%PaymentRef</Value>
+        </Attribute>
+        <Attribute>
+          <Name>ToolTip</Name>
+          <Value>Sort by PaymentRef</Value>
+        </Attribute>
+      </PassthroughAttributes>
+      <InsideControl>View_FieldTripSelectionsTableControl</InsideControl>
+    </ContainedComponent>
+    <ContainedComponent>
       <Name>ResetButton</Name>
       <Type>ImageButton</Type>
       <PassthroughAttributes>
@@ -1289,6 +1379,14 @@
           <Name>ValidationUid Desc</Name>
           <Value>Validation UID {Txt:Descending}</Value>
         </Item>
+        <Item>
+          <Name>PaymentRef Asc</Name>
+          <Value>Payment Reference {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>PaymentRef Desc</Name>
+          <Value>Payment Reference {Txt:Descending}</Value>
+        </Item>
       </SpecifiedItems>
       <PassthroughAttributes>
         <Attribute>
@@ -1414,7 +1512,7 @@
         </Attribute>
         <Attribute>
           <Name>Text</Name>
-          <Value>&lt;%#String.Concat("Field Trip Selections") %&gt;</Value>
+          <Value>&lt;%#String.Concat("Field Trips and Payments") %&gt;</Value>
         </Attribute>
       </PassthroughAttributes>
       <InsideControl>View_FieldTripSelectionsTableControl</InsideControl>
@@ -2302,7 +2400,8 @@
       &lt;/Cell&gt;
       &lt;Cell&gt;
         &lt;Value&gt;&amp;lt;GEN:FIELDLABEL NAME="InitialCreationDateLabel" /&amp;gt; &amp;lt;br /&amp;gt;
-&amp;lt;GEN:FIELDLABEL NAME="DatePaidLabel" /&amp;gt;&lt;/Value&gt;
+&amp;lt;GEN:FIELDLABEL NAME="DatePaidLabel" /&amp;gt;  &amp;lt;br /&amp;gt;
+&amp;lt;GEN:FIELDLABEL NAME="PaymentRefLabel" /&amp;gt;&lt;/Value&gt;
         &lt;CellAttributes&gt;
           &lt;Attribute&gt;
             &lt;Name&gt;class&lt;/Name&gt;
@@ -2377,7 +2476,8 @@
       &lt;/Cell&gt;
       &lt;Cell&gt;
         &lt;Value&gt;&amp;lt;GEN:FIELDVALUE NAME="InitialCreationDate" /&amp;gt;  &amp;lt;br /&amp;gt;
-&amp;lt;GEN:FIELDVALUE NAME="DatePaid" /&amp;gt;&lt;/Value&gt;
+&amp;lt;GEN:FIELDVALUE NAME="DatePaid" /&amp;gt;  &amp;lt;br /&amp;gt;
+&amp;lt;b&amp;gt;&amp;lt;GEN:FIELDVALUE NAME="PaymentRef" /&amp;gt;&amp;lt;/b&amp;gt;&lt;/Value&gt;
         &lt;CellAttributes&gt;
           &lt;Attribute&gt;
             &lt;Name&gt;class&lt;/Name&gt;

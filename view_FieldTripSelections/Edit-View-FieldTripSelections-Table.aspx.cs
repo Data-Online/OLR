@@ -251,6 +251,8 @@ public partial class Edit_View_FieldTripSelections_Table
         
         public PaginationModern Pagination;
                 
+        public System.Web.UI.WebControls.LinkButton PaymentRefLabel;
+        
         public System.Web.UI.WebControls.ImageButton ResetButton;
         
         public System.Web.UI.WebControls.ImageButton SaveButton;

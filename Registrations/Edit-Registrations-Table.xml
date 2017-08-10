@@ -793,6 +793,14 @@
           <Name>RecordDeleted Desc</Name>
           <Value>Record Deleted {Txt:Descending}</Value>
         </Item>
+        <Item>
+          <Name>PaymentRef Asc</Name>
+          <Value>Payment Reference {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>PaymentRef Desc</Name>
+          <Value>Payment Reference {Txt:Descending}</Value>
+        </Item>
       </SpecifiedItems>
       <PassthroughAttributes>
         <Attribute>

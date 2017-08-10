@@ -630,6 +630,38 @@ public class BaseView_FieldTripSelectionsRecord : PrimaryKeyRecord
 		ColumnValue cv = new ColumnValue(val);
 		this.SetValue(cv, TableUtils.RecIdColumn);
 	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_FieldTripSelections_.PaymentRef field.
+	/// </summary>
+	public ColumnValue GetPaymentRefValue()
+	{
+		return this.GetValue(TableUtils.PaymentRefColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_FieldTripSelections_.PaymentRef field.
+	/// </summary>
+	public string GetPaymentRefFieldValue()
+	{
+		return this.GetValue(TableUtils.PaymentRefColumn).ToString();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_FieldTripSelections_.PaymentRef field.
+	/// </summary>
+	public void SetPaymentRefFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.PaymentRefColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_FieldTripSelections_.PaymentRef field.
+	/// </summary>
+	public void SetPaymentRefFieldValue(string val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.PaymentRefColumn);
+	}
 
 
 #endregion
@@ -1066,6 +1098,49 @@ public class BaseView_FieldTripSelectionsRecord : PrimaryKeyRecord
 		get
 		{
 			return TableUtils.RecIdColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_FieldTripSelections_.PaymentRef field.
+	/// </summary>
+	public string PaymentRef
+	{
+		get
+		{
+			return this.GetValue(TableUtils.PaymentRefColumn).ToString();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.PaymentRefColumn);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool PaymentRefSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.PaymentRefColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_FieldTripSelections_.PaymentRef field.
+	/// </summary>
+	public string PaymentRefDefault
+	{
+		get
+		{
+			return TableUtils.PaymentRefColumn.DefaultValue;
 		}
 	}
 

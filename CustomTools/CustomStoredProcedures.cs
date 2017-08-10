@@ -55,6 +55,12 @@ namespace CustomTools
 
             bool statusOkay = false;
 
+            // Pass "null" values if nothing entered. Not ideal, as loging in SP is required rather than automatic handling
+            if (allocationId == "--PLEASE_SELECT--")
+                allocationId = "0";
+            if (datePaid == "")
+                datePaid = "2000/01/01";
+
             BaseClasses.Data.StoredProcedureParameter firstParameter = new BaseClasses.Data.StoredProcedureParameter("@validationUid", new Guid(uid), System.Data.SqlDbType.UniqueIdentifier, System.Data.ParameterDirection.Input);
             BaseClasses.Data.StoredProcedureParameter secondParameter = new BaseClasses.Data.StoredProcedureParameter("@datePaid", datePaid, System.Data.SqlDbType.Date, System.Data.ParameterDirection.Input);
             BaseClasses.Data.StoredProcedureParameter thirdParameter = new BaseClasses.Data.StoredProcedureParameter("@allocationId", Int32.Parse(allocationId), System.Data.SqlDbType.Int, System.Data.ParameterDirection.Input);

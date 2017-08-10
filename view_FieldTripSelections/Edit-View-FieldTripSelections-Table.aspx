@@ -28,7 +28,7 @@
                 <table cellpadding="0" cellspacing="0" border="0" class="updatePanelContent"><tr><td>
                         <OLR:View_FieldTripSelectionsTableControl runat="server" id="View_FieldTripSelectionsTableControl">	<table class="dv" cellpadding="0" cellspacing="0" border="0"><tr><td class="panelTL"><img src="../Images/space.gif" class="panelTLSpace" alt="" /></td><td class="panelT"></td><td class="panelTR"><img src="../Images/space.gif" class="panelTRSpace" alt="" /></td></tr><tr><td class="panelHeaderL"></td><td class="dh">
                   <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="dhel"><img src="../Images/space.gif" alt="" /></td><td class="dhb"><table cellpadding="0" cellspacing="0" border="0"><tr><td class="dht" valign="middle">
-                        <asp:Literal runat="server" id="Title0" Text="&lt;%#String.Concat(&quot;Field Trip Selections&quot;) %>">	</asp:Literal>
+                        <asp:Literal runat="server" id="Title0" Text="&lt;%#String.Concat(&quot;Field Trips and Payments&quot;) %>">	</asp:Literal>
                       </td></tr></table>
 </td><td class="dhb"><table cellpadding="0" cellspacing="0" border="0" style="width: 100%;"><tr><td></td><td class="prbbc"></td><td class="prbbc"></td><td><div id="ActionsDiv" runat="server" class="popupWrapper">
                 <table border="0" cellpadding="0" cellspacing="0"><tr><td></td><td></td><td></td><td></td><td style="text-align: right;" class="popupTableCellValue"><input type="image" src="../Images/closeButton.gif" onmouseover="this.src='../Images/closeButtonOver.gif'" onmouseout="this.src='../Images/closeButton.gif'" alt="" onclick="ISD_HidePopupPanel();return false;" align="top" /><br /></td></tr><tr><td></td><td>
@@ -62,13 +62,14 @@
                   <asp:panel id="CollapsibleRegion" runat="server"><table class="dBody" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tre">
                     <table id="View_FieldTripSelectionsTableControlGrid" cellpadding="0" cellspacing="0" border="0" width="100%" onkeydown="captureUpDownKey(this, event)"><tr class="tch"><th class="thcnb"></th><th class="thc">&nbsp; 
 <asp:LinkButton runat="server" id="ContactIdLabel" tooltip="Sort by ContactId" Text="Contact" CausesValidation="False">	</asp:LinkButton></th><th class="thc"><asp:LinkButton runat="server" id="InitialCreationDateLabel" tooltip="Sort by InitialCreationDate" Text="Initial Creation Date" CausesValidation="False">	</asp:LinkButton> <br />
-<asp:LinkButton runat="server" id="DatePaidLabel" tooltip="Sort by DatePaid" Text="Date Paid" CausesValidation="False">	</asp:LinkButton></th><th class="thc"><asp:LinkButton runat="server" id="FieldTripIdLabel" tooltip="Sort by FieldTripId" Text="Field Trip" CausesValidation="False">	</asp:LinkButton></th><th class="thc"><asp:LinkButton runat="server" id="FirstChoiceIdLabel" tooltip="Sort by FirstChoiceId" Text="First Choice" CausesValidation="False">	</asp:LinkButton> <br />
+<asp:LinkButton runat="server" id="DatePaidLabel" tooltip="Sort by DatePaid" Text="Date Paid" CausesValidation="False">	</asp:LinkButton>  <br />
+<asp:LinkButton runat="server" id="PaymentRefLabel" tooltip="Sort by PaymentRef" Text="Payment Reference" CausesValidation="False">	</asp:LinkButton></th><th class="thc"><asp:LinkButton runat="server" id="FieldTripIdLabel" tooltip="Sort by FieldTripId" Text="Field Trip" CausesValidation="False">	</asp:LinkButton></th><th class="thc"><asp:LinkButton runat="server" id="FirstChoiceIdLabel" tooltip="Sort by FirstChoiceId" Text="First Choice" CausesValidation="False">	</asp:LinkButton> <br />
 <asp:LinkButton runat="server" id="SecondChoiceIdLabel" tooltip="Sort by SecondChoiceId" Text="Second Choice" CausesValidation="False">	</asp:LinkButton> <br />
 <asp:LinkButton runat="server" id="ThirdChoiceIdLabel" tooltip="Sort by ThirdChoiceId" Text="Third Choice" CausesValidation="False">	</asp:LinkButton></th><th class="thc"><asp:LinkButton runat="server" id="AllocatedIdLabel" tooltip="Sort by AllocatedId" Text="EvaluateFormula(&quot;= \&quot;Allocated Field Trip\&quot;&quot;, true)" CausesValidation="False">	</asp:LinkButton></th></tr><asp:Repeater runat="server" id="View_FieldTripSelectionsTableControlRepeater">		<ITEMTEMPLATE>		<OLR:View_FieldTripSelectionsTableControlRow runat="server" id="View_FieldTripSelectionsTableControlRow">
 <tr><td class="tableRowButtonsCellVertical" rowspan="5">
                           
                         
-                          <asp:ImageButton runat="server" id="EditRowButton" causesvalidation="False" commandname="Redirect" cssclass="button_link" imageurl="../Images/icon_edit.gif" onmouseout="this.src=&#39;../Images/icon_edit.gif&#39;" onmouseover="this.src=&#39;../Images/icon_edit_over.gif&#39;" tooltip="&lt;%# GetResourceValue(&quot;Txt:EditRecord&quot;, &quot;OLR&quot;) %>">		
+                          <asp:ImageButton runat="server" id="EditRowButton" causesvalidation="False" commandname="Redirect" cssclass="button_link" imageurl="../Images/icon_edit.gif" onmouseout="this.src=&#39;../Images/icon_edit.gif&#39;" onmouseover="this.src=&#39;../Images/icon_edit_over.gif&#39;" tooltip="&lt;%# GetResourceValue(&quot;Txt:EditRecord&quot;, &quot;OLR&quot;) %>" visible="False">		
 	</asp:ImageButton>
                         
                           
@@ -89,7 +90,8 @@
 </tr>
 </table>
 </span>
-</td><td class="tableCellValue"><span style="white-space:nowrap;">
+  <br />
+<b><asp:Literal runat="server" id="PaymentRef"></asp:Literal></b></td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:Label runat="server" id="FieldTripId"></asp:Label></span>
  
 <span style="white-space:nowrap;">

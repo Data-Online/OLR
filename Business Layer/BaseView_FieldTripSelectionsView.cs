@@ -69,6 +69,7 @@ public class BaseView_FieldTripSelectionsView : PrimaryKeyTable
         AllocatedIdColumn.CodeName = "AllocatedId";
         AllocatedIdColumn.Name = EvaluateFormula("\"Allocated Field Trip\"");
         RecIdColumn.CodeName = "RecId";
+        PaymentRefColumn.CodeName = "PaymentRef";
 
         
     }
@@ -325,6 +326,31 @@ public class BaseView_FieldTripSelectionsView : PrimaryKeyTable
         get
         {
             return View_FieldTripSelectionsView.Instance.RecIdColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_FieldTripSelections_.PaymentRef column object.
+    /// </summary>
+    public BaseClasses.Data.StringColumn PaymentRefColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.StringColumn)this.TableDefinition.ColumnList[10];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_FieldTripSelections_.PaymentRef column object.
+    /// </summary>
+    public static BaseClasses.Data.StringColumn PaymentRef
+    {
+        get
+        {
+            return View_FieldTripSelectionsView.Instance.PaymentRefColumn;
         }
     }
     
@@ -863,7 +889,8 @@ public class BaseView_FieldTripSelectionsView : PrimaryKeyTable
         string SecondChoiceIdValue, 
         string ThirdChoiceIdValue, 
         string AllocatedIdValue, 
-        string RecIdValue
+        string RecIdValue, 
+        string PaymentRefValue
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
@@ -877,6 +904,7 @@ public class BaseView_FieldTripSelectionsView : PrimaryKeyTable
         rec.SetString(ThirdChoiceIdValue, ThirdChoiceIdColumn);
         rec.SetString(AllocatedIdValue, AllocatedIdColumn);
         rec.SetString(RecIdValue, RecIdColumn);
+        rec.SetString(PaymentRefValue, PaymentRefColumn);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized

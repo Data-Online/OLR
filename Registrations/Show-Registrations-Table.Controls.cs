@@ -2322,6 +2322,10 @@ public class BaseRegistrationsTableControl : OLR.UI.BaseApplicationTableControl
               
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Record Deleted {Txt:Descending}"), "RecordDeleted Desc"));
               
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Payment Reference {Txt:Ascending}"), "PaymentRef Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Payment Reference {Txt:Descending}"), "PaymentRef Desc"));
+              
             try
             {          
                 // Set the selected value.

@@ -72,7 +72,7 @@ public class View_RegisteredTableControlRow : BaseView_RegisteredTableControlRow
             // Any code after the Response.Redirect call will not be executed, since the page is
             // redirected to the URL.
             var validationUid = this.ValidationUid.Text;
-            string url = String.Format(targetUrl, validationUid);
+            string url = String.Format(targetUrl, validationUid, "&A=dps");
             //string url = String.Format("http://localhost:60892/Home/RegisterMe?Registration={0}", validationUid);
             if (!string.IsNullOrEmpty(this.Page.Request["RedirectStyle"]))
                 url += "&RedirectStyle=" + this.Page.Request["RedirectStyle"];
