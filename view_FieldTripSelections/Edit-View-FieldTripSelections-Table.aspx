@@ -24,8 +24,7 @@
 		</asp:UpdateProgress>
 		<asp:UpdatePanel runat="server" id="UpdatePanel1" UpdateMode="Conditional">
 			<ContentTemplate>
-
-                <table cellpadding="0" cellspacing="0" border="0" class="updatePanelContent"><tr><td>
+<table cellpadding="0" cellspacing="0" border="0" class="updatePanelContent"><tr><td>
                         <OLR:View_FieldTripSelectionsTableControl runat="server" id="View_FieldTripSelectionsTableControl">	<table class="dv" cellpadding="0" cellspacing="0" border="0"><tr><td class="panelTL"><img src="../Images/space.gif" class="panelTLSpace" alt="" /></td><td class="panelT"></td><td class="panelTR"><img src="../Images/space.gif" class="panelTRSpace" alt="" /></td></tr><tr><td class="panelHeaderL"></td><td class="dh">
                   <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="dhel"><img src="../Images/space.gif" alt="" /></td><td class="dhb"><table cellpadding="0" cellspacing="0" border="0"><tr><td class="dht" valign="middle">
                         <asp:Literal runat="server" id="Title0" Text="&lt;%#String.Concat(&quot;Field Trips and Payments&quot;) %>">	</asp:Literal>
@@ -66,7 +65,7 @@
 <asp:LinkButton runat="server" id="PaymentRefLabel" tooltip="Sort by PaymentRef" Text="Payment Reference" CausesValidation="False">	</asp:LinkButton></th><th class="thc"><asp:LinkButton runat="server" id="FieldTripIdLabel" tooltip="Sort by FieldTripId" Text="Field Trip" CausesValidation="False">	</asp:LinkButton></th><th class="thc"><asp:LinkButton runat="server" id="FirstChoiceIdLabel" tooltip="Sort by FirstChoiceId" Text="First Choice" CausesValidation="False">	</asp:LinkButton> <br />
 <asp:LinkButton runat="server" id="SecondChoiceIdLabel" tooltip="Sort by SecondChoiceId" Text="Second Choice" CausesValidation="False">	</asp:LinkButton> <br />
 <asp:LinkButton runat="server" id="ThirdChoiceIdLabel" tooltip="Sort by ThirdChoiceId" Text="Third Choice" CausesValidation="False">	</asp:LinkButton></th><th class="thc"><asp:LinkButton runat="server" id="AllocatedIdLabel" tooltip="Sort by AllocatedId" Text="EvaluateFormula(&quot;= \&quot;Allocated Field Trip\&quot;&quot;, true)" CausesValidation="False">	</asp:LinkButton></th></tr><asp:Repeater runat="server" id="View_FieldTripSelectionsTableControlRepeater">		<ITEMTEMPLATE>		<OLR:View_FieldTripSelectionsTableControlRow runat="server" id="View_FieldTripSelectionsTableControlRow">
-<tr><td class="tableRowButtonsCellVertical" rowspan="5">
+<tr class="reg-data-row"><td class="tableRowButtonsCellVertical" rowspan="5">
                           
                         
                           <asp:ImageButton runat="server" id="EditRowButton" causesvalidation="False" commandname="Redirect" cssclass="button_link" imageurl="../Images/icon_edit.gif" onmouseout="this.src=&#39;../Images/icon_edit.gif&#39;" onmouseover="this.src=&#39;../Images/icon_edit_over.gif&#39;" tooltip="&lt;%# GetResourceValue(&quot;Txt:EditRecord&quot;, &quot;OLR&quot;) %>" visible="False">		
@@ -125,8 +124,7 @@
 	<asp:hiddenfield id="View_FieldTripSelectionsTableControl_PostbackTracker" runat="server" />
 </OLR:View_FieldTripSelectionsTableControl>
 
-            </td></tr></table>
-      </ContentTemplate>
+            </td></tr></table></ContentTemplate>
 </asp:UpdatePanel>
 
     </div>
@@ -135,5 +133,11 @@
                           <iframe id="QuickPopupIframe" style="width:100%;height:100%;border:none"></iframe>
                    </div>                  
     <asp:ValidationSummary id="ValidationSummary1" ShowMessageBox="true" ShowSummary="false" runat="server"></asp:ValidationSummary>
+
+<script>
+$(document).ready(function()
+{
+  $(".reg-data-row tr:nth-of-type(2n)").css("background-color", "#DCDCDC");
+});
+</script>	
 </asp:Content>
-                

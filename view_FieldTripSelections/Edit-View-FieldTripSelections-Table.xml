@@ -1618,8 +1618,7 @@
       &lt;Value&gt;&amp;lt;asp:Content id="PageSection" ContentPlaceHolderID="PageContent" Runat="server"&amp;gt;
     &amp;lt;a id="StartOfPageContent"&amp;gt;&amp;lt;/a&amp;gt;
     &amp;lt;div id="scrollRegion" class="scrollRegion"&amp;gt;              
-      &amp;lt;GEN:UPDATEPANEL NAME="UpdatePanel1"&amp;gt;
-                &lt;/Value&gt;
+      &amp;lt;GEN:UPDATEPANEL NAME="UpdatePanel1"&amp;gt;&lt;/Value&gt;
     &lt;/Prolog&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
@@ -1631,16 +1630,21 @@
       &lt;RowAttributes /&gt;
     &lt;/Row&gt;
     &lt;Epilog&gt;
-      &lt;Value&gt;
-      &amp;lt;/GEN:UPDATEPANEL&amp;gt;
+      &lt;Value&gt;&amp;lt;/GEN:UPDATEPANEL&amp;gt;
     &amp;lt;/div&amp;gt;
     &amp;lt;div id="detailPopup" class="detailRolloverPopup" onmouseout="detailRolloverPopupClose();" onmouseover="clearTimeout(gPopupTimer);"&amp;gt;&amp;lt;/div&amp;gt;
                    &amp;lt;div class="QDialog" id="dialog" style="display:none;"&amp;gt;
-                          &amp;lt;iframe  id="QuickPopupIframe" style="width:100%;height:100%;border:none"&amp;gt;&amp;lt;/iframe&amp;gt;
+                          &amp;lt;iframe id="QuickPopupIframe" style="width:100%;height:100%;border:none"&amp;gt;&amp;lt;/iframe&amp;gt;
                    &amp;lt;/div&amp;gt;                  
     &amp;lt;asp:ValidationSummary id="ValidationSummary1" ShowMessageBox="true" ShowSummary="false" runat="server"&amp;gt;&amp;lt;/asp:ValidationSummary&amp;gt;
-&amp;lt;/asp:Content&amp;gt;
-                &lt;/Value&gt;
+
+&amp;lt;script&amp;gt;
+$(document).ready(function()
+{
+  $(".reg-data-row tr:nth-of-type(2n)").css("background-color", "#DCDCDC");
+});
+&amp;lt;/script&amp;gt;	
+&amp;lt;/asp:Content&amp;gt;&lt;/Value&gt;
     &lt;/Epilog&gt;
     &lt;TableAttributes&gt;
       &lt;Attribute&gt;
@@ -2516,7 +2520,12 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
-      &lt;RowAttributes /&gt;
+      &lt;RowAttributes&gt;
+        &lt;Attribute&gt;
+          &lt;Name&gt;class&lt;/Name&gt;
+          &lt;AttributeValue&gt;reg-data-row&lt;/AttributeValue&gt;
+        &lt;/Attribute&gt;
+      &lt;/RowAttributes&gt;
     &lt;/Row&gt;
     &lt;Row Type="Repeater"&gt;
       &lt;Cell&gt;

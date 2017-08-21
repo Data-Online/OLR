@@ -84,7 +84,7 @@
                                   <asp:ImageButton runat="server" id="DeleteRowButton" causesvalidation="False" commandname="DeleteRecord" cssclass="button_link" imageurl="../Images/icon_delete.gif" onmouseout="this.src=&#39;../Images/icon_delete.gif&#39;" onmouseover="this.src=&#39;../Images/icon_delete_over.gif&#39;" tooltip="&lt;%# GetResourceValue(&quot;Txt:DeleteRecord&quot;, &quot;OLR&quot;) %>">		
 	</asp:ImageButton>                                 
                                 </td><td class="tableCellLabel"><asp:Literal runat="server" id="EventNameLabel" Text="Event Name">	</asp:Literal> 
-</td><td class="tableCellValue"><asp:Literal runat="server" id="EventName"></asp:Literal> </td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableRowDivider" colspan="8"></td></tr></OLR:EventsTableControlRow>
+</td><td class="tableCellValue"><asp:Literal runat="server" id="EventName"></asp:Literal> </td><td class="tableCellLabel"><asp:Literal runat="server" id="ContactEmailLabel" Text="Contact Email">	</asp:Literal></td><td class="tableCellValue"><asp:Literal runat="server" id="ContactEmail"></asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableRowDivider" colspan="8"></td></tr></OLR:EventsTableControlRow>
 </ITEMTEMPLATE>
 
 </asp:Repeater>

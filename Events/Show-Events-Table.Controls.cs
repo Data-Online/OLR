@@ -159,6 +159,8 @@ public class BaseEventsTableControlRow : OLR.UI.BaseApplicationRecordControl
 
             // Call the Set methods for each controls on the panel
         
+                SetContactEmail();
+                SetContactEmailLabel();
                 
                 
                 SetEventName();
@@ -190,6 +192,46 @@ public class BaseEventsTableControlRow : OLR.UI.BaseApplicationRecordControl
         }
         
         
+        public virtual void SetContactEmail()
+        {
+            
+                    
+            // Set the ContactEmail Literal on the webpage with value from the
+            // DatabaseOLR_db%dbo.Events database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.Events record retrieved from the database.
+            // this.ContactEmail is the ASP:Literal on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.ContactEmailSpecified) {
+                								
+                // If the ContactEmail is non-NULL, then format the value.
+                // The Format method will use the Display Format
+               string formattedValue = this.DataSource.Format(EventsTable.ContactEmail);
+                                
+                formattedValue = HttpUtility.HtmlEncode(formattedValue);
+                this.ContactEmail.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // ContactEmail is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.ContactEmail.Text = EventsTable.ContactEmail.Format(EventsTable.ContactEmail.DefaultValue);
+            		
+            }
+            
+            // If the ContactEmail is NULL or blank, then use the value specified  
+            // on Properties.
+            if (this.ContactEmail.Text == null ||
+                this.ContactEmail.Text.Trim().Length == 0) {
+                // Set the value specified on the Properties.
+                this.ContactEmail.Text = "&nbsp;";
+            }
+                                     
+        }
+                
         public virtual void SetEventName()
         {
             
@@ -228,6 +270,12 @@ public class BaseEventsTableControlRow : OLR.UI.BaseApplicationRecordControl
                 this.EventName.Text = "&nbsp;";
             }
                                      
+        }
+                
+        public virtual void SetContactEmailLabel()
+                  {
+                  
+                    
         }
                 
         public virtual void SetEventNameLabel()
@@ -390,10 +438,16 @@ public class BaseEventsTableControlRow : OLR.UI.BaseApplicationRecordControl
       
             // Call the Get methods for each of the user interface controls.
         
+            GetContactEmail();
             GetEventName();
         }
         
         
+        public virtual void GetContactEmail()
+        {
+            
+        }
+                
         public virtual void GetEventName()
         {
             
@@ -705,6 +759,18 @@ public class BaseEventsTableControlRow : OLR.UI.BaseApplicationRecordControl
         }
        
 #region "Helper Properties"
+        
+        public System.Web.UI.WebControls.Literal ContactEmail {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "ContactEmail");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal ContactEmailLabel {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "ContactEmailLabel");
+            }
+        }
         
         public System.Web.UI.WebControls.ImageButton DeleteRowButton {
             get {
@@ -1956,6 +2022,10 @@ public class BaseEventsTableControl : OLR.UI.BaseApplicationTableControl
             if (recControl.Visible && recControl.IsNewRecord) {
       EventsRecord rec = new EventsRecord();
         
+                        if (recControl.ContactEmail.Text != "") {
+                            rec.Parse(recControl.ContactEmail.Text, EventsTable.ContactEmail);
+                  }
+                
                         if (recControl.EventName.Text != "") {
                             rec.Parse(recControl.EventName.Text, EventsTable.EventName);
                   }
@@ -2718,6 +2788,7 @@ public class BaseEventsTableControl : OLR.UI.BaseApplicationTableControl
                 // Add each of the columns in order of export.
                 BaseColumn[] columns = new BaseColumn[] {
                              EventsTable.EventName,
+             EventsTable.ContactEmail,
              null};
                 ExportDataToCSV exportData = new ExportDataToCSV(EventsTable.Instance,wc,orderBy,columns);
                 exportData.StartExport(this.Page.Response, true);
@@ -2774,6 +2845,7 @@ public class BaseEventsTableControl : OLR.UI.BaseApplicationTableControl
               int columnCounter = 0;
               DataForExport data = new DataForExport(EventsTable.Instance, wc, orderBy, null,join);
                            data.ColumnList.Add(new ExcelColumn(EventsTable.EventName, "Default"));
+             data.ColumnList.Add(new ExcelColumn(EventsTable.ContactEmail, "Default"));
 
 
               //  First write out the Column Headers
@@ -2947,6 +3019,7 @@ public class BaseEventsTableControl : OLR.UI.BaseApplicationTableControl
                 // The 4th parameter represents the horizontal alignment of the column detail
                 // The 5th parameter represents the relative width of the column
                  report.AddColumn(EventsTable.EventName.Name, ReportEnum.Align.Left, "${EventName}", ReportEnum.Align.Left, 28);
+                 report.AddColumn(EventsTable.ContactEmail.Name, ReportEnum.Align.Left, "${ContactEmail}", ReportEnum.Align.Left, 28);
 
   
                 int rowsPerQuery = 5000;
@@ -2982,6 +3055,7 @@ public class BaseEventsTableControl : OLR.UI.BaseApplicationTableControl
                             // The 3rd parameter represent the default alignment of column using the data
                             // The 4th parameter represent the maximum length of the data value being shown
                                                  report.AddData("${EventName}", record.Format(EventsTable.EventName), ReportEnum.Align.Left, 300);
+                             report.AddData("${ContactEmail}", record.Format(EventsTable.ContactEmail), ReportEnum.Align.Left, 300);
 
                             report.WriteRow();
                         }
@@ -3098,6 +3172,7 @@ public class BaseEventsTableControl : OLR.UI.BaseApplicationTableControl
                 // The 4th parameter represents the horizontal alignment of the column detail
                 // The 5th parameter represents the relative width of the column
                  report.AddColumn(EventsTable.EventName.Name, ReportEnum.Align.Left, "${EventName}", ReportEnum.Align.Left, 28);
+                 report.AddColumn(EventsTable.ContactEmail.Name, ReportEnum.Align.Left, "${ContactEmail}", ReportEnum.Align.Left, 28);
 
                 WhereClause whereClause = null;
                 whereClause = CreateWhereClause();
@@ -3129,6 +3204,7 @@ public class BaseEventsTableControl : OLR.UI.BaseApplicationTableControl
                             // The 3rd parameter represents the default alignment of column using the data
                             // The 4th parameter represents the maximum length of the data value being shown
                              report.AddData("${EventName}", record.Format(EventsTable.EventName), ReportEnum.Align.Left, 300);
+                             report.AddData("${ContactEmail}", record.Format(EventsTable.ContactEmail), ReportEnum.Align.Left, 300);
 
                             report.WriteRow();
                         }
