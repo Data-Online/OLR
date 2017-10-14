@@ -32,7 +32,10 @@
 
                 </td><td class="panelHeaderR"></td></tr><tr><td class="panelL"></td><td>
                   <asp:panel id="CollapsibleRegion" runat="server"><table class="dBody" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tre">
-                    <table id="FieldTripsTableControlGrid" cellpadding="0" cellspacing="0" border="0" width="100%" onkeydown="captureUpDownKey(this, event)"><tr class="tch"><th class="thcnb" colspan="3"><asp:CheckBox runat="server" id="ToggleAll" onclick="toggleAllCheckboxes(this);">	</asp:CheckBox></th><th class="thcnb"></th><th class="thc">&nbsp;</th><th class="thc">&nbsp;</th><th class="thc">&nbsp;</th><th class="thc">&nbsp;</th></tr><asp:Repeater runat="server" id="FieldTripsTableControlRepeater">		<ITEMTEMPLATE>		<OLR:FieldTripsTableControlRow runat="server" id="FieldTripsTableControlRow">
+                    <table id="FieldTripsTableControlGrid" cellpadding="0" cellspacing="0" border="0" width="100%" onkeydown="captureUpDownKey(this, event)"><tr class="tch"><th class="thcnb" colspan="3"><asp:CheckBox runat="server" id="ToggleAll" onclick="toggleAllCheckboxes(this);">	</asp:CheckBox></th><th class="thcnb"></th><th class="thc">&nbsp; 
+<asp:LinkButton runat="server" id="DescriptionLabel2" tooltip="Sort by Description" Text="Description" CausesValidation="False">	</asp:LinkButton></th><th class="thc">&nbsp; 
+<asp:LinkButton runat="server" id="DateLabel1" tooltip="Sort by Date" Text="Date" CausesValidation="False">	</asp:LinkButton></th><th class="thc">&nbsp; 
+<asp:LinkButton runat="server" id="TimeLabel1" tooltip="Sort by Time" Text="Time" CausesValidation="False">	</asp:LinkButton></th></tr><asp:Repeater runat="server" id="FieldTripsTableControlRepeater">		<ITEMTEMPLATE>		<OLR:FieldTripsTableControlRow runat="server" id="FieldTripsTableControlRow">
 <tr><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;" rowspan="2" colspan="3">
                               <asp:CheckBox runat="server" id="SelectRow" onclick="moveToThisTableRow(this);">	</asp:CheckBox>                              
                             </td><td class="tableRowButtonsCellVertical" rowspan="2">
@@ -44,8 +47,7 @@
                         
                           <asp:ImageButton runat="server" id="DeleteRowButton" causesvalidation="False" commandargument="DeleteOnUpdate" commandname="DeleteRecord" cssclass="button_link" imageurl="../Images/icon_delete.gif" onmouseout="this.src=&#39;../Images/icon_delete.gif&#39;" onmouseover="this.src=&#39;../Images/icon_delete_over.gif&#39;" tooltip="&lt;%# GetResourceValue(&quot;Txt:DeleteRecord&quot;, &quot;OLR&quot;) %>">		
 	</asp:ImageButton>
-                        </td><td class="tableCellLabel"><asp:Literal runat="server" id="DescriptionLabel" Text="Description">	</asp:Literal> 
-</td><td class="tableCellValue" rowspan="2"><asp:TextBox runat="server" id="Description" MaxLength="100" columns="50" cssclass="field_input" rows="2" textmode="MultiLine"></asp:TextBox>&nbsp;
+                        </td><td class="tableCellValue" rowspan="2"><asp:TextBox runat="server" id="Description" MaxLength="100" columns="50" cssclass="field_input" rows="2" textmode="MultiLine"></asp:TextBox>&nbsp;
 <BaseClasses:TextBoxMaxLengthValidator runat="server" id="DescriptionTextBoxMaxLengthValidator" ControlToValidate="Description" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueTooLong&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, &quot;Description&quot;) %>"></BaseClasses:TextBoxMaxLengthValidator></td><td class="tableCellLabel"><asp:Literal runat="server" id="DateLabel" Text="Date">	</asp:Literal> 
 </td><td class="tableCellValue"><span style="white-space:nowrap;">
 <table border="0" cellpadding="0" cellspacing="0">
@@ -59,11 +61,11 @@
 </tr>
 </table>
 </span>
- </td></tr><tr><td class="tableCellLabel"></td><td class="tableCellLabel"><asp:Literal runat="server" id="TimeLabel" Text="Time">	</asp:Literal> 
+ </td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="TimeLabel" Text="Time">	</asp:Literal> 
 </td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:TextBox runat="server" id="Time" Columns="20" MaxLength="30" cssclass="field_input"></asp:TextBox>&nbsp;
 <BaseClasses:TextBoxMaxLengthValidator runat="server" id="TimeTextBoxMaxLengthValidator" ControlToValidate="Time" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueTooLong&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, &quot;Time&quot;) %>"></BaseClasses:TextBoxMaxLengthValidator></span>
- </td></tr><tr><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableRowButtonsCellVertical"></td><td class="tableCellLabel" colspan="4"><OLR:FieldTripOptionsTableControl runat="server" id="FieldTripOptionsTableControl">	<table class="dv" cellpadding="0" cellspacing="0" border="0"><tr><td></td><td></td><td></td></tr><tr><td class="panelHeaderL"></td><td class="dh">
+ </td></tr><tr><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableRowButtonsCellVertical"></td><td class="tableCellLabel" colspan="3"><OLR:FieldTripOptionsTableControl runat="server" id="FieldTripOptionsTableControl">	<table class="dv" cellpadding="0" cellspacing="0" border="0"><tr><td></td><td></td><td></td></tr><tr><td class="panelHeaderL"></td><td class="dh">
                   <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="dhel"><img src="../Images/space.gif" alt="" /></td><td class="dhb"><table cellpadding="0" cellspacing="0" border="0"><tr><td class="dht" valign="middle">
                         <asp:Literal runat="server" id="Title1" Text="&lt;%#String.Concat(&quot;Field Trip Options&quot;) %>">	</asp:Literal>
                       </td></tr></table>
@@ -84,14 +86,14 @@
 
                 </td><td class="panelHeaderR"></td></tr><tr><td></td><td>
                   <asp:panel id="CollapsibleRegion1" runat="server"><table class="dBody" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tre">
-                    <table id="FieldTripOptionsTableControlGrid" cellpadding="0" cellspacing="0" border="0" width="100%" onkeydown="captureUpDownKey(this, event)"><tr class="tch"><th class="thcnb" colspan="1"><asp:CheckBox runat="server" id="ToggleAll1" onclick="toggleAllCheckboxes(this);">	</asp:CheckBox></th><th class="thcnb"></th><th class="thc">&nbsp;</th><th class="thc">&nbsp;</th><th class="thc">&nbsp;</th><th class="thc">&nbsp;</th><th class="thc">&nbsp;</th><th class="thc">&nbsp;</th></tr><asp:Repeater runat="server" id="FieldTripOptionsTableControlRepeater">		<ITEMTEMPLATE>		<OLR:FieldTripOptionsTableControlRow runat="server" id="FieldTripOptionsTableControlRow">
+                    <table id="FieldTripOptionsTableControlGrid" cellpadding="0" cellspacing="0" border="0" width="100%" onkeydown="captureUpDownKey(this, event)"><tr class="tch"><th class="thcnb" colspan="1"><asp:CheckBox runat="server" id="ToggleAll1" onclick="toggleAllCheckboxes(this);">	</asp:CheckBox></th><th class="thcnb"></th><th class="thc">&nbsp; 
+<asp:LinkButton runat="server" id="DescriptionLabel1" tooltip="Sort by Description" Text="Description" CausesValidation="False">	</asp:LinkButton></th><th class="thc">&nbsp;</th><th class="thc">&nbsp;</th><th class="thc">&nbsp;</th><th class="thc">&nbsp;</th></tr><asp:Repeater runat="server" id="FieldTripOptionsTableControlRepeater">		<ITEMTEMPLATE>		<OLR:FieldTripOptionsTableControlRow runat="server" id="FieldTripOptionsTableControlRow">
 <tr><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;">
                               <asp:CheckBox runat="server" id="SelectRow1" onclick="moveToThisTableRow(this);">	</asp:CheckBox>                              
                             </td><td class="tableRowButtonsCellVertical">
                           <asp:ImageButton runat="server" id="DeleteRowButton1" causesvalidation="False" commandargument="DeleteOnUpdate" commandname="DeleteRecord" cssclass="button_link" imageurl="../Images/icon_delete.gif" onmouseout="this.src=&#39;../Images/icon_delete.gif&#39;" onmouseover="this.src=&#39;../Images/icon_delete_over.gif&#39;" tooltip="&lt;%# GetResourceValue(&quot;Txt:DeleteRecord&quot;, &quot;OLR&quot;) %>">		
 	</asp:ImageButton>
-                        </td><td class="tableCellLabel"><asp:Literal runat="server" id="DescriptionLabel2" Text="Description">	</asp:Literal> 
-</td><td class="tableCellValue" rowspan="2"><asp:TextBox runat="server" id="Description1" MaxLength="100" columns="50" cssclass="field_input" rows="2" textmode="MultiLine"></asp:TextBox>&nbsp;
+                        </td><td class="tableCellValue" rowspan="2"><asp:TextBox runat="server" id="Description1" MaxLength="100" columns="50" cssclass="field_input" rows="2" textmode="MultiLine"></asp:TextBox>&nbsp;
 <BaseClasses:TextBoxMaxLengthValidator runat="server" id="Description1TextBoxMaxLengthValidator" ControlToValidate="Description1" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueTooLong&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, &quot;Description&quot;) %>"></BaseClasses:TextBoxMaxLengthValidator></td><td class="tableCellLabel"><asp:Literal runat="server" id="PlacesAvailableLabel" Text="Places Available">	</asp:Literal> 
 </td><td class="tableCellValue"><span style="white-space:nowrap;">
 <table border="0" cellpadding="0" cellspacing="0">
@@ -104,7 +106,7 @@
 </tr>
 </table>
 </span>
- </td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableRowButtonsCellVertical"></td><td class="tableCellLabel"></td><td class="tableCellLabel"><asp:Literal runat="server" id="CostLabel" Text="Cost">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
+ </td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableRowButtonsCellVertical"></td><td class="tableCellLabel"><asp:Literal runat="server" id="CostLabel" Text="Cost">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
 <table border="0" cellpadding="0" cellspacing="0">
 <tr>
 <td style="padding-right: 5px; vertical-align:top">
@@ -115,7 +117,7 @@
 </tr>
 </table>
 </span>
-</td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableRowDivider" colspan="8"></td></tr></OLR:FieldTripOptionsTableControlRow>
+</td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableRowDivider" colspan="7"></td></tr></OLR:FieldTripOptionsTableControlRow>
 </ITEMTEMPLATE>
 
 </asp:Repeater>
@@ -126,7 +128,7 @@
                 </td><td></td></tr><tr><td></td><td></td><td></td></tr></table>
 	<asp:hiddenfield id="FieldTripOptionsTableControl_PostbackTracker" runat="server" />
 </OLR:FieldTripOptionsTableControl>
-</td></tr><tr><td class="tableRowDivider" colspan="8"></td></tr></OLR:FieldTripsTableControlRow>
+</td></tr><tr><td class="tableRowDivider" colspan="7"></td></tr></OLR:FieldTripsTableControlRow>
 </ITEMTEMPLATE>
 
 </asp:Repeater>

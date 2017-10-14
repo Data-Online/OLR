@@ -234,7 +234,13 @@ public partial class Edit_FieldTrips_Table
                 
         public System.Web.UI.WebControls.ImageButton AddButton1;
         
+        public System.Web.UI.WebControls.LinkButton DateLabel1;
+        
         public System.Web.UI.WebControls.ImageButton DeleteButton1;
+        
+        public System.Web.UI.WebControls.LinkButton DescriptionLabel1;
+        
+        public System.Web.UI.WebControls.LinkButton DescriptionLabel2;
         
         public OLR.UI.Controls.Edit_FieldTrips_Table.FieldTripsTableControl FieldTripsTableControl;
           
@@ -243,6 +249,8 @@ public partial class Edit_FieldTrips_Table
         public PaginationModern Pagination;
                 
         public System.Web.UI.WebControls.ImageButton SaveButton1;
+        
+        public System.Web.UI.WebControls.LinkButton TimeLabel1;
         
         public System.Web.UI.WebControls.Literal Title0;
             

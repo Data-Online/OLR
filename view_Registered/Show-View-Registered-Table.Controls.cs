@@ -4452,10 +4452,6 @@ public class BaseView_RegisteredTableControl : OLR.UI.BaseApplicationTableContro
           
                     this.ExcelButton.Click += ExcelButton_Click;
                         
-                    this.ImportButton.Click += ImportButton_Click;
-                        
-                    this.NewButton.Click += NewButton_Click;
-                        
                     this.PDFButton.Click += PDFButton_Click;
                         
                     this.ResetButton.Click += ResetButton_Click;
@@ -4716,11 +4712,9 @@ public class BaseView_RegisteredTableControl : OLR.UI.BaseApplicationTableContro
                 
                 
                 SetFirstNameLabel1();
-                
                 SetInitialCreationDateLabel1();
                 SetLastNameLabel1();
                 SetMobileNumberLabel1();
-                
                 
                 
                 SetPSNZAppliedForLabel1();
@@ -4736,10 +4730,6 @@ public class BaseView_RegisteredTableControl : OLR.UI.BaseApplicationTableContro
                 SetTownNameLabel();
                 
                 SetExcelButton();
-              
-                SetImportButton();
-              
-                SetNewButton();
               
                 SetPDFButton();
               
@@ -4922,6 +4912,7 @@ public class BaseView_RegisteredTableControl : OLR.UI.BaseApplicationTableContro
                 this.Pagination.CurrentPage.Text = "0";
             }
             this.Pagination.PageSize.Text = this.PageSize.ToString();
+            this.Pagination.TotalPages.Text = this.TotalPages.ToString();
     
             // Bind the buttons for View_RegisteredTableControl pagination.
         
@@ -5906,45 +5897,6 @@ public class BaseView_RegisteredTableControl : OLR.UI.BaseApplicationTableContro
    
         }
             
-        public virtual void SetImportButton()                
-              
-        {
-        							
-                    this.ImportButton.PostBackUrl = "../Shared/SelectFileToImport.aspx?TableName=View_Registered" ;
-                    this.ImportButton.Attributes["onClick"] = "window.open('" + this.Page.EncryptUrlParameter(this.ImportButton.PostBackUrl) + "','importWindow', 'width=700, height=500,top=' +(screen.availHeight-500)/2 + ',left=' + (screen.availWidth-700)/2+ ', resizable=yes, scrollbars=yes,modal=yes'); return false;";
-                        
-   
-        }
-            
-        public virtual void SetNewButton()                
-              
-        {
-        
-              try
-              {
-                    string url = "../Shared/ConfigureAddRecord.aspx?TabVisible=False&SaveAndNewVisible=False";
-              
-                      
-                    url = this.ModifyRedirectUrl(url, "", true);
-                    
-                    url = this.Page.ModifyRedirectUrl(url, "", true);                                  
-                    
-                    url = url + "&RedirectStyle=" + (this.Page as BaseApplicationPage).Encrypt("Popup") + "&Target=" + (this.Page as BaseApplicationPage).Encrypt(MiscUtils.FindControlRecursively(this, "View_RegisteredTableControl_PostbackTracker").ClientID);                           
-                                
-                string javascriptCall = "";
-                
-                    javascriptCall = "initializePopupPage2(document.getElementById('" + MiscUtils.FindControlRecursively(this, "View_RegisteredTableControl_PostbackTracker").ClientID + "'), '" + url + "', true, event);";                                      
-                       
-                    this.NewButton.Attributes["onClick"] = javascriptCall + "return false;";            
-                }
-                catch
-                {
-                    // do nothing.  If the code above fails, server side click event, NewButton_ClickNewButton_Click will be trigger when user click the button.
-                }
-                  
-   
-        }
-            
         public virtual void SetPDFButton()                
               
         {
@@ -6748,81 +6700,6 @@ public class BaseView_RegisteredTableControl : OLR.UI.BaseApplicationTableContro
             
         
         // event handler for ImageButton
-        public virtual void ImportButton_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            try {
-                // Enclose all database retrieval/update code within a Transaction boundary
-                DbUtils.StartTransaction();
-                
-            } catch (Exception ex) {
-                  // Upon error, rollback the transaction
-                  this.Page.RollBackTransaction(sender);
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-                DbUtils.EndTransaction();
-            }
-    
-        }
-            
-            
-        
-        // event handler for ImageButton
-        public virtual void NewButton_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            // The redirect URL is set on the Properties, Custom Properties or Actions.
-            // The ModifyRedirectURL call resolves the parameters before the
-            // Response.Redirect redirects the page to the URL.  
-            // Any code after the Response.Redirect call will not be executed, since the page is
-            // redirected to the URL.
-            
-            string url = @"../Shared/ConfigureAddRecord.aspx?TabVisible=False&SaveAndNewVisible=False";
-            
-        bool shouldRedirect = true;
-        string target = null;
-        if (target == null) target = ""; // avoid warning on VS
-      
-            try {
-                // Enclose all database retrieval/update code within a Transaction boundary
-                DbUtils.StartTransaction();
-                
-                url = this.ModifyRedirectUrl(url, "",true);
-                url = this.Page.ModifyRedirectUrl(url, "",true);
-              
-            } catch (Exception ex) {
-                  // Upon error, rollback the transaction
-                  this.Page.RollBackTransaction(sender);
-                  shouldRedirect = false;
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-                DbUtils.EndTransaction();
-            }
-            if (shouldRedirect) {
-                this.Page.ShouldSaveControlsToSession = true;
-      
-                    url = url + "&RedirectStyle=" + (this.Page as BaseApplicationPage).Encrypt("Popup") + "&Target=" + (this.Page as BaseApplicationPage).Encrypt(MiscUtils.FindControlRecursively(this, "View_RegisteredTableControl_PostbackTracker").ClientID);                           
-                                
-                string javascriptCall = "";
-                
-                    javascriptCall = "initializePopupPage2(document.getElementById('" + MiscUtils.FindControlRecursively(this, "View_RegisteredTableControl_PostbackTracker").ClientID + "'), '" + url + "', true, event);";                                      
-                AjaxControlToolkit.ToolkitScriptManager.RegisterStartupScript(this, this.GetType(), "NewButton_Click", javascriptCall, true);
-        
-            }
-        
-        }
-            
-            
-        
-        // event handler for ImageButton
         public virtual void PDFButton_Click(object sender, ImageClickEventArgs args)
         {
               
@@ -7376,12 +7253,6 @@ public class BaseView_RegisteredTableControl : OLR.UI.BaseApplicationTableContro
             }
         }
         
-        public System.Web.UI.WebControls.ImageButton ImportButton {
-            get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "ImportButton");
-            }
-        }
-        
         public System.Web.UI.WebControls.LinkButton InitialCreationDateLabel1 {
             get {
                 return (System.Web.UI.WebControls.LinkButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "InitialCreationDateLabel1");
@@ -7400,15 +7271,9 @@ public class BaseView_RegisteredTableControl : OLR.UI.BaseApplicationTableContro
             }
         }
         
-        public System.Web.UI.WebControls.ImageButton NewButton {
+        public OLR.UI.IPaginationMedium Pagination {
             get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "NewButton");
-            }
-        }
-        
-        public OLR.UI.IPaginationModern Pagination {
-            get {
-                return (OLR.UI.IPaginationModern)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Pagination");
+                return (OLR.UI.IPaginationMedium)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Pagination");
             }
         }
         

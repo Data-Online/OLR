@@ -188,7 +188,6 @@ public class BaseFieldTripOptionsTableControlRow : OLR.UI.BaseApplicationRecordC
                 SetCostLabel();
                 
                 SetDescription1();
-                SetDescriptionLabel2();
                 SetPlacesAvailable();
                 SetPlacesAvailableLabel();
                 
@@ -344,12 +343,6 @@ public class BaseFieldTripOptionsTableControlRow : OLR.UI.BaseApplicationRecordC
         }
                 
         public virtual void SetCostLabel()
-                  {
-                  
-                    
-        }
-                
-        public virtual void SetDescriptionLabel2()
                   {
                   
                     
@@ -877,12 +870,6 @@ public class BaseFieldTripOptionsTableControlRow : OLR.UI.BaseApplicationRecordC
             }
         }
             
-        public System.Web.UI.WebControls.Literal DescriptionLabel2 {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "DescriptionLabel2");
-            }
-        }
-        
         public System.Web.UI.WebControls.TextBox PlacesAvailable {
             get {
                 return (System.Web.UI.WebControls.TextBox)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "PlacesAvailable");
@@ -1058,6 +1045,8 @@ public class BaseFieldTripOptionsTableControl : OLR.UI.BaseApplicationTableContr
         
        // Setup the sorting events.
         
+              this.DescriptionLabel1.Click += DescriptionLabel1_Click;
+            
             // Setup the button events.
           
                     this.AddButton1.Click += AddButton1_Click;
@@ -1304,6 +1293,7 @@ public class BaseFieldTripOptionsTableControl : OLR.UI.BaseApplicationTableContr
                 
                 
                 
+                SetDescriptionLabel1();
                 
                 
                 
@@ -1847,6 +1837,12 @@ public class BaseFieldTripOptionsTableControl : OLR.UI.BaseApplicationTableContr
       
         // Create Set, WhereClause, and Populate Methods
         
+        public virtual void SetDescriptionLabel1()
+                  {
+                  
+                    
+        }
+                
 
     
         protected virtual void Control_PreRender(object sender, System.EventArgs e)
@@ -2060,6 +2056,36 @@ public class BaseFieldTripOptionsTableControl : OLR.UI.BaseApplicationTableContr
 
         // Generate the event handling functions for sorting events.
         
+        public virtual void DescriptionLabel1_Click(object sender, EventArgs args)
+        {
+            //Sorts by Description when clicked.
+              
+            // Get previous sorting state for Description.
+        
+            OrderByItem sd = this.CurrentSortOrder.Find(FieldTripOptionsTable.Description);
+            if (sd == null || (this.CurrentSortOrder.Items != null && this.CurrentSortOrder.Items.Length > 1)) {
+                // First time sort, so add sort order for Description.
+                this.CurrentSortOrder.Reset();
+
+    
+              //If default sort order was GeoProximity, create new CurrentSortOrder of OrderBy type
+              if ((this.CurrentSortOrder).GetType() == typeof(GeoOrderBy)) this.CurrentSortOrder = new OrderBy(true, false);
+
+              this.CurrentSortOrder.Add(FieldTripOptionsTable.Description, OrderByItem.OrderDir.Asc);
+            
+            } else {
+                // Previously sorted by Description, so just reverse.
+                sd.Reverse();
+            }
+        
+
+            // Setting the DataChanged to true results in the page being refreshed with
+            // the most recent data from the database.  This happens in PreRender event
+            // based on the current sort, search and filter criteria.
+            this.DataChanged = true;
+              
+        }
+            
 
         // Generate the event handling functions for button events.
         
@@ -2278,6 +2304,12 @@ public class BaseFieldTripOptionsTableControl : OLR.UI.BaseApplicationTableContr
         public System.Web.UI.WebControls.ImageButton DeleteButton1 {
             get {
                 return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "DeleteButton1");
+            }
+        }
+        
+        public System.Web.UI.WebControls.LinkButton DescriptionLabel1 {
+            get {
+                return (System.Web.UI.WebControls.LinkButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "DescriptionLabel1");
             }
         }
         
@@ -2557,7 +2589,6 @@ public class BaseFieldTripsTableControlRow : OLR.UI.BaseApplicationRecordControl
                 SetDateLabel();
                 
                 SetDescription();
-                SetDescriptionLabel();
                 
                 
                 
@@ -2723,12 +2754,6 @@ public class BaseFieldTripsTableControlRow : OLR.UI.BaseApplicationRecordControl
         }
                 
         public virtual void SetDateLabel()
-                  {
-                  
-                    
-        }
-                
-        public virtual void SetDescriptionLabel()
                   {
                   
                     
@@ -3370,12 +3395,6 @@ public class BaseFieldTripsTableControlRow : OLR.UI.BaseApplicationRecordControl
             }
         }
             
-        public System.Web.UI.WebControls.Literal DescriptionLabel {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "DescriptionLabel");
-            }
-        }
-        
         public System.Web.UI.WebControls.ImageButton EditRowButton {
             get {
                 return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "EditRowButton");
@@ -3577,6 +3596,12 @@ public class BaseFieldTripsTableControl : OLR.UI.BaseApplicationTableControl
         
        // Setup the sorting events.
         
+              this.DateLabel1.Click += DateLabel1_Click;
+            
+              this.DescriptionLabel2.Click += DescriptionLabel2_Click;
+            
+              this.TimeLabel1.Click += TimeLabel1_Click;
+            
             // Setup the button events.
                   
         
@@ -3812,7 +3837,10 @@ public class BaseFieldTripsTableControl : OLR.UI.BaseApplicationTableControl
     
             // Call the Set methods for each controls on the panel
         
+                SetDateLabel1();
+                SetDescriptionLabel2();
                 
+                SetTimeLabel1();
                 
                 
             // setting the state of expand or collapse alternative rows
@@ -4344,6 +4372,24 @@ public class BaseFieldTripsTableControl : OLR.UI.BaseApplicationTableControl
       
         // Create Set, WhereClause, and Populate Methods
         
+        public virtual void SetDateLabel1()
+                  {
+                  
+                    
+        }
+                
+        public virtual void SetDescriptionLabel2()
+                  {
+                  
+                    
+        }
+                
+        public virtual void SetTimeLabel1()
+                  {
+                  
+                    
+        }
+                
 
     
         protected virtual void Control_PreRender(object sender, System.EventArgs e)
@@ -4647,6 +4693,96 @@ public class BaseFieldTripsTableControl : OLR.UI.BaseApplicationTableControl
 
         // Generate the event handling functions for sorting events.
         
+        public virtual void DateLabel1_Click(object sender, EventArgs args)
+        {
+            //Sorts by Date when clicked.
+              
+            // Get previous sorting state for Date.
+        
+            OrderByItem sd = this.CurrentSortOrder.Find(FieldTripsTable.Date0);
+            if (sd == null || (this.CurrentSortOrder.Items != null && this.CurrentSortOrder.Items.Length > 1)) {
+                // First time sort, so add sort order for Date.
+                this.CurrentSortOrder.Reset();
+
+    
+              //If default sort order was GeoProximity, create new CurrentSortOrder of OrderBy type
+              if ((this.CurrentSortOrder).GetType() == typeof(GeoOrderBy)) this.CurrentSortOrder = new OrderBy(true, false);
+
+              this.CurrentSortOrder.Add(FieldTripsTable.Date0, OrderByItem.OrderDir.Asc);
+            
+            } else {
+                // Previously sorted by Date, so just reverse.
+                sd.Reverse();
+            }
+        
+
+            // Setting the DataChanged to true results in the page being refreshed with
+            // the most recent data from the database.  This happens in PreRender event
+            // based on the current sort, search and filter criteria.
+            this.DataChanged = true;
+              
+        }
+            
+        public virtual void DescriptionLabel2_Click(object sender, EventArgs args)
+        {
+            //Sorts by Description when clicked.
+              
+            // Get previous sorting state for Description.
+        
+            OrderByItem sd = this.CurrentSortOrder.Find(FieldTripsTable.Description);
+            if (sd == null || (this.CurrentSortOrder.Items != null && this.CurrentSortOrder.Items.Length > 1)) {
+                // First time sort, so add sort order for Description.
+                this.CurrentSortOrder.Reset();
+
+    
+              //If default sort order was GeoProximity, create new CurrentSortOrder of OrderBy type
+              if ((this.CurrentSortOrder).GetType() == typeof(GeoOrderBy)) this.CurrentSortOrder = new OrderBy(true, false);
+
+              this.CurrentSortOrder.Add(FieldTripsTable.Description, OrderByItem.OrderDir.Asc);
+            
+            } else {
+                // Previously sorted by Description, so just reverse.
+                sd.Reverse();
+            }
+        
+
+            // Setting the DataChanged to true results in the page being refreshed with
+            // the most recent data from the database.  This happens in PreRender event
+            // based on the current sort, search and filter criteria.
+            this.DataChanged = true;
+              
+        }
+            
+        public virtual void TimeLabel1_Click(object sender, EventArgs args)
+        {
+            //Sorts by Time when clicked.
+              
+            // Get previous sorting state for Time.
+        
+            OrderByItem sd = this.CurrentSortOrder.Find(FieldTripsTable.Time);
+            if (sd == null || (this.CurrentSortOrder.Items != null && this.CurrentSortOrder.Items.Length > 1)) {
+                // First time sort, so add sort order for Time.
+                this.CurrentSortOrder.Reset();
+
+    
+              //If default sort order was GeoProximity, create new CurrentSortOrder of OrderBy type
+              if ((this.CurrentSortOrder).GetType() == typeof(GeoOrderBy)) this.CurrentSortOrder = new OrderBy(true, false);
+
+              this.CurrentSortOrder.Add(FieldTripsTable.Time, OrderByItem.OrderDir.Asc);
+            
+            } else {
+                // Previously sorted by Time, so just reverse.
+                sd.Reverse();
+            }
+        
+
+            // Setting the DataChanged to true results in the page being refreshed with
+            // the most recent data from the database.  This happens in PreRender event
+            // based on the current sort, search and filter criteria.
+            this.DataChanged = true;
+              
+        }
+            
 
         // Generate the event handling functions for button events.
         
@@ -4728,9 +4864,27 @@ public class BaseFieldTripsTableControl : OLR.UI.BaseApplicationTableControl
 
 #region "Helper Properties"
         
+        public System.Web.UI.WebControls.LinkButton DateLabel1 {
+            get {
+                return (System.Web.UI.WebControls.LinkButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "DateLabel1");
+            }
+        }
+        
+        public System.Web.UI.WebControls.LinkButton DescriptionLabel2 {
+            get {
+                return (System.Web.UI.WebControls.LinkButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "DescriptionLabel2");
+            }
+        }
+        
         public OLR.UI.IPaginationModern Pagination {
             get {
                 return (OLR.UI.IPaginationModern)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Pagination");
+            }
+        }
+        
+        public System.Web.UI.WebControls.LinkButton TimeLabel1 {
+            get {
+                return (System.Web.UI.WebControls.LinkButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "TimeLabel1");
             }
         }
         

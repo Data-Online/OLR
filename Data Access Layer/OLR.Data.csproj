@@ -260,13 +260,22 @@
     <Compile Include="BaseOtherCostsSqlTable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View_FieldTripSelectionsDefinition.cs" >
+    <Compile Include="View_FieldTripSelectionsDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View_FieldTripSelectionsSqlView.cs" >
+    <Compile Include="View_FieldTripSelectionsSqlView.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseView_FieldTripSelectionsSqlView.cs" >
+    <Compile Include="BaseView_FieldTripSelectionsSqlView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View_AllDataExtractDefinition.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View_AllDataExtractSqlView.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseView_AllDataExtractSqlView.cs" >
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

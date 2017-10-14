@@ -49,8 +49,28 @@
 </table>
 
                   </td></tr></table>
-</asp:panel></td></tr><tr><td class="panelBL"><asp:Label runat="server" id="Label4" Text="Total Completed Registrations">	</asp:Label> 
-<asp:Literal runat="server" id="RegistrationsCountControl">	</asp:Literal></td></tr></table>
+</asp:panel></td></tr><tr><td class="panelBL, largeText" style="text-align:center;"></td></tr><tr><td class="panelBL, largeText" style="text-align:center;"><asp:Label runat="server" id="Label4" Text="Total Completed Registrations">	</asp:Label> 
+<asp:Literal runat="server" id="RegistrationsCountControl">	</asp:Literal></td></tr><tr><td class="panelBL"></td></tr><tr><td class="panelBL"></td></tr><tr><td class="panelBL"><OLR:RegistrationTypesTableControl runat="server" id="RegistrationTypesTableControl">	<table class="dv" cellpadding="0" cellspacing="0" border="0"><tr><td class="panelTL"><img src="../Images/space.gif" class="panelTLSpace" alt="" /></td><td class="panelT"></td><td class="panelTR"><img src="../Images/space.gif" class="panelTRSpace" alt="" /></td></tr><tr><td class="panelHeaderL"></td><td class="dh">
+                  <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="dhel"><img src="../Images/space.gif" alt="" /></td><td class="dhb"><table cellpadding="0" cellspacing="0" border="0"><tr><td class="dht" valign="middle">
+                        <asp:Literal runat="server" id="Title2" Text="&lt;%#String.Concat(&quot;Numbers by Registration Type&quot;) %>">	</asp:Literal>
+                      </td></tr></table>
+</td><td class="dhb"></td><td class="dher"><img src="../Images/space.gif" alt="" /></td></tr></table>
+
+                </td><td class="panelHeaderR"></td></tr><tr><td class="panelL"></td><td>
+                  <asp:panel id="CollapsibleRegion4" runat="server"><table class="dBody" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tre">
+                    <table id="RegistrationTypesTableControlGrid" cellpadding="0" cellspacing="0" border="0" width="100%" onkeydown="captureUpDownKey(this, event)"><tr class="tch"><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th></tr><asp:Repeater runat="server" id="RegistrationTypesTableControlRepeater">		<ITEMTEMPLATE>		<OLR:RegistrationTypesTableControlRow runat="server" id="RegistrationTypesTableControlRow">
+<tr><td class="largeText"><asp:Literal runat="server" id="RegistrationType"></asp:Literal></td><td class="largeText"><asp:Literal runat="server" id="RegistrationsCountControl1">	</asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableRowDivider" colspan="6"></td></tr></OLR:RegistrationTypesTableControlRow>
+</ITEMTEMPLATE>
+
+</asp:Repeater>
+</table>
+
+                  </td></tr></table>
+</asp:panel>
+                </td><td class="panelR"></td></tr><tr><td class="panelBL"><img src="../Images/space.gif" class="panelBLSpace" alt="" /></td><td class="panelB"></td><td class="panelBR"><img src="../Images/space.gif" class="panelBRSpace" alt="" /></td></tr></table>
+	<asp:hiddenfield id="RegistrationTypesTableControl_PostbackTracker" runat="server" />
+</OLR:RegistrationTypesTableControl>
+</td></tr></table>
 	<asp:hiddenfield id="RegistrationsTableControl_PostbackTracker" runat="server" />
 </OLR:RegistrationsTableControl>
 </td></tr><tr><td><OLR:FieldTripsTableControl runat="server" id="FieldTripsTableControl">	<table class="dv" cellpadding="0" cellspacing="0" border="0"><tr><td class="panelTL"><img src="../Images/space.gif" class="panelTLSpace" alt="" /></td><td class="panelT"></td><td class="panelTR"><img src="../Images/space.gif" class="panelTRSpace" alt="" /></td></tr><tr><td class="panelHeaderL"></td><td class="dh">

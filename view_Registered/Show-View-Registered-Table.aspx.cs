@@ -250,19 +250,15 @@ public partial class Show_View_Registered_Table
                 
         public System.Web.UI.WebControls.LinkButton FirstNameLabel1;
         
-        public System.Web.UI.WebControls.ImageButton ImportButton;
-        
         public System.Web.UI.WebControls.LinkButton InitialCreationDateLabel1;
         
         public System.Web.UI.WebControls.LinkButton LastNameLabel1;
         
         public System.Web.UI.WebControls.LinkButton MobileNumberLabel1;
         
-        public System.Web.UI.WebControls.ImageButton NewButton;
-        
         public System.Web.UI.WebControls.Literal PageTitle;
         
-        public PaginationModern Pagination;
+        public PaginationMedium Pagination;
                 
         public System.Web.UI.WebControls.ImageButton PDFButton;
         

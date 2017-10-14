@@ -308,16 +308,28 @@
     <Compile Include="BaseOtherCostsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View_FieldTripSelectionsView.cs" >
+    <Compile Include="View_FieldTripSelectionsView.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseView_FieldTripSelectionsView.cs" >
+    <Compile Include="BaseView_FieldTripSelectionsView.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View_FieldTripSelectionsRecord.cs" >
+    <Compile Include="View_FieldTripSelectionsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseView_FieldTripSelectionsRecord.cs" >
+    <Compile Include="BaseView_FieldTripSelectionsRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View_AllDataExtractView.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseView_AllDataExtractView.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View_AllDataExtractRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseView_AllDataExtractRecord.cs" >
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

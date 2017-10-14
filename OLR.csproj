@@ -1136,11 +1136,18 @@
     <Compile Include="view_FieldTripSelections\Edit-View-FieldTripSelections-Table.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HomeTowns\Edit-HomeTowns-Table.aspx.cs" >
+    <Compile Include="HomeTowns\Edit-HomeTowns-Table.aspx.cs">
       <DependentUpon>Edit-HomeTowns-Table.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="HomeTowns\Edit-HomeTowns-Table.Controls.cs" >
+    <Compile Include="HomeTowns\Edit-HomeTowns-Table.Controls.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="view_AllDataExtract\Show-View-AllDataExtract-Table.aspx.cs" >
+      <DependentUpon>Show-View-AllDataExtract-Table.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="view_AllDataExtract\Show-View-AllDataExtract-Table.Controls.cs" >
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -1527,7 +1534,8 @@
     <Content Include="OtherCosts\OtherCosts-QuickSelector.aspx" />
     <Content Include="FieldTripChoices\Show-FieldTripChoices-Table.aspx" />
     <Content Include="view_FieldTripSelections\Edit-View-FieldTripSelections-Table.aspx" />
-    <Content Include="HomeTowns\Edit-HomeTowns-Table.aspx"  />
+    <Content Include="HomeTowns\Edit-HomeTowns-Table.aspx" />
+    <Content Include="view_AllDataExtract\Show-View-AllDataExtract-Table.aspx"  />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Global.asax.resx">
