@@ -290,6 +290,38 @@ public class BaseEventsRecord : PrimaryKeyRecord
 		ColumnValue cv = new ColumnValue(val);
 		this.SetValue(cv, TableUtils.ContactEmailColumn);
 	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's Events_.AccountNumber field.
+	/// </summary>
+	public ColumnValue GetAccountNumberValue()
+	{
+		return this.GetValue(TableUtils.AccountNumberColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's Events_.AccountNumber field.
+	/// </summary>
+	public string GetAccountNumberFieldValue()
+	{
+		return this.GetValue(TableUtils.AccountNumberColumn).ToString();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's Events_.AccountNumber field.
+	/// </summary>
+	public void SetAccountNumberFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.AccountNumberColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's Events_.AccountNumber field.
+	/// </summary>
+	public void SetAccountNumberFieldValue(string val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.AccountNumberColumn);
+	}
 
 
 #endregion
@@ -510,6 +542,49 @@ public class BaseEventsRecord : PrimaryKeyRecord
 		get
 		{
 			return TableUtils.ContactEmailColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's Events_.AccountNumber field.
+	/// </summary>
+	public string AccountNumber
+	{
+		get
+		{
+			return this.GetValue(TableUtils.AccountNumberColumn).ToString();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.AccountNumberColumn);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool AccountNumberSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.AccountNumberColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's Events_.AccountNumber field.
+	/// </summary>
+	public string AccountNumberDefault
+	{
+		get
+		{
+			return TableUtils.AccountNumberColumn.DefaultValue;
 		}
 	}
 

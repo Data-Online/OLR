@@ -673,6 +673,14 @@
           <Name>ContactEmail Desc</Name>
           <Value>Contact Email {Txt:Descending}</Value>
         </Item>
+        <Item>
+          <Name>AccountNumber Asc</Name>
+          <Value>Account Number {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>AccountNumber Desc</Name>
+          <Value>Account Number {Txt:Descending}</Value>
+        </Item>
       </SpecifiedItems>
       <PassthroughAttributes>
         <Attribute>

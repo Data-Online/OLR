@@ -63,6 +63,7 @@ public class BaseEventsTable : PrimaryKeyTable
         GIDColumn.CodeName = "GID";
         ActiveColumn.CodeName = "Active";
         ContactEmailColumn.CodeName = "ContactEmail";
+        AccountNumberColumn.CodeName = "AccountNumber";
 
         
     }
@@ -207,6 +208,31 @@ public class BaseEventsTable : PrimaryKeyTable
         get
         {
             return EventsTable.Instance.ContactEmailColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's Events_.AccountNumber column object.
+    /// </summary>
+    public BaseClasses.Data.StringColumn AccountNumberColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.StringColumn)this.TableDefinition.ColumnList[5];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's Events_.AccountNumber column object.
+    /// </summary>
+    public static BaseClasses.Data.StringColumn AccountNumber
+    {
+        get
+        {
+            return EventsTable.Instance.AccountNumberColumn;
         }
     }
     
@@ -739,7 +765,8 @@ public class BaseEventsTable : PrimaryKeyTable
         string EventNameValue, 
         string GIDValue, 
         string ActiveValue, 
-        string ContactEmailValue
+        string ContactEmailValue, 
+        string AccountNumberValue
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
@@ -747,6 +774,7 @@ public class BaseEventsTable : PrimaryKeyTable
         rec.SetString(GIDValue, GIDColumn);
         rec.SetString(ActiveValue, ActiveColumn);
         rec.SetString(ContactEmailValue, ContactEmailColumn);
+        rec.SetString(AccountNumberValue, AccountNumberColumn);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized

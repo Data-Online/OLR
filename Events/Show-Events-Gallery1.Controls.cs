@@ -2006,6 +2006,10 @@ public class BaseEventsTableControl : OLR.UI.BaseApplicationTableControl
               
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Contact Email {Txt:Descending}"), "ContactEmail Desc"));
               
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Account Number {Txt:Ascending}"), "AccountNumber Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Account Number {Txt:Descending}"), "AccountNumber Desc"));
+              
             try
             {          
                 // Set the selected value.

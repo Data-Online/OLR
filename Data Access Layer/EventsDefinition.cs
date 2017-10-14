@@ -12,7 +12,7 @@ namespace OLR.Business
 public class EventsDefinition
 {
 #region "Definition (XML) for EventsDefinition table"
-	//Next 175 lines contain Table Definition (XML) for table "EventsDefinition"
+	//Next 237 lines contain Table Definition (XML) for table "EventsDefinition"
 	private static string _DefinitionString = "";
 	
 #endregion
@@ -132,6 +132,18 @@ public class EventsDefinition
          tbf.Append(      @"<columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>");
          tbf.Append(      @"<columnTableAliasName></columnTableAliasName>");
          tbf.Append(      @"<applyLabelText>Y</applyLabelText>");
+         tbf.Append(      @"<applyDFKA>N</applyDFKA>");
+         tbf.Append(      @"<applyInitializeInsertingRecord>N</applyInitializeInsertingRecord>");
+         tbf.Append(      @"<applyInitializeReadingRecord>N</applyInitializeReadingRecord>");
+         tbf.Append(      @"<applyInitializeUpdatingRecord>N</applyInitializeUpdatingRecord>");
+         tbf.Append(      @"<applyValidateInsertingRecord>N</applyValidateInsertingRecord>");
+         tbf.Append(      @"<applyValidateUpdatingRecord>N</applyValidateUpdatingRecord>");
+         tbf.Append(      @"<applyDefaultValue>N</applyDefaultValue>");
+         tbf.Append(      @"<insertingRecordFormula></insertingRecordFormula>");
+         tbf.Append(      @"<readingRecordFormula></readingRecordFormula>");
+         tbf.Append(      @"<updatingRecordFormula></updatingRecordFormula>");
+         tbf.Append(      @"<insertingFormula></insertingFormula>");
+         tbf.Append(      @"<updatingFormula></updatingFormula>");
          tbf.Append(    "</Column>");
          tbf.Append(    @"<Column InternalName=""3"" Priority=""4"" ColumnNum=""3"">");
          tbf.Append(      @"<columnName>Active</columnName>");
@@ -158,6 +170,18 @@ public class EventsDefinition
          tbf.Append(      @"<columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>");
          tbf.Append(      @"<columnTableAliasName></columnTableAliasName>");
          tbf.Append(      @"<applyLabelText>Y</applyLabelText>");
+         tbf.Append(      @"<applyDFKA>N</applyDFKA>");
+         tbf.Append(      @"<applyInitializeInsertingRecord>N</applyInitializeInsertingRecord>");
+         tbf.Append(      @"<applyInitializeReadingRecord>N</applyInitializeReadingRecord>");
+         tbf.Append(      @"<applyInitializeUpdatingRecord>N</applyInitializeUpdatingRecord>");
+         tbf.Append(      @"<applyValidateInsertingRecord>N</applyValidateInsertingRecord>");
+         tbf.Append(      @"<applyValidateUpdatingRecord>N</applyValidateUpdatingRecord>");
+         tbf.Append(      @"<applyDefaultValue>N</applyDefaultValue>");
+         tbf.Append(      @"<insertingRecordFormula></insertingRecordFormula>");
+         tbf.Append(      @"<readingRecordFormula></readingRecordFormula>");
+         tbf.Append(      @"<updatingRecordFormula></updatingRecordFormula>");
+         tbf.Append(      @"<insertingFormula></insertingFormula>");
+         tbf.Append(      @"<updatingFormula></updatingFormula>");
          tbf.Append(    "</Column>");
          tbf.Append(    @"<Column InternalName=""4"" Priority=""5"" ColumnNum=""4"">");
          tbf.Append(      @"<columnName>ContactEmail</columnName>");
@@ -184,10 +208,48 @@ public class EventsDefinition
          tbf.Append(      @"<columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>");
          tbf.Append(      @"<columnTableAliasName></columnTableAliasName>");
          tbf.Append(      @"<applyLabelText>Y</applyLabelText>");
+         tbf.Append(      @"<applyDFKA>N</applyDFKA>");
+         tbf.Append(      @"<applyInitializeInsertingRecord>N</applyInitializeInsertingRecord>");
+         tbf.Append(      @"<applyInitializeReadingRecord>N</applyInitializeReadingRecord>");
+         tbf.Append(      @"<applyInitializeUpdatingRecord>N</applyInitializeUpdatingRecord>");
+         tbf.Append(      @"<applyValidateInsertingRecord>N</applyValidateInsertingRecord>");
+         tbf.Append(      @"<applyValidateUpdatingRecord>N</applyValidateUpdatingRecord>");
+         tbf.Append(      @"<applyDefaultValue>N</applyDefaultValue>");
+         tbf.Append(      @"<insertingRecordFormula></insertingRecordFormula>");
+         tbf.Append(      @"<readingRecordFormula></readingRecordFormula>");
+         tbf.Append(      @"<updatingRecordFormula></updatingRecordFormula>");
+         tbf.Append(      @"<insertingFormula></insertingFormula>");
+         tbf.Append(      @"<updatingFormula></updatingFormula>");
+         tbf.Append(    "</Column>");
+         tbf.Append(    @"<Column InternalName=""5"" Priority=""6"" ColumnNum=""5"">");
+         tbf.Append(      @"<columnName>AccountNumber</columnName>");
+         tbf.Append(      @"<columnUIName>Account Number</columnUIName>");
+         tbf.Append(      @"<columnType>String</columnType>");
+         tbf.Append(      @"<columnDBType>nvarchar</columnDBType>");
+         tbf.Append(      @"<columnLengthSet>20</columnLengthSet>");
+         tbf.Append(      @"<columnDefault></columnDefault>");
+         tbf.Append(      @"<columnDBDefault></columnDBDefault>");
+         tbf.Append(      @"<columnIndex>N</columnIndex>");
+         tbf.Append(      @"<columnUnique>N</columnUnique>");
+         tbf.Append(      @"<columnFunction></columnFunction>");
+         tbf.Append(      @"<columnDBFormat></columnDBFormat>");
+         tbf.Append(      @"<columnPK>N</columnPK>");
+         tbf.Append(      @"<columnPermanent>N</columnPermanent>");
+         tbf.Append(      @"<columnComputed>N</columnComputed>");
+         tbf.Append(      @"<columnIdentity>N</columnIdentity>");
+         tbf.Append(      @"<columnReadOnly>N</columnReadOnly>");
+         tbf.Append(      @"<columnRequired>N</columnRequired>");
+         tbf.Append(      @"<columnNotNull>N</columnNotNull>");
+         tbf.Append(      @"<columnCaseSensitive Source=""Database"">N</columnCaseSensitive>");
+         tbf.Append(      @"<columnCollation>Latin1_General_CI_AS</columnCollation>");
+         tbf.Append(      @"<columnFullText>N</columnFullText>");
+         tbf.Append(      @"<columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>");
+         tbf.Append(      @"<columnTableAliasName></columnTableAliasName>");
+         tbf.Append(      @"<applyLabelText>Y</applyLabelText>");
          tbf.Append(    "</Column>");
          tbf.Append(  "</ColumnDefinition>");
          tbf.Append(  @"<TableName>Events</TableName>");
-         tbf.Append(  @"<Version>1</Version>");
+         tbf.Append(  @"<Version>2</Version>");
          tbf.Append(  @"<Owner>dbo</Owner>");
          tbf.Append(  @"<TableAliasName>Events_</TableAliasName>");
          tbf.Append(  @"<ConnectionName>DatabaseOLR_db</ConnectionName>");

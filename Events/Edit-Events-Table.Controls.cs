@@ -106,6 +106,8 @@ public class BaseEventsTableControlRow : OLR.UI.BaseApplicationRecordControl
                         
                     this.ViewRowButton.Click += ViewRowButton_Click;
                         
+              this.AccountNumber.TextChanged += AccountNumber_TextChanged;
+            
               this.ContactEmail.TextChanged += ContactEmail_TextChanged;
             
               this.EventName.TextChanged += EventName_TextChanged;
@@ -165,6 +167,8 @@ public class BaseEventsTableControlRow : OLR.UI.BaseApplicationRecordControl
 
             // Call the Set methods for each controls on the panel
         
+                SetAccountNumber();
+                SetAccountNumberLabel();
                 SetContactEmail();
                 SetContactEmailLabel();
                 
@@ -202,6 +206,48 @@ public class BaseEventsTableControlRow : OLR.UI.BaseApplicationRecordControl
         }
         
         
+        public virtual void SetAccountNumber()
+        {
+            
+            // If data was retrieved from UI previously, restore it
+            if (this.PreviousUIData.ContainsKey(this.AccountNumber.ID))
+            {
+            
+                this.AccountNumber.Text = this.PreviousUIData[this.AccountNumber.ID].ToString();
+              
+                return;
+            }
+            
+                    
+            // Set the AccountNumber TextBox on the webpage with value from the
+            // DatabaseOLR_db%dbo.Events database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.Events record retrieved from the database.
+            // this.AccountNumber is the ASP:TextBox on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.AccountNumberSpecified) {
+                								
+                // If the AccountNumber is non-NULL, then format the value.
+                // The Format method will use the Display Format
+               string formattedValue = this.DataSource.Format(EventsTable.AccountNumber);
+                                
+                this.AccountNumber.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // AccountNumber is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.AccountNumber.Text = EventsTable.AccountNumber.Format(EventsTable.AccountNumber.DefaultValue);
+            		
+            }
+            
+              this.AccountNumber.TextChanged += AccountNumber_TextChanged;
+                               
+        }
+                
         public virtual void SetContactEmail()
         {
             
@@ -284,6 +330,12 @@ public class BaseEventsTableControlRow : OLR.UI.BaseApplicationRecordControl
             
               this.EventName.TextChanged += EventName_TextChanged;
                                
+        }
+                
+        public virtual void SetAccountNumberLabel()
+                  {
+                  
+                    
         }
                 
         public virtual void SetContactEmailLabel()
@@ -452,11 +504,26 @@ public class BaseEventsTableControlRow : OLR.UI.BaseApplicationRecordControl
       
             // Call the Get methods for each of the user interface controls.
         
+            GetAccountNumber();
             GetContactEmail();
             GetEventName();
         }
         
         
+        public virtual void GetAccountNumber()
+        {
+            
+            // Retrieve the value entered by the user on the AccountNumber ASP:TextBox, and
+            // save it into the AccountNumber field in DataSource DatabaseOLR_db%dbo.Events record.
+            
+            // Custom validation should be performed in Validate, not here.
+                    
+            // Save the value to data source
+            this.DataSource.Parse(this.AccountNumber.Text, EventsTable.AccountNumber);							
+                          
+                      
+        }
+                
         public virtual void GetContactEmail()
         {
             
@@ -764,6 +831,11 @@ public class BaseEventsTableControlRow : OLR.UI.BaseApplicationRecordControl
             
             
         
+        protected virtual void AccountNumber_TextChanged(object sender, EventArgs args)
+        {
+                    
+              }
+            
         protected virtual void ContactEmail_TextChanged(object sender, EventArgs args)
         {
                     
@@ -862,6 +934,18 @@ public class BaseEventsTableControlRow : OLR.UI.BaseApplicationRecordControl
         }
        
 #region "Helper Properties"
+        
+        public System.Web.UI.WebControls.TextBox AccountNumber {
+            get {
+                return (System.Web.UI.WebControls.TextBox)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "AccountNumber");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal AccountNumberLabel {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "AccountNumberLabel");
+            }
+        }
         
         public System.Web.UI.WebControls.TextBox ContactEmail {
             get {
@@ -2091,6 +2175,10 @@ public class BaseEventsTableControl : OLR.UI.BaseApplicationTableControl
             if (recControl.Visible && recControl.IsNewRecord) {
       EventsRecord rec = new EventsRecord();
         
+                        if (recControl.AccountNumber.Text != "") {
+                            rec.Parse(recControl.AccountNumber.Text, EventsTable.AccountNumber);
+                  }
+                
                         if (recControl.ContactEmail.Text != "") {
                             rec.Parse(recControl.ContactEmail.Text, EventsTable.ContactEmail);
                   }
@@ -2257,6 +2345,10 @@ public class BaseEventsTableControl : OLR.UI.BaseApplicationTableControl
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Contact Email {Txt:Ascending}"), "ContactEmail Asc"));
               
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Contact Email {Txt:Descending}"), "ContactEmail Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Account Number {Txt:Ascending}"), "AccountNumber Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Account Number {Txt:Descending}"), "AccountNumber Desc"));
               
             try
             {          

@@ -87,7 +87,10 @@
 <BaseClasses:TextBoxMaxLengthValidator runat="server" id="EventNameTextBoxMaxLengthValidator" ControlToValidate="EventName" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueTooLong&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, &quot;Event Name&quot;) %>"></BaseClasses:TextBoxMaxLengthValidator> </td><td class="tableCellLabel"><asp:Literal runat="server" id="ContactEmailLabel" Text="Contact Email">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:TextBox runat="server" id="ContactEmail" Columns="40" MaxLength="100" cssclass="field_input"></asp:TextBox>&nbsp;
 <BaseClasses:TextBoxMaxLengthValidator runat="server" id="ContactEmailTextBoxMaxLengthValidator" ControlToValidate="ContactEmail" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueTooLong&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, &quot;Contact Email&quot;) %>"></BaseClasses:TextBoxMaxLengthValidator></span>
-</td></tr><tr><td class="tableRowDivider" colspan="8"></td></tr></OLR:EventsTableControlRow>
+</td></tr><tr><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableRowButtonsCellVertical"></td><td class="tableCellLabel"><asp:Literal runat="server" id="AccountNumberLabel" Text="Account Number">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
+<asp:TextBox runat="server" id="AccountNumber" Columns="20" MaxLength="20" cssclass="field_input"></asp:TextBox>&nbsp;
+<BaseClasses:TextBoxMaxLengthValidator runat="server" id="AccountNumberTextBoxMaxLengthValidator" ControlToValidate="AccountNumber" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueTooLong&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, &quot;Account Number&quot;) %>"></BaseClasses:TextBoxMaxLengthValidator></span>
+</td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableRowDivider" colspan="8"></td></tr></OLR:EventsTableControlRow>
 </ITEMTEMPLATE>
 
 </asp:Repeater>
