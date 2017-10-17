@@ -1942,6 +1942,18 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
               
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Default {Txt:Descending}"), "Default Desc"));
               
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Inactive On Maximum {Txt:Ascending}"), "InactiveOnMax Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Inactive On Maximum {Txt:Descending}"), "InactiveOnMax Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Maximum Number {Txt:Ascending}"), "MaximumNumber Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Maximum Number {Txt:Descending}"), "MaximumNumber Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Active Option {Txt:Ascending}"), "ActiveOption Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Active Option {Txt:Descending}"), "ActiveOption Desc"));
+              
             try
             {          
                 // Set the selected value.

@@ -392,6 +392,144 @@ public class BaseRegistrationTypesRecord : PrimaryKeyRecord
 		ColumnValue cv = new ColumnValue(val);
 		this.SetValue(cv, TableUtils.Default0Column);
 	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's RegistrationTypes_.ActiveOption field.
+	/// </summary>
+	public ColumnValue GetActiveOptionValue()
+	{
+		return this.GetValue(TableUtils.ActiveOptionColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's RegistrationTypes_.ActiveOption field.
+	/// </summary>
+	public bool GetActiveOptionFieldValue()
+	{
+		return this.GetValue(TableUtils.ActiveOptionColumn).ToBoolean();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.ActiveOption field.
+	/// </summary>
+	public void SetActiveOptionFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.ActiveOptionColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.ActiveOption field.
+	/// </summary>
+	public void SetActiveOptionFieldValue(string val)
+	{
+		this.SetString(val, TableUtils.ActiveOptionColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.ActiveOption field.
+	/// </summary>
+	public void SetActiveOptionFieldValue(bool val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.ActiveOptionColumn);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's RegistrationTypes_.MaximumNumber field.
+	/// </summary>
+	public ColumnValue GetMaximumNumberValue()
+	{
+		return this.GetValue(TableUtils.MaximumNumberColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's RegistrationTypes_.MaximumNumber field.
+	/// </summary>
+	public Int32 GetMaximumNumberFieldValue()
+	{
+		return this.GetValue(TableUtils.MaximumNumberColumn).ToInt32();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.MaximumNumber field.
+	/// </summary>
+	public void SetMaximumNumberFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.MaximumNumberColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.MaximumNumber field.
+	/// </summary>
+	public void SetMaximumNumberFieldValue(string val)
+	{
+		this.SetString(val, TableUtils.MaximumNumberColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.MaximumNumber field.
+	/// </summary>
+	public void SetMaximumNumberFieldValue(double val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.MaximumNumberColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.MaximumNumber field.
+	/// </summary>
+	public void SetMaximumNumberFieldValue(decimal val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.MaximumNumberColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.MaximumNumber field.
+	/// </summary>
+	public void SetMaximumNumberFieldValue(long val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.MaximumNumberColumn);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's RegistrationTypes_.InactiveOnMax field.
+	/// </summary>
+	public ColumnValue GetInactiveOnMaxValue()
+	{
+		return this.GetValue(TableUtils.InactiveOnMaxColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's RegistrationTypes_.InactiveOnMax field.
+	/// </summary>
+	public bool GetInactiveOnMaxFieldValue()
+	{
+		return this.GetValue(TableUtils.InactiveOnMaxColumn).ToBoolean();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.InactiveOnMax field.
+	/// </summary>
+	public void SetInactiveOnMaxFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.InactiveOnMaxColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.InactiveOnMax field.
+	/// </summary>
+	public void SetInactiveOnMaxFieldValue(string val)
+	{
+		this.SetString(val, TableUtils.InactiveOnMaxColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.InactiveOnMax field.
+	/// </summary>
+	public void SetInactiveOnMaxFieldValue(bool val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.InactiveOnMaxColumn);
+	}
 
 
 #endregion
@@ -655,6 +793,137 @@ public class BaseRegistrationTypesRecord : PrimaryKeyRecord
 		get
 		{
 			return TableUtils.Default0Column.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's RegistrationTypes_.ActiveOption field.
+	/// </summary>
+	public bool ActiveOption
+	{
+		get
+		{
+			return this.GetValue(TableUtils.ActiveOptionColumn).ToBoolean();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+	   		this.SetValue(cv, TableUtils.ActiveOptionColumn);
+		}
+	}
+	
+	
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool ActiveOptionSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.ActiveOptionColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.ActiveOption field.
+	/// </summary>
+	public string ActiveOptionDefault
+	{
+		get
+		{
+			return TableUtils.ActiveOptionColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's RegistrationTypes_.MaximumNumber field.
+	/// </summary>
+	public Int32 MaximumNumber
+	{
+		get
+		{
+			return this.GetValue(TableUtils.MaximumNumberColumn).ToInt32();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.MaximumNumberColumn);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool MaximumNumberSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.MaximumNumberColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.MaximumNumber field.
+	/// </summary>
+	public string MaximumNumberDefault
+	{
+		get
+		{
+			return TableUtils.MaximumNumberColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's RegistrationTypes_.InactiveOnMax field.
+	/// </summary>
+	public bool InactiveOnMax
+	{
+		get
+		{
+			return this.GetValue(TableUtils.InactiveOnMaxColumn).ToBoolean();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+	   		this.SetValue(cv, TableUtils.InactiveOnMaxColumn);
+		}
+	}
+	
+	
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool InactiveOnMaxSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.InactiveOnMaxColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.InactiveOnMax field.
+	/// </summary>
+	public string InactiveOnMaxDefault
+	{
+		get
+		{
+			return TableUtils.InactiveOnMaxColumn.DefaultValue;
 		}
 	}
 

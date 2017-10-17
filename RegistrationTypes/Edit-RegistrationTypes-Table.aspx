@@ -45,7 +45,7 @@
 
                 </td><td class="panelHeaderR"></td></tr><tr><td class="panelL"></td><td>
                   <asp:panel id="CollapsibleRegion" runat="server"><table class="dBody" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tre">
-                    <table id="RegistrationTypesTableControlGrid" cellpadding="0" cellspacing="0" border="0" width="100%" onkeydown="captureUpDownKey(this, event)"><tr class="tch"><th class="thcnb" colspan="3"><asp:CheckBox runat="server" id="ToggleAll" onclick="toggleAllCheckboxes(this);">	</asp:CheckBox></th><th class="thcnb"></th><th class="thc">&nbsp;</th><th class="thc">&nbsp;</th><th class="thc">&nbsp;</th><th class="thc">&nbsp;</th></tr><asp:Repeater runat="server" id="RegistrationTypesTableControlRepeater">		<ITEMTEMPLATE>		<OLR:RegistrationTypesTableControlRow runat="server" id="RegistrationTypesTableControlRow">
+                    <table id="RegistrationTypesTableControlGrid" cellpadding="0" cellspacing="0" border="0" width="100%" onkeydown="captureUpDownKey(this, event)"><tr class="tch"><th class="thcnb" colspan="3"><asp:CheckBox runat="server" id="ToggleAll" onclick="toggleAllCheckboxes(this);">	</asp:CheckBox></th><th class="thcnb"></th><th class="thc">&nbsp;</th><th class="thc">&nbsp;</th><th class="thc">&nbsp;</th><th class="thc">&nbsp;</th><th class="thc"></th><th class="thc"></th></tr><asp:Repeater runat="server" id="RegistrationTypesTableControlRepeater">		<ITEMTEMPLATE>		<OLR:RegistrationTypesTableControlRow runat="server" id="RegistrationTypesTableControlRow">
 <tr><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;" colspan="3">
                               <asp:CheckBox runat="server" id="SelectRow" onclick="moveToThisTableRow(this);">	</asp:CheckBox>                              
                             </td><td class="tableRowButtonsCellVertical">
@@ -55,8 +55,8 @@
                         
                           <asp:ImageButton runat="server" id="DeleteRowButton" causesvalidation="False" commandargument="DeleteOnUpdate" commandname="DeleteRecord" cssclass="button_link" imageurl="../Images/icon_delete.gif" onmouseout="this.src=&#39;../Images/icon_delete.gif&#39;" onmouseover="this.src=&#39;../Images/icon_delete_over.gif&#39;" tooltip="&lt;%# GetResourceValue(&quot;Txt:DeleteRecord&quot;, &quot;OLR&quot;) %>">		
 	</asp:ImageButton>
-                        </td><td class="tableCellLabel"><asp:Literal runat="server" id="RegistrationTypeLabel" Text="Registration Type">	</asp:Literal></td><td class="tableCellValue" colspan="3"><asp:TextBox runat="server" id="RegistrationType" MaxLength="100" columns="50" cssclass="field_input" rows="2" textmode="MultiLine"></asp:TextBox>&nbsp;
-<BaseClasses:TextBoxMaxLengthValidator runat="server" id="RegistrationTypeTextBoxMaxLengthValidator" ControlToValidate="RegistrationType" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueTooLong&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, &quot;Registration Type&quot;) %>"></BaseClasses:TextBoxMaxLengthValidator></td></tr><tr><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableRowButtonsCellVertical"></td><td class="tableCellLabel"><asp:Literal runat="server" id="CostMemberLabel" Text="Cost Member">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
+                        </td><td class="tableCellLabel"><asp:Literal runat="server" id="RegistrationTypeLabel" Text="Registration Type">	</asp:Literal></td><td class="tableCellValue" colspan="3"><asp:TextBox runat="server" id="RegistrationType" MaxLength="100" columns="50" cssclass="field_input" rows="1" textmode="MultiLine"></asp:TextBox>&nbsp;
+<BaseClasses:TextBoxMaxLengthValidator runat="server" id="RegistrationTypeTextBoxMaxLengthValidator" ControlToValidate="RegistrationType" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueTooLong&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, &quot;Registration Type&quot;) %>"></BaseClasses:TextBoxMaxLengthValidator></td><td class="tableCellLabel"><asp:Literal runat="server" id="ActiveOptionLabel" Text="Active Option">	</asp:Literal></td><td class="tableCellValue"><asp:CheckBox runat="server" id="ActiveOption"></asp:CheckBox></td></tr><tr><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableRowButtonsCellVertical"></td><td class="tableCellLabel"><asp:Literal runat="server" id="CostMemberLabel" Text="Cost Member">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
 <table border="0" cellpadding="0" cellspacing="0">
 <tr>
 <td style="padding-right: 5px; vertical-align:top">
@@ -78,7 +78,18 @@
 </tr>
 </table>
 </span>
-</td></tr><tr><td class="tableRowDivider" colspan="8"></td></tr></OLR:RegistrationTypesTableControlRow>
+</td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableRowButtonsCellVertical"></td><td class="tableCellLabel"><asp:Literal runat="server" id="MaximumNumberLabel" Text="Maximum Number">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td style="padding-right: 5px; vertical-align:top">
+<asp:TextBox runat="server" id="MaximumNumber" Columns="14" MaxLength="14" cssclass="field_input"></asp:TextBox></td>
+<td>
+&nbsp;
+<BaseClasses:TextBoxMaxLengthValidator runat="server" id="MaximumNumberTextBoxMaxLengthValidator" ControlToValidate="MaximumNumber" ErrorMessage="&lt;%# GetResourceValue(&quot;Val:ValueTooLong&quot;, &quot;OLR&quot;).Replace(&quot;{FieldName}&quot;, &quot;Maximum Number&quot;) %>"></BaseClasses:TextBoxMaxLengthValidator></td>
+</tr>
+</table>
+</span>
+</td><td class="tableCellLabel"><asp:Literal runat="server" id="InactiveOnMaxLabel" Text="Inactive On Maximum">	</asp:Literal></td><td class="tableCellValue"><asp:CheckBox runat="server" id="InactiveOnMax"></asp:CheckBox></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableRowDivider" colspan="8"></td><td class="tableRowDivider"></td><td class="tableRowDivider"></td></tr></OLR:RegistrationTypesTableControlRow>
 </ITEMTEMPLATE>
 
 </asp:Repeater>

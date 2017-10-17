@@ -66,6 +66,10 @@ public class BaseRegistrationTypesTable : PrimaryKeyTable
         CostNonMemberColumn.CodeName = "CostNonMember";
         CostNonMemberColumn.Name = EvaluateFormula("\"Cost Non Member\"");
         Default0Column.CodeName = "Default0";
+        ActiveOptionColumn.CodeName = "ActiveOption";
+        ActiveOptionColumn.DefaultValue = EvaluateFormula("\"true\"");
+        MaximumNumberColumn.CodeName = "MaximumNumber";
+        InactiveOnMaxColumn.CodeName = "InactiveOnMax";
 
         
     }
@@ -235,6 +239,81 @@ public class BaseRegistrationTypesTable : PrimaryKeyTable
         get
         {
             return RegistrationTypesTable.Instance.Default0Column;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's RegistrationTypes_.ActiveOption column object.
+    /// </summary>
+    public BaseClasses.Data.BooleanColumn ActiveOptionColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.BooleanColumn)this.TableDefinition.ColumnList[6];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's RegistrationTypes_.ActiveOption column object.
+    /// </summary>
+    public static BaseClasses.Data.BooleanColumn ActiveOption
+    {
+        get
+        {
+            return RegistrationTypesTable.Instance.ActiveOptionColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's RegistrationTypes_.MaximumNumber column object.
+    /// </summary>
+    public BaseClasses.Data.NumberColumn MaximumNumberColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[7];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's RegistrationTypes_.MaximumNumber column object.
+    /// </summary>
+    public static BaseClasses.Data.NumberColumn MaximumNumber
+    {
+        get
+        {
+            return RegistrationTypesTable.Instance.MaximumNumberColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's RegistrationTypes_.InactiveOnMax column object.
+    /// </summary>
+    public BaseClasses.Data.BooleanColumn InactiveOnMaxColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.BooleanColumn)this.TableDefinition.ColumnList[8];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's RegistrationTypes_.InactiveOnMax column object.
+    /// </summary>
+    public static BaseClasses.Data.BooleanColumn InactiveOnMax
+    {
+        get
+        {
+            return RegistrationTypesTable.Instance.InactiveOnMaxColumn;
         }
     }
     
@@ -768,7 +847,10 @@ public class BaseRegistrationTypesTable : PrimaryKeyTable
         string RegistrationTypeValue, 
         string CostMemberValue, 
         string CostNonMemberValue, 
-        string Default0Value
+        string Default0Value, 
+        string ActiveOptionValue, 
+        string MaximumNumberValue, 
+        string InactiveOnMaxValue
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
@@ -777,6 +859,9 @@ public class BaseRegistrationTypesTable : PrimaryKeyTable
         rec.SetString(CostMemberValue, CostMemberColumn);
         rec.SetString(CostNonMemberValue, CostNonMemberColumn);
         rec.SetString(Default0Value, Default0Column);
+        rec.SetString(ActiveOptionValue, ActiveOptionColumn);
+        rec.SetString(MaximumNumberValue, MaximumNumberColumn);
+        rec.SetString(InactiveOnMaxValue, InactiveOnMaxColumn);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized

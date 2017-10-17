@@ -102,9 +102,15 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
           
                     this.DeleteRowButton.Click += DeleteRowButton_Click;
                         
+              this.ActiveOption.CheckedChanged += ActiveOption_CheckedChanged;
+            
+              this.InactiveOnMax.CheckedChanged += InactiveOnMax_CheckedChanged;
+            
               this.CostMember.TextChanged += CostMember_TextChanged;
             
               this.CostNonMember.TextChanged += CostNonMember_TextChanged;
+            
+              this.MaximumNumber.TextChanged += MaximumNumber_TextChanged;
             
               this.RegistrationType.TextChanged += RegistrationType_TextChanged;
             
@@ -163,11 +169,17 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
 
             // Call the Set methods for each controls on the panel
         
+                SetActiveOption();
+                SetActiveOptionLabel();
                 SetCostMember();
                 SetCostMemberLabel();
                 SetCostNonMember();
                 SetCostNonMemberLabel();
                 
+                SetInactiveOnMax();
+                SetInactiveOnMaxLabel();
+                SetMaximumNumber();
+                SetMaximumNumberLabel();
                 SetRegistrationType();
                 SetRegistrationTypeLabel();
                 
@@ -196,6 +208,40 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
         }
         
         
+        public virtual void SetActiveOption()
+        {
+            
+            // If data was retrieved from UI previously, restore it
+            if (this.PreviousUIData.ContainsKey(this.ActiveOption.ID))
+            {
+                this.ActiveOption.Checked = Convert.ToBoolean(this.PreviousUIData[this.ActiveOption.ID]);
+                return;
+            }	
+            
+                    
+            // Set the ActiveOption CheckBox on the webpage with value from the
+            // DatabaseOLR_db%dbo.RegistrationTypes database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.RegistrationTypes record retrieved from the database.
+            // this.ActiveOption is the ASP:CheckBox on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.ActiveOptionSpecified) {
+                							
+                // If the ActiveOption is non-NULL, then format the value.
+                // The Format method will use the Display Format
+                this.ActiveOption.Checked = this.DataSource.ActiveOption;
+                    				
+            } else {
+            
+                // ActiveOption is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+                if (!this.DataSource.IsCreated) 
+                    this.ActiveOption.Checked = RegistrationTypesTable.ActiveOption.ParseValue(RegistrationTypesTable.ActiveOption.DefaultValue).ToBoolean();                
+                    									
+            }
+            
+        }
+                
         public virtual void SetCostMember()
         {
             
@@ -280,6 +326,82 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
                                
         }
                 
+        public virtual void SetInactiveOnMax()
+        {
+            
+            // If data was retrieved from UI previously, restore it
+            if (this.PreviousUIData.ContainsKey(this.InactiveOnMax.ID))
+            {
+                this.InactiveOnMax.Checked = Convert.ToBoolean(this.PreviousUIData[this.InactiveOnMax.ID]);
+                return;
+            }	
+            
+                    
+            // Set the InactiveOnMax CheckBox on the webpage with value from the
+            // DatabaseOLR_db%dbo.RegistrationTypes database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.RegistrationTypes record retrieved from the database.
+            // this.InactiveOnMax is the ASP:CheckBox on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.InactiveOnMaxSpecified) {
+                							
+                // If the InactiveOnMax is non-NULL, then format the value.
+                // The Format method will use the Display Format
+                this.InactiveOnMax.Checked = this.DataSource.InactiveOnMax;
+                    				
+            } else {
+            
+                // InactiveOnMax is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+                if (!this.DataSource.IsCreated) 
+                    this.InactiveOnMax.Checked = RegistrationTypesTable.InactiveOnMax.ParseValue(RegistrationTypesTable.InactiveOnMax.DefaultValue).ToBoolean();                
+                    									
+            }
+            
+        }
+                
+        public virtual void SetMaximumNumber()
+        {
+            
+            // If data was retrieved from UI previously, restore it
+            if (this.PreviousUIData.ContainsKey(this.MaximumNumber.ID))
+            {
+            
+                this.MaximumNumber.Text = this.PreviousUIData[this.MaximumNumber.ID].ToString();
+              
+                return;
+            }
+            
+                    
+            // Set the MaximumNumber TextBox on the webpage with value from the
+            // DatabaseOLR_db%dbo.RegistrationTypes database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.RegistrationTypes record retrieved from the database.
+            // this.MaximumNumber is the ASP:TextBox on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.MaximumNumberSpecified) {
+                								
+                // If the MaximumNumber is non-NULL, then format the value.
+                // The Format method will use the Display Format
+               string formattedValue = this.DataSource.Format(RegistrationTypesTable.MaximumNumber);
+                                
+                this.MaximumNumber.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // MaximumNumber is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.MaximumNumber.Text = RegistrationTypesTable.MaximumNumber.Format(RegistrationTypesTable.MaximumNumber.DefaultValue);
+            		
+            }
+            
+              this.MaximumNumber.TextChanged += MaximumNumber_TextChanged;
+                               
+        }
+                
         public virtual void SetRegistrationType()
         {
             
@@ -322,6 +444,12 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
                                
         }
                 
+        public virtual void SetActiveOptionLabel()
+                  {
+                  
+                    
+        }
+                
         public virtual void SetCostMemberLabel()
                   {
                   
@@ -333,6 +461,18 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
                   
                         this.CostNonMemberLabel.Text = EvaluateFormula("\"Cost Non Member\"");
                       
+                    
+        }
+                
+        public virtual void SetInactiveOnMaxLabel()
+                  {
+                  
+                    
+        }
+                
+        public virtual void SetMaximumNumberLabel()
+                  {
+                  
                     
         }
                 
@@ -496,12 +636,26 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
       
             // Call the Get methods for each of the user interface controls.
         
+            GetActiveOption();
             GetCostMember();
             GetCostNonMember();
+            GetInactiveOnMax();
+            GetMaximumNumber();
             GetRegistrationType();
         }
         
         
+        public virtual void GetActiveOption()
+        {	
+        		
+            // Retrieve the value entered by the user on the ActiveOption ASP:CheckBox, and
+            // save it into the ActiveOption field in DataSource DatabaseOLR_db%dbo.RegistrationTypes record.
+            // Custom validation should be performed in Validate, not here.
+            
+            this.DataSource.ActiveOption = this.ActiveOption.Checked;						
+                    
+        }
+                
         public virtual void GetCostMember()
         {
             
@@ -526,6 +680,31 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
                     
             // Save the value to data source
             this.DataSource.Parse(this.CostNonMember.Text, RegistrationTypesTable.CostNonMember);							
+                          
+                      
+        }
+                
+        public virtual void GetInactiveOnMax()
+        {	
+        		
+            // Retrieve the value entered by the user on the InactiveOnMax ASP:CheckBox, and
+            // save it into the InactiveOnMax field in DataSource DatabaseOLR_db%dbo.RegistrationTypes record.
+            // Custom validation should be performed in Validate, not here.
+            
+            this.DataSource.InactiveOnMax = this.InactiveOnMax.Checked;						
+                    
+        }
+                
+        public virtual void GetMaximumNumber()
+        {
+            
+            // Retrieve the value entered by the user on the MaximumNumber ASP:TextBox, and
+            // save it into the MaximumNumber field in DataSource DatabaseOLR_db%dbo.RegistrationTypes record.
+            
+            // Custom validation should be performed in Validate, not here.
+                    
+            // Save the value to data source
+            this.DataSource.Parse(this.MaximumNumber.Text, RegistrationTypesTable.MaximumNumber);							
                           
                       
         }
@@ -713,12 +892,27 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
             
             
         
+        protected virtual void ActiveOption_CheckedChanged(object sender, EventArgs args)
+        {
+           						
+        }
+            
+        protected virtual void InactiveOnMax_CheckedChanged(object sender, EventArgs args)
+        {
+           						
+        }
+            
         protected virtual void CostMember_TextChanged(object sender, EventArgs args)
         {
                     
               }
             
         protected virtual void CostNonMember_TextChanged(object sender, EventArgs args)
+        {
+                    
+              }
+            
+        protected virtual void MaximumNumber_TextChanged(object sender, EventArgs args)
         {
                     
               }
@@ -817,6 +1011,18 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
        
 #region "Helper Properties"
         
+        public System.Web.UI.WebControls.CheckBox ActiveOption {
+            get {
+                return (System.Web.UI.WebControls.CheckBox)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "ActiveOption");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal ActiveOptionLabel {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "ActiveOptionLabel");
+            }
+        }
+        
         public System.Web.UI.WebControls.TextBox CostMember {
             get {
                 return (System.Web.UI.WebControls.TextBox)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "CostMember");
@@ -844,6 +1050,30 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
         public System.Web.UI.WebControls.ImageButton DeleteRowButton {
             get {
                 return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "DeleteRowButton");
+            }
+        }
+        
+        public System.Web.UI.WebControls.CheckBox InactiveOnMax {
+            get {
+                return (System.Web.UI.WebControls.CheckBox)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "InactiveOnMax");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal InactiveOnMaxLabel {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "InactiveOnMaxLabel");
+            }
+        }
+        
+        public System.Web.UI.WebControls.TextBox MaximumNumber {
+            get {
+                return (System.Web.UI.WebControls.TextBox)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "MaximumNumber");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal MaximumNumberLabel {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "MaximumNumberLabel");
             }
         }
         
@@ -1742,12 +1972,20 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
             if (recControl.Visible && recControl.IsNewRecord) {
       RegistrationTypesRecord rec = new RegistrationTypesRecord();
         
+                        rec.ActiveOption = recControl.ActiveOption.Checked;
+                
                         if (recControl.CostMember.Text != "") {
                             rec.Parse(recControl.CostMember.Text, RegistrationTypesTable.CostMember);
                   }
                 
                         if (recControl.CostNonMember.Text != "") {
                             rec.Parse(recControl.CostNonMember.Text, RegistrationTypesTable.CostNonMember);
+                  }
+                
+                        rec.InactiveOnMax = recControl.InactiveOnMax.Checked;
+                
+                        if (recControl.MaximumNumber.Text != "") {
+                            rec.Parse(recControl.MaximumNumber.Text, RegistrationTypesTable.MaximumNumber);
                   }
                 
                         if (recControl.RegistrationType.Text != "") {

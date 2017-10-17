@@ -627,6 +627,30 @@
           <Name>Default Desc</Name>
           <Value>Default {Txt:Descending}</Value>
         </Item>
+        <Item>
+          <Name>InactiveOnMax Asc</Name>
+          <Value>Inactive On Maximum {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>InactiveOnMax Desc</Name>
+          <Value>Inactive On Maximum {Txt:Descending}</Value>
+        </Item>
+        <Item>
+          <Name>MaximumNumber Asc</Name>
+          <Value>Maximum Number {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>MaximumNumber Desc</Name>
+          <Value>Maximum Number {Txt:Descending}</Value>
+        </Item>
+        <Item>
+          <Name>ActiveOption Asc</Name>
+          <Value>Active Option {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>ActiveOption Desc</Name>
+          <Value>Active Option {Txt:Descending}</Value>
+        </Item>
       </SpecifiedItems>
       <PassthroughAttributes>
         <Attribute>
