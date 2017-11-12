@@ -7901,7 +7901,7 @@ public class BaseWorkshopsTableControlRow : OLR.UI.BaseApplicationRecordControl
         public virtual void SetAttendingLabel()
                   {
                   
-                        this.AttendingLabel.Text = EvaluateFormula("\"I would like to attend this workshop\"");
+                        this.AttendingLabel.Text = EvaluateFormula("\"Attending?\"");
                       
                     
         }

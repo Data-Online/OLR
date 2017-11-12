@@ -58,7 +58,7 @@
       <columnLengthSet>10.0</columnLengthSet>
       <columnDefault>
       </columnDefault>
-      <columnDBDefault>
+      <columnDBDefault Source="User">
       </columnDBDefault>
       <columnIndex>N</columnIndex>
       <columnUnique>N</columnUnique>
@@ -68,15 +68,15 @@
       </columnDBFormat>
       <columnPK>N</columnPK>
       <columnPermanent>N</columnPermanent>
-      <columnComputed>N</columnComputed>
-      <columnIdentity>N</columnIdentity>
-      <columnReadOnly>N</columnReadOnly>
+      <columnComputed Source="User">N</columnComputed>
+      <columnIdentity Source="User">N</columnIdentity>
+      <columnReadOnly Source="User">N</columnReadOnly>
       <columnRequired>N</columnRequired>
       <columnNotNull>N</columnNotNull>
-      <columnCaseSensitive>N</columnCaseSensitive>
+      <columnCaseSensitive Source="User">N</columnCaseSensitive>
       <columnCollation>
       </columnCollation>
-      <columnFullText>N</columnFullText>
+      <columnFullText Source="User">N</columnFullText>
       <columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>
       <columnTableAliasName>
       </columnTableAliasName>
@@ -86,10 +86,10 @@
         <columnFKTable>Registrations</columnFKTable>
         <columnFKOwner>dbo</columnFKOwner>
         <columnFKColumn>RegistrationId</columnFKColumn>
-        <columnFKColumnDisplay>AdditionalDinnerName</columnFKColumnDisplay>
+        <columnFKColumnDisplay>=Registrations.AdditionalDinnerName</columnFKColumnDisplay>
         <foreignKeyType>Explicit</foreignKeyType>
       </foreignKey>
-      <applyDFKA>Y</applyDFKA>
+      <applyDFKA>N</applyDFKA>
       <applyInitializeInsertingRecord>N</applyInitializeInsertingRecord>
       <applyInitializeReadingRecord>N</applyInitializeReadingRecord>
       <applyInitializeUpdatingRecord>N</applyInitializeUpdatingRecord>
@@ -106,6 +106,18 @@
       </insertingFormula>
       <updatingFormula>
       </updatingFormula>
+      <InternalName>1</InternalName>
+      <columnTableClassName>
+      </columnTableClassName>
+      <foreignKey>
+        <columnFKName>VFK_Workshops_RegistrationId_1</columnFKName>
+        <columnFKTable>view_Registered</columnFKTable>
+        <columnFKOwner>dbo</columnFKOwner>
+        <columnFKColumn>RegistrationId</columnFKColumn>
+        <columnFKColumnDisplay>
+        </columnFKColumnDisplay>
+        <foreignKeyType>Implicit</foreignKeyType>
+      </foreignKey>
     </Column>
     <Column InternalName="2" Priority="3" ColumnNum="2">
       <columnName>AvailableWorkshopId</columnName>
@@ -166,7 +178,7 @@
     </Column>
     <Column InternalName="3" Priority="4" ColumnNum="3">
       <columnName>Attending</columnName>
-      <columnUIName Source="User">= "I would like to attend this workshop"</columnUIName>
+      <columnUIName Source="User">= "Attending?"</columnUIName>
       <columnType>Boolean</columnType>
       <columnDBType>bit</columnDBType>
       <columnLengthSet>

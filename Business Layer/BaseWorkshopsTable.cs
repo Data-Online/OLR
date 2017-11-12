@@ -62,7 +62,7 @@ public class BaseWorkshopsTable : PrimaryKeyTable
         RegistrationIdColumn.CodeName = "RegistrationId";
         AvailableWorkshopIdColumn.CodeName = "AvailableWorkshopId";
         AttendingColumn.CodeName = "Attending";
-        AttendingColumn.Name = EvaluateFormula("\"I would like to attend this workshop\"");
+        AttendingColumn.Name = EvaluateFormula("\"Attending?\"");
         RecordDeletedColumn.CodeName = "RecordDeleted";
 
         

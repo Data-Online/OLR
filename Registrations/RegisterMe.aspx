@@ -200,7 +200,7 @@
                 </td><td class="panelHeaderR"></td></tr><tr><td class="panelL"></td><td>
                   <asp:panel id="CollapsibleRegion7" runat="server"><table class="dBody" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tre">
                     <table id="WorkshopsTableControlGrid" cellpadding="0" cellspacing="0" border="0" width="100%" onkeydown="captureUpDownKey(this, event)"><asp:Repeater runat="server" id="WorkshopsTableControlRepeater">		<ITEMTEMPLATE>		<OLR:WorkshopsTableControlRow runat="server" id="WorkshopsTableControlRow">
-<tr><td class="dht" colspan="3" style="text-align:left;"><asp:Literal runat="server" id="AvailableWorkshopId"></asp:Literal></td><td>&nbsp;</td><td>&nbsp;</td><td class="tableCellLabel"><asp:Literal runat="server" id="AttendingLabel" Text="EvaluateFormula(&quot;= \&quot;I would like to attend this workshop\&quot;&quot;, true)">	</asp:Literal> 
+<tr><td class="dht" colspan="3" style="text-align:left;"><asp:Literal runat="server" id="AvailableWorkshopId"></asp:Literal></td><td>&nbsp;</td><td>&nbsp;</td><td class="tableCellLabel"><asp:Literal runat="server" id="AttendingLabel" Text="EvaluateFormula(&quot;= \&quot;Attending?\&quot;&quot;, true)">	</asp:Literal> 
 </td><td class="tableCellValue"><asp:CheckBox runat="server" id="Attending"></asp:CheckBox> </td></tr><tr><td class="tableRowDivider" colspan="3"></td><td class="tableRowDivider"></td><td class="tableRowDivider"></td><td class="tableRowDivider"></td><td class="tableRowDivider"></td></tr></OLR:WorkshopsTableControlRow>
 </ITEMTEMPLATE>
 

@@ -217,10 +217,24 @@ public void SetRegistrationsTableControl()
         {
             SetRegistrationsTableControl_Base(); 
         }
-public void SetWorkshopsTableControl()
+//public void SetWorkshopsTableControl()
+//        {
+//            SetWorkshopsTableControl_Base(); 
+//        }
+public void SetAvailableWorkshopsTableControl()
         {
-            SetWorkshopsTableControl_Base(); 
+            SetAvailableWorkshopsTableControl_Base(); 
         }
+//[System.Web.Services.WebMethod]
+//        public static string[] GetAutoCompletionList_AvailableWorkshopsSearchText(string prefixText, int count)
+//        {
+//            // GetAvailableWorkshopsSearchTextCompletionList gets the list of suggestions from the database.
+//            // prefixText is the search text typed by the user .
+//            // count specifies the number of suggestions to be returned.
+//            // Customize by adding code before or after the call to  GetAutoCompletionList_AvailableWorkshopsSearchText_Base()
+//            // or replace the call to GetAutoCompletionList_AvailableWorkshopsSearchText_Base().
+//            return GetAutoCompletionList_AvailableWorkshopsSearchText_Base(prefixText, count);
+//        }
 #endregion
 
 #region "Section 2: Do not modify this section."
@@ -238,6 +252,8 @@ public void SetWorkshopsTableControl()
         }
         
     
+        public OLR.UI.Controls.Show_FieldTrips_Table.AvailableWorkshopsTableControl AvailableWorkshopsTableControl;
+          
         public System.Web.UI.WebControls.LinkButton DescriptionLabel2;
         
         public OLR.UI.Controls.Show_FieldTrips_Table.FieldTripsTableControl FieldTripsTableControl;
@@ -250,13 +266,7 @@ public void SetWorkshopsTableControl()
         
         public System.Web.UI.WebControls.Literal PageTitle;
         
-        public System.Web.UI.WebControls.Literal PlacesAvailable2;
-            
-        public System.Web.UI.WebControls.Label PlacesAvailableLabel;
-        
         public System.Web.UI.WebControls.LinkButton PlacesAvailableLabel1;
-        
-        public System.Web.UI.WebControls.Label PlacesRequestedLabel;
         
         public System.Web.UI.WebControls.Literal RegistrationsCountControl;
         
@@ -266,12 +276,10 @@ public void SetWorkshopsTableControl()
           
         public System.Web.UI.WebControls.Literal Title0;
             
-        public System.Web.UI.WebControls.Literal Title1;
-            
         public System.Web.UI.WebControls.Literal Title2;
             
-        public OLR.UI.Controls.Show_FieldTrips_Table.WorkshopsTableControl WorkshopsTableControl;
-          
+        public System.Web.UI.WebControls.Literal Title3;
+            
         public ValidationSummary ValidationSummary1;
 
   
@@ -445,16 +453,16 @@ public void SetWorkshopsTableControl()
           switch (control)
           {
           
+              case "AvailableWorkshopsTableControl":
+                 SetAvailableWorkshopsTableControl();
+                 break;
+          
               case "FieldTripsTableControl":
                  SetFieldTripsTableControl();
                  break;
           
               case "RegistrationsTableControl":
                  SetRegistrationsTableControl();
-                 break;
-          
-              case "WorkshopsTableControl":
-                 SetWorkshopsTableControl();
                  break;
                
           }
@@ -466,6 +474,8 @@ public void SetWorkshopsTableControl()
       public void SaveData_Base()
       {
       
+        this.AvailableWorkshopsTableControl.SaveData();
+        
         this.FieldTripsTableControl.SaveData();
         
         this.RegistrationsTableControl.SaveData();
@@ -564,6 +574,8 @@ public void SetWorkshopsTableControl()
     
                 // Load and bind data for each record and table UI control.
                 
+        SetAvailableWorkshopsTableControl();
+        
         SetFieldTripsTableControl();
         
         SetRegistrationsTableControl();
@@ -655,6 +667,16 @@ public void SetWorkshopsTableControl()
                 
         // Write out the Set methods
         
+        public void SetAvailableWorkshopsTableControl_Base()           
+        
+        {        
+            if (AvailableWorkshopsTableControl.Visible)
+            {
+                AvailableWorkshopsTableControl.LoadData();
+                AvailableWorkshopsTableControl.DataBind();
+            }
+        }
+      
         public void SetFieldTripsTableControl_Base()           
         
         {        
@@ -672,16 +694,6 @@ public void SetWorkshopsTableControl()
             {
                 RegistrationsTableControl.LoadData();
                 RegistrationsTableControl.DataBind();
-            }
-        }
-      
-        public void SetWorkshopsTableControl_Base()           
-        
-        {        
-            if (WorkshopsTableControl.Visible)
-            {
-                WorkshopsTableControl.LoadData();
-                WorkshopsTableControl.DataBind();
             }
         }
           

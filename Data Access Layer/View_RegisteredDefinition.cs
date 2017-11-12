@@ -12,7 +12,7 @@ namespace OLR.Business
 public class View_RegisteredDefinition
 {
 #region "Definition (XML) for View_RegisteredDefinition table"
-	//Next 817 lines contain Table Definition (XML) for table "View_RegisteredDefinition"
+	//Next 820 lines contain Table Definition (XML) for table "View_RegisteredDefinition"
 	private static string _DefinitionString = "";
 	
 #endregion
@@ -720,26 +720,26 @@ public class View_RegisteredDefinition
          tbf.Append(    "</Column>");
          tbf.Append(    @"<Column InternalName=""18"" Priority=""19"" ColumnNum=""18"">");
          tbf.Append(      @"<columnName>RegistrationId</columnName>");
-         tbf.Append(      @"<columnUIName>Registration</columnUIName>");
+         tbf.Append(      @"<columnUIName Source=""User"">Registration</columnUIName>");
          tbf.Append(      @"<columnType>Number</columnType>");
          tbf.Append(      @"<columnDBType>int</columnDBType>");
          tbf.Append(      @"<columnLengthSet>10.0</columnLengthSet>");
          tbf.Append(      @"<columnDefault></columnDefault>");
-         tbf.Append(      @"<columnDBDefault></columnDBDefault>");
+         tbf.Append(      @"<columnDBDefault Source=""User""></columnDBDefault>");
          tbf.Append(      @"<columnIndex>N</columnIndex>");
          tbf.Append(      @"<columnUnique>N</columnUnique>");
          tbf.Append(      @"<columnFunction></columnFunction>");
          tbf.Append(      @"<columnDBFormat></columnDBFormat>");
-         tbf.Append(      @"<columnPK>N</columnPK>");
+         tbf.Append(      @"<columnPK>Y</columnPK>");
          tbf.Append(      @"<columnPermanent>N</columnPermanent>");
-         tbf.Append(      @"<columnComputed>N</columnComputed>");
-         tbf.Append(      @"<columnIdentity>N</columnIdentity>");
-         tbf.Append(      @"<columnReadOnly>N</columnReadOnly>");
+         tbf.Append(      @"<columnComputed Source=""User"">N</columnComputed>");
+         tbf.Append(      @"<columnIdentity Source=""User"">N</columnIdentity>");
+         tbf.Append(      @"<columnReadOnly Source=""User"">N</columnReadOnly>");
          tbf.Append(      @"<columnRequired>N</columnRequired>");
          tbf.Append(      @"<columnNotNull>N</columnNotNull>");
-         tbf.Append(      @"<columnCaseSensitive>N</columnCaseSensitive>");
+         tbf.Append(      @"<columnCaseSensitive Source=""User"">N</columnCaseSensitive>");
          tbf.Append(      @"<columnCollation></columnCollation>");
-         tbf.Append(      @"<columnFullText>N</columnFullText>");
+         tbf.Append(      @"<columnFullText Source=""User"">N</columnFullText>");
          tbf.Append(      @"<columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>");
          tbf.Append(      @"<columnTableAliasName></columnTableAliasName>");
          tbf.Append(      @"<applyLabelText>Y</applyLabelText>");
@@ -763,6 +763,9 @@ public class View_RegisteredDefinition
          tbf.Append(        @"<columnFKColumnDisplay>=FieldTripChoices.FieldTripChoiceId</columnFKColumnDisplay>");
          tbf.Append(        @"<foreignKeyType>Implicit</foreignKeyType>");
          tbf.Append(      "</foreignKey>");
+         tbf.Append(      @"<InternalName>18</InternalName>");
+         tbf.Append(      @"<columnTableClassName></columnTableClassName>");
+         tbf.Append(      @"<columnVirtualPK Source=""User"">Y</columnVirtualPK>");
          tbf.Append(    "</Column>");
          tbf.Append(    @"<Column InternalName=""19"" Priority=""20"" ColumnNum=""19"">");
          tbf.Append(      @"<columnName>RecordDeleted</columnName>");

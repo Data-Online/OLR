@@ -96,6 +96,13 @@ public class BaseView_AllDataExtractView : PrimaryKeyTable
         FTA2Column.Name = EvaluateFormula("\"Allocated2\"");
         FTA1Column.CodeName = "FTA1";
         FTA1Column.Name = EvaluateFormula("\"Allocated1\"");
+        WorkshopDescriptionColumn.CodeName = "WorkshopDescription";
+        WorkshopDescriptionColumn.Name = EvaluateFormula("\"Workshop\"");
+        AttendingColumn.CodeName = "Attending";
+        WorkshopDescription2Column.CodeName = "WorkshopDescription2";
+        WorkshopDescription2Column.Name = EvaluateFormula("\"Workshop\"");
+        Attending2Column.CodeName = "Attending2";
+        Attending2Column.Name = EvaluateFormula("\"Attending\"");
 
         
     }
@@ -856,6 +863,106 @@ public class BaseView_AllDataExtractView : PrimaryKeyTable
     }
     
     
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.WorkshopDescription column object.
+    /// </summary>
+    public BaseClasses.Data.StringColumn WorkshopDescriptionColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.StringColumn)this.TableDefinition.ColumnList[30];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.WorkshopDescription column object.
+    /// </summary>
+    public static BaseClasses.Data.StringColumn WorkshopDescription
+    {
+        get
+        {
+            return View_AllDataExtractView.Instance.WorkshopDescriptionColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Attending column object.
+    /// </summary>
+    public BaseClasses.Data.BooleanColumn AttendingColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.BooleanColumn)this.TableDefinition.ColumnList[31];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Attending column object.
+    /// </summary>
+    public static BaseClasses.Data.BooleanColumn Attending
+    {
+        get
+        {
+            return View_AllDataExtractView.Instance.AttendingColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.WorkshopDescription2 column object.
+    /// </summary>
+    public BaseClasses.Data.StringColumn WorkshopDescription2Column
+    {
+        get
+        {
+            return (BaseClasses.Data.StringColumn)this.TableDefinition.ColumnList[32];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.WorkshopDescription2 column object.
+    /// </summary>
+    public static BaseClasses.Data.StringColumn WorkshopDescription2
+    {
+        get
+        {
+            return View_AllDataExtractView.Instance.WorkshopDescription2Column;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Attending2 column object.
+    /// </summary>
+    public BaseClasses.Data.BooleanColumn Attending2Column
+    {
+        get
+        {
+            return (BaseClasses.Data.BooleanColumn)this.TableDefinition.ColumnList[33];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Attending2 column object.
+    /// </summary>
+    public static BaseClasses.Data.BooleanColumn Attending2
+    {
+        get
+        {
+            return View_AllDataExtractView.Instance.Attending2Column;
+        }
+    }
+    
+    
 
 
 #endregion
@@ -1410,7 +1517,11 @@ public class BaseView_AllDataExtractView : PrimaryKeyTable
         string FT2_3Value, 
         string Description2Value, 
         string FTA2Value, 
-        string FTA1Value
+        string FTA1Value, 
+        string WorkshopDescriptionValue, 
+        string AttendingValue, 
+        string WorkshopDescription2Value, 
+        string Attending2Value
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
@@ -1444,6 +1555,10 @@ public class BaseView_AllDataExtractView : PrimaryKeyTable
         rec.SetString(Description2Value, Description2Column);
         rec.SetString(FTA2Value, FTA2Column);
         rec.SetString(FTA1Value, FTA1Column);
+        rec.SetString(WorkshopDescriptionValue, WorkshopDescriptionColumn);
+        rec.SetString(AttendingValue, AttendingColumn);
+        rec.SetString(WorkshopDescription2Value, WorkshopDescription2Column);
+        rec.SetString(Attending2Value, Attending2Column);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized

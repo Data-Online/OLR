@@ -179,6 +179,10 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
                 SetAddress2Label();
                 SetAddress3();
                 SetAddress3Label();
+                SetAttending();
+                SetAttending2();
+                SetAttending2Label();
+                SetAttendingLabel();
                 SetContactId();
                 SetContactIdLabel();
                 SetDatePaid();
@@ -227,6 +231,10 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
                 SetSpecialRequirementsLabel();
                 SetTownName();
                 SetTownNameLabel();
+                SetWorkshopDescription();
+                SetWorkshopDescription2();
+                SetWorkshopDescription2Label();
+                SetWorkshopDescriptionLabel();
 
       
 
@@ -446,6 +454,86 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
                 this.Address3.Text.Trim().Length == 0) {
                 // Set the value specified on the Properties.
                 this.Address3.Text = "&nbsp;";
+            }
+                                     
+        }
+                
+        public virtual void SetAttending()
+        {
+            
+                    
+            // Set the Attending Literal on the webpage with value from the
+            // DatabaseOLR_db%dbo.view_AllDataExtract database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.view_AllDataExtract record retrieved from the database.
+            // this.Attending is the ASP:Literal on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.AttendingSpecified) {
+                								
+                // If the Attending is non-NULL, then format the value.
+                // The Format method will use the Display Format
+               string formattedValue = this.DataSource.Format(View_AllDataExtractView.Attending);
+                                
+                formattedValue = HttpUtility.HtmlEncode(formattedValue);
+                this.Attending.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // Attending is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.Attending.Text = View_AllDataExtractView.Attending.Format(View_AllDataExtractView.Attending.DefaultValue);
+            		
+            }
+            
+            // If the Attending is NULL or blank, then use the value specified  
+            // on Properties.
+            if (this.Attending.Text == null ||
+                this.Attending.Text.Trim().Length == 0) {
+                // Set the value specified on the Properties.
+                this.Attending.Text = "&nbsp;";
+            }
+                                     
+        }
+                
+        public virtual void SetAttending2()
+        {
+            
+                    
+            // Set the Attending2 Literal on the webpage with value from the
+            // DatabaseOLR_db%dbo.view_AllDataExtract database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.view_AllDataExtract record retrieved from the database.
+            // this.Attending2 is the ASP:Literal on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.Attending2Specified) {
+                								
+                // If the Attending2 is non-NULL, then format the value.
+                // The Format method will use the Display Format
+               string formattedValue = this.DataSource.Format(View_AllDataExtractView.Attending2);
+                                
+                formattedValue = HttpUtility.HtmlEncode(formattedValue);
+                this.Attending2.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // Attending2 is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.Attending2.Text = View_AllDataExtractView.Attending2.Format(View_AllDataExtractView.Attending2.DefaultValue);
+            		
+            }
+            
+            // If the Attending2 is NULL or blank, then use the value specified  
+            // on Properties.
+            if (this.Attending2.Text == null ||
+                this.Attending2.Text.Trim().Length == 0) {
+                // Set the value specified on the Properties.
+                this.Attending2.Text = "&nbsp;";
             }
                                      
         }
@@ -1418,6 +1506,86 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
                                      
         }
                 
+        public virtual void SetWorkshopDescription()
+        {
+            
+                    
+            // Set the WorkshopDescription Literal on the webpage with value from the
+            // DatabaseOLR_db%dbo.view_AllDataExtract database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.view_AllDataExtract record retrieved from the database.
+            // this.WorkshopDescription is the ASP:Literal on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.WorkshopDescriptionSpecified) {
+                								
+                // If the WorkshopDescription is non-NULL, then format the value.
+                // The Format method will use the Display Format
+               string formattedValue = this.DataSource.Format(View_AllDataExtractView.WorkshopDescription);
+                                
+                formattedValue = HttpUtility.HtmlEncode(formattedValue);
+                this.WorkshopDescription.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // WorkshopDescription is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.WorkshopDescription.Text = View_AllDataExtractView.WorkshopDescription.Format(View_AllDataExtractView.WorkshopDescription.DefaultValue);
+            		
+            }
+            
+            // If the WorkshopDescription is NULL or blank, then use the value specified  
+            // on Properties.
+            if (this.WorkshopDescription.Text == null ||
+                this.WorkshopDescription.Text.Trim().Length == 0) {
+                // Set the value specified on the Properties.
+                this.WorkshopDescription.Text = "&nbsp;";
+            }
+                                     
+        }
+                
+        public virtual void SetWorkshopDescription2()
+        {
+            
+                    
+            // Set the WorkshopDescription2 Literal on the webpage with value from the
+            // DatabaseOLR_db%dbo.view_AllDataExtract database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.view_AllDataExtract record retrieved from the database.
+            // this.WorkshopDescription2 is the ASP:Literal on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.WorkshopDescription2Specified) {
+                								
+                // If the WorkshopDescription2 is non-NULL, then format the value.
+                // The Format method will use the Display Format
+               string formattedValue = this.DataSource.Format(View_AllDataExtractView.WorkshopDescription2);
+                                
+                formattedValue = HttpUtility.HtmlEncode(formattedValue);
+                this.WorkshopDescription2.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // WorkshopDescription2 is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.WorkshopDescription2.Text = View_AllDataExtractView.WorkshopDescription2.Format(View_AllDataExtractView.WorkshopDescription2.DefaultValue);
+            		
+            }
+            
+            // If the WorkshopDescription2 is NULL or blank, then use the value specified  
+            // on Properties.
+            if (this.WorkshopDescription2.Text == null ||
+                this.WorkshopDescription2.Text.Trim().Length == 0) {
+                // Set the value specified on the Properties.
+                this.WorkshopDescription2.Text = "&nbsp;";
+            }
+                                     
+        }
+                
         public virtual void SetAdditionalDinnerNameLabel()
                   {
                   
@@ -1443,6 +1611,20 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
         }
                 
         public virtual void SetAddress3Label()
+                  {
+                  
+                    
+        }
+                
+        public virtual void SetAttending2Label()
+                  {
+                  
+                        this.Attending2Label.Text = EvaluateFormula("\"Attending\"");
+                      
+                    
+        }
+                
+        public virtual void SetAttendingLabel()
                   {
                   
                     
@@ -1608,6 +1790,22 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
                     
         }
                 
+        public virtual void SetWorkshopDescription2Label()
+                  {
+                  
+                        this.WorkshopDescription2Label.Text = EvaluateFormula("\"Workshop\"");
+                      
+                    
+        }
+                
+        public virtual void SetWorkshopDescriptionLabel()
+                  {
+                  
+                        this.WorkshopDescriptionLabel.Text = EvaluateFormula("\"Workshop\"");
+                      
+                    
+        }
+                
         public BaseClasses.Data.DataSource.EvaluateFormulaDelegate EvaluateFormulaDelegate;
 
         public virtual string EvaluateFormula(string formula, BaseClasses.Data.BaseRecord dataSourceForEvaluate, string format, System.Collections.Generic.IDictionary<string, object> variables, bool includeDS, FormulaEvaluator e)
@@ -1767,6 +1965,8 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
             GetAddress1();
             GetAddress2();
             GetAddress3();
+            GetAttending();
+            GetAttending2();
             GetContactId();
             GetDatePaid();
             GetDescription1();
@@ -1791,6 +1991,8 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
             GetRegistrationType();
             GetSpecialRequirements();
             GetTownName();
+            GetWorkshopDescription();
+            GetWorkshopDescription2();
         }
         
         
@@ -1815,6 +2017,16 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
         }
                 
         public virtual void GetAddress3()
+        {
+            
+        }
+                
+        public virtual void GetAttending()
+        {
+            
+        }
+                
+        public virtual void GetAttending2()
         {
             
         }
@@ -1935,6 +2147,16 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
         }
                 
         public virtual void GetTownName()
+        {
+            
+        }
+                
+        public virtual void GetWorkshopDescription()
+        {
+            
+        }
+                
+        public virtual void GetWorkshopDescription2()
         {
             
         }
@@ -2598,6 +2820,30 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
             }
         }
         
+        public System.Web.UI.WebControls.Literal Attending {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Attending");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal Attending2 {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Attending2");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal Attending2Label {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Attending2Label");
+            }
+        }
+        
+        public System.Web.UI.WebControls.Literal AttendingLabel {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "AttendingLabel");
+            }
+        }
+        
         public System.Web.UI.WebControls.Literal ContactId {
             get {
                 return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "ContactId");
@@ -2883,6 +3129,30 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
         public System.Web.UI.WebControls.Literal TownNameLabel {
             get {
                 return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "TownNameLabel");
+            }
+        }
+        
+        public System.Web.UI.WebControls.Literal WorkshopDescription {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "WorkshopDescription");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal WorkshopDescription2 {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "WorkshopDescription2");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal WorkshopDescription2Label {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "WorkshopDescription2Label");
+            }
+        }
+        
+        public System.Web.UI.WebControls.Literal WorkshopDescriptionLabel {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "WorkshopDescriptionLabel");
             }
         }
         
@@ -4052,6 +4322,14 @@ public class BaseView_AllDataExtractTableControl : OLR.UI.BaseApplicationTableCo
                             rec.Parse(recControl.Address3.Text, View_AllDataExtractView.Address3);
                   }
                 
+                        if (recControl.Attending.Text != "") {
+                            rec.Parse(recControl.Attending.Text, View_AllDataExtractView.Attending);
+                  }
+                
+                        if (recControl.Attending2.Text != "") {
+                            rec.Parse(recControl.Attending2.Text, View_AllDataExtractView.Attending2);
+                  }
+                
                         if (recControl.ContactId.Text != "") {
                             rec.Parse(recControl.ContactId.Text, View_AllDataExtractView.ContactId);
                   }
@@ -4146,6 +4424,14 @@ public class BaseView_AllDataExtractTableControl : OLR.UI.BaseApplicationTableCo
                 
                         if (recControl.TownName.Text != "") {
                             rec.Parse(recControl.TownName.Text, View_AllDataExtractView.TownName);
+                  }
+                
+                        if (recControl.WorkshopDescription.Text != "") {
+                            rec.Parse(recControl.WorkshopDescription.Text, View_AllDataExtractView.WorkshopDescription);
+                  }
+                
+                        if (recControl.WorkshopDescription2.Text != "") {
+                            rec.Parse(recControl.WorkshopDescription2.Text, View_AllDataExtractView.WorkshopDescription2);
                   }
                 
               newUIDataList.Add(recControl.PreservedUIData());
@@ -4293,6 +4579,22 @@ public class BaseView_AllDataExtractTableControl : OLR.UI.BaseApplicationTableCo
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Registration {Txt:Ascending}"), "RegistrationId Asc"));
               
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Registration {Txt:Descending}"), "RegistrationId Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Attending 2 {Txt:Ascending}"), "Attending2 Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Attending 2 {Txt:Descending}"), "Attending2 Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Attending {Txt:Ascending}"), "Attending Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Attending {Txt:Descending}"), "Attending Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Workshop Description 2 {Txt:Ascending}"), "WorkshopDescription2 Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Workshop Description 2 {Txt:Descending}"), "WorkshopDescription2 Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Workshop Description {Txt:Ascending}"), "WorkshopDescription Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Workshop Description {Txt:Descending}"), "WorkshopDescription Desc"));
               
             try
             {          
@@ -4766,6 +5068,10 @@ public class BaseView_AllDataExtractTableControl : OLR.UI.BaseApplicationTableCo
              View_AllDataExtractView.Description2,
              View_AllDataExtractView.FTA2,
              View_AllDataExtractView.FTA1,
+             View_AllDataExtractView.WorkshopDescription,
+             View_AllDataExtractView.Attending,
+             View_AllDataExtractView.WorkshopDescription2,
+             View_AllDataExtractView.Attending2,
              null};
                 ExportDataToCSV exportData = new ExportDataToCSV(View_AllDataExtractView.Instance,wc,orderBy,columns);
                 exportData.StartExport(this.Page.Response, true);
@@ -4850,6 +5156,10 @@ public class BaseView_AllDataExtractTableControl : OLR.UI.BaseApplicationTableCo
              data.ColumnList.Add(new ExcelColumn(View_AllDataExtractView.Description2, "Default"));
              data.ColumnList.Add(new ExcelColumn(View_AllDataExtractView.FTA2, "Default"));
              data.ColumnList.Add(new ExcelColumn(View_AllDataExtractView.FTA1, "Default"));
+             data.ColumnList.Add(new ExcelColumn(View_AllDataExtractView.WorkshopDescription, "Default"));
+             data.ColumnList.Add(new ExcelColumn(View_AllDataExtractView.Attending, "Default"));
+             data.ColumnList.Add(new ExcelColumn(View_AllDataExtractView.WorkshopDescription2, "Default"));
+             data.ColumnList.Add(new ExcelColumn(View_AllDataExtractView.Attending2, "Default"));
 
 
               //  First write out the Column Headers
@@ -5051,6 +5361,10 @@ public class BaseView_AllDataExtractTableControl : OLR.UI.BaseApplicationTableCo
                  report.AddColumn(View_AllDataExtractView.Description2.Name, ReportEnum.Align.Left, "${Description2}", ReportEnum.Align.Left, 28);
                  report.AddColumn(View_AllDataExtractView.FTA2.Name, ReportEnum.Align.Left, "${FTA2}", ReportEnum.Align.Left, 22);
                  report.AddColumn(View_AllDataExtractView.FTA1.Name, ReportEnum.Align.Left, "${FTA1}", ReportEnum.Align.Left, 22);
+                 report.AddColumn(View_AllDataExtractView.WorkshopDescription.Name, ReportEnum.Align.Left, "${WorkshopDescription}", ReportEnum.Align.Left, 28);
+                 report.AddColumn(View_AllDataExtractView.Attending.Name, ReportEnum.Align.Left, "${Attending}", ReportEnum.Align.Left, 15);
+                 report.AddColumn(View_AllDataExtractView.WorkshopDescription2.Name, ReportEnum.Align.Left, "${WorkshopDescription2}", ReportEnum.Align.Left, 28);
+                 report.AddColumn(View_AllDataExtractView.Attending2.Name, ReportEnum.Align.Left, "${Attending2}", ReportEnum.Align.Left, 15);
 
   
                 int rowsPerQuery = 5000;
@@ -5210,6 +5524,10 @@ public class BaseView_AllDataExtractTableControl : OLR.UI.BaseApplicationTableCo
                                      report.AddData("${FTA1}", record.Format(View_AllDataExtractView.FTA1), ReportEnum.Align.Left);
                                  }
                              }
+                             report.AddData("${WorkshopDescription}", record.Format(View_AllDataExtractView.WorkshopDescription), ReportEnum.Align.Left, 300);
+                             report.AddData("${Attending}", record.Format(View_AllDataExtractView.Attending), ReportEnum.Align.Left, 300);
+                             report.AddData("${WorkshopDescription2}", record.Format(View_AllDataExtractView.WorkshopDescription2), ReportEnum.Align.Left, 300);
+                             report.AddData("${Attending2}", record.Format(View_AllDataExtractView.Attending2), ReportEnum.Align.Left, 300);
 
                             report.WriteRow();
                         }
@@ -5352,6 +5670,10 @@ public class BaseView_AllDataExtractTableControl : OLR.UI.BaseApplicationTableCo
                  report.AddColumn(View_AllDataExtractView.Description2.Name, ReportEnum.Align.Left, "${Description2}", ReportEnum.Align.Left, 28);
                  report.AddColumn(View_AllDataExtractView.FTA2.Name, ReportEnum.Align.Left, "${FTA2}", ReportEnum.Align.Left, 22);
                  report.AddColumn(View_AllDataExtractView.FTA1.Name, ReportEnum.Align.Left, "${FTA1}", ReportEnum.Align.Left, 22);
+                 report.AddColumn(View_AllDataExtractView.WorkshopDescription.Name, ReportEnum.Align.Left, "${WorkshopDescription}", ReportEnum.Align.Left, 28);
+                 report.AddColumn(View_AllDataExtractView.Attending.Name, ReportEnum.Align.Left, "${Attending}", ReportEnum.Align.Left, 15);
+                 report.AddColumn(View_AllDataExtractView.WorkshopDescription2.Name, ReportEnum.Align.Left, "${WorkshopDescription2}", ReportEnum.Align.Left, 28);
+                 report.AddColumn(View_AllDataExtractView.Attending2.Name, ReportEnum.Align.Left, "${Attending2}", ReportEnum.Align.Left, 15);
 
                 WhereClause whereClause = null;
                 whereClause = CreateWhereClause();
@@ -5507,6 +5829,10 @@ public class BaseView_AllDataExtractTableControl : OLR.UI.BaseApplicationTableCo
                                      report.AddData("${FTA1}", record.Format(View_AllDataExtractView.FTA1), ReportEnum.Align.Left);
                                  }
                              }
+                             report.AddData("${WorkshopDescription}", record.Format(View_AllDataExtractView.WorkshopDescription), ReportEnum.Align.Left, 300);
+                             report.AddData("${Attending}", record.Format(View_AllDataExtractView.Attending), ReportEnum.Align.Left, 300);
+                             report.AddData("${WorkshopDescription2}", record.Format(View_AllDataExtractView.WorkshopDescription2), ReportEnum.Align.Left, 300);
+                             report.AddData("${Attending2}", record.Format(View_AllDataExtractView.Attending2), ReportEnum.Align.Left, 300);
 
                             report.WriteRow();
                         }

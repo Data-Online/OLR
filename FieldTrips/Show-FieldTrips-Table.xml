@@ -193,112 +193,36 @@
       <InsideItemTemplate>true</InsideItemTemplate>
     </ContainedComponent>
     <ContainedComponent>
-      <Name>AvailableWorkshopId</Name>
-      <Type>FieldValue</Type>
-      <Field>AvailableWorkshopId</Field>
-      <FieldValueStyle>Literal</FieldValueStyle>
-      <Table>DatabaseOLR_db%dbo.Workshops</Table>
-      <PassthroughAttributes>
-        <Attribute>
-          <Name>FieldMaxLength</Name>
-          <Value>Default</Value>
-        </Attribute>
-        <Attribute>
-          <Name>HTMLEncodeValue</Name>
-          <Value>Default</Value>
-        </Attribute>
-        <Attribute>
-          <Name>InternalUse:ApplySaveToField</Name>
-          <Value>False</Value>
-        </Attribute>
-        <Attribute>
-          <Name>InternalUse:DataSource</Name>
-          <Value>Parent</Value>
-        </Attribute>
-        <Attribute>
-          <Name>NullValueText</Name>
-          <Value>&amp;nbsp;</Value>
-        </Attribute>
-        <Attribute>
-          <Name>PopupDisplay</Name>
-          <Value>Default</Value>
-        </Attribute>
-        <Attribute>
-          <Name>PopupThreshold</Name>
-          <Value>Default</Value>
-        </Attribute>
-        <Attribute>
-          <Name>PopupWindowHeight</Name>
-          <Value>200</Value>
-        </Attribute>
-        <Attribute>
-          <Name>PopupWindowPersist</Name>
-          <Value>False</Value>
-        </Attribute>
-        <Attribute>
-          <Name>PopupWindowScrollBar</Name>
-          <Value>True</Value>
-        </Attribute>
-        <Attribute>
-          <Name>PopupWindowTitle</Name>
-          <Value>%ISD_DEFAULT%</Value>
-        </Attribute>
-        <Attribute>
-          <Name>PopupWindowWidth</Name>
-          <Value>300</Value>
-        </Attribute>
-        <Attribute>
-          <Name>TextFormat</Name>
-          <Value>{0}</Value>
-        </Attribute>
-      </PassthroughAttributes>
-      <InsideControl>WorkshopsTableControl</InsideControl>
-      <InsideItemTemplate>true</InsideItemTemplate>
-    </ContainedComponent>
-    <ContainedComponent>
-      <Name>AvailableWorkshopsRecordControl</Name>
-      <Type>Record</Type>
-      <PanelStyle>ShowRec_DTB_Parent</PanelStyle>
+      <Name>AvailableWorkshopsTableControl</Name>
+      <Type>Table</Type>
+      <PanelStyle>ShowTable_DTB_Parent</PanelStyle>
       <Table>DatabaseOLR_db%dbo.AvailableWorkshops</Table>
       <PassthroughAttributes>
         <Attribute>
-          <Name>EnterKeyCaptureToButton</Name>
-          <Value>SaveButton,SaveAndNewButton,OKButton,EditButton,CancelButton</Value>
+          <Name>HasScrolling</Name>
+          <Value>False</Value>
         </Attribute>
         <Attribute>
           <Name>HideDataUntilSearched</Name>
           <Value>False</Value>
         </Attribute>
         <Attribute>
+          <Name>InitialRowDisplayStyle</Name>
+          <Value>FirstRowExpanded</Value>
+        </Attribute>
+        <Attribute>
           <Name>InternalUse:DataSource</Name>
-          <Value>URL</Value>
+          <Value>TableOrQuery</Value>
         </Attribute>
         <Attribute>
-          <Name>InternalUse:DataSourceArg</Name>
-          <Value>AvailableWorkshops</Value>
+          <Name>NumberOfColumns</Name>
+          <Value>3</Value>
         </Attribute>
         <Attribute>
-          <Name>URL</Name>
-          <Value>AvailableWorkshops</Value>
+          <Name>PageSize</Name>
+          <Value>10</Value>
         </Attribute>
       </PassthroughAttributes>
-      <InsideControl>WorkshopsTableControl</InsideControl>
-      <InsideItemTemplate>true</InsideItemTemplate>
-      <Querys>
-        <Query>
-          <LeftQueryContent>
-            <Type>TableField</Type>
-            <Prefix>DatabaseOLR_db%dbo.AvailableWorkshops</Prefix>
-            <Suffix>AvailableWorkshopId</Suffix>
-          </LeftQueryContent>
-          <RightQueryContent>
-            <Type>Control</Type>
-            <Prefix>WorkshopsTableControl</Prefix>
-            <Suffix>AvailableWorkshopId</Suffix>
-          </RightQueryContent>
-          <ForeignKeyName>FK_Workshops_AvailableWorkshops</ForeignKeyName>
-        </Query>
-      </Querys>
     </ContainedComponent>
     <ContainedComponent>
       <Name>ContactId</Name>
@@ -357,6 +281,93 @@
         </Attribute>
       </PassthroughAttributes>
       <InsideControl>RegistrationsTableControl</InsideControl>
+      <InsideItemTemplate>true</InsideItemTemplate>
+    </ContainedComponent>
+    <ContainedComponent>
+      <Name>Cost</Name>
+      <Type>FieldValue</Type>
+      <Field>Cost</Field>
+      <FieldValueStyle>Literal</FieldValueStyle>
+      <Table>DatabaseOLR_db%dbo.AvailableWorkshops</Table>
+      <PassthroughAttributes>
+        <Attribute>
+          <Name>FieldMaxLength</Name>
+          <Value>Default</Value>
+        </Attribute>
+        <Attribute>
+          <Name>HTMLEncodeValue</Name>
+          <Value>Default</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:ApplySaveToField</Name>
+          <Value>False</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:DataSource</Name>
+          <Value>Parent</Value>
+        </Attribute>
+        <Attribute>
+          <Name>NullValueText</Name>
+          <Value>&amp;nbsp;</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupDisplay</Name>
+          <Value>Default</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupThreshold</Name>
+          <Value>Default</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowHeight</Name>
+          <Value>200</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowPersist</Name>
+          <Value>False</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowScrollBar</Name>
+          <Value>True</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowTitle</Name>
+          <Value>%ISD_DEFAULT%</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowWidth</Name>
+          <Value>300</Value>
+        </Attribute>
+        <Attribute>
+          <Name>TextFormat</Name>
+          <Value>{0}</Value>
+        </Attribute>
+      </PassthroughAttributes>
+      <InsideControl>AvailableWorkshopsTableControl</InsideControl>
+      <InsideItemTemplate>true</InsideItemTemplate>
+    </ContainedComponent>
+    <ContainedComponent>
+      <Name>CostLabel</Name>
+      <Type>Literal</Type>
+      <PassthroughAttributes>
+        <Attribute>
+          <Name>Consumers</Name>
+          <Value>AvailableWorkshopsTableControl</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:Field</Name>
+          <Value>Cost</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:Table</Name>
+          <Value>DatabaseOLR_db%dbo.AvailableWorkshops</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Text</Name>
+          <Value>%ISD_DEFAULT%DatabaseOLR_db%dbo.AvailableWorkshops%Cost</Value>
+        </Attribute>
+      </PassthroughAttributes>
+      <InsideControl>AvailableWorkshopsTableControl</InsideControl>
       <InsideItemTemplate>true</InsideItemTemplate>
     </ContainedComponent>
     <ContainedComponent>
@@ -1455,6 +1466,22 @@
       <InsideControl>FieldTripOptionsTableControl</InsideControl>
     </ContainedComponent>
     <ContainedComponent>
+      <Name>Label2</Name>
+      <Type>Label</Type>
+      <PassthroughAttributes>
+        <Attribute>
+          <Name>InternalUse:TreatAs</Name>
+          <Value>FieldValue</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Text</Name>
+          <Value>Total Requested</Value>
+        </Attribute>
+      </PassthroughAttributes>
+      <InsideControl>AvailableWorkshopsTableControl</InsideControl>
+      <InsideItemTemplate>true</InsideItemTemplate>
+    </ContainedComponent>
+    <ContainedComponent>
       <Name>Label4</Name>
       <Type>Label</Type>
       <PassthroughAttributes>
@@ -1543,7 +1570,7 @@
       <InsideItemTemplate>true</InsideItemTemplate>
     </ContainedComponent>
     <ContainedComponent>
-      <Name>PlacesAvailable2</Name>
+      <Name>PlacesAvailable1</Name>
       <Type>FieldValue</Type>
       <Field>PlacesAvailable</Field>
       <FieldValueStyle>Literal</FieldValueStyle>
@@ -1602,22 +1629,8 @@
           <Value>{0}</Value>
         </Attribute>
       </PassthroughAttributes>
-      <InsideControl>AvailableWorkshopsRecordControl</InsideControl>
-    </ContainedComponent>
-    <ContainedComponent>
-      <Name>PlacesAvailableLabel</Name>
-      <Type>Label</Type>
-      <PassthroughAttributes>
-        <Attribute>
-          <Name>InternalUse:TreatAs</Name>
-          <Value>FieldValue</Value>
-        </Attribute>
-        <Attribute>
-          <Name>Text</Name>
-          <Value>Places Available</Value>
-        </Attribute>
-      </PassthroughAttributes>
-      <InsideControl>WorkshopsTableControl</InsideControl>
+      <InsideControl>AvailableWorkshopsTableControl</InsideControl>
+      <InsideItemTemplate>true</InsideItemTemplate>
     </ContainedComponent>
     <ContainedComponent>
       <Name>PlacesAvailableLabel1</Name>
@@ -1647,19 +1660,28 @@
       <InsideControl>FieldTripOptionsTableControl</InsideControl>
     </ContainedComponent>
     <ContainedComponent>
-      <Name>PlacesRequestedLabel</Name>
-      <Type>Label</Type>
+      <Name>PlacesAvailableLabel2</Name>
+      <Type>Literal</Type>
       <PassthroughAttributes>
         <Attribute>
-          <Name>InternalUse:TreatAs</Name>
-          <Value>FieldValue</Value>
+          <Name>Consumers</Name>
+          <Value>AvailableWorkshopsTableControl</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:Field</Name>
+          <Value>PlacesAvailable</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:Table</Name>
+          <Value>DatabaseOLR_db%dbo.AvailableWorkshops</Value>
         </Attribute>
         <Attribute>
           <Name>Text</Name>
-          <Value>Places Requested</Value>
+          <Value>%ISD_DEFAULT%DatabaseOLR_db%dbo.AvailableWorkshops%PlacesAvailable</Value>
         </Attribute>
       </PassthroughAttributes>
-      <InsideControl>WorkshopsTableControl</InsideControl>
+      <InsideControl>AvailableWorkshopsTableControl</InsideControl>
+      <InsideItemTemplate>true</InsideItemTemplate>
     </ContainedComponent>
     <ContainedComponent>
       <Name>RecordDeleted</Name>
@@ -2300,21 +2322,6 @@
       <InsideControl>FieldTripsTableControl</InsideControl>
     </ContainedComponent>
     <ContainedComponent>
-      <Name>Title1</Name>
-      <Type>Html</Type>
-      <PassthroughAttributes>
-        <Attribute>
-          <Name>HtmlEncodeWhiteSpace</Name>
-          <Value>True</Value>
-        </Attribute>
-        <Attribute>
-          <Name>Text</Name>
-          <Value>&lt;%#String.Concat("Workshops") %&gt;</Value>
-        </Attribute>
-      </PassthroughAttributes>
-      <InsideControl>WorkshopsTableControl</InsideControl>
-    </ContainedComponent>
-    <ContainedComponent>
       <Name>Title2</Name>
       <Type>Html</Type>
       <PassthroughAttributes>
@@ -2330,6 +2337,21 @@
       <InsideControl>RegistrationTypesTableControl</InsideControl>
     </ContainedComponent>
     <ContainedComponent>
+      <Name>Title3</Name>
+      <Type>Html</Type>
+      <PassthroughAttributes>
+        <Attribute>
+          <Name>HtmlEncodeWhiteSpace</Name>
+          <Value>True</Value>
+        </Attribute>
+        <Attribute>
+          <Name>Text</Name>
+          <Value>&lt;%#String.Concat("Available Workshops") %&gt;</Value>
+        </Attribute>
+      </PassthroughAttributes>
+      <InsideControl>AvailableWorkshopsTableControl</InsideControl>
+    </ContainedComponent>
+    <ContainedComponent>
       <Name>UpdatePanel1</Name>
       <Type>UpdatePanel</Type>
       <PassthroughAttributes>
@@ -2340,7 +2362,70 @@
       </PassthroughAttributes>
     </ContainedComponent>
     <ContainedComponent>
-      <Name>WorkshopsCountControl</Name>
+      <Name>WorkshopDescription</Name>
+      <Type>FieldValue</Type>
+      <Field>WorkshopDescription</Field>
+      <FieldValueStyle>Literal</FieldValueStyle>
+      <Table>DatabaseOLR_db%dbo.AvailableWorkshops</Table>
+      <PassthroughAttributes>
+        <Attribute>
+          <Name>FieldMaxLength</Name>
+          <Value>Default</Value>
+        </Attribute>
+        <Attribute>
+          <Name>HTMLEncodeValue</Name>
+          <Value>Default</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:ApplySaveToField</Name>
+          <Value>False</Value>
+        </Attribute>
+        <Attribute>
+          <Name>InternalUse:DataSource</Name>
+          <Value>Parent</Value>
+        </Attribute>
+        <Attribute>
+          <Name>NullValueText</Name>
+          <Value>&amp;nbsp;</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupDisplay</Name>
+          <Value>Default</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupThreshold</Name>
+          <Value>Default</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowHeight</Name>
+          <Value>200</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowPersist</Name>
+          <Value>False</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowScrollBar</Name>
+          <Value>True</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowTitle</Name>
+          <Value>%ISD_DEFAULT%</Value>
+        </Attribute>
+        <Attribute>
+          <Name>PopupWindowWidth</Name>
+          <Value>300</Value>
+        </Attribute>
+        <Attribute>
+          <Name>TextFormat</Name>
+          <Value>{0}</Value>
+        </Attribute>
+      </PassthroughAttributes>
+      <InsideControl>AvailableWorkshopsTableControl</InsideControl>
+      <InsideItemTemplate>true</InsideItemTemplate>
+    </ContainedComponent>
+    <ContainedComponent>
+      <Name>WorkshopsCountControl1</Name>
       <Type>Literal</Type>
       <PassthroughAttributes>
         <Attribute>
@@ -2349,20 +2434,20 @@
         </Attribute>
         <Attribute>
           <Name>InternalUse:InitializeFormula</Name>
-          <Value>LOOKUP(WorkshopsCountQuery, WorkshopId)</Value>
+          <Value>LOOKUP(WorkshopsCountQuery2, AvailableWorkshopId)</Value>
         </Attribute>
         <Attribute>
           <Name>InternalUse:TreatAs</Name>
           <Value>FieldValue</Value>
         </Attribute>
       </PassthroughAttributes>
-      <InsideControl>WorkshopsTableControl</InsideControl>
+      <InsideControl>AvailableWorkshopsTableControl</InsideControl>
       <InsideItemTemplate>true</InsideItemTemplate>
     </ContainedComponent>
     <ContainedComponent>
-      <Name>WorkshopsCountQuery</Name>
+      <Name>WorkshopsCountQuery2</Name>
       <Type>DataSource</Type>
-      <Table>DatabaseOLR_db%dbo.Workshops</Table>
+      <Table>DatabaseOLR_db%dbo.AvailableWorkshops</Table>
       <QueryDefinition>
         <WhereClause>
           <Position>1</Position>
@@ -2371,7 +2456,7 @@
           <Operator>=</Operator>
           <Operand>
             <Type>Formula</Type>
-            <Value>true</Value>
+            <Value>1</Value>
           </Operand>
           <IgnoreBlankString>Yes</IgnoreBlankString>
         </WhereClause>
@@ -2395,12 +2480,12 @@
           <Value />
         </Attribute>
       </PassthroughAttributes>
-      <InsideControl>WorkshopsTableControl</InsideControl>
+      <InsideControl>AvailableWorkshopsTableControl</InsideControl>
       <Selects>
         <Select>
           <Position>0</Position>
-          <Table>DatabaseOLR_db%dbo.Workshops</Table>
-          <Field>WorkshopId</Field>
+          <Table>DatabaseOLR_db%dbo.AvailableWorkshops</Table>
+          <Field>AvailableWorkshopId</Field>
           <SelectAs />
           <SQLOperation>None</SQLOperation>
           <SetDistinct>false</SetDistinct>
@@ -2413,70 +2498,25 @@
           <SetDistinct>false</SetDistinct>
         </Select>
       </Selects>
+      <Joins>
+        <JoinList>
+          <Join>
+            <Position>0</Position>
+            <TableToJoin>DatabaseOLR_db%dbo.Workshops</TableToJoin>
+            <LeftJoinContent>
+              <Table>DatabaseOLR_db%dbo.AvailableWorkshops</Table>
+              <Field>AvailableWorkshopId</Field>
+            </LeftJoinContent>
+            <RightJoinContent>
+              <Table>DatabaseOLR_db%dbo.Workshops</Table>
+              <Field>AvailableWorkshopId</Field>
+            </RightJoinContent>
+          </Join>
+          <TableToJoin>DatabaseOLR_db%dbo.Workshops</TableToJoin>
+          <TableToJoinAlias />
+        </JoinList>
+      </Joins>
       <OrderBys />
-    </ContainedComponent>
-    <ContainedComponent>
-      <Name>WorkshopsTableControl</Name>
-      <Type>Table</Type>
-      <PanelStyle>ShowTable_DTB_Parent</PanelStyle>
-      <Table>DatabaseOLR_db%dbo.Workshops</Table>
-      <PassthroughAttributes>
-        <Attribute>
-          <Name>HasScrolling</Name>
-          <Value>False</Value>
-        </Attribute>
-        <Attribute>
-          <Name>HideDataUntilSearched</Name>
-          <Value>False</Value>
-        </Attribute>
-        <Attribute>
-          <Name>InitialRowDisplayStyle</Name>
-          <Value>FirstRowExpanded</Value>
-        </Attribute>
-        <Attribute>
-          <Name>InternalUse:DataSource</Name>
-          <Value>TableOrQuery</Value>
-        </Attribute>
-        <Attribute>
-          <Name>NumberOfColumns</Name>
-          <Value>3</Value>
-        </Attribute>
-        <Attribute>
-          <Name>PageSize</Name>
-          <Value>10</Value>
-        </Attribute>
-        <Attribute>
-          <Name>PaginationCurrentPage</Name>
-          <Value>Pagination-CurrentPage</Value>
-        </Attribute>
-        <Attribute>
-          <Name>PaginationPageSize</Name>
-          <Value>Pagination-PageSize</Value>
-        </Attribute>
-        <Attribute>
-          <Name>PaginationTotalItems</Name>
-          <Value>Pagination-TotalItems</Value>
-        </Attribute>
-        <Attribute>
-          <Name>PaginationTotalPages</Name>
-          <Value>Pagination-TotalPages</Value>
-        </Attribute>
-      </PassthroughAttributes>
-      <Querys>
-        <Query>
-          <LeftQueryContent>
-            <Type>TableField</Type>
-            <Prefix>DatabaseOLR_db%dbo.Workshops</Prefix>
-            <Suffix>RegistrationId</Suffix>
-          </LeftQueryContent>
-          <RightQueryContent>
-            <Type>Control</Type>
-            <Prefix>RegistrationsTableControl</Prefix>
-            <Suffix>RegistrationId</Suffix>
-          </RightQueryContent>
-          <ForeignKeyName>FK_Workshops_Registrations</ForeignKeyName>
-        </Query>
-      </Querys>
     </ContainedComponent>
   </ComposedOf>
   <LayoutDefinition>&lt;![CDATA[&lt;?xml version="1.0" encoding="utf-16"?&gt;
@@ -2514,7 +2554,7 @@
     &lt;/Row&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;GEN:TABLE NAME="WorkshopsTableControl"/&amp;gt;&lt;/Value&gt;
+        &lt;Value&gt;&amp;lt;GEN:TABLE NAME="AvailableWorkshopsTableControl"/&amp;gt;&lt;/Value&gt;
         &lt;CellAttributes /&gt;
       &lt;/Cell&gt;
       &lt;RowAttributes /&gt;
@@ -4358,7 +4398,7 @@
       &lt;/Attribute&gt;
     &lt;/TableAttributes&gt;
   &lt;/Layout&gt;
-  &lt;Layout Name="WorkshopsTableControl" Type="TablePanel" PanelControlName="WorkshopsTableControl"&gt;
+  &lt;Layout Name="AvailableWorkshopsTableControl" Type="TablePanel" PanelControlName="AvailableWorkshopsTableControl"&gt;
     &lt;Prolog /&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
@@ -4400,7 +4440,7 @@
       &lt;/Cell&gt;
       &lt;Cell&gt;
         &lt;Value&gt;
-                  &amp;lt;GEN:PANEL NAME="Header1"/&amp;gt;
+                  &amp;lt;GEN:PANEL NAME="Header3"/&amp;gt;
                 &lt;/Value&gt;
         &lt;CellAttributes&gt;
           &lt;Attribute&gt;
@@ -4430,7 +4470,7 @@
       &lt;/Cell&gt;
       &lt;Cell&gt;
         &lt;Value&gt;
-                  &amp;lt;asp:panel id="CollapsibleRegion3" runat="server"&amp;gt;&amp;lt;GEN:PANEL NAME="Panel3"/&amp;gt;&amp;lt;/asp:panel&amp;gt;
+                  &amp;lt;asp:panel id="CollapsibleRegion5" runat="server"&amp;gt;&amp;lt;GEN:PANEL NAME="Panel5"/&amp;gt;&amp;lt;/asp:panel&amp;gt;
                 &lt;/Value&gt;
         &lt;CellAttributes /&gt;
       &lt;/Cell&gt;
@@ -4493,7 +4533,7 @@
       &lt;/Attribute&gt;
     &lt;/TableAttributes&gt;
   &lt;/Layout&gt;
-  &lt;Layout Name="Header1" Type="PanelHeader" PanelControlName="WorkshopsTableControl"&gt;
+  &lt;Layout Name="Header3" Type="PanelHeader" PanelControlName="AvailableWorkshopsTableControl"&gt;
     &lt;Prolog /&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
@@ -4506,7 +4546,7 @@
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
       &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;GEN:PANEL NAME="TitleRegion1"/&amp;gt;&lt;/Value&gt;
+        &lt;Value&gt;&amp;lt;GEN:PANEL NAME="TitleRegion3"/&amp;gt;&lt;/Value&gt;
         &lt;CellAttributes&gt;
           &lt;Attribute&gt;
             &lt;Name&gt;class&lt;/Name&gt;
@@ -4521,6 +4561,18 @@
             &lt;AttributeValue&gt;dhb&lt;/AttributeValue&gt;
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;Value&gt;&amp;lt;img src="../Images/space.gif" alt=""/&amp;gt;&lt;/Value&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;dher&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes /&gt;
       &lt;/Cell&gt;
       &lt;Cell&gt;
         &lt;Value&gt;&amp;lt;img src="../Images/space.gif" alt=""/&amp;gt;&lt;/Value&gt;
@@ -4553,12 +4605,12 @@
       &lt;/Attribute&gt;
     &lt;/TableAttributes&gt;
   &lt;/Layout&gt;
-  &lt;Layout Name="TitleRegion1" PanelControlName="WorkshopsTableControl"&gt;
+  &lt;Layout Name="TitleRegion3" PanelControlName="AvailableWorkshopsTableControl"&gt;
     &lt;Prolog /&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
         &lt;Value&gt;
-                        &amp;lt;GEN:HTML NAME="Title1"/&amp;gt;
+                        &amp;lt;GEN:HTML NAME="Title3"/&amp;gt;
                       &lt;/Value&gt;
         &lt;CellAttributes&gt;
           &lt;Attribute&gt;
@@ -4589,12 +4641,12 @@
       &lt;/Attribute&gt;
     &lt;/TableAttributes&gt;
   &lt;/Layout&gt;
-  &lt;Layout Name="Panel3" PanelControlName="WorkshopsTableControl"&gt;
+  &lt;Layout Name="Panel5" PanelControlName="AvailableWorkshopsTableControl"&gt;
     &lt;Prolog /&gt;
     &lt;Row&gt;
       &lt;Cell&gt;
         &lt;Value&gt;
-                    &amp;lt;GEN:PANEL NAME="Fields3"/&amp;gt;
+                    &amp;lt;GEN:PANEL NAME="Fields5"/&amp;gt;
                   &lt;/Value&gt;
         &lt;CellAttributes&gt;
           &lt;Attribute&gt;
@@ -4629,7 +4681,7 @@
       &lt;/Attribute&gt;
     &lt;/TableAttributes&gt;
   &lt;/Layout&gt;
-  &lt;Layout Name="Fields3" Type="TableGridRegular" PanelControlName="WorkshopsTableControl"&gt;
+  &lt;Layout Name="Fields5" Type="TableGridRegular" PanelControlName="AvailableWorkshopsTableControl"&gt;
     &lt;Prolog /&gt;
     &lt;Row Type="Header"&gt;
       &lt;Cell&gt;
@@ -4638,31 +4690,9 @@
             &lt;Name&gt;class&lt;/Name&gt;
             &lt;AttributeValue&gt;thc&lt;/AttributeValue&gt;
           &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-      &lt;Cell&gt;
-        &lt;CellAttributes&gt;
           &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;thc&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-      &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;GEN:LABEL Name="PlacesAvailableLabel" /&amp;gt;&lt;/Value&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;thc&lt;/AttributeValue&gt;
-          &lt;/Attribute&gt;
-        &lt;/CellAttributes&gt;
-      &lt;/Cell&gt;
-      &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;GEN:LABEL Name="PlacesRequestedLabel" /&amp;gt;&lt;/Value&gt;
-        &lt;CellAttributes&gt;
-          &lt;Attribute&gt;
-            &lt;Name&gt;class&lt;/Name&gt;
-            &lt;AttributeValue&gt;thc&lt;/AttributeValue&gt;
+            &lt;Name&gt;style&lt;/Name&gt;
+            &lt;AttributeValue&gt;display: none&lt;/AttributeValue&gt;
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
@@ -4672,6 +4702,10 @@
             &lt;Name&gt;class&lt;/Name&gt;
             &lt;AttributeValue&gt;thc&lt;/AttributeValue&gt;
           &lt;/Attribute&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;style&lt;/Name&gt;
+            &lt;AttributeValue&gt;display: none&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
       &lt;Cell&gt;
@@ -4679,6 +4713,82 @@
           &lt;Attribute&gt;
             &lt;Name&gt;class&lt;/Name&gt;
             &lt;AttributeValue&gt;thc&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;style&lt;/Name&gt;
+            &lt;AttributeValue&gt;display: none&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;thc&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;style&lt;/Name&gt;
+            &lt;AttributeValue&gt;display: none&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;thc&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;style&lt;/Name&gt;
+            &lt;AttributeValue&gt;display: none&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;thc&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;style&lt;/Name&gt;
+            &lt;AttributeValue&gt;display: none&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;thc&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;style&lt;/Name&gt;
+            &lt;AttributeValue&gt;display: none&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;thc&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;style&lt;/Name&gt;
+            &lt;AttributeValue&gt;display: none&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;thc&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;style&lt;/Name&gt;
+            &lt;AttributeValue&gt;display: none&lt;/AttributeValue&gt;
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
@@ -4691,7 +4801,7 @@
     &lt;/Row&gt;
     &lt;Row Type="Repeater"&gt;
       &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;GEN:FIELDVALUE NAME="AvailableWorkshopId" /&amp;gt;&lt;/Value&gt;
+        &lt;Value&gt;&amp;lt;GEN:FIELDVALUE NAME="WorkshopDescription"/&amp;gt; &lt;/Value&gt;
         &lt;CellAttributes&gt;
           &lt;Attribute&gt;
             &lt;Name&gt;class&lt;/Name&gt;
@@ -4699,12 +4809,13 @@
           &lt;/Attribute&gt;
           &lt;Attribute&gt;
             &lt;Name&gt;colspan&lt;/Name&gt;
-            &lt;AttributeValue&gt;2&lt;/AttributeValue&gt;
+            &lt;AttributeValue&gt;5&lt;/AttributeValue&gt;
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
       &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;GEN:RECORD NAME="AvailableWorkshopsRecordControl"/&amp;gt;&lt;/Value&gt;
+        &lt;Value&gt;&amp;lt;GEN:FIELDLABEL NAME="PlacesAvailableLabel2"/&amp;gt; 
+&lt;/Value&gt;
         &lt;CellAttributes&gt;
           &lt;Attribute&gt;
             &lt;Name&gt;class&lt;/Name&gt;
@@ -4713,7 +4824,44 @@
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
       &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;GEN:LITERAL NAME="WorkshopsCountControl"/&amp;gt;&lt;/Value&gt;
+        &lt;Value&gt;&amp;lt;GEN:FIELDVALUE NAME="PlacesAvailable1"/&amp;gt; &lt;/Value&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;Value&gt;&amp;lt;GEN:LABEL Name="Label2" /&amp;gt;&lt;/Value&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellLabel&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;Value&gt;&amp;lt;GEN:LITERAL NAME="WorkshopsCountControl1" /&amp;gt;&lt;/Value&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
+    &lt;/Row&gt;
+    &lt;Row Type="Repeater"&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellLabel&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
         &lt;CellAttributes&gt;
           &lt;Attribute&gt;
             &lt;Name&gt;class&lt;/Name&gt;
@@ -4726,6 +4874,124 @@
           &lt;Attribute&gt;
             &lt;Name&gt;class&lt;/Name&gt;
             &lt;AttributeValue&gt;tableCellLabel&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellLabel&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;Value&gt;&amp;lt;GEN:FIELDLABEL NAME="CostLabel"/&amp;gt; 
+&lt;/Value&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellLabel&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;Value&gt;&amp;lt;GEN:FIELDVALUE NAME="Cost"/&amp;gt; &lt;/Value&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;RowAttributes /&gt;
+    &lt;/Row&gt;
+    &lt;Row Type="Repeater"&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellLabel&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableCellValue&lt;/AttributeValue&gt;
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
@@ -4752,6 +5018,30 @@
           &lt;/Attribute&gt;
         &lt;/CellAttributes&gt;
       &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableRowDivider&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableRowDivider&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
+      &lt;Cell&gt;
+        &lt;CellAttributes&gt;
+          &lt;Attribute&gt;
+            &lt;Name&gt;class&lt;/Name&gt;
+            &lt;AttributeValue&gt;tableRowDivider&lt;/AttributeValue&gt;
+          &lt;/Attribute&gt;
+        &lt;/CellAttributes&gt;
+      &lt;/Cell&gt;
       &lt;RowAttributes /&gt;
     &lt;/Row&gt;
     &lt;Epilog /&gt;
@@ -4775,35 +5065,6 @@
       &lt;Attribute&gt;
         &lt;Name&gt;onkeydown&lt;/Name&gt;
         &lt;AttributeValue&gt;captureUpDownKey(this, event)&lt;/AttributeValue&gt;
-      &lt;/Attribute&gt;
-    &lt;/TableAttributes&gt;
-  &lt;/Layout&gt;
-  &lt;Layout Name="AvailableWorkshopsRecordControl" Type="RecordPanel" PanelControlName="AvailableWorkshopsRecordControl"&gt;
-    &lt;Prolog /&gt;
-    &lt;Row&gt;
-      &lt;Cell&gt;
-        &lt;Value&gt;&amp;lt;GEN:FIELDVALUE NAME="PlacesAvailable2" /&amp;gt;&lt;/Value&gt;
-        &lt;CellAttributes /&gt;
-      &lt;/Cell&gt;
-      &lt;RowAttributes /&gt;
-    &lt;/Row&gt;
-    &lt;Epilog /&gt;
-    &lt;TableAttributes&gt;
-      &lt;Attribute&gt;
-        &lt;Name&gt;class&lt;/Name&gt;
-        &lt;AttributeValue&gt;dv&lt;/AttributeValue&gt;
-      &lt;/Attribute&gt;
-      &lt;Attribute&gt;
-        &lt;Name&gt;cellpadding&lt;/Name&gt;
-        &lt;AttributeValue&gt;0&lt;/AttributeValue&gt;
-      &lt;/Attribute&gt;
-      &lt;Attribute&gt;
-        &lt;Name&gt;cellspacing&lt;/Name&gt;
-        &lt;AttributeValue&gt;0&lt;/AttributeValue&gt;
-      &lt;/Attribute&gt;
-      &lt;Attribute&gt;
-        &lt;Name&gt;border&lt;/Name&gt;
-        &lt;AttributeValue&gt;0&lt;/AttributeValue&gt;
       &lt;/Attribute&gt;
     &lt;/TableAttributes&gt;
   &lt;/Layout&gt;

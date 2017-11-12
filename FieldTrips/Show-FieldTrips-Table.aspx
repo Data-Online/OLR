@@ -133,31 +133,22 @@
                 </td><td class="panelR"></td></tr><tr><td class="panelBL"><img src="../Images/space.gif" class="panelBLSpace" alt="" /></td><td class="panelB"></td><td class="panelBR"><img src="../Images/space.gif" class="panelBRSpace" alt="" /></td></tr></table>
 	<asp:hiddenfield id="FieldTripsTableControl_PostbackTracker" runat="server" />
 </OLR:FieldTripsTableControl>
-</td></tr><tr><td><OLR:WorkshopsTableControl runat="server" id="WorkshopsTableControl">	<table class="dv" cellpadding="0" cellspacing="0" border="0"><tr><td class="panelTL"><img src="../Images/space.gif" class="panelTLSpace" alt="" /></td><td class="panelT"></td><td class="panelTR"><img src="../Images/space.gif" class="panelTRSpace" alt="" /></td></tr><tr><td class="panelHeaderL"></td><td class="dh">
+</td></tr><tr><td><OLR:AvailableWorkshopsTableControl runat="server" id="AvailableWorkshopsTableControl">	<table class="dv" cellpadding="0" cellspacing="0" border="0"><tr><td class="panelTL"><img src="../Images/space.gif" class="panelTLSpace" alt="" /></td><td class="panelT"></td><td class="panelTR"><img src="../Images/space.gif" class="panelTRSpace" alt="" /></td></tr><tr><td class="panelHeaderL"></td><td class="dh">
                   <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="dhel"><img src="../Images/space.gif" alt="" /></td><td class="dhb"><table cellpadding="0" cellspacing="0" border="0"><tr><td class="dht" valign="middle">
-                        <asp:Literal runat="server" id="Title1" Text="&lt;%#String.Concat(&quot;Workshops&quot;) %>">	</asp:Literal>
+                        <asp:Literal runat="server" id="Title3" Text="&lt;%#String.Concat(&quot;Available Workshops&quot;) %>">	</asp:Literal>
                       </td></tr></table>
-</td><td class="dhb"></td><td class="dher"><img src="../Images/space.gif" alt="" /></td></tr></table>
+</td><td class="dhb"></td><td class="dher"><img src="../Images/space.gif" alt="" /></td><td></td><td class="dher"><img src="../Images/space.gif" alt="" /></td></tr></table>
 
                 </td><td class="panelHeaderR"></td></tr><tr><td class="panelL"></td><td>
-                  <asp:panel id="CollapsibleRegion3" runat="server"><table class="dBody" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tre">
-                    <table id="WorkshopsTableControlGrid" cellpadding="0" cellspacing="0" border="0" width="100%" onkeydown="captureUpDownKey(this, event)"><tr class="tch"><th class="thc"></th><th class="thc"></th><th class="thc"><asp:Label runat="server" id="PlacesAvailableLabel" Text="Places Available">	</asp:Label></th><th class="thc"><asp:Label runat="server" id="PlacesRequestedLabel" Text="Places Requested">	</asp:Label></th><th class="thc"></th><th class="thc"></th></tr><asp:Repeater runat="server" id="WorkshopsTableControlRepeater">		<ITEMTEMPLATE>		<OLR:WorkshopsTableControlRow runat="server" id="WorkshopsTableControlRow">
-<tr><td class="largeText" colspan="2"><asp:Literal runat="server" id="AvailableWorkshopId"></asp:Literal></td><td class="tableCellLabel"><%= SystemUtils.GenerateEnterKeyCaptureBeginTag(FindControlRecursively("CancelButton"))%>
-<%= SystemUtils.GenerateEnterKeyCaptureBeginTag(FindControlRecursively("EditButton"))%>
-<%= SystemUtils.GenerateEnterKeyCaptureBeginTag(FindControlRecursively("OKButton"))%>
-<%= SystemUtils.GenerateEnterKeyCaptureBeginTag(FindControlRecursively("SaveAndNewButton"))%>
-<%= SystemUtils.GenerateEnterKeyCaptureBeginTag(FindControlRecursively("SaveButton"))%>
-<OLR:AvailableWorkshopsRecordControl runat="server" id="AvailableWorkshopsRecordControl">	<table class="dv" cellpadding="0" cellspacing="0" border="0"><tr><td><span style="white-space:nowrap;">
-<asp:Literal runat="server" id="PlacesAvailable2"></asp:Literal></span>
-</td></tr></table>
-	<asp:hiddenfield id="AvailableWorkshopsRecordControl_PostbackTracker" runat="server" />
-</OLR:AvailableWorkshopsRecordControl>
-<%= SystemUtils.GenerateEnterKeyCaptureEndTag(FindControlRecursively("SaveButton"))%>
-<%= SystemUtils.GenerateEnterKeyCaptureEndTag(FindControlRecursively("SaveAndNewButton"))%>
-<%= SystemUtils.GenerateEnterKeyCaptureEndTag(FindControlRecursively("OKButton"))%>
-<%= SystemUtils.GenerateEnterKeyCaptureEndTag(FindControlRecursively("EditButton"))%>
-<%= SystemUtils.GenerateEnterKeyCaptureEndTag(FindControlRecursively("CancelButton"))%>
-</td><td class="tableCellValue"><asp:Literal runat="server" id="WorkshopsCountControl">	</asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableRowDivider" colspan="6"></td></tr></OLR:WorkshopsTableControlRow>
+                  <asp:panel id="CollapsibleRegion5" runat="server"><table class="dBody" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tre">
+                    <table id="AvailableWorkshopsTableControlGrid" cellpadding="0" cellspacing="0" border="0" width="100%" onkeydown="captureUpDownKey(this, event)"><tr class="tch"><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th></tr><asp:Repeater runat="server" id="AvailableWorkshopsTableControlRepeater">		<ITEMTEMPLATE>		<OLR:AvailableWorkshopsTableControlRow runat="server" id="AvailableWorkshopsTableControlRow">
+<tr><td class="largeText" colspan="5"><asp:Literal runat="server" id="WorkshopDescription"></asp:Literal> </td><td class="tableCellLabel"><asp:Literal runat="server" id="PlacesAvailableLabel2" Text="Places Available">	</asp:Literal> 
+</td><td class="tableCellValue"><span style="white-space:nowrap;">
+<asp:Literal runat="server" id="PlacesAvailable1"></asp:Literal></span>
+ </td><td class="tableCellLabel"><asp:Label runat="server" id="Label2" Text="Total Requested">	</asp:Label></td><td class="tableCellValue"><asp:Literal runat="server" id="WorkshopsCountControl1">	</asp:Literal></td></tr><tr><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellLabel"></td><td class="tableCellLabel"><asp:Literal runat="server" id="CostLabel" Text="Cost">	</asp:Literal> 
+</td><td class="tableCellValue"><span style="white-space:nowrap;">
+<asp:Literal runat="server" id="Cost"></asp:Literal></span>
+ </td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableRowDivider" colspan="6"></td><td class="tableRowDivider"></td><td class="tableRowDivider"></td><td class="tableRowDivider"></td></tr></OLR:AvailableWorkshopsTableControlRow>
 </ITEMTEMPLATE>
 
 </asp:Repeater>
@@ -166,8 +157,8 @@
                   </td></tr></table>
 </asp:panel>
                 </td><td class="panelR"></td></tr><tr><td class="panelBL"><img src="../Images/space.gif" class="panelBLSpace" alt="" /></td><td class="panelB"></td><td class="panelBR"><img src="../Images/space.gif" class="panelBRSpace" alt="" /></td></tr></table>
-	<asp:hiddenfield id="WorkshopsTableControl_PostbackTracker" runat="server" />
-</OLR:WorkshopsTableControl>
+	<asp:hiddenfield id="AvailableWorkshopsTableControl_PostbackTracker" runat="server" />
+</OLR:AvailableWorkshopsTableControl>
 </td></tr></table>
       </ContentTemplate>
 </asp:UpdatePanel>

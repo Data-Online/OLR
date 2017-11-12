@@ -1406,6 +1406,150 @@ public class BaseView_AllDataExtractRecord : PrimaryKeyRecord
 		ColumnValue cv = new ColumnValue(val);
 		this.SetValue(cv, TableUtils.FTA1Column);
 	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.WorkshopDescription field.
+	/// </summary>
+	public ColumnValue GetWorkshopDescriptionValue()
+	{
+		return this.GetValue(TableUtils.WorkshopDescriptionColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.WorkshopDescription field.
+	/// </summary>
+	public string GetWorkshopDescriptionFieldValue()
+	{
+		return this.GetValue(TableUtils.WorkshopDescriptionColumn).ToString();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.WorkshopDescription field.
+	/// </summary>
+	public void SetWorkshopDescriptionFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.WorkshopDescriptionColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.WorkshopDescription field.
+	/// </summary>
+	public void SetWorkshopDescriptionFieldValue(string val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.WorkshopDescriptionColumn);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Attending field.
+	/// </summary>
+	public ColumnValue GetAttendingValue()
+	{
+		return this.GetValue(TableUtils.AttendingColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Attending field.
+	/// </summary>
+	public bool GetAttendingFieldValue()
+	{
+		return this.GetValue(TableUtils.AttendingColumn).ToBoolean();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Attending field.
+	/// </summary>
+	public void SetAttendingFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.AttendingColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Attending field.
+	/// </summary>
+	public void SetAttendingFieldValue(string val)
+	{
+		this.SetString(val, TableUtils.AttendingColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Attending field.
+	/// </summary>
+	public void SetAttendingFieldValue(bool val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.AttendingColumn);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.WorkshopDescription2 field.
+	/// </summary>
+	public ColumnValue GetWorkshopDescription2Value()
+	{
+		return this.GetValue(TableUtils.WorkshopDescription2Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.WorkshopDescription2 field.
+	/// </summary>
+	public string GetWorkshopDescription2FieldValue()
+	{
+		return this.GetValue(TableUtils.WorkshopDescription2Column).ToString();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.WorkshopDescription2 field.
+	/// </summary>
+	public void SetWorkshopDescription2FieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.WorkshopDescription2Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.WorkshopDescription2 field.
+	/// </summary>
+	public void SetWorkshopDescription2FieldValue(string val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.WorkshopDescription2Column);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Attending2 field.
+	/// </summary>
+	public ColumnValue GetAttending2Value()
+	{
+		return this.GetValue(TableUtils.Attending2Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Attending2 field.
+	/// </summary>
+	public bool GetAttending2FieldValue()
+	{
+		return this.GetValue(TableUtils.Attending2Column).ToBoolean();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Attending2 field.
+	/// </summary>
+	public void SetAttending2FieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.Attending2Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Attending2 field.
+	/// </summary>
+	public void SetAttending2FieldValue(string val)
+	{
+		this.SetString(val, TableUtils.Attending2Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Attending2 field.
+	/// </summary>
+	public void SetAttending2FieldValue(bool val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Attending2Column);
+	}
 
 
 #endregion
@@ -2706,6 +2850,180 @@ public class BaseView_AllDataExtractRecord : PrimaryKeyRecord
 		get
 		{
 			return TableUtils.FTA1Column.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.WorkshopDescription field.
+	/// </summary>
+	public string WorkshopDescription
+	{
+		get
+		{
+			return this.GetValue(TableUtils.WorkshopDescriptionColumn).ToString();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.WorkshopDescriptionColumn);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool WorkshopDescriptionSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.WorkshopDescriptionColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.WorkshopDescription field.
+	/// </summary>
+	public string WorkshopDescriptionDefault
+	{
+		get
+		{
+			return TableUtils.WorkshopDescriptionColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Attending field.
+	/// </summary>
+	public bool Attending
+	{
+		get
+		{
+			return this.GetValue(TableUtils.AttendingColumn).ToBoolean();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+	   		this.SetValue(cv, TableUtils.AttendingColumn);
+		}
+	}
+	
+	
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool AttendingSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.AttendingColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Attending field.
+	/// </summary>
+	public string AttendingDefault
+	{
+		get
+		{
+			return TableUtils.AttendingColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.WorkshopDescription2 field.
+	/// </summary>
+	public string WorkshopDescription2
+	{
+		get
+		{
+			return this.GetValue(TableUtils.WorkshopDescription2Column).ToString();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.WorkshopDescription2Column);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool WorkshopDescription2Specified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.WorkshopDescription2Column);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.WorkshopDescription2 field.
+	/// </summary>
+	public string WorkshopDescription2Default
+	{
+		get
+		{
+			return TableUtils.WorkshopDescription2Column.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Attending2 field.
+	/// </summary>
+	public bool Attending2
+	{
+		get
+		{
+			return this.GetValue(TableUtils.Attending2Column).ToBoolean();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+	   		this.SetValue(cv, TableUtils.Attending2Column);
+		}
+	}
+	
+	
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool Attending2Specified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.Attending2Column);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Attending2 field.
+	/// </summary>
+	public string Attending2Default
+	{
+		get
+		{
+			return TableUtils.Attending2Column.DefaultValue;
 		}
 	}
 
