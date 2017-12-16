@@ -9779,6 +9779,8 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
                   
                 e.Variables.Add("RegistrationsCountQuery2", panel.RegistrationsCountQuery2);                                                       
                         
+                e.Variables.Add("RegistrationsCountQuery3", panel.RegistrationsCountQuery3);                                                       
+                        
             }
             
             // All variables referred to in the formula are expected to be
@@ -10516,6 +10518,8 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
           //  LoadData for DataSource for chart and report if they exist
           
                   LoadData_RegistrationsCountQuery2();
+       
+                  LoadData_RegistrationsCountQuery3();
             
 
             // Setup the pagination controls.
@@ -10551,6 +10555,9 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
     
             // Call the Set methods for each controls on the panel
         
+                SetLabel3();
+                SetRegistrationsCountControl2();
+                
                 
                 
             // setting the state of expand or collapse alternative rows
@@ -10607,6 +10614,8 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                 // add datasource as variables for formula evaluation
                     
                 if (RegistrationsCountQuery2 != null) e.Variables.Add("RegistrationsCountQuery2", RegistrationsCountQuery2);                                                       
+                    
+                if (RegistrationsCountQuery3 != null) e.Variables.Add("RegistrationsCountQuery3", RegistrationsCountQuery3);                                                       
                     
             }
 
@@ -11046,6 +11055,24 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
       
         // Create Set, WhereClause, and Populate Methods
         
+        public virtual void SetLabel3()
+                  {
+                  
+                      //Code for the text property is generated inside the .aspx file. 
+                      //To override this property you can uncomment the following property and add you own value.
+                      //this.Label3.Text = "Some value";
+                    
+                    
+        }
+                
+        public virtual void SetRegistrationsCountControl2()
+                  {
+                  
+                        this.RegistrationsCountControl2.Text = EvaluateFormula("LOOKUP(RegistrationsCountQuery3, \"\")");
+                    
+                    
+        }
+                
         public virtual WhereClause CreateWhereClause_RegistrationsCountQuery2()
         
         {
@@ -11059,6 +11086,41 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
             return wc;
         }
       
+        public virtual WhereClause CreateWhereClause_RegistrationsCountQuery3()
+        
+        {
+            WhereClause wc = new WhereClause();
+            // Compose the WHERE clause consist of:
+            // 1. Static clause defined at design tithis.
+            // 2. User selected search criteria.
+            // 3. User selected filter criteria.
+
+          
+            // Get the static clause defined at design time on the Query Wizard
+            WhereClause qc = this.CreateQueryClause_RegistrationsCountQuery3();
+            if (qc != null) {
+                wc.iAND(qc);
+            }
+                      
+            return wc;
+        }
+      
+        public virtual WhereClause CreateQueryClause_RegistrationsCountQuery3()
+        
+        {
+          
+            // Create a where clause for the Static clause defined at design time.
+            CompoundFilter filter = new CompoundFilter(CompoundFilter.CompoundingOperators.And_Operator, null);
+            WhereClause whereClause = new WhereClause();
+            
+            if (EvaluateFormula("1", false) != "")filter.AddFilter(new BaseClasses.Data.ColumnValueFilter(BaseClasses.Data.BaseTable.CreateInstance(@"OLR.Business.RegistrationsTable, OLR.Business").TableDefinition.ColumnList.GetByUniqueName(@"Registrations_.AdditionalDinnerTicket"), EvaluateFormula("1", false), BaseClasses.Data.BaseFilter.ComparisonOperator.EqualsTo, false));
+         if (EvaluateFormula("1", false) == "--PLEASE_SELECT--" || EvaluateFormula("1", false) == "--ANY--") whereClause.RunQuery = false;
+
+            whereClause.AddFilter(filter, CompoundFilter.CompoundingOperators.And_Operator);
+    
+            return whereClause;
+        }
+          
         public virtual void LoadData_RegistrationsCountQuery2()
         
         {
@@ -11088,12 +11150,46 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                         
         }
       
+        public virtual void LoadData_RegistrationsCountQuery3()
+        
+        {
+          
+              if (!(this.ResetData || this.DataChanged || _RegistrationsCountQuery3.DataChanged) && this.Page.IsPostBack  && this.Page.Request["__EVENTTARGET"] != "isd_geo_location") return;
+        
+              _RegistrationsCountQuery3.DataChanged = true;
+          
+              this._RegistrationsCountQuery3.Initialize("RegistrationsCountQuery3", RegistrationsTable.Instance, 0, 0);
+            
+               
+              // Add the primary key of the record
+              WhereClause wc = CreateWhereClause_RegistrationsCountQuery3();
+              this._RegistrationsCountQuery3.WhereClause.iAND(wc);                      
+          
+              // Define selects
+          
+                    this._RegistrationsCountQuery3.AddSelectItem(new SelectItem(SelectItem.Operation.COUNT, new SelectItem(SelectItem.ItemType.AllColumns, RegistrationsTable.Instance, "RegistrationsCount", ""), "RegistrationsCount"));
+              
+              // Define joins if there are any
+          
+              this._RegistrationsCountQuery3.LoadData(false, this._RegistrationsCountQuery3.PageSize, this._RegistrationsCountQuery3.PageIndex);                       
+                        
+        }
+      
         private DataSource _RegistrationsCountQuery2 = new DataSource();
         public DataSource RegistrationsCountQuery2
         {
             get
             {
                 return _RegistrationsCountQuery2;
+             }
+        }
+      
+        private DataSource _RegistrationsCountQuery3 = new DataSource();
+        public DataSource RegistrationsCountQuery3
+        {
+            get
+            {
+                return _RegistrationsCountQuery3;
              }
         }
       
@@ -11338,6 +11434,18 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
         }
 
 #region "Helper Properties"
+        
+        public System.Web.UI.WebControls.Label Label3 {
+            get {
+                return (System.Web.UI.WebControls.Label)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Label3");
+            }
+        }
+        
+        public System.Web.UI.WebControls.Literal RegistrationsCountControl2 {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "RegistrationsCountControl2");
+            }
+        }
         
         public System.Web.UI.WebControls.Literal Title2 {
             get {

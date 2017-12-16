@@ -96,13 +96,28 @@ public class BaseView_AllDataExtractView : PrimaryKeyTable
         FTA2Column.Name = EvaluateFormula("\"Allocated2\"");
         FTA1Column.CodeName = "FTA1";
         FTA1Column.Name = EvaluateFormula("\"Allocated1\"");
-        WorkshopDescriptionColumn.CodeName = "WorkshopDescription";
-        WorkshopDescriptionColumn.Name = EvaluateFormula("\"Workshop\"");
-        AttendingColumn.CodeName = "Attending";
-        WorkshopDescription2Column.CodeName = "WorkshopDescription2";
-        WorkshopDescription2Column.Name = EvaluateFormula("\"Workshop\"");
-        Attending2Column.CodeName = "Attending2";
-        Attending2Column.Name = EvaluateFormula("\"Attending\"");
+        Item1Column.CodeName = "Item1";
+        Item1Column.Name = EvaluateFormula("\"Workshop\"");
+        Item2Column.CodeName = "Item2";
+        Item2Column.Name = EvaluateFormula("\"Workshop\"");
+        Item1aColumn.CodeName = "Item1a";
+        Item1aColumn.Name = EvaluateFormula("\"Attending\"");
+        Item2aColumn.CodeName = "Item2a";
+        Item2aColumn.Name = EvaluateFormula("\"Attending\"");
+        Item3Column.CodeName = "Item3";
+        Item3Column.Name = EvaluateFormula("\"Workshop\"");
+        Item4Column.CodeName = "Item4";
+        Item4Column.Name = EvaluateFormula("\"Workshop\"");
+        Item5Column.CodeName = "Item5";
+        Item6Column.CodeName = "Item6";
+        Item7Column.CodeName = "Item7";
+        Item3aColumn.CodeName = "Item3a";
+        Item3aColumn.Name = EvaluateFormula("\"Attending\"");
+        Item4aColumn.CodeName = "Item4a";
+        Item4aColumn.Name = EvaluateFormula("\"Attending\"");
+        Item5aColumn.CodeName = "Item5a";
+        Item6aColumn.CodeName = "Item6a";
+        Item7aColumn.CodeName = "Item7a";
 
         
     }
@@ -864,84 +879,84 @@ public class BaseView_AllDataExtractView : PrimaryKeyTable
     
     
     /// <summary>
-    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.WorkshopDescription column object.
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item1 column object.
     /// </summary>
-    public BaseClasses.Data.StringColumn WorkshopDescriptionColumn
+    public BaseClasses.Data.NumberColumn Item1Column
     {
         get
         {
-            return (BaseClasses.Data.StringColumn)this.TableDefinition.ColumnList[30];
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[30];
         }
     }
     
 
     
     /// <summary>
-    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.WorkshopDescription column object.
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item1 column object.
     /// </summary>
-    public static BaseClasses.Data.StringColumn WorkshopDescription
+    public static BaseClasses.Data.NumberColumn Item1
     {
         get
         {
-            return View_AllDataExtractView.Instance.WorkshopDescriptionColumn;
+            return View_AllDataExtractView.Instance.Item1Column;
         }
     }
     
     
     /// <summary>
-    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Attending column object.
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item2 column object.
     /// </summary>
-    public BaseClasses.Data.BooleanColumn AttendingColumn
+    public BaseClasses.Data.NumberColumn Item2Column
     {
         get
         {
-            return (BaseClasses.Data.BooleanColumn)this.TableDefinition.ColumnList[31];
-        }
-    }
-    
-
-    
-    /// <summary>
-    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Attending column object.
-    /// </summary>
-    public static BaseClasses.Data.BooleanColumn Attending
-    {
-        get
-        {
-            return View_AllDataExtractView.Instance.AttendingColumn;
-        }
-    }
-    
-    
-    /// <summary>
-    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.WorkshopDescription2 column object.
-    /// </summary>
-    public BaseClasses.Data.StringColumn WorkshopDescription2Column
-    {
-        get
-        {
-            return (BaseClasses.Data.StringColumn)this.TableDefinition.ColumnList[32];
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[31];
         }
     }
     
 
     
     /// <summary>
-    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.WorkshopDescription2 column object.
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item2 column object.
     /// </summary>
-    public static BaseClasses.Data.StringColumn WorkshopDescription2
+    public static BaseClasses.Data.NumberColumn Item2
     {
         get
         {
-            return View_AllDataExtractView.Instance.WorkshopDescription2Column;
+            return View_AllDataExtractView.Instance.Item2Column;
         }
     }
     
     
     /// <summary>
-    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Attending2 column object.
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item1a column object.
     /// </summary>
-    public BaseClasses.Data.BooleanColumn Attending2Column
+    public BaseClasses.Data.BooleanColumn Item1aColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.BooleanColumn)this.TableDefinition.ColumnList[32];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item1a column object.
+    /// </summary>
+    public static BaseClasses.Data.BooleanColumn Item1a
+    {
+        get
+        {
+            return View_AllDataExtractView.Instance.Item1aColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item2a column object.
+    /// </summary>
+    public BaseClasses.Data.BooleanColumn Item2aColumn
     {
         get
         {
@@ -952,13 +967,263 @@ public class BaseView_AllDataExtractView : PrimaryKeyTable
 
     
     /// <summary>
-    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Attending2 column object.
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item2a column object.
     /// </summary>
-    public static BaseClasses.Data.BooleanColumn Attending2
+    public static BaseClasses.Data.BooleanColumn Item2a
     {
         get
         {
-            return View_AllDataExtractView.Instance.Attending2Column;
+            return View_AllDataExtractView.Instance.Item2aColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item3 column object.
+    /// </summary>
+    public BaseClasses.Data.NumberColumn Item3Column
+    {
+        get
+        {
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[34];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item3 column object.
+    /// </summary>
+    public static BaseClasses.Data.NumberColumn Item3
+    {
+        get
+        {
+            return View_AllDataExtractView.Instance.Item3Column;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item4 column object.
+    /// </summary>
+    public BaseClasses.Data.NumberColumn Item4Column
+    {
+        get
+        {
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[35];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item4 column object.
+    /// </summary>
+    public static BaseClasses.Data.NumberColumn Item4
+    {
+        get
+        {
+            return View_AllDataExtractView.Instance.Item4Column;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item5 column object.
+    /// </summary>
+    public BaseClasses.Data.NumberColumn Item5Column
+    {
+        get
+        {
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[36];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item5 column object.
+    /// </summary>
+    public static BaseClasses.Data.NumberColumn Item5
+    {
+        get
+        {
+            return View_AllDataExtractView.Instance.Item5Column;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item6 column object.
+    /// </summary>
+    public BaseClasses.Data.NumberColumn Item6Column
+    {
+        get
+        {
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[37];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item6 column object.
+    /// </summary>
+    public static BaseClasses.Data.NumberColumn Item6
+    {
+        get
+        {
+            return View_AllDataExtractView.Instance.Item6Column;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item7 column object.
+    /// </summary>
+    public BaseClasses.Data.NumberColumn Item7Column
+    {
+        get
+        {
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[38];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item7 column object.
+    /// </summary>
+    public static BaseClasses.Data.NumberColumn Item7
+    {
+        get
+        {
+            return View_AllDataExtractView.Instance.Item7Column;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item3a column object.
+    /// </summary>
+    public BaseClasses.Data.BooleanColumn Item3aColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.BooleanColumn)this.TableDefinition.ColumnList[39];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item3a column object.
+    /// </summary>
+    public static BaseClasses.Data.BooleanColumn Item3a
+    {
+        get
+        {
+            return View_AllDataExtractView.Instance.Item3aColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item4a column object.
+    /// </summary>
+    public BaseClasses.Data.BooleanColumn Item4aColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.BooleanColumn)this.TableDefinition.ColumnList[40];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item4a column object.
+    /// </summary>
+    public static BaseClasses.Data.BooleanColumn Item4a
+    {
+        get
+        {
+            return View_AllDataExtractView.Instance.Item4aColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item5a column object.
+    /// </summary>
+    public BaseClasses.Data.BooleanColumn Item5aColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.BooleanColumn)this.TableDefinition.ColumnList[41];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item5a column object.
+    /// </summary>
+    public static BaseClasses.Data.BooleanColumn Item5a
+    {
+        get
+        {
+            return View_AllDataExtractView.Instance.Item5aColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item6a column object.
+    /// </summary>
+    public BaseClasses.Data.BooleanColumn Item6aColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.BooleanColumn)this.TableDefinition.ColumnList[42];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item6a column object.
+    /// </summary>
+    public static BaseClasses.Data.BooleanColumn Item6a
+    {
+        get
+        {
+            return View_AllDataExtractView.Instance.Item6aColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item7a column object.
+    /// </summary>
+    public BaseClasses.Data.BooleanColumn Item7aColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.BooleanColumn)this.TableDefinition.ColumnList[43];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Item7a column object.
+    /// </summary>
+    public static BaseClasses.Data.BooleanColumn Item7a
+    {
+        get
+        {
+            return View_AllDataExtractView.Instance.Item7aColumn;
         }
     }
     
@@ -1518,10 +1783,20 @@ public class BaseView_AllDataExtractView : PrimaryKeyTable
         string Description2Value, 
         string FTA2Value, 
         string FTA1Value, 
-        string WorkshopDescriptionValue, 
-        string AttendingValue, 
-        string WorkshopDescription2Value, 
-        string Attending2Value
+        string Item1Value, 
+        string Item2Value, 
+        string Item1aValue, 
+        string Item2aValue, 
+        string Item3Value, 
+        string Item4Value, 
+        string Item5Value, 
+        string Item6Value, 
+        string Item7Value, 
+        string Item3aValue, 
+        string Item4aValue, 
+        string Item5aValue, 
+        string Item6aValue, 
+        string Item7aValue
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
@@ -1555,10 +1830,20 @@ public class BaseView_AllDataExtractView : PrimaryKeyTable
         rec.SetString(Description2Value, Description2Column);
         rec.SetString(FTA2Value, FTA2Column);
         rec.SetString(FTA1Value, FTA1Column);
-        rec.SetString(WorkshopDescriptionValue, WorkshopDescriptionColumn);
-        rec.SetString(AttendingValue, AttendingColumn);
-        rec.SetString(WorkshopDescription2Value, WorkshopDescription2Column);
-        rec.SetString(Attending2Value, Attending2Column);
+        rec.SetString(Item1Value, Item1Column);
+        rec.SetString(Item2Value, Item2Column);
+        rec.SetString(Item1aValue, Item1aColumn);
+        rec.SetString(Item2aValue, Item2aColumn);
+        rec.SetString(Item3Value, Item3Column);
+        rec.SetString(Item4Value, Item4Column);
+        rec.SetString(Item5Value, Item5Column);
+        rec.SetString(Item6Value, Item6Column);
+        rec.SetString(Item7Value, Item7Column);
+        rec.SetString(Item3aValue, Item3aColumn);
+        rec.SetString(Item4aValue, Item4aColumn);
+        rec.SetString(Item5aValue, Item5aColumn);
+        rec.SetString(Item6aValue, Item6aColumn);
+        rec.SetString(Item7aValue, Item7aColumn);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized

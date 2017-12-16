@@ -21,11 +21,12 @@ using BaseClasses.Web.UI.WebControls;
         
 using OLR.Business;
 using OLR.Data;
-        
+using CustomTools;
+
 
 #endregion
 
-  
+
 namespace OLR.UI
 {
   
@@ -56,6 +57,7 @@ public partial class Show_View_AllDataExtract_Table
          
         public void LoadData()
         {
+            CustomStoredProcedures.RefreshWorkshopOneToManyTable();
             // LoadData reads database data and assigns it to UI controls.
             // Customize by adding code before or after the call to LoadData_Base()
             // or replace the call to LoadData_Base().

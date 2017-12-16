@@ -213,6 +213,16 @@ public partial class Show_View_Registered_Table
         
 
 
+//[System.Web.Services.WebMethod]
+//        public static string[] GetAutoCompletionList_PhotoClubContactLinksSearchText(string prefixText, int count)
+//        {
+//            // GetPhotoClubContactLinksSearchTextCompletionList gets the list of suggestions from the database.
+//            // prefixText is the search text typed by the user .
+//            // count specifies the number of suggestions to be returned.
+//            // Customize by adding code before or after the call to  GetAutoCompletionList_PhotoClubContactLinksSearchText_Base()
+//            // or replace the call to GetAutoCompletionList_PhotoClubContactLinksSearchText_Base().
+//            return GetAutoCompletionList_PhotoClubContactLinksSearchText_Base(prefixText, count);
+//        }
 #endregion
 
 #region "Section 2: Do not modify this section."
@@ -287,6 +297,8 @@ public partial class Show_View_Registered_Table
         public System.Web.UI.WebControls.Literal Title1;
             
         public System.Web.UI.WebControls.Literal Title2;
+            
+        public System.Web.UI.WebControls.Literal Title3;
             
         public System.Web.UI.WebControls.LinkButton TownNameLabel;
         

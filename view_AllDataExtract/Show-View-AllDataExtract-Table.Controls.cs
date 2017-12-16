@@ -179,10 +179,6 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
                 SetAddress2Label();
                 SetAddress3();
                 SetAddress3Label();
-                SetAttending();
-                SetAttending2();
-                SetAttending2Label();
-                SetAttendingLabel();
                 SetContactId();
                 SetContactIdLabel();
                 SetDatePaid();
@@ -213,6 +209,22 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
                 SetFTA2Label();
                 SetInitialCreationDate();
                 SetInitialCreationDateLabel();
+                SetItem1();
+                SetItem1a();
+                SetItem1aLabel();
+                SetItem1Label();
+                SetItem2();
+                SetItem2a();
+                SetItem2aLabel();
+                SetItem2Label();
+                SetItem3();
+                SetItem3a();
+                SetItem3aLabel();
+                SetItem3Label();
+                SetItem4();
+                SetItem4a();
+                SetItem4aLabel();
+                SetItem4Label();
                 SetLastName();
                 SetLastNameLabel();
                 SetMobileNumber();
@@ -231,10 +243,6 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
                 SetSpecialRequirementsLabel();
                 SetTownName();
                 SetTownNameLabel();
-                SetWorkshopDescription();
-                SetWorkshopDescription2();
-                SetWorkshopDescription2Label();
-                SetWorkshopDescriptionLabel();
 
       
 
@@ -454,86 +462,6 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
                 this.Address3.Text.Trim().Length == 0) {
                 // Set the value specified on the Properties.
                 this.Address3.Text = "&nbsp;";
-            }
-                                     
-        }
-                
-        public virtual void SetAttending()
-        {
-            
-                    
-            // Set the Attending Literal on the webpage with value from the
-            // DatabaseOLR_db%dbo.view_AllDataExtract database record.
-
-            // this.DataSource is the DatabaseOLR_db%dbo.view_AllDataExtract record retrieved from the database.
-            // this.Attending is the ASP:Literal on the webpage.
-                  
-            if (this.DataSource != null && this.DataSource.AttendingSpecified) {
-                								
-                // If the Attending is non-NULL, then format the value.
-                // The Format method will use the Display Format
-               string formattedValue = this.DataSource.Format(View_AllDataExtractView.Attending);
-                                
-                formattedValue = HttpUtility.HtmlEncode(formattedValue);
-                this.Attending.Text = formattedValue;
-                   
-            } 
-            
-            else {
-            
-                // Attending is NULL in the database, so use the Default Value.  
-                // Default Value could also be NULL.
-        
-              this.Attending.Text = View_AllDataExtractView.Attending.Format(View_AllDataExtractView.Attending.DefaultValue);
-            		
-            }
-            
-            // If the Attending is NULL or blank, then use the value specified  
-            // on Properties.
-            if (this.Attending.Text == null ||
-                this.Attending.Text.Trim().Length == 0) {
-                // Set the value specified on the Properties.
-                this.Attending.Text = "&nbsp;";
-            }
-                                     
-        }
-                
-        public virtual void SetAttending2()
-        {
-            
-                    
-            // Set the Attending2 Literal on the webpage with value from the
-            // DatabaseOLR_db%dbo.view_AllDataExtract database record.
-
-            // this.DataSource is the DatabaseOLR_db%dbo.view_AllDataExtract record retrieved from the database.
-            // this.Attending2 is the ASP:Literal on the webpage.
-                  
-            if (this.DataSource != null && this.DataSource.Attending2Specified) {
-                								
-                // If the Attending2 is non-NULL, then format the value.
-                // The Format method will use the Display Format
-               string formattedValue = this.DataSource.Format(View_AllDataExtractView.Attending2);
-                                
-                formattedValue = HttpUtility.HtmlEncode(formattedValue);
-                this.Attending2.Text = formattedValue;
-                   
-            } 
-            
-            else {
-            
-                // Attending2 is NULL in the database, so use the Default Value.  
-                // Default Value could also be NULL.
-        
-              this.Attending2.Text = View_AllDataExtractView.Attending2.Format(View_AllDataExtractView.Attending2.DefaultValue);
-            		
-            }
-            
-            // If the Attending2 is NULL or blank, then use the value specified  
-            // on Properties.
-            if (this.Attending2.Text == null ||
-                this.Attending2.Text.Trim().Length == 0) {
-                // Set the value specified on the Properties.
-                this.Attending2.Text = "&nbsp;";
             }
                                      
         }
@@ -1146,6 +1074,358 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
                                      
         }
                 
+        public virtual void SetItem1()
+        {
+            
+                    
+            // Set the Item1 Literal on the webpage with value from the
+            // DatabaseOLR_db%dbo.view_AllDataExtract database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.view_AllDataExtract record retrieved from the database.
+            // this.Item1 is the ASP:Literal on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.Item1Specified) {
+                								
+                // If the Item1 is non-NULL, then format the value.
+                // The Format method will return the Display Foreign Key As (DFKA) value
+               string formattedValue = "";
+               Boolean _isExpandableNonCompositeForeignKey = View_AllDataExtractView.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(View_AllDataExtractView.Item1);
+               if(_isExpandableNonCompositeForeignKey &&View_AllDataExtractView.Item1.IsApplyDisplayAs)
+                                  
+                     formattedValue = View_AllDataExtractView.GetDFKA(this.DataSource.Item1.ToString(),View_AllDataExtractView.Item1, null);
+                                    
+               if ((!_isExpandableNonCompositeForeignKey) || (String.IsNullOrEmpty(formattedValue)))
+                     formattedValue = this.DataSource.Format(View_AllDataExtractView.Item1);
+                                  
+                                
+                formattedValue = HttpUtility.HtmlEncode(formattedValue);
+                this.Item1.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // Item1 is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.Item1.Text = View_AllDataExtractView.Item1.Format(View_AllDataExtractView.Item1.DefaultValue);
+            		
+            }
+            
+            // If the Item1 is NULL or blank, then use the value specified  
+            // on Properties.
+            if (this.Item1.Text == null ||
+                this.Item1.Text.Trim().Length == 0) {
+                // Set the value specified on the Properties.
+                this.Item1.Text = "&nbsp;";
+            }
+                                     
+        }
+                
+        public virtual void SetItem1a()
+        {
+            
+                    
+            // Set the Item1a Literal on the webpage with value from the
+            // DatabaseOLR_db%dbo.view_AllDataExtract database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.view_AllDataExtract record retrieved from the database.
+            // this.Item1a is the ASP:Literal on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.Item1aSpecified) {
+                								
+                // If the Item1a is non-NULL, then format the value.
+                // The Format method will use the Display Format
+               string formattedValue = this.DataSource.Format(View_AllDataExtractView.Item1a);
+                                
+                formattedValue = HttpUtility.HtmlEncode(formattedValue);
+                this.Item1a.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // Item1a is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.Item1a.Text = View_AllDataExtractView.Item1a.Format(View_AllDataExtractView.Item1a.DefaultValue);
+            		
+            }
+            
+            // If the Item1a is NULL or blank, then use the value specified  
+            // on Properties.
+            if (this.Item1a.Text == null ||
+                this.Item1a.Text.Trim().Length == 0) {
+                // Set the value specified on the Properties.
+                this.Item1a.Text = "&nbsp;";
+            }
+                                     
+        }
+                
+        public virtual void SetItem2()
+        {
+            
+                    
+            // Set the Item2 Literal on the webpage with value from the
+            // DatabaseOLR_db%dbo.view_AllDataExtract database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.view_AllDataExtract record retrieved from the database.
+            // this.Item2 is the ASP:Literal on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.Item2Specified) {
+                								
+                // If the Item2 is non-NULL, then format the value.
+                // The Format method will return the Display Foreign Key As (DFKA) value
+               string formattedValue = "";
+               Boolean _isExpandableNonCompositeForeignKey = View_AllDataExtractView.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(View_AllDataExtractView.Item2);
+               if(_isExpandableNonCompositeForeignKey &&View_AllDataExtractView.Item2.IsApplyDisplayAs)
+                                  
+                     formattedValue = View_AllDataExtractView.GetDFKA(this.DataSource.Item2.ToString(),View_AllDataExtractView.Item2, null);
+                                    
+               if ((!_isExpandableNonCompositeForeignKey) || (String.IsNullOrEmpty(formattedValue)))
+                     formattedValue = this.DataSource.Format(View_AllDataExtractView.Item2);
+                                  
+                                
+                formattedValue = HttpUtility.HtmlEncode(formattedValue);
+                this.Item2.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // Item2 is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.Item2.Text = View_AllDataExtractView.Item2.Format(View_AllDataExtractView.Item2.DefaultValue);
+            		
+            }
+            
+            // If the Item2 is NULL or blank, then use the value specified  
+            // on Properties.
+            if (this.Item2.Text == null ||
+                this.Item2.Text.Trim().Length == 0) {
+                // Set the value specified on the Properties.
+                this.Item2.Text = "&nbsp;";
+            }
+                                     
+        }
+                
+        public virtual void SetItem2a()
+        {
+            
+                    
+            // Set the Item2a Literal on the webpage with value from the
+            // DatabaseOLR_db%dbo.view_AllDataExtract database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.view_AllDataExtract record retrieved from the database.
+            // this.Item2a is the ASP:Literal on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.Item2aSpecified) {
+                								
+                // If the Item2a is non-NULL, then format the value.
+                // The Format method will use the Display Format
+               string formattedValue = this.DataSource.Format(View_AllDataExtractView.Item2a);
+                                
+                formattedValue = HttpUtility.HtmlEncode(formattedValue);
+                this.Item2a.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // Item2a is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.Item2a.Text = View_AllDataExtractView.Item2a.Format(View_AllDataExtractView.Item2a.DefaultValue);
+            		
+            }
+            
+            // If the Item2a is NULL or blank, then use the value specified  
+            // on Properties.
+            if (this.Item2a.Text == null ||
+                this.Item2a.Text.Trim().Length == 0) {
+                // Set the value specified on the Properties.
+                this.Item2a.Text = "&nbsp;";
+            }
+                                     
+        }
+                
+        public virtual void SetItem3()
+        {
+            
+                    
+            // Set the Item3 Literal on the webpage with value from the
+            // DatabaseOLR_db%dbo.view_AllDataExtract database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.view_AllDataExtract record retrieved from the database.
+            // this.Item3 is the ASP:Literal on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.Item3Specified) {
+                								
+                // If the Item3 is non-NULL, then format the value.
+                // The Format method will return the Display Foreign Key As (DFKA) value
+               string formattedValue = "";
+               Boolean _isExpandableNonCompositeForeignKey = View_AllDataExtractView.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(View_AllDataExtractView.Item3);
+               if(_isExpandableNonCompositeForeignKey &&View_AllDataExtractView.Item3.IsApplyDisplayAs)
+                                  
+                     formattedValue = View_AllDataExtractView.GetDFKA(this.DataSource.Item3.ToString(),View_AllDataExtractView.Item3, null);
+                                    
+               if ((!_isExpandableNonCompositeForeignKey) || (String.IsNullOrEmpty(formattedValue)))
+                     formattedValue = this.DataSource.Format(View_AllDataExtractView.Item3);
+                                  
+                                
+                formattedValue = HttpUtility.HtmlEncode(formattedValue);
+                this.Item3.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // Item3 is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.Item3.Text = View_AllDataExtractView.Item3.Format(View_AllDataExtractView.Item3.DefaultValue);
+            		
+            }
+            
+            // If the Item3 is NULL or blank, then use the value specified  
+            // on Properties.
+            if (this.Item3.Text == null ||
+                this.Item3.Text.Trim().Length == 0) {
+                // Set the value specified on the Properties.
+                this.Item3.Text = "&nbsp;";
+            }
+                                     
+        }
+                
+        public virtual void SetItem3a()
+        {
+            
+                    
+            // Set the Item3a Literal on the webpage with value from the
+            // DatabaseOLR_db%dbo.view_AllDataExtract database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.view_AllDataExtract record retrieved from the database.
+            // this.Item3a is the ASP:Literal on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.Item3aSpecified) {
+                								
+                // If the Item3a is non-NULL, then format the value.
+                // The Format method will use the Display Format
+               string formattedValue = this.DataSource.Format(View_AllDataExtractView.Item3a);
+                                
+                formattedValue = HttpUtility.HtmlEncode(formattedValue);
+                this.Item3a.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // Item3a is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.Item3a.Text = View_AllDataExtractView.Item3a.Format(View_AllDataExtractView.Item3a.DefaultValue);
+            		
+            }
+            
+            // If the Item3a is NULL or blank, then use the value specified  
+            // on Properties.
+            if (this.Item3a.Text == null ||
+                this.Item3a.Text.Trim().Length == 0) {
+                // Set the value specified on the Properties.
+                this.Item3a.Text = "&nbsp;";
+            }
+                                     
+        }
+                
+        public virtual void SetItem4()
+        {
+            
+                    
+            // Set the Item4 Literal on the webpage with value from the
+            // DatabaseOLR_db%dbo.view_AllDataExtract database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.view_AllDataExtract record retrieved from the database.
+            // this.Item4 is the ASP:Literal on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.Item4Specified) {
+                								
+                // If the Item4 is non-NULL, then format the value.
+                // The Format method will return the Display Foreign Key As (DFKA) value
+               string formattedValue = "";
+               Boolean _isExpandableNonCompositeForeignKey = View_AllDataExtractView.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(View_AllDataExtractView.Item4);
+               if(_isExpandableNonCompositeForeignKey &&View_AllDataExtractView.Item4.IsApplyDisplayAs)
+                                  
+                     formattedValue = View_AllDataExtractView.GetDFKA(this.DataSource.Item4.ToString(),View_AllDataExtractView.Item4, null);
+                                    
+               if ((!_isExpandableNonCompositeForeignKey) || (String.IsNullOrEmpty(formattedValue)))
+                     formattedValue = this.DataSource.Format(View_AllDataExtractView.Item4);
+                                  
+                                
+                formattedValue = HttpUtility.HtmlEncode(formattedValue);
+                this.Item4.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // Item4 is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.Item4.Text = View_AllDataExtractView.Item4.Format(View_AllDataExtractView.Item4.DefaultValue);
+            		
+            }
+            
+            // If the Item4 is NULL or blank, then use the value specified  
+            // on Properties.
+            if (this.Item4.Text == null ||
+                this.Item4.Text.Trim().Length == 0) {
+                // Set the value specified on the Properties.
+                this.Item4.Text = "&nbsp;";
+            }
+                                     
+        }
+                
+        public virtual void SetItem4a()
+        {
+            
+                    
+            // Set the Item4a Literal on the webpage with value from the
+            // DatabaseOLR_db%dbo.view_AllDataExtract database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.view_AllDataExtract record retrieved from the database.
+            // this.Item4a is the ASP:Literal on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.Item4aSpecified) {
+                								
+                // If the Item4a is non-NULL, then format the value.
+                // The Format method will use the Display Format
+               string formattedValue = this.DataSource.Format(View_AllDataExtractView.Item4a);
+                                
+                formattedValue = HttpUtility.HtmlEncode(formattedValue);
+                this.Item4a.Text = formattedValue;
+                   
+            } 
+            
+            else {
+            
+                // Item4a is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+        
+              this.Item4a.Text = View_AllDataExtractView.Item4a.Format(View_AllDataExtractView.Item4a.DefaultValue);
+            		
+            }
+            
+            // If the Item4a is NULL or blank, then use the value specified  
+            // on Properties.
+            if (this.Item4a.Text == null ||
+                this.Item4a.Text.Trim().Length == 0) {
+                // Set the value specified on the Properties.
+                this.Item4a.Text = "&nbsp;";
+            }
+                                     
+        }
+                
         public virtual void SetLastName()
         {
             
@@ -1506,86 +1786,6 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
                                      
         }
                 
-        public virtual void SetWorkshopDescription()
-        {
-            
-                    
-            // Set the WorkshopDescription Literal on the webpage with value from the
-            // DatabaseOLR_db%dbo.view_AllDataExtract database record.
-
-            // this.DataSource is the DatabaseOLR_db%dbo.view_AllDataExtract record retrieved from the database.
-            // this.WorkshopDescription is the ASP:Literal on the webpage.
-                  
-            if (this.DataSource != null && this.DataSource.WorkshopDescriptionSpecified) {
-                								
-                // If the WorkshopDescription is non-NULL, then format the value.
-                // The Format method will use the Display Format
-               string formattedValue = this.DataSource.Format(View_AllDataExtractView.WorkshopDescription);
-                                
-                formattedValue = HttpUtility.HtmlEncode(formattedValue);
-                this.WorkshopDescription.Text = formattedValue;
-                   
-            } 
-            
-            else {
-            
-                // WorkshopDescription is NULL in the database, so use the Default Value.  
-                // Default Value could also be NULL.
-        
-              this.WorkshopDescription.Text = View_AllDataExtractView.WorkshopDescription.Format(View_AllDataExtractView.WorkshopDescription.DefaultValue);
-            		
-            }
-            
-            // If the WorkshopDescription is NULL or blank, then use the value specified  
-            // on Properties.
-            if (this.WorkshopDescription.Text == null ||
-                this.WorkshopDescription.Text.Trim().Length == 0) {
-                // Set the value specified on the Properties.
-                this.WorkshopDescription.Text = "&nbsp;";
-            }
-                                     
-        }
-                
-        public virtual void SetWorkshopDescription2()
-        {
-            
-                    
-            // Set the WorkshopDescription2 Literal on the webpage with value from the
-            // DatabaseOLR_db%dbo.view_AllDataExtract database record.
-
-            // this.DataSource is the DatabaseOLR_db%dbo.view_AllDataExtract record retrieved from the database.
-            // this.WorkshopDescription2 is the ASP:Literal on the webpage.
-                  
-            if (this.DataSource != null && this.DataSource.WorkshopDescription2Specified) {
-                								
-                // If the WorkshopDescription2 is non-NULL, then format the value.
-                // The Format method will use the Display Format
-               string formattedValue = this.DataSource.Format(View_AllDataExtractView.WorkshopDescription2);
-                                
-                formattedValue = HttpUtility.HtmlEncode(formattedValue);
-                this.WorkshopDescription2.Text = formattedValue;
-                   
-            } 
-            
-            else {
-            
-                // WorkshopDescription2 is NULL in the database, so use the Default Value.  
-                // Default Value could also be NULL.
-        
-              this.WorkshopDescription2.Text = View_AllDataExtractView.WorkshopDescription2.Format(View_AllDataExtractView.WorkshopDescription2.DefaultValue);
-            		
-            }
-            
-            // If the WorkshopDescription2 is NULL or blank, then use the value specified  
-            // on Properties.
-            if (this.WorkshopDescription2.Text == null ||
-                this.WorkshopDescription2.Text.Trim().Length == 0) {
-                // Set the value specified on the Properties.
-                this.WorkshopDescription2.Text = "&nbsp;";
-            }
-                                     
-        }
-                
         public virtual void SetAdditionalDinnerNameLabel()
                   {
                   
@@ -1611,20 +1811,6 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
         }
                 
         public virtual void SetAddress3Label()
-                  {
-                  
-                    
-        }
-                
-        public virtual void SetAttending2Label()
-                  {
-                  
-                        this.Attending2Label.Text = EvaluateFormula("\"Attending\"");
-                      
-                    
-        }
-                
-        public virtual void SetAttendingLabel()
                   {
                   
                     
@@ -1736,6 +1922,70 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
                     
         }
                 
+        public virtual void SetItem1aLabel()
+                  {
+                  
+                        this.Item1aLabel.Text = EvaluateFormula("\"Attending\"");
+                      
+                    
+        }
+                
+        public virtual void SetItem1Label()
+                  {
+                  
+                        this.Item1Label.Text = EvaluateFormula("\"Workshop\"");
+                      
+                    
+        }
+                
+        public virtual void SetItem2aLabel()
+                  {
+                  
+                        this.Item2aLabel.Text = EvaluateFormula("\"Attending\"");
+                      
+                    
+        }
+                
+        public virtual void SetItem2Label()
+                  {
+                  
+                        this.Item2Label.Text = EvaluateFormula("\"Workshop\"");
+                      
+                    
+        }
+                
+        public virtual void SetItem3aLabel()
+                  {
+                  
+                        this.Item3aLabel.Text = EvaluateFormula("\"Attending\"");
+                      
+                    
+        }
+                
+        public virtual void SetItem3Label()
+                  {
+                  
+                        this.Item3Label.Text = EvaluateFormula("\"Workshop\"");
+                      
+                    
+        }
+                
+        public virtual void SetItem4aLabel()
+                  {
+                  
+                        this.Item4aLabel.Text = EvaluateFormula("\"Attending\"");
+                      
+                    
+        }
+                
+        public virtual void SetItem4Label()
+                  {
+                  
+                        this.Item4Label.Text = EvaluateFormula("\"Workshop\"");
+                      
+                    
+        }
+                
         public virtual void SetLastNameLabel()
                   {
                   
@@ -1787,22 +2037,6 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
         public virtual void SetTownNameLabel()
                   {
                   
-                    
-        }
-                
-        public virtual void SetWorkshopDescription2Label()
-                  {
-                  
-                        this.WorkshopDescription2Label.Text = EvaluateFormula("\"Workshop\"");
-                      
-                    
-        }
-                
-        public virtual void SetWorkshopDescriptionLabel()
-                  {
-                  
-                        this.WorkshopDescriptionLabel.Text = EvaluateFormula("\"Workshop\"");
-                      
                     
         }
                 
@@ -1965,8 +2199,6 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
             GetAddress1();
             GetAddress2();
             GetAddress3();
-            GetAttending();
-            GetAttending2();
             GetContactId();
             GetDatePaid();
             GetDescription1();
@@ -1982,6 +2214,14 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
             GetFTA1();
             GetFTA2();
             GetInitialCreationDate();
+            GetItem1();
+            GetItem1a();
+            GetItem2();
+            GetItem2a();
+            GetItem3();
+            GetItem3a();
+            GetItem4();
+            GetItem4a();
             GetLastName();
             GetMobileNumber();
             GetPSNZAppliedFor();
@@ -1991,8 +2231,6 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
             GetRegistrationType();
             GetSpecialRequirements();
             GetTownName();
-            GetWorkshopDescription();
-            GetWorkshopDescription2();
         }
         
         
@@ -2017,16 +2255,6 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
         }
                 
         public virtual void GetAddress3()
-        {
-            
-        }
-                
-        public virtual void GetAttending()
-        {
-            
-        }
-                
-        public virtual void GetAttending2()
         {
             
         }
@@ -2106,6 +2334,46 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
             
         }
                 
+        public virtual void GetItem1()
+        {
+            
+        }
+                
+        public virtual void GetItem1a()
+        {
+            
+        }
+                
+        public virtual void GetItem2()
+        {
+            
+        }
+                
+        public virtual void GetItem2a()
+        {
+            
+        }
+                
+        public virtual void GetItem3()
+        {
+            
+        }
+                
+        public virtual void GetItem3a()
+        {
+            
+        }
+                
+        public virtual void GetItem4()
+        {
+            
+        }
+                
+        public virtual void GetItem4a()
+        {
+            
+        }
+                
         public virtual void GetLastName()
         {
             
@@ -2147,16 +2415,6 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
         }
                 
         public virtual void GetTownName()
-        {
-            
-        }
-                
-        public virtual void GetWorkshopDescription()
-        {
-            
-        }
-                
-        public virtual void GetWorkshopDescription2()
         {
             
         }
@@ -2820,30 +3078,6 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
             }
         }
         
-        public System.Web.UI.WebControls.Literal Attending {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Attending");
-            }
-        }
-            
-        public System.Web.UI.WebControls.Literal Attending2 {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Attending2");
-            }
-        }
-            
-        public System.Web.UI.WebControls.Literal Attending2Label {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Attending2Label");
-            }
-        }
-        
-        public System.Web.UI.WebControls.Literal AttendingLabel {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "AttendingLabel");
-            }
-        }
-        
         public System.Web.UI.WebControls.Literal ContactId {
             get {
                 return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "ContactId");
@@ -3024,6 +3258,102 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
             }
         }
         
+        public System.Web.UI.WebControls.Literal Item1 {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Item1");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal Item1a {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Item1a");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal Item1aLabel {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Item1aLabel");
+            }
+        }
+        
+        public System.Web.UI.WebControls.Literal Item1Label {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Item1Label");
+            }
+        }
+        
+        public System.Web.UI.WebControls.Literal Item2 {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Item2");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal Item2a {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Item2a");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal Item2aLabel {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Item2aLabel");
+            }
+        }
+        
+        public System.Web.UI.WebControls.Literal Item2Label {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Item2Label");
+            }
+        }
+        
+        public System.Web.UI.WebControls.Literal Item3 {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Item3");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal Item3a {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Item3a");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal Item3aLabel {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Item3aLabel");
+            }
+        }
+        
+        public System.Web.UI.WebControls.Literal Item3Label {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Item3Label");
+            }
+        }
+        
+        public System.Web.UI.WebControls.Literal Item4 {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Item4");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal Item4a {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Item4a");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal Item4aLabel {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Item4aLabel");
+            }
+        }
+        
+        public System.Web.UI.WebControls.Literal Item4Label {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Item4Label");
+            }
+        }
+        
         public System.Web.UI.WebControls.Literal LastName {
             get {
                 return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "LastName");
@@ -3129,30 +3459,6 @@ public class BaseView_AllDataExtractTableControlRow : OLR.UI.BaseApplicationReco
         public System.Web.UI.WebControls.Literal TownNameLabel {
             get {
                 return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "TownNameLabel");
-            }
-        }
-        
-        public System.Web.UI.WebControls.Literal WorkshopDescription {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "WorkshopDescription");
-            }
-        }
-            
-        public System.Web.UI.WebControls.Literal WorkshopDescription2 {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "WorkshopDescription2");
-            }
-        }
-            
-        public System.Web.UI.WebControls.Literal WorkshopDescription2Label {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "WorkshopDescription2Label");
-            }
-        }
-        
-        public System.Web.UI.WebControls.Literal WorkshopDescriptionLabel {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "WorkshopDescriptionLabel");
             }
         }
         
@@ -3701,6 +4007,10 @@ public class BaseView_AllDataExtractTableControl : OLR.UI.BaseApplicationTableCo
             this.Page.PregetDfkaRecords(View_AllDataExtractView.FT2_3, this.DataSource);
             this.Page.PregetDfkaRecords(View_AllDataExtractView.FTA1, this.DataSource);
             this.Page.PregetDfkaRecords(View_AllDataExtractView.FTA2, this.DataSource);
+            this.Page.PregetDfkaRecords(View_AllDataExtractView.Item1, this.DataSource);
+            this.Page.PregetDfkaRecords(View_AllDataExtractView.Item2, this.DataSource);
+            this.Page.PregetDfkaRecords(View_AllDataExtractView.Item3, this.DataSource);
+            this.Page.PregetDfkaRecords(View_AllDataExtractView.Item4, this.DataSource);
         }
         
 
@@ -4322,14 +4632,6 @@ public class BaseView_AllDataExtractTableControl : OLR.UI.BaseApplicationTableCo
                             rec.Parse(recControl.Address3.Text, View_AllDataExtractView.Address3);
                   }
                 
-                        if (recControl.Attending.Text != "") {
-                            rec.Parse(recControl.Attending.Text, View_AllDataExtractView.Attending);
-                  }
-                
-                        if (recControl.Attending2.Text != "") {
-                            rec.Parse(recControl.Attending2.Text, View_AllDataExtractView.Attending2);
-                  }
-                
                         if (recControl.ContactId.Text != "") {
                             rec.Parse(recControl.ContactId.Text, View_AllDataExtractView.ContactId);
                   }
@@ -4390,6 +4692,38 @@ public class BaseView_AllDataExtractTableControl : OLR.UI.BaseApplicationTableCo
                             rec.Parse(recControl.InitialCreationDate.Text, View_AllDataExtractView.InitialCreationDate);
                   }
                 
+                        if (recControl.Item1.Text != "") {
+                            rec.Parse(recControl.Item1.Text, View_AllDataExtractView.Item1);
+                  }
+                
+                        if (recControl.Item1a.Text != "") {
+                            rec.Parse(recControl.Item1a.Text, View_AllDataExtractView.Item1a);
+                  }
+                
+                        if (recControl.Item2.Text != "") {
+                            rec.Parse(recControl.Item2.Text, View_AllDataExtractView.Item2);
+                  }
+                
+                        if (recControl.Item2a.Text != "") {
+                            rec.Parse(recControl.Item2a.Text, View_AllDataExtractView.Item2a);
+                  }
+                
+                        if (recControl.Item3.Text != "") {
+                            rec.Parse(recControl.Item3.Text, View_AllDataExtractView.Item3);
+                  }
+                
+                        if (recControl.Item3a.Text != "") {
+                            rec.Parse(recControl.Item3a.Text, View_AllDataExtractView.Item3a);
+                  }
+                
+                        if (recControl.Item4.Text != "") {
+                            rec.Parse(recControl.Item4.Text, View_AllDataExtractView.Item4);
+                  }
+                
+                        if (recControl.Item4a.Text != "") {
+                            rec.Parse(recControl.Item4a.Text, View_AllDataExtractView.Item4a);
+                  }
+                
                         if (recControl.LastName.Text != "") {
                             rec.Parse(recControl.LastName.Text, View_AllDataExtractView.LastName);
                   }
@@ -4424,14 +4758,6 @@ public class BaseView_AllDataExtractTableControl : OLR.UI.BaseApplicationTableCo
                 
                         if (recControl.TownName.Text != "") {
                             rec.Parse(recControl.TownName.Text, View_AllDataExtractView.TownName);
-                  }
-                
-                        if (recControl.WorkshopDescription.Text != "") {
-                            rec.Parse(recControl.WorkshopDescription.Text, View_AllDataExtractView.WorkshopDescription);
-                  }
-                
-                        if (recControl.WorkshopDescription2.Text != "") {
-                            rec.Parse(recControl.WorkshopDescription2.Text, View_AllDataExtractView.WorkshopDescription2);
                   }
                 
               newUIDataList.Add(recControl.PreservedUIData());
@@ -4580,21 +4906,61 @@ public class BaseView_AllDataExtractTableControl : OLR.UI.BaseApplicationTableCo
               
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Registration {Txt:Descending}"), "RegistrationId Desc"));
               
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Attending 2 {Txt:Ascending}"), "Attending2 Asc"));
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 1 A {Txt:Ascending}"), "Item1a Asc"));
               
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Attending 2 {Txt:Descending}"), "Attending2 Desc"));
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 1 A {Txt:Descending}"), "Item1a Desc"));
               
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Attending {Txt:Ascending}"), "Attending Asc"));
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 6 {Txt:Ascending}"), "Item6 Asc"));
               
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Attending {Txt:Descending}"), "Attending Desc"));
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 6 {Txt:Descending}"), "Item6 Desc"));
               
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Workshop Description 2 {Txt:Ascending}"), "WorkshopDescription2 Asc"));
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 7 {Txt:Ascending}"), "Item7 Asc"));
               
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Workshop Description 2 {Txt:Descending}"), "WorkshopDescription2 Desc"));
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 7 {Txt:Descending}"), "Item7 Desc"));
               
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Workshop Description {Txt:Ascending}"), "WorkshopDescription Asc"));
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 4 {Txt:Ascending}"), "Item4 Asc"));
               
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Workshop Description {Txt:Descending}"), "WorkshopDescription Desc"));
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 4 {Txt:Descending}"), "Item4 Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 5 {Txt:Ascending}"), "Item5 Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 5 {Txt:Descending}"), "Item5 Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 2 {Txt:Ascending}"), "Item2 Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 2 {Txt:Descending}"), "Item2 Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 3 {Txt:Ascending}"), "Item3 Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 3 {Txt:Descending}"), "Item3 Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 1 {Txt:Ascending}"), "Item1 Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 1 {Txt:Descending}"), "Item1 Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 6 A {Txt:Ascending}"), "Item6a Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 6 A {Txt:Descending}"), "Item6a Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 7 A {Txt:Ascending}"), "Item7a Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 7 A {Txt:Descending}"), "Item7a Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 4 A {Txt:Ascending}"), "Item4a Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 4 A {Txt:Descending}"), "Item4a Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 5 A {Txt:Ascending}"), "Item5a Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 5 A {Txt:Descending}"), "Item5a Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 2 A {Txt:Ascending}"), "Item2a Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 2 A {Txt:Descending}"), "Item2a Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 3 A {Txt:Ascending}"), "Item3a Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Item 3 A {Txt:Descending}"), "Item3a Desc"));
               
             try
             {          
@@ -5068,10 +5434,14 @@ public class BaseView_AllDataExtractTableControl : OLR.UI.BaseApplicationTableCo
              View_AllDataExtractView.Description2,
              View_AllDataExtractView.FTA2,
              View_AllDataExtractView.FTA1,
-             View_AllDataExtractView.WorkshopDescription,
-             View_AllDataExtractView.Attending,
-             View_AllDataExtractView.WorkshopDescription2,
-             View_AllDataExtractView.Attending2,
+             View_AllDataExtractView.Item1,
+             View_AllDataExtractView.Item2,
+             View_AllDataExtractView.Item1a,
+             View_AllDataExtractView.Item2a,
+             View_AllDataExtractView.Item3,
+             View_AllDataExtractView.Item4,
+             View_AllDataExtractView.Item3a,
+             View_AllDataExtractView.Item4a,
              null};
                 ExportDataToCSV exportData = new ExportDataToCSV(View_AllDataExtractView.Instance,wc,orderBy,columns);
                 exportData.StartExport(this.Page.Response, true);
@@ -5156,10 +5526,14 @@ public class BaseView_AllDataExtractTableControl : OLR.UI.BaseApplicationTableCo
              data.ColumnList.Add(new ExcelColumn(View_AllDataExtractView.Description2, "Default"));
              data.ColumnList.Add(new ExcelColumn(View_AllDataExtractView.FTA2, "Default"));
              data.ColumnList.Add(new ExcelColumn(View_AllDataExtractView.FTA1, "Default"));
-             data.ColumnList.Add(new ExcelColumn(View_AllDataExtractView.WorkshopDescription, "Default"));
-             data.ColumnList.Add(new ExcelColumn(View_AllDataExtractView.Attending, "Default"));
-             data.ColumnList.Add(new ExcelColumn(View_AllDataExtractView.WorkshopDescription2, "Default"));
-             data.ColumnList.Add(new ExcelColumn(View_AllDataExtractView.Attending2, "Default"));
+             data.ColumnList.Add(new ExcelColumn(View_AllDataExtractView.Item1, "Default"));
+             data.ColumnList.Add(new ExcelColumn(View_AllDataExtractView.Item2, "Default"));
+             data.ColumnList.Add(new ExcelColumn(View_AllDataExtractView.Item1a, "Default"));
+             data.ColumnList.Add(new ExcelColumn(View_AllDataExtractView.Item2a, "Default"));
+             data.ColumnList.Add(new ExcelColumn(View_AllDataExtractView.Item3, "Default"));
+             data.ColumnList.Add(new ExcelColumn(View_AllDataExtractView.Item4, "Default"));
+             data.ColumnList.Add(new ExcelColumn(View_AllDataExtractView.Item3a, "Default"));
+             data.ColumnList.Add(new ExcelColumn(View_AllDataExtractView.Item4a, "Default"));
 
 
               //  First write out the Column Headers
@@ -5361,10 +5735,14 @@ public class BaseView_AllDataExtractTableControl : OLR.UI.BaseApplicationTableCo
                  report.AddColumn(View_AllDataExtractView.Description2.Name, ReportEnum.Align.Left, "${Description2}", ReportEnum.Align.Left, 28);
                  report.AddColumn(View_AllDataExtractView.FTA2.Name, ReportEnum.Align.Left, "${FTA2}", ReportEnum.Align.Left, 22);
                  report.AddColumn(View_AllDataExtractView.FTA1.Name, ReportEnum.Align.Left, "${FTA1}", ReportEnum.Align.Left, 22);
-                 report.AddColumn(View_AllDataExtractView.WorkshopDescription.Name, ReportEnum.Align.Left, "${WorkshopDescription}", ReportEnum.Align.Left, 28);
-                 report.AddColumn(View_AllDataExtractView.Attending.Name, ReportEnum.Align.Left, "${Attending}", ReportEnum.Align.Left, 15);
-                 report.AddColumn(View_AllDataExtractView.WorkshopDescription2.Name, ReportEnum.Align.Left, "${WorkshopDescription2}", ReportEnum.Align.Left, 28);
-                 report.AddColumn(View_AllDataExtractView.Attending2.Name, ReportEnum.Align.Left, "${Attending2}", ReportEnum.Align.Left, 15);
+                 report.AddColumn(View_AllDataExtractView.Item1.Name, ReportEnum.Align.Left, "${Item1}", ReportEnum.Align.Left, 27);
+                 report.AddColumn(View_AllDataExtractView.Item2.Name, ReportEnum.Align.Left, "${Item2}", ReportEnum.Align.Left, 27);
+                 report.AddColumn(View_AllDataExtractView.Item1a.Name, ReportEnum.Align.Left, "${Item1a}", ReportEnum.Align.Left, 15);
+                 report.AddColumn(View_AllDataExtractView.Item2a.Name, ReportEnum.Align.Left, "${Item2a}", ReportEnum.Align.Left, 15);
+                 report.AddColumn(View_AllDataExtractView.Item3.Name, ReportEnum.Align.Left, "${Item3}", ReportEnum.Align.Left, 27);
+                 report.AddColumn(View_AllDataExtractView.Item4.Name, ReportEnum.Align.Left, "${Item4}", ReportEnum.Align.Left, 27);
+                 report.AddColumn(View_AllDataExtractView.Item3a.Name, ReportEnum.Align.Left, "${Item3a}", ReportEnum.Align.Left, 15);
+                 report.AddColumn(View_AllDataExtractView.Item4a.Name, ReportEnum.Align.Left, "${Item4a}", ReportEnum.Align.Left, 15);
 
   
                 int rowsPerQuery = 5000;
@@ -5524,10 +5902,62 @@ public class BaseView_AllDataExtractTableControl : OLR.UI.BaseApplicationTableCo
                                      report.AddData("${FTA1}", record.Format(View_AllDataExtractView.FTA1), ReportEnum.Align.Left);
                                  }
                              }
-                             report.AddData("${WorkshopDescription}", record.Format(View_AllDataExtractView.WorkshopDescription), ReportEnum.Align.Left, 300);
-                             report.AddData("${Attending}", record.Format(View_AllDataExtractView.Attending), ReportEnum.Align.Left, 300);
-                             report.AddData("${WorkshopDescription2}", record.Format(View_AllDataExtractView.WorkshopDescription2), ReportEnum.Align.Left, 300);
-                             report.AddData("${Attending2}", record.Format(View_AllDataExtractView.Attending2), ReportEnum.Align.Left, 300);
+                             if (BaseClasses.Utils.MiscUtils.IsNull(record.Item1)){
+                                 report.AddData("${Item1}", "",ReportEnum.Align.Left, 300);
+                             }else{
+                                 Boolean _isExpandableNonCompositeForeignKey;
+                                 String _DFKA = "";
+                                 _isExpandableNonCompositeForeignKey = View_AllDataExtractView.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(View_AllDataExtractView.Item1);
+                                 _DFKA = View_AllDataExtractView.GetDFKA(record.Item1.ToString(), View_AllDataExtractView.Item1,null);
+                                 if (_isExpandableNonCompositeForeignKey &&  ( _DFKA  != null)  &&  View_AllDataExtractView.Item1.IsApplyDisplayAs){
+                                     report.AddData("${Item1}", _DFKA,ReportEnum.Align.Left, 300);
+                                 }else{
+                                     report.AddData("${Item1}", record.Format(View_AllDataExtractView.Item1), ReportEnum.Align.Left, 300);
+                                 }
+                             }
+                             if (BaseClasses.Utils.MiscUtils.IsNull(record.Item2)){
+                                 report.AddData("${Item2}", "",ReportEnum.Align.Left, 300);
+                             }else{
+                                 Boolean _isExpandableNonCompositeForeignKey;
+                                 String _DFKA = "";
+                                 _isExpandableNonCompositeForeignKey = View_AllDataExtractView.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(View_AllDataExtractView.Item2);
+                                 _DFKA = View_AllDataExtractView.GetDFKA(record.Item2.ToString(), View_AllDataExtractView.Item2,null);
+                                 if (_isExpandableNonCompositeForeignKey &&  ( _DFKA  != null)  &&  View_AllDataExtractView.Item2.IsApplyDisplayAs){
+                                     report.AddData("${Item2}", _DFKA,ReportEnum.Align.Left, 300);
+                                 }else{
+                                     report.AddData("${Item2}", record.Format(View_AllDataExtractView.Item2), ReportEnum.Align.Left, 300);
+                                 }
+                             }
+                             report.AddData("${Item1a}", record.Format(View_AllDataExtractView.Item1a), ReportEnum.Align.Left, 300);
+                             report.AddData("${Item2a}", record.Format(View_AllDataExtractView.Item2a), ReportEnum.Align.Left, 300);
+                             if (BaseClasses.Utils.MiscUtils.IsNull(record.Item3)){
+                                 report.AddData("${Item3}", "",ReportEnum.Align.Left, 300);
+                             }else{
+                                 Boolean _isExpandableNonCompositeForeignKey;
+                                 String _DFKA = "";
+                                 _isExpandableNonCompositeForeignKey = View_AllDataExtractView.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(View_AllDataExtractView.Item3);
+                                 _DFKA = View_AllDataExtractView.GetDFKA(record.Item3.ToString(), View_AllDataExtractView.Item3,null);
+                                 if (_isExpandableNonCompositeForeignKey &&  ( _DFKA  != null)  &&  View_AllDataExtractView.Item3.IsApplyDisplayAs){
+                                     report.AddData("${Item3}", _DFKA,ReportEnum.Align.Left, 300);
+                                 }else{
+                                     report.AddData("${Item3}", record.Format(View_AllDataExtractView.Item3), ReportEnum.Align.Left, 300);
+                                 }
+                             }
+                             if (BaseClasses.Utils.MiscUtils.IsNull(record.Item4)){
+                                 report.AddData("${Item4}", "",ReportEnum.Align.Left, 300);
+                             }else{
+                                 Boolean _isExpandableNonCompositeForeignKey;
+                                 String _DFKA = "";
+                                 _isExpandableNonCompositeForeignKey = View_AllDataExtractView.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(View_AllDataExtractView.Item4);
+                                 _DFKA = View_AllDataExtractView.GetDFKA(record.Item4.ToString(), View_AllDataExtractView.Item4,null);
+                                 if (_isExpandableNonCompositeForeignKey &&  ( _DFKA  != null)  &&  View_AllDataExtractView.Item4.IsApplyDisplayAs){
+                                     report.AddData("${Item4}", _DFKA,ReportEnum.Align.Left, 300);
+                                 }else{
+                                     report.AddData("${Item4}", record.Format(View_AllDataExtractView.Item4), ReportEnum.Align.Left, 300);
+                                 }
+                             }
+                             report.AddData("${Item3a}", record.Format(View_AllDataExtractView.Item3a), ReportEnum.Align.Left, 300);
+                             report.AddData("${Item4a}", record.Format(View_AllDataExtractView.Item4a), ReportEnum.Align.Left, 300);
 
                             report.WriteRow();
                         }
@@ -5670,10 +6100,14 @@ public class BaseView_AllDataExtractTableControl : OLR.UI.BaseApplicationTableCo
                  report.AddColumn(View_AllDataExtractView.Description2.Name, ReportEnum.Align.Left, "${Description2}", ReportEnum.Align.Left, 28);
                  report.AddColumn(View_AllDataExtractView.FTA2.Name, ReportEnum.Align.Left, "${FTA2}", ReportEnum.Align.Left, 22);
                  report.AddColumn(View_AllDataExtractView.FTA1.Name, ReportEnum.Align.Left, "${FTA1}", ReportEnum.Align.Left, 22);
-                 report.AddColumn(View_AllDataExtractView.WorkshopDescription.Name, ReportEnum.Align.Left, "${WorkshopDescription}", ReportEnum.Align.Left, 28);
-                 report.AddColumn(View_AllDataExtractView.Attending.Name, ReportEnum.Align.Left, "${Attending}", ReportEnum.Align.Left, 15);
-                 report.AddColumn(View_AllDataExtractView.WorkshopDescription2.Name, ReportEnum.Align.Left, "${WorkshopDescription2}", ReportEnum.Align.Left, 28);
-                 report.AddColumn(View_AllDataExtractView.Attending2.Name, ReportEnum.Align.Left, "${Attending2}", ReportEnum.Align.Left, 15);
+                 report.AddColumn(View_AllDataExtractView.Item1.Name, ReportEnum.Align.Left, "${Item1}", ReportEnum.Align.Left, 27);
+                 report.AddColumn(View_AllDataExtractView.Item2.Name, ReportEnum.Align.Left, "${Item2}", ReportEnum.Align.Left, 27);
+                 report.AddColumn(View_AllDataExtractView.Item1a.Name, ReportEnum.Align.Left, "${Item1a}", ReportEnum.Align.Left, 15);
+                 report.AddColumn(View_AllDataExtractView.Item2a.Name, ReportEnum.Align.Left, "${Item2a}", ReportEnum.Align.Left, 15);
+                 report.AddColumn(View_AllDataExtractView.Item3.Name, ReportEnum.Align.Left, "${Item3}", ReportEnum.Align.Left, 27);
+                 report.AddColumn(View_AllDataExtractView.Item4.Name, ReportEnum.Align.Left, "${Item4}", ReportEnum.Align.Left, 27);
+                 report.AddColumn(View_AllDataExtractView.Item3a.Name, ReportEnum.Align.Left, "${Item3a}", ReportEnum.Align.Left, 15);
+                 report.AddColumn(View_AllDataExtractView.Item4a.Name, ReportEnum.Align.Left, "${Item4a}", ReportEnum.Align.Left, 15);
 
                 WhereClause whereClause = null;
                 whereClause = CreateWhereClause();
@@ -5829,10 +6263,62 @@ public class BaseView_AllDataExtractTableControl : OLR.UI.BaseApplicationTableCo
                                      report.AddData("${FTA1}", record.Format(View_AllDataExtractView.FTA1), ReportEnum.Align.Left);
                                  }
                              }
-                             report.AddData("${WorkshopDescription}", record.Format(View_AllDataExtractView.WorkshopDescription), ReportEnum.Align.Left, 300);
-                             report.AddData("${Attending}", record.Format(View_AllDataExtractView.Attending), ReportEnum.Align.Left, 300);
-                             report.AddData("${WorkshopDescription2}", record.Format(View_AllDataExtractView.WorkshopDescription2), ReportEnum.Align.Left, 300);
-                             report.AddData("${Attending2}", record.Format(View_AllDataExtractView.Attending2), ReportEnum.Align.Left, 300);
+                             if (BaseClasses.Utils.MiscUtils.IsNull(record.Item1)){
+                                 report.AddData("${Item1}", "",ReportEnum.Align.Left, 300);
+                             }else{
+                                 Boolean _isExpandableNonCompositeForeignKey;
+                                 String _DFKA = "";
+                                 _isExpandableNonCompositeForeignKey = View_AllDataExtractView.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(View_AllDataExtractView.Item1);
+                                 _DFKA = View_AllDataExtractView.GetDFKA(record.Item1.ToString(), View_AllDataExtractView.Item1,null);
+                                 if (_isExpandableNonCompositeForeignKey &&  ( _DFKA  != null)  &&  View_AllDataExtractView.Item1.IsApplyDisplayAs){
+                                     report.AddData("${Item1}", _DFKA,ReportEnum.Align.Left, 300);
+                                 }else{
+                                     report.AddData("${Item1}", record.Format(View_AllDataExtractView.Item1), ReportEnum.Align.Left, 300);
+                                 }
+                             }
+                             if (BaseClasses.Utils.MiscUtils.IsNull(record.Item2)){
+                                 report.AddData("${Item2}", "",ReportEnum.Align.Left, 300);
+                             }else{
+                                 Boolean _isExpandableNonCompositeForeignKey;
+                                 String _DFKA = "";
+                                 _isExpandableNonCompositeForeignKey = View_AllDataExtractView.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(View_AllDataExtractView.Item2);
+                                 _DFKA = View_AllDataExtractView.GetDFKA(record.Item2.ToString(), View_AllDataExtractView.Item2,null);
+                                 if (_isExpandableNonCompositeForeignKey &&  ( _DFKA  != null)  &&  View_AllDataExtractView.Item2.IsApplyDisplayAs){
+                                     report.AddData("${Item2}", _DFKA,ReportEnum.Align.Left, 300);
+                                 }else{
+                                     report.AddData("${Item2}", record.Format(View_AllDataExtractView.Item2), ReportEnum.Align.Left, 300);
+                                 }
+                             }
+                             report.AddData("${Item1a}", record.Format(View_AllDataExtractView.Item1a), ReportEnum.Align.Left, 300);
+                             report.AddData("${Item2a}", record.Format(View_AllDataExtractView.Item2a), ReportEnum.Align.Left, 300);
+                             if (BaseClasses.Utils.MiscUtils.IsNull(record.Item3)){
+                                 report.AddData("${Item3}", "",ReportEnum.Align.Left, 300);
+                             }else{
+                                 Boolean _isExpandableNonCompositeForeignKey;
+                                 String _DFKA = "";
+                                 _isExpandableNonCompositeForeignKey = View_AllDataExtractView.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(View_AllDataExtractView.Item3);
+                                 _DFKA = View_AllDataExtractView.GetDFKA(record.Item3.ToString(), View_AllDataExtractView.Item3,null);
+                                 if (_isExpandableNonCompositeForeignKey &&  ( _DFKA  != null)  &&  View_AllDataExtractView.Item3.IsApplyDisplayAs){
+                                     report.AddData("${Item3}", _DFKA,ReportEnum.Align.Left, 300);
+                                 }else{
+                                     report.AddData("${Item3}", record.Format(View_AllDataExtractView.Item3), ReportEnum.Align.Left, 300);
+                                 }
+                             }
+                             if (BaseClasses.Utils.MiscUtils.IsNull(record.Item4)){
+                                 report.AddData("${Item4}", "",ReportEnum.Align.Left, 300);
+                             }else{
+                                 Boolean _isExpandableNonCompositeForeignKey;
+                                 String _DFKA = "";
+                                 _isExpandableNonCompositeForeignKey = View_AllDataExtractView.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(View_AllDataExtractView.Item4);
+                                 _DFKA = View_AllDataExtractView.GetDFKA(record.Item4.ToString(), View_AllDataExtractView.Item4,null);
+                                 if (_isExpandableNonCompositeForeignKey &&  ( _DFKA  != null)  &&  View_AllDataExtractView.Item4.IsApplyDisplayAs){
+                                     report.AddData("${Item4}", _DFKA,ReportEnum.Align.Left, 300);
+                                 }else{
+                                     report.AddData("${Item4}", record.Format(View_AllDataExtractView.Item4), ReportEnum.Align.Left, 300);
+                                 }
+                             }
+                             report.AddData("${Item3a}", record.Format(View_AllDataExtractView.Item3a), ReportEnum.Align.Left, 300);
+                             report.AddData("${Item4a}", record.Format(View_AllDataExtractView.Item4a), ReportEnum.Align.Left, 300);
 
                             report.WriteRow();
                         }

@@ -1407,148 +1407,690 @@ public class BaseView_AllDataExtractRecord : PrimaryKeyRecord
 		this.SetValue(cv, TableUtils.FTA1Column);
 	}
 	/// <summary>
-	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.WorkshopDescription field.
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item1 field.
 	/// </summary>
-	public ColumnValue GetWorkshopDescriptionValue()
+	public ColumnValue GetItem1Value()
 	{
-		return this.GetValue(TableUtils.WorkshopDescriptionColumn);
+		return this.GetValue(TableUtils.Item1Column);
 	}
 
 	/// <summary>
-	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.WorkshopDescription field.
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item1 field.
 	/// </summary>
-	public string GetWorkshopDescriptionFieldValue()
+	public Int32 GetItem1FieldValue()
 	{
-		return this.GetValue(TableUtils.WorkshopDescriptionColumn).ToString();
+		return this.GetValue(TableUtils.Item1Column).ToInt32();
 	}
 
 	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.WorkshopDescription field.
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item1 field.
 	/// </summary>
-	public void SetWorkshopDescriptionFieldValue(ColumnValue val)
+	public void SetItem1FieldValue(ColumnValue val)
 	{
-		this.SetValue(val, TableUtils.WorkshopDescriptionColumn);
+		this.SetValue(val, TableUtils.Item1Column);
 	}
 
 	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.WorkshopDescription field.
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item1 field.
 	/// </summary>
-	public void SetWorkshopDescriptionFieldValue(string val)
+	public void SetItem1FieldValue(string val)
+	{
+		this.SetString(val, TableUtils.Item1Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item1 field.
+	/// </summary>
+	public void SetItem1FieldValue(double val)
 	{
 		ColumnValue cv = new ColumnValue(val);
-		this.SetValue(cv, TableUtils.WorkshopDescriptionColumn);
-	}
-	/// <summary>
-	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Attending field.
-	/// </summary>
-	public ColumnValue GetAttendingValue()
-	{
-		return this.GetValue(TableUtils.AttendingColumn);
+		this.SetValue(cv, TableUtils.Item1Column);
 	}
 
 	/// <summary>
-	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Attending field.
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item1 field.
 	/// </summary>
-	public bool GetAttendingFieldValue()
-	{
-		return this.GetValue(TableUtils.AttendingColumn).ToBoolean();
-	}
-
-	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Attending field.
-	/// </summary>
-	public void SetAttendingFieldValue(ColumnValue val)
-	{
-		this.SetValue(val, TableUtils.AttendingColumn);
-	}
-
-	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Attending field.
-	/// </summary>
-	public void SetAttendingFieldValue(string val)
-	{
-		this.SetString(val, TableUtils.AttendingColumn);
-	}
-
-	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Attending field.
-	/// </summary>
-	public void SetAttendingFieldValue(bool val)
+	public void SetItem1FieldValue(decimal val)
 	{
 		ColumnValue cv = new ColumnValue(val);
-		this.SetValue(cv, TableUtils.AttendingColumn);
-	}
-	/// <summary>
-	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.WorkshopDescription2 field.
-	/// </summary>
-	public ColumnValue GetWorkshopDescription2Value()
-	{
-		return this.GetValue(TableUtils.WorkshopDescription2Column);
+		this.SetValue(cv, TableUtils.Item1Column);
 	}
 
 	/// <summary>
-	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.WorkshopDescription2 field.
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item1 field.
 	/// </summary>
-	public string GetWorkshopDescription2FieldValue()
-	{
-		return this.GetValue(TableUtils.WorkshopDescription2Column).ToString();
-	}
-
-	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.WorkshopDescription2 field.
-	/// </summary>
-	public void SetWorkshopDescription2FieldValue(ColumnValue val)
-	{
-		this.SetValue(val, TableUtils.WorkshopDescription2Column);
-	}
-
-	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.WorkshopDescription2 field.
-	/// </summary>
-	public void SetWorkshopDescription2FieldValue(string val)
+	public void SetItem1FieldValue(long val)
 	{
 		ColumnValue cv = new ColumnValue(val);
-		this.SetValue(cv, TableUtils.WorkshopDescription2Column);
+		this.SetValue(cv, TableUtils.Item1Column);
 	}
 	/// <summary>
-	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Attending2 field.
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item2 field.
 	/// </summary>
-	public ColumnValue GetAttending2Value()
+	public ColumnValue GetItem2Value()
 	{
-		return this.GetValue(TableUtils.Attending2Column);
+		return this.GetValue(TableUtils.Item2Column);
 	}
 
 	/// <summary>
-	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Attending2 field.
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item2 field.
 	/// </summary>
-	public bool GetAttending2FieldValue()
+	public Int32 GetItem2FieldValue()
 	{
-		return this.GetValue(TableUtils.Attending2Column).ToBoolean();
+		return this.GetValue(TableUtils.Item2Column).ToInt32();
 	}
 
 	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Attending2 field.
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item2 field.
 	/// </summary>
-	public void SetAttending2FieldValue(ColumnValue val)
+	public void SetItem2FieldValue(ColumnValue val)
 	{
-		this.SetValue(val, TableUtils.Attending2Column);
+		this.SetValue(val, TableUtils.Item2Column);
 	}
 
 	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Attending2 field.
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item2 field.
 	/// </summary>
-	public void SetAttending2FieldValue(string val)
+	public void SetItem2FieldValue(string val)
 	{
-		this.SetString(val, TableUtils.Attending2Column);
+		this.SetString(val, TableUtils.Item2Column);
 	}
 
 	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Attending2 field.
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item2 field.
 	/// </summary>
-	public void SetAttending2FieldValue(bool val)
+	public void SetItem2FieldValue(double val)
 	{
 		ColumnValue cv = new ColumnValue(val);
-		this.SetValue(cv, TableUtils.Attending2Column);
+		this.SetValue(cv, TableUtils.Item2Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item2 field.
+	/// </summary>
+	public void SetItem2FieldValue(decimal val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item2Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item2 field.
+	/// </summary>
+	public void SetItem2FieldValue(long val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item2Column);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item1a field.
+	/// </summary>
+	public ColumnValue GetItem1aValue()
+	{
+		return this.GetValue(TableUtils.Item1aColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item1a field.
+	/// </summary>
+	public bool GetItem1aFieldValue()
+	{
+		return this.GetValue(TableUtils.Item1aColumn).ToBoolean();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item1a field.
+	/// </summary>
+	public void SetItem1aFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.Item1aColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item1a field.
+	/// </summary>
+	public void SetItem1aFieldValue(string val)
+	{
+		this.SetString(val, TableUtils.Item1aColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item1a field.
+	/// </summary>
+	public void SetItem1aFieldValue(bool val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item1aColumn);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item2a field.
+	/// </summary>
+	public ColumnValue GetItem2aValue()
+	{
+		return this.GetValue(TableUtils.Item2aColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item2a field.
+	/// </summary>
+	public bool GetItem2aFieldValue()
+	{
+		return this.GetValue(TableUtils.Item2aColumn).ToBoolean();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item2a field.
+	/// </summary>
+	public void SetItem2aFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.Item2aColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item2a field.
+	/// </summary>
+	public void SetItem2aFieldValue(string val)
+	{
+		this.SetString(val, TableUtils.Item2aColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item2a field.
+	/// </summary>
+	public void SetItem2aFieldValue(bool val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item2aColumn);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item3 field.
+	/// </summary>
+	public ColumnValue GetItem3Value()
+	{
+		return this.GetValue(TableUtils.Item3Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item3 field.
+	/// </summary>
+	public Int32 GetItem3FieldValue()
+	{
+		return this.GetValue(TableUtils.Item3Column).ToInt32();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item3 field.
+	/// </summary>
+	public void SetItem3FieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.Item3Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item3 field.
+	/// </summary>
+	public void SetItem3FieldValue(string val)
+	{
+		this.SetString(val, TableUtils.Item3Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item3 field.
+	/// </summary>
+	public void SetItem3FieldValue(double val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item3Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item3 field.
+	/// </summary>
+	public void SetItem3FieldValue(decimal val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item3Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item3 field.
+	/// </summary>
+	public void SetItem3FieldValue(long val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item3Column);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item4 field.
+	/// </summary>
+	public ColumnValue GetItem4Value()
+	{
+		return this.GetValue(TableUtils.Item4Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item4 field.
+	/// </summary>
+	public Int32 GetItem4FieldValue()
+	{
+		return this.GetValue(TableUtils.Item4Column).ToInt32();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item4 field.
+	/// </summary>
+	public void SetItem4FieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.Item4Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item4 field.
+	/// </summary>
+	public void SetItem4FieldValue(string val)
+	{
+		this.SetString(val, TableUtils.Item4Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item4 field.
+	/// </summary>
+	public void SetItem4FieldValue(double val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item4Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item4 field.
+	/// </summary>
+	public void SetItem4FieldValue(decimal val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item4Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item4 field.
+	/// </summary>
+	public void SetItem4FieldValue(long val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item4Column);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item5 field.
+	/// </summary>
+	public ColumnValue GetItem5Value()
+	{
+		return this.GetValue(TableUtils.Item5Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item5 field.
+	/// </summary>
+	public Int32 GetItem5FieldValue()
+	{
+		return this.GetValue(TableUtils.Item5Column).ToInt32();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item5 field.
+	/// </summary>
+	public void SetItem5FieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.Item5Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item5 field.
+	/// </summary>
+	public void SetItem5FieldValue(string val)
+	{
+		this.SetString(val, TableUtils.Item5Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item5 field.
+	/// </summary>
+	public void SetItem5FieldValue(double val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item5Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item5 field.
+	/// </summary>
+	public void SetItem5FieldValue(decimal val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item5Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item5 field.
+	/// </summary>
+	public void SetItem5FieldValue(long val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item5Column);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item6 field.
+	/// </summary>
+	public ColumnValue GetItem6Value()
+	{
+		return this.GetValue(TableUtils.Item6Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item6 field.
+	/// </summary>
+	public Int32 GetItem6FieldValue()
+	{
+		return this.GetValue(TableUtils.Item6Column).ToInt32();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item6 field.
+	/// </summary>
+	public void SetItem6FieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.Item6Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item6 field.
+	/// </summary>
+	public void SetItem6FieldValue(string val)
+	{
+		this.SetString(val, TableUtils.Item6Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item6 field.
+	/// </summary>
+	public void SetItem6FieldValue(double val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item6Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item6 field.
+	/// </summary>
+	public void SetItem6FieldValue(decimal val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item6Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item6 field.
+	/// </summary>
+	public void SetItem6FieldValue(long val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item6Column);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item7 field.
+	/// </summary>
+	public ColumnValue GetItem7Value()
+	{
+		return this.GetValue(TableUtils.Item7Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item7 field.
+	/// </summary>
+	public Int32 GetItem7FieldValue()
+	{
+		return this.GetValue(TableUtils.Item7Column).ToInt32();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item7 field.
+	/// </summary>
+	public void SetItem7FieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.Item7Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item7 field.
+	/// </summary>
+	public void SetItem7FieldValue(string val)
+	{
+		this.SetString(val, TableUtils.Item7Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item7 field.
+	/// </summary>
+	public void SetItem7FieldValue(double val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item7Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item7 field.
+	/// </summary>
+	public void SetItem7FieldValue(decimal val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item7Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item7 field.
+	/// </summary>
+	public void SetItem7FieldValue(long val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item7Column);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item3a field.
+	/// </summary>
+	public ColumnValue GetItem3aValue()
+	{
+		return this.GetValue(TableUtils.Item3aColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item3a field.
+	/// </summary>
+	public bool GetItem3aFieldValue()
+	{
+		return this.GetValue(TableUtils.Item3aColumn).ToBoolean();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item3a field.
+	/// </summary>
+	public void SetItem3aFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.Item3aColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item3a field.
+	/// </summary>
+	public void SetItem3aFieldValue(string val)
+	{
+		this.SetString(val, TableUtils.Item3aColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item3a field.
+	/// </summary>
+	public void SetItem3aFieldValue(bool val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item3aColumn);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item4a field.
+	/// </summary>
+	public ColumnValue GetItem4aValue()
+	{
+		return this.GetValue(TableUtils.Item4aColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item4a field.
+	/// </summary>
+	public bool GetItem4aFieldValue()
+	{
+		return this.GetValue(TableUtils.Item4aColumn).ToBoolean();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item4a field.
+	/// </summary>
+	public void SetItem4aFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.Item4aColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item4a field.
+	/// </summary>
+	public void SetItem4aFieldValue(string val)
+	{
+		this.SetString(val, TableUtils.Item4aColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item4a field.
+	/// </summary>
+	public void SetItem4aFieldValue(bool val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item4aColumn);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item5a field.
+	/// </summary>
+	public ColumnValue GetItem5aValue()
+	{
+		return this.GetValue(TableUtils.Item5aColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item5a field.
+	/// </summary>
+	public bool GetItem5aFieldValue()
+	{
+		return this.GetValue(TableUtils.Item5aColumn).ToBoolean();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item5a field.
+	/// </summary>
+	public void SetItem5aFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.Item5aColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item5a field.
+	/// </summary>
+	public void SetItem5aFieldValue(string val)
+	{
+		this.SetString(val, TableUtils.Item5aColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item5a field.
+	/// </summary>
+	public void SetItem5aFieldValue(bool val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item5aColumn);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item6a field.
+	/// </summary>
+	public ColumnValue GetItem6aValue()
+	{
+		return this.GetValue(TableUtils.Item6aColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item6a field.
+	/// </summary>
+	public bool GetItem6aFieldValue()
+	{
+		return this.GetValue(TableUtils.Item6aColumn).ToBoolean();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item6a field.
+	/// </summary>
+	public void SetItem6aFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.Item6aColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item6a field.
+	/// </summary>
+	public void SetItem6aFieldValue(string val)
+	{
+		this.SetString(val, TableUtils.Item6aColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item6a field.
+	/// </summary>
+	public void SetItem6aFieldValue(bool val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item6aColumn);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item7a field.
+	/// </summary>
+	public ColumnValue GetItem7aValue()
+	{
+		return this.GetValue(TableUtils.Item7aColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Item7a field.
+	/// </summary>
+	public bool GetItem7aFieldValue()
+	{
+		return this.GetValue(TableUtils.Item7aColumn).ToBoolean();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item7a field.
+	/// </summary>
+	public void SetItem7aFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.Item7aColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item7a field.
+	/// </summary>
+	public void SetItem7aFieldValue(string val)
+	{
+		this.SetString(val, TableUtils.Item7aColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item7a field.
+	/// </summary>
+	public void SetItem7aFieldValue(bool val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Item7aColumn);
 	}
 
 
@@ -2853,18 +3395,18 @@ public class BaseView_AllDataExtractRecord : PrimaryKeyRecord
 		}
 	}
 	/// <summary>
-	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.WorkshopDescription field.
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Item1 field.
 	/// </summary>
-	public string WorkshopDescription
+	public Int32 Item1
 	{
 		get
 		{
-			return this.GetValue(TableUtils.WorkshopDescriptionColumn).ToString();
+			return this.GetValue(TableUtils.Item1Column).ToInt32();
 		}
 		set
 		{
 			ColumnValue cv = new ColumnValue(value);
-			this.SetValue(cv, TableUtils.WorkshopDescriptionColumn);
+			this.SetValue(cv, TableUtils.Item1Column);
 		}
 	}
 
@@ -2872,11 +3414,11 @@ public class BaseView_AllDataExtractRecord : PrimaryKeyRecord
 	/// <summary>
 	/// This is a convenience method that can be used to determine that the column is set.
 	/// </summary>
-	public bool WorkshopDescriptionSpecified
+	public bool Item1Specified
 	{
 		get
 		{
-			ColumnValue val = this.GetValue(TableUtils.WorkshopDescriptionColumn);
+			ColumnValue val = this.GetValue(TableUtils.Item1Column);
             if (val == null || val.IsNull)
             {
                 return false;
@@ -2886,41 +3428,40 @@ public class BaseView_AllDataExtractRecord : PrimaryKeyRecord
 	}
 
 	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.WorkshopDescription field.
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item1 field.
 	/// </summary>
-	public string WorkshopDescriptionDefault
+	public string Item1Default
 	{
 		get
 		{
-			return TableUtils.WorkshopDescriptionColumn.DefaultValue;
+			return TableUtils.Item1Column.DefaultValue;
 		}
 	}
 	/// <summary>
-	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Attending field.
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Item2 field.
 	/// </summary>
-	public bool Attending
+	public Int32 Item2
 	{
 		get
 		{
-			return this.GetValue(TableUtils.AttendingColumn).ToBoolean();
+			return this.GetValue(TableUtils.Item2Column).ToInt32();
 		}
 		set
 		{
 			ColumnValue cv = new ColumnValue(value);
-	   		this.SetValue(cv, TableUtils.AttendingColumn);
+			this.SetValue(cv, TableUtils.Item2Column);
 		}
 	}
-	
-	
+
 
 	/// <summary>
 	/// This is a convenience method that can be used to determine that the column is set.
 	/// </summary>
-	public bool AttendingSpecified
+	public bool Item2Specified
 	{
 		get
 		{
-			ColumnValue val = this.GetValue(TableUtils.AttendingColumn);
+			ColumnValue val = this.GetValue(TableUtils.Item2Column);
             if (val == null || val.IsNull)
             {
                 return false;
@@ -2930,40 +3471,41 @@ public class BaseView_AllDataExtractRecord : PrimaryKeyRecord
 	}
 
 	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Attending field.
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item2 field.
 	/// </summary>
-	public string AttendingDefault
+	public string Item2Default
 	{
 		get
 		{
-			return TableUtils.AttendingColumn.DefaultValue;
+			return TableUtils.Item2Column.DefaultValue;
 		}
 	}
 	/// <summary>
-	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.WorkshopDescription2 field.
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Item1a field.
 	/// </summary>
-	public string WorkshopDescription2
+	public bool Item1a
 	{
 		get
 		{
-			return this.GetValue(TableUtils.WorkshopDescription2Column).ToString();
+			return this.GetValue(TableUtils.Item1aColumn).ToBoolean();
 		}
 		set
 		{
 			ColumnValue cv = new ColumnValue(value);
-			this.SetValue(cv, TableUtils.WorkshopDescription2Column);
+	   		this.SetValue(cv, TableUtils.Item1aColumn);
 		}
 	}
-
+	
+	
 
 	/// <summary>
 	/// This is a convenience method that can be used to determine that the column is set.
 	/// </summary>
-	public bool WorkshopDescription2Specified
+	public bool Item1aSpecified
 	{
 		get
 		{
-			ColumnValue val = this.GetValue(TableUtils.WorkshopDescription2Column);
+			ColumnValue val = this.GetValue(TableUtils.Item1aColumn);
             if (val == null || val.IsNull)
             {
                 return false;
@@ -2973,28 +3515,28 @@ public class BaseView_AllDataExtractRecord : PrimaryKeyRecord
 	}
 
 	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.WorkshopDescription2 field.
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item1a field.
 	/// </summary>
-	public string WorkshopDescription2Default
+	public string Item1aDefault
 	{
 		get
 		{
-			return TableUtils.WorkshopDescription2Column.DefaultValue;
+			return TableUtils.Item1aColumn.DefaultValue;
 		}
 	}
 	/// <summary>
-	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Attending2 field.
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Item2a field.
 	/// </summary>
-	public bool Attending2
+	public bool Item2a
 	{
 		get
 		{
-			return this.GetValue(TableUtils.Attending2Column).ToBoolean();
+			return this.GetValue(TableUtils.Item2aColumn).ToBoolean();
 		}
 		set
 		{
 			ColumnValue cv = new ColumnValue(value);
-	   		this.SetValue(cv, TableUtils.Attending2Column);
+	   		this.SetValue(cv, TableUtils.Item2aColumn);
 		}
 	}
 	
@@ -3003,11 +3545,11 @@ public class BaseView_AllDataExtractRecord : PrimaryKeyRecord
 	/// <summary>
 	/// This is a convenience method that can be used to determine that the column is set.
 	/// </summary>
-	public bool Attending2Specified
+	public bool Item2aSpecified
 	{
 		get
 		{
-			ColumnValue val = this.GetValue(TableUtils.Attending2Column);
+			ColumnValue val = this.GetValue(TableUtils.Item2aColumn);
             if (val == null || val.IsNull)
             {
                 return false;
@@ -3017,13 +3559,448 @@ public class BaseView_AllDataExtractRecord : PrimaryKeyRecord
 	}
 
 	/// <summary>
-	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Attending2 field.
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item2a field.
 	/// </summary>
-	public string Attending2Default
+	public string Item2aDefault
 	{
 		get
 		{
-			return TableUtils.Attending2Column.DefaultValue;
+			return TableUtils.Item2aColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Item3 field.
+	/// </summary>
+	public Int32 Item3
+	{
+		get
+		{
+			return this.GetValue(TableUtils.Item3Column).ToInt32();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.Item3Column);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool Item3Specified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.Item3Column);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item3 field.
+	/// </summary>
+	public string Item3Default
+	{
+		get
+		{
+			return TableUtils.Item3Column.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Item4 field.
+	/// </summary>
+	public Int32 Item4
+	{
+		get
+		{
+			return this.GetValue(TableUtils.Item4Column).ToInt32();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.Item4Column);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool Item4Specified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.Item4Column);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item4 field.
+	/// </summary>
+	public string Item4Default
+	{
+		get
+		{
+			return TableUtils.Item4Column.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Item5 field.
+	/// </summary>
+	public Int32 Item5
+	{
+		get
+		{
+			return this.GetValue(TableUtils.Item5Column).ToInt32();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.Item5Column);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool Item5Specified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.Item5Column);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item5 field.
+	/// </summary>
+	public string Item5Default
+	{
+		get
+		{
+			return TableUtils.Item5Column.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Item6 field.
+	/// </summary>
+	public Int32 Item6
+	{
+		get
+		{
+			return this.GetValue(TableUtils.Item6Column).ToInt32();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.Item6Column);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool Item6Specified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.Item6Column);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item6 field.
+	/// </summary>
+	public string Item6Default
+	{
+		get
+		{
+			return TableUtils.Item6Column.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Item7 field.
+	/// </summary>
+	public Int32 Item7
+	{
+		get
+		{
+			return this.GetValue(TableUtils.Item7Column).ToInt32();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.Item7Column);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool Item7Specified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.Item7Column);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item7 field.
+	/// </summary>
+	public string Item7Default
+	{
+		get
+		{
+			return TableUtils.Item7Column.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Item3a field.
+	/// </summary>
+	public bool Item3a
+	{
+		get
+		{
+			return this.GetValue(TableUtils.Item3aColumn).ToBoolean();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+	   		this.SetValue(cv, TableUtils.Item3aColumn);
+		}
+	}
+	
+	
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool Item3aSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.Item3aColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item3a field.
+	/// </summary>
+	public string Item3aDefault
+	{
+		get
+		{
+			return TableUtils.Item3aColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Item4a field.
+	/// </summary>
+	public bool Item4a
+	{
+		get
+		{
+			return this.GetValue(TableUtils.Item4aColumn).ToBoolean();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+	   		this.SetValue(cv, TableUtils.Item4aColumn);
+		}
+	}
+	
+	
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool Item4aSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.Item4aColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item4a field.
+	/// </summary>
+	public string Item4aDefault
+	{
+		get
+		{
+			return TableUtils.Item4aColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Item5a field.
+	/// </summary>
+	public bool Item5a
+	{
+		get
+		{
+			return this.GetValue(TableUtils.Item5aColumn).ToBoolean();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+	   		this.SetValue(cv, TableUtils.Item5aColumn);
+		}
+	}
+	
+	
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool Item5aSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.Item5aColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item5a field.
+	/// </summary>
+	public string Item5aDefault
+	{
+		get
+		{
+			return TableUtils.Item5aColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Item6a field.
+	/// </summary>
+	public bool Item6a
+	{
+		get
+		{
+			return this.GetValue(TableUtils.Item6aColumn).ToBoolean();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+	   		this.SetValue(cv, TableUtils.Item6aColumn);
+		}
+	}
+	
+	
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool Item6aSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.Item6aColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item6a field.
+	/// </summary>
+	public string Item6aDefault
+	{
+		get
+		{
+			return TableUtils.Item6aColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Item7a field.
+	/// </summary>
+	public bool Item7a
+	{
+		get
+		{
+			return this.GetValue(TableUtils.Item7aColumn).ToBoolean();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+	   		this.SetValue(cv, TableUtils.Item7aColumn);
+		}
+	}
+	
+	
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool Item7aSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.Item7aColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Item7a field.
+	/// </summary>
+	public string Item7aDefault
+	{
+		get
+		{
+			return TableUtils.Item7aColumn.DefaultValue;
 		}
 	}
 

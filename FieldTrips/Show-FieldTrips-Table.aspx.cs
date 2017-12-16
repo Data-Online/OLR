@@ -262,6 +262,8 @@ public void SetAvailableWorkshopsTableControl()
         
         public System.Web.UI.WebControls.Label Label1;
         
+        public System.Web.UI.WebControls.Label Label3;
+        
         public System.Web.UI.WebControls.Label Label4;
         
         public System.Web.UI.WebControls.Literal PageTitle;
@@ -269,6 +271,8 @@ public void SetAvailableWorkshopsTableControl()
         public System.Web.UI.WebControls.LinkButton PlacesAvailableLabel1;
         
         public System.Web.UI.WebControls.Literal RegistrationsCountControl;
+        
+        public System.Web.UI.WebControls.Literal RegistrationsCountControl2;
         
         public OLR.UI.Controls.Show_FieldTrips_Table.RegistrationsTableControl RegistrationsTableControl;
           

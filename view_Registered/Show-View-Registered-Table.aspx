@@ -81,11 +81,11 @@
 	</asp:ImageButton>                                 
                                 
                                   <asp:ImageButton runat="server" id="DeleteRowButton" causesvalidation="False" commandname="DeleteRecord" cssclass="button_link" imageurl="../Images/icon_delete.gif" onmouseout="this.src=&#39;../Images/icon_delete.gif&#39;" onmouseover="this.src=&#39;../Images/icon_delete_over.gif&#39;" tooltip="&lt;%# GetResourceValue(&quot;Txt:DeleteRecord&quot;, &quot;OLR&quot;) %>" visible="True">		
-	</asp:ImageButton></td><td class="tableCellValue"><asp:Literal runat="server" id="FirstName"></asp:Literal> 
+	</asp:ImageButton></td><td class="tableCellValue"><span style="color:Blue"><b><asp:Literal runat="server" id="FirstName"></asp:Literal> </b></span>
 <span style="white-space:nowrap;">
 <asp:Literal runat="server" id="ContactId" visible="False"></asp:Literal></span>
  
-<asp:Literal runat="server" id="ValidationUid" visible="False"></asp:Literal></td><td class="tableCellValue"><asp:Literal runat="server" id="LastName"></asp:Literal></td><td class="tableCellValue"><asp:Literal runat="server" id="Email"></asp:Literal> <br />
+<asp:Literal runat="server" id="ValidationUid" visible="False"></asp:Literal></td><td class="tableCellValue"><span style="color:Blue"><b><asp:Literal runat="server" id="LastName"></asp:Literal></b></span></td><td class="tableCellValue"><asp:Literal runat="server" id="Email"></asp:Literal> <br />
 <asp:Literal runat="server" id="MobileNumber"></asp:Literal></td><td class="tableCellValue"><asp:Literal runat="server" id="AdditionalDinnerTicket"></asp:Literal> <br />
 <asp:Literal runat="server" id="AdditionalDinnerName"></asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:Literal runat="server" id="InitialCreationDate"></asp:Literal></span>
@@ -96,7 +96,27 @@
 <asp:Literal runat="server" id="PSNZAppliedFor"></asp:Literal> <br />
 <asp:Literal runat="server" id="PSNZMembershipCheck"></asp:Literal></td></tr><tr><td class="tableCellValue"><asp:Literal runat="server" id="Address1"></asp:Literal> 
 <asp:Literal runat="server" id="Address2"></asp:Literal> 
-<asp:Literal runat="server" id="Address3"></asp:Literal></td><td class="tableCellValue"><asp:Literal runat="server" id="TownName"></asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"><asp:Literal runat="server" id="SpecialRequirementsLabel" Text="Special Requirements">	</asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellValue" colspan="3"><asp:Literal runat="server" id="RegistrationType"></asp:Literal></td><td class="tableCellValue" colspan="3"><asp:Literal runat="server" id="SpecialRequirements"></asp:Literal></td></tr><tr><td></td><td class="tableCellLabel" colspan="6"><OLR:FieldTripChoicesTableControl1 runat="server" id="FieldTripChoicesTableControl1">	<table class="dv" cellpadding="0" cellspacing="0" border="0"><tr><td></td><td></td><td></td></tr><tr><td class="panelHeaderL"></td><td class="dh">
+<asp:Literal runat="server" id="Address3"></asp:Literal></td><td class="tableCellValue"><asp:Literal runat="server" id="TownName"></asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"><asp:Literal runat="server" id="SpecialRequirementsLabel" Text="Special Requirements">	</asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellValue" colspan="3"><asp:Literal runat="server" id="RegistrationType"></asp:Literal></td><td class="tableCellValue" colspan="3"><asp:Literal runat="server" id="SpecialRequirements"></asp:Literal></td></tr><tr><td></td><td class="tableCellLabel" colspan="6"><OLR:PhotoClubContactLinksTableControl runat="server" id="PhotoClubContactLinksTableControl">	<table class="dv" cellpadding="0" cellspacing="0" border="0"><tr><td></td><td></td></tr><tr><td class="panelHeaderL"></td><td class="dh">
+                  <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="dhel"><img src="../Images/space.gif" alt="" /></td><td class="dhb"><table cellpadding="0" cellspacing="0" border="0"><tr><td class="dht" valign="middle">
+                        <asp:Literal runat="server" id="Title3" Text="&lt;%#String.Concat(&quot;Photo Clubs&quot;) %>">	</asp:Literal>
+                      </td></tr></table>
+</td><td class="dhb"></td><td class="dher"><img src="../Images/space.gif" alt="" /></td></tr></table>
+
+                </td></tr><tr><td></td><td>
+                  <asp:panel id="CollapsibleRegion3" runat="server"><table class="dBody" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tre">
+                    <table id="PhotoClubContactLinksTableControlGrid" cellpadding="0" cellspacing="0" border="0" width="100%" onkeydown="captureUpDownKey(this, event)"><tr class="tch"><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th></tr><asp:Repeater runat="server" id="PhotoClubContactLinksTableControlRepeater">		<ITEMTEMPLATE>		<OLR:PhotoClubContactLinksTableControlRow runat="server" id="PhotoClubContactLinksTableControlRow">
+<tr><td class="tableCellValue"><asp:LinkButton runat="server" id="PhotoClubId" causesvalidation="False" commandname="Redirect"></asp:LinkButton> </td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableRowDivider" colspan="5"></td></tr></OLR:PhotoClubContactLinksTableControlRow>
+</ITEMTEMPLATE>
+
+</asp:Repeater>
+</table>
+
+                  </td></tr></table>
+</asp:panel>
+                </td></tr></table>
+	<asp:hiddenfield id="PhotoClubContactLinksTableControl_PostbackTracker" runat="server" />
+</OLR:PhotoClubContactLinksTableControl>
+</td></tr><tr><td></td><td class="tableCellLabel" colspan="6"><OLR:FieldTripChoicesTableControl1 runat="server" id="FieldTripChoicesTableControl1">	<table class="dv" cellpadding="0" cellspacing="0" border="0"><tr><td></td><td></td><td></td></tr><tr><td class="panelHeaderL"></td><td class="dh">
                   <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="dhel"><img src="../Images/space.gif" alt="" /></td><td class="dhb"><table cellpadding="0" cellspacing="0" border="0"><tr><td class="dht" valign="middle">
                         <asp:Literal runat="server" id="Title1" Text="&lt;%#String.Concat(&quot;Field Trip Choices&quot;) %>">	</asp:Literal>
                       </td></tr></table>
@@ -147,7 +167,7 @@
                 </td><td></td></tr><tr><td></td><td></td><td></td></tr></table>
 	<asp:hiddenfield id="WorkshopsTableControl_PostbackTracker" runat="server" />
 </OLR:WorkshopsTableControl>
-</td></tr><tr><td class="tableRowDivider" colspan="7"></td></tr></OLR:View_RegisteredTableControlRow>
+</td></tr><tr><td></td><td class="tableCellLabel"></td><td class="tableCellLabel"></td><td class="tableCellLabel"></td><td class="tableCellLabel"></td><td class="tableCellLabel"></td><td class="tableCellLabel"></td></tr><tr><td></td><td class="tableCellLabel"></td><td class="tableCellLabel"></td><td class="tableCellLabel"></td><td class="tableCellLabel"></td><td class="tableCellLabel"></td><td class="tableCellLabel"></td></tr><tr><td class="tableRowDivider" colspan="7" style="border-width:0px 0px 2px 0px;border-style:solid"></td></tr></OLR:View_RegisteredTableControlRow>
 </ITEMTEMPLATE>
 
 </asp:Repeater>
