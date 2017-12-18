@@ -97,27 +97,41 @@ public class BaseView_AllDataExtractView : PrimaryKeyTable
         FTA1Column.CodeName = "FTA1";
         FTA1Column.Name = EvaluateFormula("\"Allocated1\"");
         Item1Column.CodeName = "Item1";
-        Item1Column.Name = EvaluateFormula("\"Workshop\"");
+        Item1Column.Name = EvaluateFormula("\"Workshop1\"");
         Item2Column.CodeName = "Item2";
-        Item2Column.Name = EvaluateFormula("\"Workshop\"");
+        Item2Column.Name = EvaluateFormula("\"Workshop2\"");
         Item1aColumn.CodeName = "Item1a";
-        Item1aColumn.Name = EvaluateFormula("\"Attending\"");
+        Item1aColumn.Name = EvaluateFormula("\"Attending1\"");
         Item2aColumn.CodeName = "Item2a";
-        Item2aColumn.Name = EvaluateFormula("\"Attending\"");
+        Item2aColumn.Name = EvaluateFormula("\"Attending2\"");
         Item3Column.CodeName = "Item3";
-        Item3Column.Name = EvaluateFormula("\"Workshop\"");
+        Item3Column.Name = EvaluateFormula("\"Workshop3\"");
         Item4Column.CodeName = "Item4";
-        Item4Column.Name = EvaluateFormula("\"Workshop\"");
+        Item4Column.Name = EvaluateFormula("\"Workshop4\"");
         Item5Column.CodeName = "Item5";
+        Item5Column.Name = EvaluateFormula("\"Workshop5\"");
         Item6Column.CodeName = "Item6";
+        Item6Column.Name = EvaluateFormula("\"Workshop6\"");
         Item7Column.CodeName = "Item7";
+        Item7Column.Name = EvaluateFormula("\"Workshop7\"");
         Item3aColumn.CodeName = "Item3a";
-        Item3aColumn.Name = EvaluateFormula("\"Attending\"");
+        Item3aColumn.Name = EvaluateFormula("\"Attending3\"");
         Item4aColumn.CodeName = "Item4a";
-        Item4aColumn.Name = EvaluateFormula("\"Attending\"");
+        Item4aColumn.Name = EvaluateFormula("\"Attending4\"");
         Item5aColumn.CodeName = "Item5a";
+        Item5aColumn.Name = EvaluateFormula("\"Attending5\"");
         Item6aColumn.CodeName = "Item6a";
+        Item6aColumn.Name = EvaluateFormula("\"Attending6\"");
         Item7aColumn.CodeName = "Item7a";
+        Item7aColumn.Name = EvaluateFormula("\"Attending7\"");
+        Hon1Column.CodeName = "Hon1";
+        Hon1Column.Name = EvaluateFormula("\"Honours\"");
+        Hon2Column.CodeName = "Hon2";
+        Hon3Column.CodeName = "Hon3";
+        Hon4Column.CodeName = "Hon4";
+        Hon5Column.CodeName = "Hon5";
+        Hon6Column.CodeName = "Hon6";
+        Hon7Column.CodeName = "Hon7";
 
         
     }
@@ -1228,6 +1242,181 @@ public class BaseView_AllDataExtractView : PrimaryKeyTable
     }
     
     
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Hon1 column object.
+    /// </summary>
+    public BaseClasses.Data.NumberColumn Hon1Column
+    {
+        get
+        {
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[44];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Hon1 column object.
+    /// </summary>
+    public static BaseClasses.Data.NumberColumn Hon1
+    {
+        get
+        {
+            return View_AllDataExtractView.Instance.Hon1Column;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Hon2 column object.
+    /// </summary>
+    public BaseClasses.Data.NumberColumn Hon2Column
+    {
+        get
+        {
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[45];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Hon2 column object.
+    /// </summary>
+    public static BaseClasses.Data.NumberColumn Hon2
+    {
+        get
+        {
+            return View_AllDataExtractView.Instance.Hon2Column;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Hon3 column object.
+    /// </summary>
+    public BaseClasses.Data.NumberColumn Hon3Column
+    {
+        get
+        {
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[46];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Hon3 column object.
+    /// </summary>
+    public static BaseClasses.Data.NumberColumn Hon3
+    {
+        get
+        {
+            return View_AllDataExtractView.Instance.Hon3Column;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Hon4 column object.
+    /// </summary>
+    public BaseClasses.Data.NumberColumn Hon4Column
+    {
+        get
+        {
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[47];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Hon4 column object.
+    /// </summary>
+    public static BaseClasses.Data.NumberColumn Hon4
+    {
+        get
+        {
+            return View_AllDataExtractView.Instance.Hon4Column;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Hon5 column object.
+    /// </summary>
+    public BaseClasses.Data.NumberColumn Hon5Column
+    {
+        get
+        {
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[48];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Hon5 column object.
+    /// </summary>
+    public static BaseClasses.Data.NumberColumn Hon5
+    {
+        get
+        {
+            return View_AllDataExtractView.Instance.Hon5Column;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Hon6 column object.
+    /// </summary>
+    public BaseClasses.Data.NumberColumn Hon6Column
+    {
+        get
+        {
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[49];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Hon6 column object.
+    /// </summary>
+    public static BaseClasses.Data.NumberColumn Hon6
+    {
+        get
+        {
+            return View_AllDataExtractView.Instance.Hon6Column;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Hon7 column object.
+    /// </summary>
+    public BaseClasses.Data.NumberColumn Hon7Column
+    {
+        get
+        {
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[50];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's view_AllDataExtract_.Hon7 column object.
+    /// </summary>
+    public static BaseClasses.Data.NumberColumn Hon7
+    {
+        get
+        {
+            return View_AllDataExtractView.Instance.Hon7Column;
+        }
+    }
+    
+    
 
 
 #endregion
@@ -1796,7 +1985,14 @@ public class BaseView_AllDataExtractView : PrimaryKeyTable
         string Item4aValue, 
         string Item5aValue, 
         string Item6aValue, 
-        string Item7aValue
+        string Item7aValue, 
+        string Hon1Value, 
+        string Hon2Value, 
+        string Hon3Value, 
+        string Hon4Value, 
+        string Hon5Value, 
+        string Hon6Value, 
+        string Hon7Value
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
@@ -1844,6 +2040,13 @@ public class BaseView_AllDataExtractView : PrimaryKeyTable
         rec.SetString(Item5aValue, Item5aColumn);
         rec.SetString(Item6aValue, Item6aColumn);
         rec.SetString(Item7aValue, Item7aColumn);
+        rec.SetString(Hon1Value, Hon1Column);
+        rec.SetString(Hon2Value, Hon2Column);
+        rec.SetString(Hon3Value, Hon3Column);
+        rec.SetString(Hon4Value, Hon4Column);
+        rec.SetString(Hon5Value, Hon5Column);
+        rec.SetString(Hon6Value, Hon6Column);
+        rec.SetString(Hon7Value, Hon7Column);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized

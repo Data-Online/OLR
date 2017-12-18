@@ -269,13 +269,22 @@
     <Compile Include="BaseView_FieldTripSelectionsSqlView.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View_AllDataExtractDefinition.cs" >
+    <Compile Include="View_AllDataExtractDefinition.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View_AllDataExtractSqlView.cs" >
+    <Compile Include="View_AllDataExtractSqlView.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseView_AllDataExtractSqlView.cs" >
+    <Compile Include="BaseView_AllDataExtractSqlView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ConfigurationDefinition.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ConfigurationSqlTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseConfigurationSqlTable.cs" >
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" EnableEventValidation="false" AutoEventWireup="false" Codebehind="Show-View-AllDataExtract-Table.aspx.cs" Culture="en-NZ" MasterPageFile="../Master Pages/HorizontalMenu.master" Inherits="OLR.UI.Show_View_AllDataExtract_Table" %>
-<%@ Register Tagprefix="OLR" TagName="PaginationModern" Src="../Shared/PaginationModern.ascx" %>
+<%@ Register Tagprefix="OLR" TagName="PaginationMedium" Src="../Shared/PaginationMedium.ascx" %>
 
 <%@ Register Tagprefix="OLR" TagName="ThemeButtonWithArrow" Src="../Shared/ThemeButtonWithArrow.ascx" %>
 
@@ -74,69 +74,81 @@
 
                 </td><td class="panelHeaderR"></td></tr><tr><td class="panelL"></td><td>
                   <asp:panel id="CollapsibleRegion" runat="server"><table class="dBody" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td class="tre">
-                    <table id="View_AllDataExtractTableControlGrid" cellpadding="0" cellspacing="0" border="0" width="100%" onkeydown="captureUpDownKey(this, event)"><tr class="tch"><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th></tr><asp:Repeater runat="server" id="View_AllDataExtractTableControlRepeater">		<ITEMTEMPLATE>		<OLR:View_AllDataExtractTableControlRow runat="server" id="View_AllDataExtractTableControlRow">
+                    <table id="View_AllDataExtractTableControlGrid" cellpadding="0" cellspacing="0" border="0" width="100%" onkeydown="captureUpDownKey(this, event)"><tr class="tch"><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th><th class="thc" style="display: none"></th></tr><asp:Repeater runat="server" id="View_AllDataExtractTableControlRepeater">		<ITEMTEMPLATE>		<OLR:View_AllDataExtractTableControlRow runat="server" id="View_AllDataExtractTableControlRow">
 <tr><td class="tableCellLabel"><asp:Literal runat="server" id="ContactIdLabel" Text="Contact">	</asp:Literal> 
 </td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:Literal runat="server" id="ContactId"></asp:Literal></span>
- </td><td class="tableCellLabel"><asp:Literal runat="server" id="RegistrationIdLabel" Text="Registration">	</asp:Literal> 
-</td><td class="tableCellValue"><span style="white-space:nowrap;">
-<asp:Literal runat="server" id="RegistrationId"></asp:Literal></span>
- </td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="InitialCreationDateLabel" Text="Initial Creation Date">	</asp:Literal> 
+ </td><td class="tableCellLabel"> 
+</td><td class="tableCellValue"> </td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="InitialCreationDateLabel" Text="Initial Creation Date">	</asp:Literal> 
 </td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:Literal runat="server" id="InitialCreationDate"></asp:Literal></span>
  </td><td class="tableCellLabel"><asp:Literal runat="server" id="DatePaidLabel" Text="Date Paid">	</asp:Literal> 
 </td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:Literal runat="server" id="DatePaid"></asp:Literal></span>
- </td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="FirstNameLabel" Text="First Name">	</asp:Literal> 
+ </td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="FirstNameLabel" Text="First Name">	</asp:Literal> 
 </td><td class="tableCellValue"><asp:Literal runat="server" id="FirstName"></asp:Literal> </td><td class="tableCellLabel"><asp:Literal runat="server" id="LastNameLabel" Text="Last Name">	</asp:Literal> 
-</td><td class="tableCellValue"><asp:Literal runat="server" id="LastName"></asp:Literal> </td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="Address1Label" Text="Address 1">	</asp:Literal> 
+</td><td class="tableCellValue"><asp:Literal runat="server" id="LastName"></asp:Literal> </td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="Address1Label" Text="Address 1">	</asp:Literal> 
 </td><td class="tableCellValue"><asp:Literal runat="server" id="Address1"></asp:Literal> </td><td class="tableCellLabel"><asp:Literal runat="server" id="Address2Label" Text="Address 2">	</asp:Literal> 
 </td><td class="tableCellValue"><asp:Literal runat="server" id="Address2"></asp:Literal> </td><td class="tableCellLabel"><asp:Literal runat="server" id="Address3Label" Text="Address 3">	</asp:Literal> 
-</td><td class="tableCellValue"><asp:Literal runat="server" id="Address3"></asp:Literal> </td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="TownNameLabel" Text="Town Name">	</asp:Literal> 
+</td><td class="tableCellValue"><asp:Literal runat="server" id="Address3"></asp:Literal> </td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="TownNameLabel" Text="Town Name">	</asp:Literal> 
 </td><td class="tableCellValue"><asp:Literal runat="server" id="TownName"></asp:Literal> </td><td class="tableCellLabel"><asp:Literal runat="server" id="MobileNumberLabel" Text="Mobile Number">	</asp:Literal> 
 </td><td class="tableCellValue"><asp:Literal runat="server" id="MobileNumber"></asp:Literal> </td><td class="tableCellLabel"><asp:Literal runat="server" id="EmailLabel" Text="Email">	</asp:Literal> 
-</td><td class="tableCellValue"><asp:Literal runat="server" id="Email"></asp:Literal> </td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="PSNZMemberLabel" Text="PSNZ Member">	</asp:Literal> 
+</td><td class="tableCellValue"><asp:Literal runat="server" id="Email"></asp:Literal> </td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="PSNZMemberLabel" Text="PSNZ Member">	</asp:Literal> 
 </td><td class="tableCellValue"><asp:Literal runat="server" id="PSNZMember"></asp:Literal> </td><td class="tableCellLabel"><asp:Literal runat="server" id="PSNZAppliedForLabel" Text="PSNZ Applied For">	</asp:Literal> 
 </td><td class="tableCellValue"><asp:Literal runat="server" id="PSNZAppliedFor"></asp:Literal> </td><td class="tableCellLabel"><asp:Literal runat="server" id="PSNZMembershipCheckLabel" Text="PSNZ Membership Check">	</asp:Literal> 
-</td><td class="tableCellValue"><asp:Literal runat="server" id="PSNZMembershipCheck"></asp:Literal> </td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="RegistrationTypeLabel" Text="Registration Type">	</asp:Literal> 
-</td><td class="tableCellValue" colspan="5"><asp:Literal runat="server" id="RegistrationType"></asp:Literal></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="AdditionalDinnerTicketLabel" Text="Additional Dinner Ticket">	</asp:Literal> 
+</td><td class="tableCellValue"><asp:Literal runat="server" id="PSNZMembershipCheck"></asp:Literal> </td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="RegistrationTypeLabel" Text="Registration Type">	</asp:Literal> 
+</td><td class="tableCellValue" colspan="5"><asp:Literal runat="server" id="RegistrationType"></asp:Literal></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="AdditionalDinnerTicketLabel" Text="Additional Dinner Ticket">	</asp:Literal> 
 </td><td class="tableCellValue"><asp:Literal runat="server" id="AdditionalDinnerTicket"></asp:Literal> </td><td class="tableCellLabel"><asp:Literal runat="server" id="AdditionalDinnerNameLabel" Text="Additional Dinner Name">	</asp:Literal> 
-</td><td class="tableCellValue"><asp:Literal runat="server" id="AdditionalDinnerName"></asp:Literal> </td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="SpecialRequirementsLabel" Text="Special Requirements">	</asp:Literal> 
-</td><td class="tableCellValue" colspan="5"><asp:Literal runat="server" id="SpecialRequirements"></asp:Literal> </td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="Description1Label" Text="Description 1">	</asp:Literal> 
-</td><td class="tableCellValue" colspan="3"><asp:Literal runat="server" id="Description1"></asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="FT1_1Label" Text="EvaluateFormula(&quot;= \&quot;First Choice\&quot;&quot;, true)">	</asp:Literal> 
+</td><td class="tableCellValue"><asp:Literal runat="server" id="AdditionalDinnerName"></asp:Literal> </td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="SpecialRequirementsLabel" Text="Special Requirements">	</asp:Literal> 
+</td><td class="tableCellValue" colspan="5"><asp:Literal runat="server" id="SpecialRequirements"></asp:Literal> </td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="Description1Label" Text="Description 1">	</asp:Literal> 
+</td><td class="tableCellValue" colspan="3"><asp:Literal runat="server" id="Description1"></asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="FT1_1Label" Text="EvaluateFormula(&quot;= \&quot;First Choice\&quot;&quot;, true)">	</asp:Literal> 
 </td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:LinkButton runat="server" id="FT1_1" causesvalidation="False" commandname="Redirect"></asp:LinkButton></span>
  </td><td class="tableCellLabel"><asp:Literal runat="server" id="FTA1Label" Text="EvaluateFormula(&quot;= \&quot;Allocated1\&quot;&quot;, true)">	</asp:Literal> 
 </td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:LinkButton runat="server" id="FTA1" causesvalidation="False" commandname="Redirect"></asp:LinkButton></span>
- </td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="FT1_2Label" Text="EvaluateFormula(&quot;= \&quot;Second Choice\&quot;&quot;, true)">	</asp:Literal> 
+ </td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="FT1_2Label" Text="EvaluateFormula(&quot;= \&quot;Second Choice\&quot;&quot;, true)">	</asp:Literal> 
 </td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:LinkButton runat="server" id="FT1_2" causesvalidation="False" commandname="Redirect"></asp:LinkButton></span>
- </td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="FT1_3Label" Text="EvaluateFormula(&quot;= \&quot;Third Choice\&quot;&quot;, true)">	</asp:Literal> 
+ </td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="FT1_3Label" Text="EvaluateFormula(&quot;= \&quot;Third Choice\&quot;&quot;, true)">	</asp:Literal> 
 </td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:LinkButton runat="server" id="FT1_3" causesvalidation="False" commandname="Redirect"></asp:LinkButton></span>
- </td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="Description2Label" Text="Description 2">	</asp:Literal> 
-</td><td class="tableCellValue" colspan="3"><asp:Literal runat="server" id="Description2"></asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="FT2_1Label" Text="EvaluateFormula(&quot;= \&quot;First Choice\&quot;&quot;, true)">	</asp:Literal> 
+ </td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="Description2Label" Text="Description 2">	</asp:Literal> 
+</td><td class="tableCellValue" colspan="3"><asp:Literal runat="server" id="Description2"></asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="FT2_1Label" Text="EvaluateFormula(&quot;= \&quot;First Choice\&quot;&quot;, true)">	</asp:Literal> 
 </td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:LinkButton runat="server" id="FT2_1" causesvalidation="False" commandname="Redirect"></asp:LinkButton></span>
  </td><td class="tableCellLabel"><asp:Literal runat="server" id="FTA2Label" Text="EvaluateFormula(&quot;= \&quot;Allocated2\&quot;&quot;, true)">	</asp:Literal> 
 </td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:LinkButton runat="server" id="FTA2" causesvalidation="False" commandname="Redirect"></asp:LinkButton></span>
- </td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="FT2_2Label" Text="EvaluateFormula(&quot;= \&quot;Second Choice\&quot;&quot;, true)">	</asp:Literal> 
+ </td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="FT2_2Label" Text="EvaluateFormula(&quot;= \&quot;Second Choice\&quot;&quot;, true)">	</asp:Literal> 
 </td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:LinkButton runat="server" id="FT2_2" causesvalidation="False" commandname="Redirect"></asp:LinkButton></span>
- </td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="FT2_3Label" Text="EvaluateFormula(&quot;= \&quot;Third Choice\&quot;&quot;, true)">	</asp:Literal> 
+ </td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="FT2_3Label" Text="EvaluateFormula(&quot;= \&quot;Third Choice\&quot;&quot;, true)">	</asp:Literal> 
 </td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:LinkButton runat="server" id="FT2_3" causesvalidation="False" commandname="Redirect"></asp:LinkButton></span>
- </td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="Item1Label" Text="EvaluateFormula(&quot;= \&quot;Workshop\&quot;&quot;, true)">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
+ </td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="Item1Label" Text="EvaluateFormula(&quot;= \&quot;Workshop1\&quot;&quot;, true)">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:Literal runat="server" id="Item1"></asp:Literal></span>
-</td><td class="tableCellLabel"><asp:Literal runat="server" id="Item1aLabel" Text="EvaluateFormula(&quot;= \&quot;Attending\&quot;&quot;, true)">	</asp:Literal></td><td class="tableCellValue"><asp:Literal runat="server" id="Item1a"></asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="Item2Label" Text="EvaluateFormula(&quot;= \&quot;Workshop\&quot;&quot;, true)">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
+</td><td class="tableCellLabel"><asp:Literal runat="server" id="Item1aLabel" Text="EvaluateFormula(&quot;= \&quot;Attending1\&quot;&quot;, true)">	</asp:Literal></td><td class="tableCellValue"><asp:Literal runat="server" id="Item1a"></asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="Item2Label" Text="EvaluateFormula(&quot;= \&quot;Workshop2\&quot;&quot;, true)">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:Literal runat="server" id="Item2"></asp:Literal></span>
-</td><td class="tableCellLabel"><asp:Literal runat="server" id="Item2aLabel" Text="EvaluateFormula(&quot;= \&quot;Attending\&quot;&quot;, true)">	</asp:Literal></td><td class="tableCellValue"><asp:Literal runat="server" id="Item2a"></asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="Item3Label" Text="EvaluateFormula(&quot;= \&quot;Workshop\&quot;&quot;, true)">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
+</td><td class="tableCellLabel"><asp:Literal runat="server" id="Item2aLabel" Text="EvaluateFormula(&quot;= \&quot;Attending2\&quot;&quot;, true)">	</asp:Literal></td><td class="tableCellValue"><asp:Literal runat="server" id="Item2a"></asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="Item3Label" Text="EvaluateFormula(&quot;= \&quot;Workshop3\&quot;&quot;, true)">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:Literal runat="server" id="Item3"></asp:Literal></span>
-</td><td class="tableCellLabel"><asp:Literal runat="server" id="Item3aLabel" Text="EvaluateFormula(&quot;= \&quot;Attending\&quot;&quot;, true)">	</asp:Literal></td><td class="tableCellValue"><asp:Literal runat="server" id="Item3a"></asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="Item4Label" Text="EvaluateFormula(&quot;= \&quot;Workshop\&quot;&quot;, true)">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
+</td><td class="tableCellLabel"><asp:Literal runat="server" id="Item3aLabel" Text="EvaluateFormula(&quot;= \&quot;Attending3\&quot;&quot;, true)">	</asp:Literal></td><td class="tableCellValue"><asp:Literal runat="server" id="Item3a"></asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="Item4Label" Text="EvaluateFormula(&quot;= \&quot;Workshop4\&quot;&quot;, true)">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
 <asp:Literal runat="server" id="Item4"></asp:Literal></span>
-</td><td class="tableCellLabel"><asp:Literal runat="server" id="Item4aLabel" Text="EvaluateFormula(&quot;= \&quot;Attending\&quot;&quot;, true)">	</asp:Literal></td><td class="tableCellValue"><asp:Literal runat="server" id="Item4a"></asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"></td></tr><tr><td class="tableRowDivider" colspan="6"></td></tr></OLR:View_AllDataExtractTableControlRow>
+</td><td class="tableCellLabel"><asp:Literal runat="server" id="Item4aLabel" Text="EvaluateFormula(&quot;= \&quot;Attending4\&quot;&quot;, true)">	</asp:Literal></td><td class="tableCellValue"><asp:Literal runat="server" id="Item4a"></asp:Literal></td><td class="tableCellLabel"></td><td class="tableCellValue"></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellLabel"><asp:Literal runat="server" id="Hon1Label" Text="EvaluateFormula(&quot;= \&quot;Honours\&quot;&quot;, true)">	</asp:Literal></td><td class="tableCellValue"><span style="white-space:nowrap;">
+<asp:Literal runat="server" id="Hon1"></asp:Literal></span>
+</td><td class="tableCellLabel"><span style="white-space:nowrap;">
+<asp:Literal runat="server" id="Hon2"></asp:Literal></span>
+</td><td class="tableCellValue"><span style="white-space:nowrap;">
+<asp:Literal runat="server" id="Hon3"></asp:Literal></span>
+</td><td class="tableCellLabel"><span style="white-space:nowrap;">
+<asp:Literal runat="server" id="Hon4"></asp:Literal></span>
+</td><td class="tableCellValue"><span style="white-space:nowrap;">
+<asp:Literal runat="server" id="Hon5"></asp:Literal></span>
+</td><td class="tableCellValue"><span style="white-space:nowrap;">
+<asp:Literal runat="server" id="Hon6"></asp:Literal></span>
+</td><td class="tableCellValue"><span style="white-space:nowrap;">
+<asp:Literal runat="server" id="Hon7"></asp:Literal></span>
+</td></tr><tr><td class="tableRowDivider" colspan="6"></td><td class="tableRowDivider"></td><td class="tableRowDivider"></td></tr></OLR:View_AllDataExtractTableControlRow>
 </ITEMTEMPLATE>
 
 </asp:Repeater>
@@ -145,7 +157,7 @@
                   </td></tr></table>
 </asp:panel>
                 </td><td class="panelR"></td></tr><tr><td class="panelL"></td><td class="panelPaginationC">
-                    <OLR:PaginationModern runat="server" id="Pagination"></OLR:PaginationModern>
+                    <OLR:PaginationMedium runat="server" id="Pagination"></OLR:PaginationMedium>
                     <!--To change the position of the pagination control, please search for "prspace" on the Online Help for instruction. -->
                   </td><td class="panelR"></td></tr><tr><td class="panelBL"><img src="../Images/space.gif" class="panelBLSpace" alt="" /></td><td class="panelB"></td><td class="panelBR"><img src="../Images/space.gif" class="panelBRSpace" alt="" /></td></tr></table>
 	<asp:hiddenfield id="View_AllDataExtractTableControl_PostbackTracker" runat="server" />

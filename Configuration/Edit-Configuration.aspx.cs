@@ -1,6 +1,6 @@
 ﻿
-// This file implements the code-behind class for Show_View_AllDataExtract_Table.aspx.
-// Show_View_AllDataExtract_Table.Controls.vb contains the Table, Row and Record control classes
+// This file implements the code-behind class for Edit_Configuration.aspx.
+// Edit_Configuration.Controls.vb contains the Table, Row and Record control classes
 // for the page.  Best practices calls for overriding methods in the Row or Record control classes.
 
 #region "Using statements"    
@@ -21,24 +21,23 @@ using BaseClasses.Web.UI.WebControls;
         
 using OLR.Business;
 using OLR.Data;
-using CustomTools;
-
+        
 
 #endregion
 
-
+  
 namespace OLR.UI
 {
   
-public partial class Show_View_AllDataExtract_Table
+public partial class Edit_Configuration
         : BaseApplicationPage
-// Code-behind class for the Show_View_AllDataExtract_Table page.
+// Code-behind class for the Edit_Configuration page.
 // Place your customizations in Section 1. Do not modify Section 2.
 {
         
       #region "Section 1: Place your customizations here."
 
-      public Show_View_AllDataExtract_Table()
+      public Edit_Configuration()
         {
             this.Initialize();
     
@@ -57,7 +56,6 @@ public partial class Show_View_AllDataExtract_Table
          
         public void LoadData()
         {
-            CustomStoredProcedures.RefreshWorkshopOneToManyTable();
             // LoadData reads database data and assigns it to UI controls.
             // Customize by adding code before or after the call to LoadData_Base()
             // or replace the call to LoadData_Base().
@@ -175,17 +173,6 @@ public partial class Show_View_AllDataExtract_Table
         }
         
     
-        [System.Web.Services.WebMethod]
-        public static string[] GetAutoCompletionList_SearchText(string prefixText, int count)
-        {
-            // GetSearchTextCompletionList gets the list of suggestions from the database.
-            // prefixText is the search text typed by the user .
-            // count specifies the number of suggestions to be returned.
-            // Customize by adding code before or after the call to  GetAutoCompletionList_SearchText_Base()
-            // or replace the call to GetAutoCompletionList_SearchText_Base().
-            return GetAutoCompletionList_SearchText_Base(prefixText, count);
-        }
-      
       protected override void BasePage_PreRender(object sender, EventArgs e)
       {
           base.BasePage_PreRender(sender, e);
@@ -202,14 +189,42 @@ public partial class Show_View_AllDataExtract_Table
 
       // Page Event Handlers - buttons, sort, links
       
+        public void CancelButton_Click(object sender, EventArgs args)
+        {
+
+          // Click handler for CancelButton.
+          // Customize by adding code before the call or replace the call to the Base function with your own code.
+          CancelButton_Click_Base(sender, args);
+          // NOTE: If the Base function redirects to another page, any code here will not be executed.
+        }
+            
+        public void SaveButton_Click(object sender, EventArgs args)
+        {
+
+          // Click handler for SaveButton.
+          // Customize by adding code before the call or replace the call to the Base function with your own code.
+          SaveButton_Click_Base(sender, args);
+          // NOTE: If the Base function redirects to another page, any code here will not be executed.
+        }
+            
     
         // Write out the Set methods
         
-        public void SetView_AllDataExtractTableControl()
+        public void SetConfigurationRecordControl()
         {
-            SetView_AllDataExtractTableControl_Base(); 
+            SetConfigurationRecordControl_Base(); 
         }
-                     
+        
+        public void SetCancelButton()
+        {
+            SetCancelButton_Base(); 
+        }              
+            
+        public void SetSaveButton()
+        {
+            SetSaveButton_Base(); 
+        }              
+                         
         
         // Write out the methods for DataSource
         
@@ -232,38 +247,22 @@ public partial class Show_View_AllDataExtract_Table
         }
         
     
-        public ThemeButtonWithArrow ActionsButton;
+        public ThemeButton CancelButton;
                 
-        public System.Web.UI.WebControls.ImageButton ExcelButton;
-        
-        public ThemeButton FilterButton;
-                
-        public ThemeButtonWithArrow FiltersButton;
-                
-        public System.Web.UI.WebControls.ImageButton ImportButton;
-        
-        public System.Web.UI.WebControls.ImageButton NewButton;
+        public OLR.UI.Controls.Edit_Configuration.ConfigurationRecordControl ConfigurationRecordControl;
+          
+        public System.Web.UI.WebControls.Literal EmailCopiesAddressLabel;
         
         public System.Web.UI.WebControls.Literal PageTitle;
         
-        public PaginationMedium Pagination;
+        public ThemeButton SaveButton;
                 
-        public System.Web.UI.WebControls.ImageButton PDFButton;
-        
-        public System.Web.UI.WebControls.ImageButton ResetButton;
-        
-        public System.Web.UI.WebControls.ImageButton SearchButton;
-        
-        public System.Web.UI.WebControls.TextBox SearchText;
-        
-        public System.Web.UI.WebControls.Label SortByLabel;
+        public System.Web.UI.WebControls.CheckBox SendEmailCopies;
+            
+        public System.Web.UI.WebControls.Literal SendEmailCopiesLabel;
         
         public System.Web.UI.WebControls.Literal Title0;
             
-        public OLR.UI.Controls.Show_View_AllDataExtract_Table.View_AllDataExtractTableControl View_AllDataExtractTableControl;
-          
-        public System.Web.UI.WebControls.ImageButton WordButton;
-        
         public ValidationSummary ValidationSummary1;
 
   
@@ -285,6 +284,10 @@ public partial class Show_View_AllDataExtract_Table
 
           // Setup the pagination events.
         
+                    this.CancelButton.Button.Click += CancelButton_Click;
+                        
+                    this.SaveButton.Button.Click += SaveButton_Click;
+                        
           this.ClearControlsFromSession();    
     
           System.Web.HttpContext.Current.Session["isd_geo_location"] = "<location><error>LOCATION_ERROR_DISABLED</error></location>";
@@ -299,7 +302,9 @@ public partial class Show_View_AllDataExtract_Table
 
         private void Base_RegisterPostback()
         {
-                
+        
+              this.RegisterPostBackTrigger(MiscUtils.FindControlRecursively(this,"SaveButton"));
+                                
         }
 
         protected void BasePage_PreRender_Base(object sender, System.EventArgs e)
@@ -325,7 +330,7 @@ public partial class Show_View_AllDataExtract_Table
             // Check if user has access to this page.  Redirects to either sign-in page
             // or 'no access' page if not. Does not do anything if role-based security
             // is not turned on, but you can override to add your own security.
-            this.Authorize("NOT_ANONYMOUS");
+            this.Authorize("");
              if (!this.IsPostBack)
              {
             
@@ -344,7 +349,7 @@ public partial class Show_View_AllDataExtract_Table
     }
 
     
-            Page.Title = "All Data Extract";
+            Page.Title = ExpandResourceValue("{Title:Edit} Configuration");
         
         if (!IsPostBack)
             AjaxControlToolkit.ToolkitScriptManager.RegisterStartupScript(this, this.GetType(), "PopupScript", "openPopupPage('QPageSize');", true);
@@ -437,8 +442,8 @@ public partial class Show_View_AllDataExtract_Table
           switch (control)
           {
           
-              case "View_AllDataExtractTableControl":
-                 SetView_AllDataExtractTableControl();
+              case "ConfigurationRecordControl":
+                 SetConfigurationRecordControl();
                  break;
                
           }
@@ -450,7 +455,7 @@ public partial class Show_View_AllDataExtract_Table
       public void SaveData_Base()
       {
       
-        this.View_AllDataExtractTableControl.SaveData();
+        this.ConfigurationRecordControl.SaveData();
         
       }
       
@@ -523,17 +528,6 @@ public partial class Show_View_AllDataExtract_Table
       }  
       
         
-    public static string[] GetAutoCompletionList_SearchText_Base(string prefixText, int count)
-    {
-        // Since this method is a shared/static method it does not maintain information about page or controls within the page.
-        // Hence we can not invoke any method associated with any controls.
-        // So, if we need to use any control in the page we need to instantiate it.
-        OLR.UI.Controls.Show_View_AllDataExtract_Table.View_AllDataExtractTableControl control = new OLR.UI.Controls.Show_View_AllDataExtract_Table.View_AllDataExtractTableControl();
-        
-        return control.GetAutoCompletionList_SearchText(prefixText, count);
-            
-    }
-      
 
     // Load data from database into UI controls.
     // Modify LoadData in Section 1 above to customize.  Or override DataBind() in
@@ -557,7 +551,7 @@ public partial class Show_View_AllDataExtract_Table
     
                 // Load and bind data for each record and table UI control.
                 
-        SetView_AllDataExtractTableControl();
+        SetConfigurationRecordControl();
         
     
                 // Load data for chart.
@@ -565,6 +559,10 @@ public partial class Show_View_AllDataExtract_Table
             
                 // initialize aspx controls
                 
+                SetCancelButton();
+              
+                SetSaveButton();
+              
     } catch (Exception ex) {
     // An error has occured so display an error message.
     BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "Page_Load_Error_Message", ex.Message);
@@ -646,21 +644,168 @@ public partial class Show_View_AllDataExtract_Table
                 
         // Write out the Set methods
         
-        public void SetView_AllDataExtractTableControl_Base()           
+        public void SetConfigurationRecordControl_Base()           
         
         {        
-            if (View_AllDataExtractTableControl.Visible)
+            if (ConfigurationRecordControl.Visible)
             {
-                View_AllDataExtractTableControl.LoadData();
-                View_AllDataExtractTableControl.DataBind();
+                ConfigurationRecordControl.LoadData();
+                ConfigurationRecordControl.DataBind();
             }
         }
-          
+      
+        public void SetCancelButton_Base()                
+              
+        {
+        
+   
+        }
+            
+        public void SetSaveButton_Base()                
+              
+        {
+        
+                    this.SaveButton.Button.Attributes.Add("onclick", "SubmitHRefOnce(this, \"" + this.GetResourceValue("Txt:SaveRecord", "OLR") + "\");");
+                  
+   
+        }
+                
 
         // Write out the DataSource properties and methods
                 
 
         // Write out event methods for the page events
+        
+        // event handler for Button
+        public void CancelButton_Click_Base(object sender, EventArgs args)
+        {
+              
+        bool shouldRedirect = true;
+        string target = null;
+        if (target == null) target = ""; // avoid warning on VS
+      
+            try {
+                
+          
+                // if target is specified meaning that is opened on popup or new window
+                if (!string.IsNullOrEmpty(Page.Request["target"]))
+                {
+                    shouldRedirect = false;
+                    AjaxControlToolkit.ToolkitScriptManager.RegisterStartupScript(this, this.GetType(), "ClosePopup", "closePopupPage();", true);                   
+                }
+      
+            } catch (Exception ex) {
+                  shouldRedirect = false;
+                  this.ErrorOnPage = true;
+
+            // Report the error message to the end user
+            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
+    
+            } finally {
+    
+            }
+            if (shouldRedirect) {
+                this.ShouldSaveControlsToSession = true;
+      this.RedirectBack();
+        
+            }
+        
+        }
+            
+            
+        
+        // event handler for Button
+        public void SaveButton_Click_Base(object sender, EventArgs args)
+        {
+              
+        bool shouldRedirect = true;
+        string target = null;
+        if (target == null) target = ""; // avoid warning on VS
+      
+            try {
+                // Enclose all database retrieval/update code within a Transaction boundary
+                DbUtils.StartTransaction();
+                
+        
+              if (!this.IsPageRefresh)
+              {
+                  this.SaveData();
+              }
+
+          this.CommitTransaction(sender);
+            string field = "";
+            string formula = "";
+            string displayFieldName = "";
+            string value = "";
+            if(value == null) value = ""; // added to remove warning from VS
+            string id = ""; 
+            if(id == null) id = ""; //added to avoid warning in VS
+            
+            // retrieve necessary URL parameters
+            if (!String.IsNullOrEmpty(Page.Request["Target"]) )
+                target = (this.Page as BaseApplicationPage).GetDecryptedURLParameter("Target");
+            if (!String.IsNullOrEmpty(Page.Request["IndexField"]))
+                field = (this.Page as BaseApplicationPage).GetDecryptedURLParameter("IndexField");
+            if (!String.IsNullOrEmpty(Page.Request["Formula"]))
+                formula = (this.Page as BaseApplicationPage).GetDecryptedURLParameter("Formula");
+            if (!String.IsNullOrEmpty(Page.Request["DFKA"]))
+                displayFieldName = (this.Page as BaseApplicationPage).GetDecryptedURLParameter("DFKA");
+            
+            if (!string.IsNullOrEmpty(target) && !string.IsNullOrEmpty(field))
+            {
+          
+
+                  if (this.ConfigurationRecordControl != null && this.ConfigurationRecordControl.DataSource != null)
+                  {
+                        id = this.ConfigurationRecordControl.DataSource.GetValue(this.ConfigurationRecordControl.DataSource.TableAccess.TableDefinition.ColumnList.GetByAnyName(field)).ToString();
+                        if (!string.IsNullOrEmpty(formula))
+                        {
+                            System.Collections.Generic.IDictionary<String, Object> variables = new System.Collections.Generic.Dictionary<String, Object>();
+                            variables.Add(this.ConfigurationRecordControl.DataSource.TableAccess.TableDefinition.TableCodeName, this.ConfigurationRecordControl.DataSource);
+                            value = EvaluateFormula(formula, this.ConfigurationRecordControl.DataSource, null,variables);
+                        }
+                        else if (displayFieldName == "") 
+                        {
+                            value = id;
+                        }
+                        else
+                        {
+                            value = this.ConfigurationRecordControl.DataSource.GetValue(this.ConfigurationRecordControl.DataSource.TableAccess.TableDefinition.ColumnList.GetByAnyName(displayFieldName)).ToString();
+                        }
+                  }
+                  if (value == null)
+                      value = id;
+                  BaseClasses.Utils.MiscUtils.RegisterAddButtonScript(this, target, id, value);
+                  shouldRedirect = false;
+                
+           }
+           else if (!string.IsNullOrEmpty(target))
+           {
+                BaseClasses.Utils.MiscUtils.RegisterAddButtonScript(this, target, null, null);           
+                shouldRedirect = false;       
+           }
+         
+            } catch (Exception ex) {
+                  // Upon error, rollback the transaction
+                  this.RollBackTransaction(sender);
+                  shouldRedirect = false;
+                  this.ErrorOnPage = true;
+
+            // Report the error message to the end user
+            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
+    
+            } finally {
+                DbUtils.EndTransaction();
+            }
+            if (shouldRedirect) {
+                this.ShouldSaveControlsToSession = true;
+      this.RedirectBack();
+        
+            }
+        
+        }
+            
+            
         
       
 

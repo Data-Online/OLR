@@ -320,16 +320,28 @@
     <Compile Include="BaseView_FieldTripSelectionsRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View_AllDataExtractView.cs" >
+    <Compile Include="View_AllDataExtractView.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseView_AllDataExtractView.cs" >
+    <Compile Include="BaseView_AllDataExtractView.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View_AllDataExtractRecord.cs" >
+    <Compile Include="View_AllDataExtractRecord.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseView_AllDataExtractRecord.cs" >
+    <Compile Include="BaseView_AllDataExtractRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ConfigurationTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseConfigurationTable.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ConfigurationRecord.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseConfigurationRecord.cs" >
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

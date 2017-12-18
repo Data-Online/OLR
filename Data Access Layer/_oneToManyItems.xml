@@ -2,6 +2,37 @@
 <XMLDefinition Generator="Iron Speed Designer" Version="12.2" Type="GENERIC">
   <ColumnDefinition>
     <Column InternalName="0" Priority="1" ColumnNum="0">
+      <columnName>OneToManyId</columnName>
+      <columnUIName>%ISD_DEFAULT%</columnUIName>
+      <columnType>Number</columnType>
+      <columnDBType>int</columnDBType>
+      <columnLengthSet>10.0</columnLengthSet>
+      <columnDefault>
+      </columnDefault>
+      <columnDBDefault>
+      </columnDBDefault>
+      <columnIndex>Y</columnIndex>
+      <columnUnique>Y</columnUnique>
+      <columnFunction>notrim</columnFunction>
+      <columnDBFormat>
+      </columnDBFormat>
+      <columnPK>Y</columnPK>
+      <columnPermanent>N</columnPermanent>
+      <columnComputed>Y</columnComputed>
+      <columnIdentity>Y</columnIdentity>
+      <columnReadOnly>Y</columnReadOnly>
+      <columnRequired>N</columnRequired>
+      <columnNotNull>Y</columnNotNull>
+      <columnCaseSensitive>N</columnCaseSensitive>
+      <columnCollation>
+      </columnCollation>
+      <columnFullText>N</columnFullText>
+      <columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>
+      <columnTableAliasName>
+      </columnTableAliasName>
+      <applyLabelText>Y</applyLabelText>
+    </Column>
+    <Column InternalName="1" Priority="2" ColumnNum="1">
       <columnName>Item1</columnName>
       <columnUIName>%ISD_DEFAULT%</columnUIName>
       <columnType>Number</columnType>
@@ -50,7 +81,7 @@
       <updatingFormula>
       </updatingFormula>
     </Column>
-    <Column InternalName="1" Priority="2" ColumnNum="1">
+    <Column InternalName="2" Priority="3" ColumnNum="2">
       <columnName>Item2</columnName>
       <columnUIName>%ISD_DEFAULT%</columnUIName>
       <columnType>Number</columnType>
@@ -99,7 +130,7 @@
       <updatingFormula>
       </updatingFormula>
     </Column>
-    <Column InternalName="2" Priority="3" ColumnNum="2">
+    <Column InternalName="3" Priority="4" ColumnNum="3">
       <columnName>Item3</columnName>
       <columnUIName>%ISD_DEFAULT%</columnUIName>
       <columnType>Number</columnType>
@@ -148,7 +179,7 @@
       <updatingFormula>
       </updatingFormula>
     </Column>
-    <Column InternalName="3" Priority="4" ColumnNum="3">
+    <Column InternalName="4" Priority="5" ColumnNum="4">
       <columnName>Item4</columnName>
       <columnUIName>%ISD_DEFAULT%</columnUIName>
       <columnType>Number</columnType>
@@ -197,7 +228,7 @@
       <updatingFormula>
       </updatingFormula>
     </Column>
-    <Column InternalName="4" Priority="5" ColumnNum="4">
+    <Column InternalName="5" Priority="6" ColumnNum="5">
       <columnName>Item5</columnName>
       <columnUIName>%ISD_DEFAULT%</columnUIName>
       <columnType>Number</columnType>
@@ -246,7 +277,7 @@
       <updatingFormula>
       </updatingFormula>
     </Column>
-    <Column InternalName="5" Priority="6" ColumnNum="5">
+    <Column InternalName="6" Priority="7" ColumnNum="6">
       <columnName>Item6</columnName>
       <columnUIName>%ISD_DEFAULT%</columnUIName>
       <columnType>Number</columnType>
@@ -295,7 +326,7 @@
       <updatingFormula>
       </updatingFormula>
     </Column>
-    <Column InternalName="6" Priority="7" ColumnNum="6">
+    <Column InternalName="7" Priority="8" ColumnNum="7">
       <columnName>Item7</columnName>
       <columnUIName>%ISD_DEFAULT%</columnUIName>
       <columnType>Number</columnType>
@@ -344,7 +375,7 @@
       <updatingFormula>
       </updatingFormula>
     </Column>
-    <Column InternalName="7" Priority="8" ColumnNum="7">
+    <Column InternalName="8" Priority="9" ColumnNum="8">
       <columnName>RegistrationId</columnName>
       <columnUIName>%ISD_DEFAULT%</columnUIName>
       <columnType>Number</columnType>
@@ -354,13 +385,13 @@
       </columnDefault>
       <columnDBDefault>
       </columnDBDefault>
-      <columnIndex>Y</columnIndex>
-      <columnUnique>Y</columnUnique>
+      <columnIndex>N</columnIndex>
+      <columnUnique>N</columnUnique>
       <columnFunction>
       </columnFunction>
       <columnDBFormat>
       </columnDBFormat>
-      <columnPK>Y</columnPK>
+      <columnPK>N</columnPK>
       <columnPermanent>N</columnPermanent>
       <columnComputed>N</columnComputed>
       <columnIdentity>N</columnIdentity>
@@ -393,7 +424,7 @@
       <updatingFormula>
       </updatingFormula>
     </Column>
-    <Column InternalName="8" Priority="9" ColumnNum="8">
+    <Column InternalName="9" Priority="10" ColumnNum="9">
       <columnName>Item1a</columnName>
       <columnUIName>%ISD_DEFAULT%</columnUIName>
       <columnType>Boolean</columnType>
@@ -443,7 +474,7 @@
       <updatingFormula>
       </updatingFormula>
     </Column>
-    <Column InternalName="9" Priority="10" ColumnNum="9">
+    <Column InternalName="10" Priority="11" ColumnNum="10">
       <columnName>Item2a</columnName>
       <columnUIName>%ISD_DEFAULT%</columnUIName>
       <columnType>Boolean</columnType>
@@ -493,7 +524,7 @@
       <updatingFormula>
       </updatingFormula>
     </Column>
-    <Column InternalName="10" Priority="11" ColumnNum="10">
+    <Column InternalName="11" Priority="12" ColumnNum="11">
       <columnName>Item3a</columnName>
       <columnUIName>%ISD_DEFAULT%</columnUIName>
       <columnType>Boolean</columnType>
@@ -543,7 +574,7 @@
       <updatingFormula>
       </updatingFormula>
     </Column>
-    <Column InternalName="11" Priority="12" ColumnNum="11">
+    <Column InternalName="12" Priority="13" ColumnNum="12">
       <columnName>Item4a</columnName>
       <columnUIName>%ISD_DEFAULT%</columnUIName>
       <columnType>Boolean</columnType>
@@ -593,7 +624,7 @@
       <updatingFormula>
       </updatingFormula>
     </Column>
-    <Column InternalName="12" Priority="13" ColumnNum="12">
+    <Column InternalName="13" Priority="14" ColumnNum="13">
       <columnName>Item5a</columnName>
       <columnUIName>%ISD_DEFAULT%</columnUIName>
       <columnType>Boolean</columnType>
@@ -643,7 +674,7 @@
       <updatingFormula>
       </updatingFormula>
     </Column>
-    <Column InternalName="13" Priority="14" ColumnNum="13">
+    <Column InternalName="14" Priority="15" ColumnNum="14">
       <columnName>Item6a</columnName>
       <columnUIName>%ISD_DEFAULT%</columnUIName>
       <columnType>Boolean</columnType>
@@ -693,7 +724,7 @@
       <updatingFormula>
       </updatingFormula>
     </Column>
-    <Column InternalName="14" Priority="15" ColumnNum="14">
+    <Column InternalName="15" Priority="16" ColumnNum="15">
       <columnName>Item7a</columnName>
       <columnUIName>%ISD_DEFAULT%</columnUIName>
       <columnType>Boolean</columnType>
@@ -743,9 +774,73 @@
       <updatingFormula>
       </updatingFormula>
     </Column>
+    <Column InternalName="16" Priority="17" ColumnNum="16">
+      <columnName>EventId</columnName>
+      <columnUIName>%ISD_DEFAULT%</columnUIName>
+      <columnType>Number</columnType>
+      <columnDBType>int</columnDBType>
+      <columnLengthSet>10.0</columnLengthSet>
+      <columnDefault>
+      </columnDefault>
+      <columnDBDefault>
+      </columnDBDefault>
+      <columnIndex>N</columnIndex>
+      <columnUnique>N</columnUnique>
+      <columnFunction>
+      </columnFunction>
+      <columnDBFormat>
+      </columnDBFormat>
+      <columnPK>N</columnPK>
+      <columnPermanent>N</columnPermanent>
+      <columnComputed>N</columnComputed>
+      <columnIdentity>N</columnIdentity>
+      <columnReadOnly>N</columnReadOnly>
+      <columnRequired>N</columnRequired>
+      <columnNotNull>N</columnNotNull>
+      <columnCaseSensitive>N</columnCaseSensitive>
+      <columnCollation>
+      </columnCollation>
+      <columnFullText>N</columnFullText>
+      <columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>
+      <columnTableAliasName>
+      </columnTableAliasName>
+      <applyLabelText>Y</applyLabelText>
+    </Column>
+    <Column InternalName="17" Priority="18" ColumnNum="17">
+      <columnName>ItemType</columnName>
+      <columnUIName>%ISD_DEFAULT%</columnUIName>
+      <columnType>Number</columnType>
+      <columnDBType>int</columnDBType>
+      <columnLengthSet>10.0</columnLengthSet>
+      <columnDefault>
+      </columnDefault>
+      <columnDBDefault>
+      </columnDBDefault>
+      <columnIndex>N</columnIndex>
+      <columnUnique>N</columnUnique>
+      <columnFunction>
+      </columnFunction>
+      <columnDBFormat>
+      </columnDBFormat>
+      <columnPK>N</columnPK>
+      <columnPermanent>N</columnPermanent>
+      <columnComputed>N</columnComputed>
+      <columnIdentity>N</columnIdentity>
+      <columnReadOnly>N</columnReadOnly>
+      <columnRequired>N</columnRequired>
+      <columnNotNull>N</columnNotNull>
+      <columnCaseSensitive>N</columnCaseSensitive>
+      <columnCollation>
+      </columnCollation>
+      <columnFullText>N</columnFullText>
+      <columnVisibleWidth>%ISD_DEFAULT%</columnVisibleWidth>
+      <columnTableAliasName>
+      </columnTableAliasName>
+      <applyLabelText>Y</applyLabelText>
+    </Column>
   </ColumnDefinition>
   <TableName>_oneToManyItems</TableName>
-  <Version>1</Version>
+  <Version>2</Version>
   <Owner>dbo</Owner>
   <TableAliasName>_oneToManyItems_</TableAliasName>
   <ConnectionName>DatabaseOLR_db</ConnectionName>

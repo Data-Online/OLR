@@ -1150,6 +1150,27 @@
     <Compile Include="view_AllDataExtract\Show-View-AllDataExtract-Table.Controls.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Configuration\Edit-Configuration.aspx.cs">
+      <DependentUpon>Edit-Configuration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Configuration\Edit-Configuration.Controls.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\Edit-Configuration-Table.aspx.cs" >
+      <DependentUpon>Edit-Configuration-Table.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Configuration\Edit-Configuration-Table.Controls.cs" >
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\Configuration-QuickSelector.aspx.cs" >
+      <DependentUpon>Configuration-QuickSelector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Configuration\Configuration-QuickSelector.Controls.cs" >
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="BaseClasses\Readme.txt" />
@@ -1536,6 +1557,9 @@
     <Content Include="view_FieldTripSelections\Edit-View-FieldTripSelections-Table.aspx" />
     <Content Include="HomeTowns\Edit-HomeTowns-Table.aspx" />
     <Content Include="view_AllDataExtract\Show-View-AllDataExtract-Table.aspx" />
+    <Content Include="Configuration\Edit-Configuration.aspx" />
+    <Content Include="Configuration\Edit-Configuration-Table.aspx"  />
+    <Content Include="Configuration\Configuration-QuickSelector.aspx"  />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Global.asax.resx">

@@ -1,6 +1,6 @@
 ﻿
-// This file implements the code-behind class for Show_View_AllDataExtract_Table.aspx.
-// Show_View_AllDataExtract_Table.Controls.vb contains the Table, Row and Record control classes
+// This file implements the code-behind class for Configuration_QuickSelector.aspx.
+// Configuration_QuickSelector.Controls.vb contains the Table, Row and Record control classes
 // for the page.  Best practices calls for overriding methods in the Row or Record control classes.
 
 #region "Using statements"    
@@ -21,24 +21,23 @@ using BaseClasses.Web.UI.WebControls;
         
 using OLR.Business;
 using OLR.Data;
-using CustomTools;
-
+        
 
 #endregion
 
-
+  
 namespace OLR.UI
 {
   
-public partial class Show_View_AllDataExtract_Table
+public partial class Configuration_QuickSelector
         : BaseApplicationPage
-// Code-behind class for the Show_View_AllDataExtract_Table page.
+// Code-behind class for the Configuration_QuickSelector page.
 // Place your customizations in Section 1. Do not modify Section 2.
 {
         
       #region "Section 1: Place your customizations here."
 
-      public Show_View_AllDataExtract_Table()
+      public Configuration_QuickSelector()
         {
             this.Initialize();
     
@@ -57,7 +56,6 @@ public partial class Show_View_AllDataExtract_Table
          
         public void LoadData()
         {
-            CustomStoredProcedures.RefreshWorkshopOneToManyTable();
             // LoadData reads database data and assigns it to UI controls.
             // Customize by adding code before or after the call to LoadData_Base()
             // or replace the call to LoadData_Base().
@@ -176,14 +174,14 @@ public partial class Show_View_AllDataExtract_Table
         
     
         [System.Web.Services.WebMethod]
-        public static string[] GetAutoCompletionList_SearchText(string prefixText, int count)
+        public static string[] GetAutoCompletionList_Search(string prefixText, int count)
         {
-            // GetSearchTextCompletionList gets the list of suggestions from the database.
+            // GetSearchCompletionList gets the list of suggestions from the database.
             // prefixText is the search text typed by the user .
             // count specifies the number of suggestions to be returned.
-            // Customize by adding code before or after the call to  GetAutoCompletionList_SearchText_Base()
-            // or replace the call to GetAutoCompletionList_SearchText_Base().
-            return GetAutoCompletionList_SearchText_Base(prefixText, count);
+            // Customize by adding code before or after the call to  GetAutoCompletionList_Search_Base()
+            // or replace the call to GetAutoCompletionList_Search_Base().
+            return GetAutoCompletionList_Search_Base(prefixText, count);
         }
       
       protected override void BasePage_PreRender(object sender, EventArgs e)
@@ -205,9 +203,9 @@ public partial class Show_View_AllDataExtract_Table
     
         // Write out the Set methods
         
-        public void SetView_AllDataExtractTableControl()
+        public void SetSelectorTableControl()
         {
-            SetView_AllDataExtractTableControl_Base(); 
+            SetSelectorTableControl_Base(); 
         }
                      
         
@@ -232,38 +230,22 @@ public partial class Show_View_AllDataExtract_Table
         }
         
     
-        public ThemeButtonWithArrow ActionsButton;
+        public ThemeButton AddButton;
                 
-        public System.Web.UI.WebControls.ImageButton ExcelButton;
-        
-        public ThemeButton FilterButton;
+        public ThemeButton ClearButton;
                 
-        public ThemeButtonWithArrow FiltersButton;
+        public ThemeButton CommitButton;
                 
-        public System.Web.UI.WebControls.ImageButton ImportButton;
-        
-        public System.Web.UI.WebControls.ImageButton NewButton;
-        
         public System.Web.UI.WebControls.Literal PageTitle;
         
-        public PaginationMedium Pagination;
+        public PaginationModern Pagination;
                 
-        public System.Web.UI.WebControls.ImageButton PDFButton;
-        
-        public System.Web.UI.WebControls.ImageButton ResetButton;
+        public System.Web.UI.WebControls.TextBox Search;
         
         public System.Web.UI.WebControls.ImageButton SearchButton;
         
-        public System.Web.UI.WebControls.TextBox SearchText;
-        
-        public System.Web.UI.WebControls.Label SortByLabel;
-        
-        public System.Web.UI.WebControls.Literal Title0;
-            
-        public OLR.UI.Controls.Show_View_AllDataExtract_Table.View_AllDataExtractTableControl View_AllDataExtractTableControl;
+        public OLR.UI.Controls.Configuration_QuickSelector.SelectorTableControl SelectorTableControl;
           
-        public System.Web.UI.WebControls.ImageButton WordButton;
-        
         public ValidationSummary ValidationSummary1;
 
   
@@ -325,7 +307,7 @@ public partial class Show_View_AllDataExtract_Table
             // Check if user has access to this page.  Redirects to either sign-in page
             // or 'no access' page if not. Does not do anything if role-based security
             // is not turned on, but you can override to add your own security.
-            this.Authorize("NOT_ANONYMOUS");
+            this.Authorize("");
              if (!this.IsPostBack)
              {
             
@@ -344,10 +326,10 @@ public partial class Show_View_AllDataExtract_Table
     }
 
     
-            Page.Title = "All Data Extract";
+            Page.Title = "Page";
         
         if (!IsPostBack)
-            AjaxControlToolkit.ToolkitScriptManager.RegisterStartupScript(this, this.GetType(), "PopupScript", "openPopupPage('QPageSize');", true);
+            AjaxControlToolkit.ToolkitScriptManager.RegisterStartupScript(this, this.GetType(), "PopupScript", "openPopupPage('QSSize');", true);
         
             }
 
@@ -437,8 +419,8 @@ public partial class Show_View_AllDataExtract_Table
           switch (control)
           {
           
-              case "View_AllDataExtractTableControl":
-                 SetView_AllDataExtractTableControl();
+              case "SelectorTableControl":
+                 SetSelectorTableControl();
                  break;
                
           }
@@ -450,7 +432,7 @@ public partial class Show_View_AllDataExtract_Table
       public void SaveData_Base()
       {
       
-        this.View_AllDataExtractTableControl.SaveData();
+        this.SelectorTableControl.SaveData();
         
       }
       
@@ -523,14 +505,14 @@ public partial class Show_View_AllDataExtract_Table
       }  
       
         
-    public static string[] GetAutoCompletionList_SearchText_Base(string prefixText, int count)
+    public static string[] GetAutoCompletionList_Search_Base(string prefixText, int count)
     {
         // Since this method is a shared/static method it does not maintain information about page or controls within the page.
         // Hence we can not invoke any method associated with any controls.
         // So, if we need to use any control in the page we need to instantiate it.
-        OLR.UI.Controls.Show_View_AllDataExtract_Table.View_AllDataExtractTableControl control = new OLR.UI.Controls.Show_View_AllDataExtract_Table.View_AllDataExtractTableControl();
+        OLR.UI.Controls.Configuration_QuickSelector.SelectorTableControl control = new OLR.UI.Controls.Configuration_QuickSelector.SelectorTableControl();
         
-        return control.GetAutoCompletionList_SearchText(prefixText, count);
+        return control.GetAutoCompletionList_Search(prefixText, count);
             
     }
       
@@ -557,7 +539,7 @@ public partial class Show_View_AllDataExtract_Table
     
                 // Load and bind data for each record and table UI control.
                 
-        SetView_AllDataExtractTableControl();
+        SetSelectorTableControl();
         
     
                 // Load data for chart.
@@ -646,13 +628,13 @@ public partial class Show_View_AllDataExtract_Table
                 
         // Write out the Set methods
         
-        public void SetView_AllDataExtractTableControl_Base()           
+        public void SetSelectorTableControl_Base()           
         
         {        
-            if (View_AllDataExtractTableControl.Visible)
+            if (SelectorTableControl.Visible)
             {
-                View_AllDataExtractTableControl.LoadData();
-                View_AllDataExtractTableControl.DataBind();
+                SelectorTableControl.LoadData();
+                SelectorTableControl.DataBind();
             }
         }
           

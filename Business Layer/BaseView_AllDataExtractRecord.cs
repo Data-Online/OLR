@@ -2092,6 +2092,412 @@ public class BaseView_AllDataExtractRecord : PrimaryKeyRecord
 		ColumnValue cv = new ColumnValue(val);
 		this.SetValue(cv, TableUtils.Item7aColumn);
 	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Hon1 field.
+	/// </summary>
+	public ColumnValue GetHon1Value()
+	{
+		return this.GetValue(TableUtils.Hon1Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Hon1 field.
+	/// </summary>
+	public Int32 GetHon1FieldValue()
+	{
+		return this.GetValue(TableUtils.Hon1Column).ToInt32();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon1 field.
+	/// </summary>
+	public void SetHon1FieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.Hon1Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon1 field.
+	/// </summary>
+	public void SetHon1FieldValue(string val)
+	{
+		this.SetString(val, TableUtils.Hon1Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon1 field.
+	/// </summary>
+	public void SetHon1FieldValue(double val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Hon1Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon1 field.
+	/// </summary>
+	public void SetHon1FieldValue(decimal val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Hon1Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon1 field.
+	/// </summary>
+	public void SetHon1FieldValue(long val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Hon1Column);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Hon2 field.
+	/// </summary>
+	public ColumnValue GetHon2Value()
+	{
+		return this.GetValue(TableUtils.Hon2Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Hon2 field.
+	/// </summary>
+	public Int32 GetHon2FieldValue()
+	{
+		return this.GetValue(TableUtils.Hon2Column).ToInt32();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon2 field.
+	/// </summary>
+	public void SetHon2FieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.Hon2Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon2 field.
+	/// </summary>
+	public void SetHon2FieldValue(string val)
+	{
+		this.SetString(val, TableUtils.Hon2Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon2 field.
+	/// </summary>
+	public void SetHon2FieldValue(double val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Hon2Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon2 field.
+	/// </summary>
+	public void SetHon2FieldValue(decimal val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Hon2Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon2 field.
+	/// </summary>
+	public void SetHon2FieldValue(long val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Hon2Column);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Hon3 field.
+	/// </summary>
+	public ColumnValue GetHon3Value()
+	{
+		return this.GetValue(TableUtils.Hon3Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Hon3 field.
+	/// </summary>
+	public Int32 GetHon3FieldValue()
+	{
+		return this.GetValue(TableUtils.Hon3Column).ToInt32();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon3 field.
+	/// </summary>
+	public void SetHon3FieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.Hon3Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon3 field.
+	/// </summary>
+	public void SetHon3FieldValue(string val)
+	{
+		this.SetString(val, TableUtils.Hon3Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon3 field.
+	/// </summary>
+	public void SetHon3FieldValue(double val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Hon3Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon3 field.
+	/// </summary>
+	public void SetHon3FieldValue(decimal val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Hon3Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon3 field.
+	/// </summary>
+	public void SetHon3FieldValue(long val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Hon3Column);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Hon4 field.
+	/// </summary>
+	public ColumnValue GetHon4Value()
+	{
+		return this.GetValue(TableUtils.Hon4Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Hon4 field.
+	/// </summary>
+	public Int32 GetHon4FieldValue()
+	{
+		return this.GetValue(TableUtils.Hon4Column).ToInt32();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon4 field.
+	/// </summary>
+	public void SetHon4FieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.Hon4Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon4 field.
+	/// </summary>
+	public void SetHon4FieldValue(string val)
+	{
+		this.SetString(val, TableUtils.Hon4Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon4 field.
+	/// </summary>
+	public void SetHon4FieldValue(double val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Hon4Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon4 field.
+	/// </summary>
+	public void SetHon4FieldValue(decimal val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Hon4Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon4 field.
+	/// </summary>
+	public void SetHon4FieldValue(long val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Hon4Column);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Hon5 field.
+	/// </summary>
+	public ColumnValue GetHon5Value()
+	{
+		return this.GetValue(TableUtils.Hon5Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Hon5 field.
+	/// </summary>
+	public Int32 GetHon5FieldValue()
+	{
+		return this.GetValue(TableUtils.Hon5Column).ToInt32();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon5 field.
+	/// </summary>
+	public void SetHon5FieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.Hon5Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon5 field.
+	/// </summary>
+	public void SetHon5FieldValue(string val)
+	{
+		this.SetString(val, TableUtils.Hon5Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon5 field.
+	/// </summary>
+	public void SetHon5FieldValue(double val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Hon5Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon5 field.
+	/// </summary>
+	public void SetHon5FieldValue(decimal val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Hon5Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon5 field.
+	/// </summary>
+	public void SetHon5FieldValue(long val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Hon5Column);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Hon6 field.
+	/// </summary>
+	public ColumnValue GetHon6Value()
+	{
+		return this.GetValue(TableUtils.Hon6Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Hon6 field.
+	/// </summary>
+	public Int32 GetHon6FieldValue()
+	{
+		return this.GetValue(TableUtils.Hon6Column).ToInt32();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon6 field.
+	/// </summary>
+	public void SetHon6FieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.Hon6Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon6 field.
+	/// </summary>
+	public void SetHon6FieldValue(string val)
+	{
+		this.SetString(val, TableUtils.Hon6Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon6 field.
+	/// </summary>
+	public void SetHon6FieldValue(double val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Hon6Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon6 field.
+	/// </summary>
+	public void SetHon6FieldValue(decimal val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Hon6Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon6 field.
+	/// </summary>
+	public void SetHon6FieldValue(long val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Hon6Column);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Hon7 field.
+	/// </summary>
+	public ColumnValue GetHon7Value()
+	{
+		return this.GetValue(TableUtils.Hon7Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's view_AllDataExtract_.Hon7 field.
+	/// </summary>
+	public Int32 GetHon7FieldValue()
+	{
+		return this.GetValue(TableUtils.Hon7Column).ToInt32();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon7 field.
+	/// </summary>
+	public void SetHon7FieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.Hon7Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon7 field.
+	/// </summary>
+	public void SetHon7FieldValue(string val)
+	{
+		this.SetString(val, TableUtils.Hon7Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon7 field.
+	/// </summary>
+	public void SetHon7FieldValue(double val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Hon7Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon7 field.
+	/// </summary>
+	public void SetHon7FieldValue(decimal val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Hon7Column);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon7 field.
+	/// </summary>
+	public void SetHon7FieldValue(long val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.Hon7Column);
+	}
 
 
 #endregion
@@ -4001,6 +4407,307 @@ public class BaseView_AllDataExtractRecord : PrimaryKeyRecord
 		get
 		{
 			return TableUtils.Item7aColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Hon1 field.
+	/// </summary>
+	public Int32 Hon1
+	{
+		get
+		{
+			return this.GetValue(TableUtils.Hon1Column).ToInt32();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.Hon1Column);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool Hon1Specified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.Hon1Column);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon1 field.
+	/// </summary>
+	public string Hon1Default
+	{
+		get
+		{
+			return TableUtils.Hon1Column.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Hon2 field.
+	/// </summary>
+	public Int32 Hon2
+	{
+		get
+		{
+			return this.GetValue(TableUtils.Hon2Column).ToInt32();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.Hon2Column);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool Hon2Specified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.Hon2Column);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon2 field.
+	/// </summary>
+	public string Hon2Default
+	{
+		get
+		{
+			return TableUtils.Hon2Column.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Hon3 field.
+	/// </summary>
+	public Int32 Hon3
+	{
+		get
+		{
+			return this.GetValue(TableUtils.Hon3Column).ToInt32();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.Hon3Column);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool Hon3Specified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.Hon3Column);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon3 field.
+	/// </summary>
+	public string Hon3Default
+	{
+		get
+		{
+			return TableUtils.Hon3Column.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Hon4 field.
+	/// </summary>
+	public Int32 Hon4
+	{
+		get
+		{
+			return this.GetValue(TableUtils.Hon4Column).ToInt32();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.Hon4Column);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool Hon4Specified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.Hon4Column);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon4 field.
+	/// </summary>
+	public string Hon4Default
+	{
+		get
+		{
+			return TableUtils.Hon4Column.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Hon5 field.
+	/// </summary>
+	public Int32 Hon5
+	{
+		get
+		{
+			return this.GetValue(TableUtils.Hon5Column).ToInt32();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.Hon5Column);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool Hon5Specified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.Hon5Column);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon5 field.
+	/// </summary>
+	public string Hon5Default
+	{
+		get
+		{
+			return TableUtils.Hon5Column.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Hon6 field.
+	/// </summary>
+	public Int32 Hon6
+	{
+		get
+		{
+			return this.GetValue(TableUtils.Hon6Column).ToInt32();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.Hon6Column);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool Hon6Specified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.Hon6Column);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon6 field.
+	/// </summary>
+	public string Hon6Default
+	{
+		get
+		{
+			return TableUtils.Hon6Column.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's view_AllDataExtract_.Hon7 field.
+	/// </summary>
+	public Int32 Hon7
+	{
+		get
+		{
+			return this.GetValue(TableUtils.Hon7Column).ToInt32();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.Hon7Column);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool Hon7Specified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.Hon7Column);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's view_AllDataExtract_.Hon7 field.
+	/// </summary>
+	public string Hon7Default
+	{
+		get
+		{
+			return TableUtils.Hon7Column.DefaultValue;
 		}
 	}
 
