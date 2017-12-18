@@ -219,27 +219,13 @@ public partial class Edit_Configuration_Table
         }
         
     
-        public ThemeButtonWithArrow ActionsButton;
-                
         public OLR.UI.Controls.Edit_Configuration_Table.ConfigurationTableControl ConfigurationTableControl;
           
-        public System.Web.UI.WebControls.Literal EmailCopiesAddressLabel1;
-        
-        public ThemeButton FilterButton;
-                
-        public ThemeButtonWithArrow FiltersButton;
-                
         public System.Web.UI.WebControls.Literal PageTitle;
         
         public PaginationModern Pagination;
                 
-        public System.Web.UI.WebControls.ImageButton ResetButton;
-        
-        public System.Web.UI.WebControls.ImageButton SaveButton;
-        
         public System.Web.UI.WebControls.ImageButton SaveButton1;
-        
-        public System.Web.UI.WebControls.Label SortByLabel;
         
         public System.Web.UI.WebControls.Literal Title0;
             

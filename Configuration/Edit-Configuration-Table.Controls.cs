@@ -893,67 +893,6 @@ public class BaseConfigurationTableControl : OLR.UI.BaseApplicationTableControl
     
            // Setup the filter and search.
         
-            if (!this.Page.IsPostBack)
-            {
-                string initialVal = "";
-                
-                  if(StringUtils.InvariantEquals(initialVal, "Search for", true) || StringUtils.InvariantEquals(initialVal, BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null), true))
-                  {
-                  initialVal = "";
-                  }
-                
-                if  (this.InSession(this.SortControl)) 				
-                    initialVal = this.GetFromSession(this.SortControl);
-                
-                if (initialVal != null && initialVal != "")		
-                {
-                        
-                    this.SortControl.Items.Add(new ListItem(initialVal, initialVal));
-                        
-                    this.SortControl.SelectedValue = initialVal;
-                            
-                    }
-            }
-            if (!this.Page.IsPostBack)
-            {
-                string initialVal = "";
-                if  (this.InSession(this.EmailCopiesAddressFilter)) 				
-                    initialVal = this.GetFromSession(this.EmailCopiesAddressFilter);
-                
-                else
-                    
-                    initialVal = EvaluateFormula("URL(\"EmailCopiesAddress\")");
-                
-                if(StringUtils.InvariantEquals(initialVal, "Search for", true) || StringUtils.InvariantEquals(initialVal, BaseClasses.Resources.AppResources.GetResourceValue("Txt:SearchForEllipsis", null), true))
-                {
-                initialVal = "";
-                }
-              
-                if (initialVal != null && initialVal != "")		
-                {
-                        
-                    string[] EmailCopiesAddressFilteritemListFromSession = initialVal.Split(',');
-                    int index = 0;
-                    foreach (string item in EmailCopiesAddressFilteritemListFromSession)
-                    {
-                        if (index == 0 && item.ToString().Equals(""))
-                        {
-                            // do nothing
-                        }
-                        else
-                        {
-                            this.EmailCopiesAddressFilter.Items.Add(item);
-                            this.EmailCopiesAddressFilter.Items[index].Selected = true;
-                            index += 1;
-                        }
-                    }
-                    foreach (ListItem listItem in this.EmailCopiesAddressFilter.Items)
-                    {
-                        listItem.Selected = true;
-                    }
-                        
-                    }
-            }
 
 
       
@@ -1004,22 +943,8 @@ public class BaseConfigurationTableControl : OLR.UI.BaseApplicationTableControl
         
             // Setup the button events.
           
-                    this.ResetButton.Click += ResetButton_Click;
-                        
-                    this.SaveButton.Click += SaveButton_Click;
-                        
                     this.SaveButton1.Click += SaveButton1_Click;
-                        
-                    this.ActionsButton.Button.Click += ActionsButton_Click;
-                        
-                    this.FilterButton.Button.Click += FilterButton_Click;
-                        
-                    this.FiltersButton.Button.Click += FiltersButton_Click;
-                        
-            this.SortControl.SelectedIndexChanged += new EventHandler(SortControl_SelectedIndexChanged);
-            
-              this.EmailCopiesAddressFilter.SelectedIndexChanged += EmailCopiesAddressFilter_SelectedIndexChanged;                  
-                        
+                                
         
          //' Setup events for others
                
@@ -1254,28 +1179,9 @@ public class BaseConfigurationTableControl : OLR.UI.BaseApplicationTableControl
             // Call the Set methods for each controls on the panel
         
                 
-                SetEmailCopiesAddressFilter();
-                SetEmailCopiesAddressLabel1();
                 
                 
-                
-                
-                
-                
-                SetSortByLabel();
-                SetSortControl();
-                
-                SetResetButton();
-              
-                SetSaveButton();
-              
                 SetSaveButton1();
-              
-                SetActionsButton();
-              
-                SetFilterButton();
-              
-                SetFiltersButton();
               
             // setting the state of expand or collapse alternative rows
       
@@ -1287,9 +1193,7 @@ public class BaseConfigurationTableControl : OLR.UI.BaseApplicationTableControl
             // this method calls the set method for controls with special formula like running total, sum, rank, etc
             SetFormulaControls();
             
-             
-              SetFiltersButton();
-                     
+                    
         }
         
         
@@ -1305,8 +1209,6 @@ public class BaseConfigurationTableControl : OLR.UI.BaseApplicationTableControl
         public virtual void RegisterPostback()
         {
         
-              this.Page.RegisterPostBackTrigger(MiscUtils.FindControlRecursively(this,"SaveButton"));
-                        
               this.Page.RegisterPostBackTrigger(MiscUtils.FindControlRecursively(this,"SaveButton1"));
                                 
         }
@@ -1394,10 +1296,6 @@ public class BaseConfigurationTableControl : OLR.UI.BaseApplicationTableControl
         {
 
 
-            
-            this.EmailCopiesAddressFilter.ClearSelection();
-            
-            this.SortControl.ClearSelection();
             
             this.CurrentSortOrder.Reset();
             if (this.InSession(this, "Order_By")) {
@@ -1536,30 +1434,7 @@ public class BaseConfigurationTableControl : OLR.UI.BaseApplicationTableControl
             // 2. User selected search criteria.
             // 3. User selected filter criteria.
             
-        
-            if (MiscUtils.IsValueSelected(this.EmailCopiesAddressFilter)) {
-                        
-                int selectedItemCount = 0;
-                foreach (ListItem item in this.EmailCopiesAddressFilter.Items){
-                    if (item.Selected) {
-                        selectedItemCount += 1;
-                        
-                          
-                    }
-                }
-                WhereClause filter = new WhereClause();
-                foreach (ListItem item in this.EmailCopiesAddressFilter.Items){
-                    if ((item.Selected) && ((item.Value == "--ANY--") || (item.Value == "--PLEASE_SELECT--")) && (selectedItemCount > 1)){
-                        item.Selected = false;
-                    }
-                    if (item.Selected){
-                        filter.iOR(ConfigurationTable.EmailCopiesAddress, BaseFilter.ComparisonOperator.EqualsTo, item.Value, false, false);
-                    }
-                }
-                wc.iAND(filter);
-                    
-            }
-                           
+             
             return wc;
         }
         
@@ -1579,30 +1454,6 @@ public class BaseConfigurationTableControl : OLR.UI.BaseApplicationTableControl
             
             // Adds clauses if values are selected in Filter controls which are configured in the page.
           
-      String EmailCopiesAddressFilterSelectedValue = (String)HttpContext.Current.Session[HttpContext.Current.Session.SessionID + appRelativeVirtualPath + "EmailCopiesAddressFilter_Ajax"];
-            if (MiscUtils.IsValueSelected(EmailCopiesAddressFilterSelectedValue)) {
-
-              
-        if (EmailCopiesAddressFilterSelectedValue != null){
-                        string[] EmailCopiesAddressFilteritemListFromSession = EmailCopiesAddressFilterSelectedValue.Split(',');
-                        int index = 0;
-                        WhereClause filter = new WhereClause();
-                        foreach (string item in EmailCopiesAddressFilteritemListFromSession)
-                        {
-                            if (index == 0 && item.ToString().Equals(""))
-                            {
-                            }
-                            else
-                            {
-                                filter.iOR(ConfigurationTable.EmailCopiesAddress, BaseFilter.ComparisonOperator.EqualsTo, item, false, false);
-                                index += 1;
-                            }
-                        }
-                        wc.iAND(filter);
-        }
-                
-      }
-                      
 
             return wc;
         }
@@ -1861,231 +1712,6 @@ public class BaseConfigurationTableControl : OLR.UI.BaseApplicationTableControl
       
         // Create Set, WhereClause, and Populate Methods
         
-        public virtual void SetEmailCopiesAddressLabel1()
-                  {
-                  
-                    
-        }
-                
-        public virtual void SetSortByLabel()
-                  {
-                  
-                      //Code for the text property is generated inside the .aspx file. 
-                      //To override this property you can uncomment the following property and add you own value.
-                      //this.SortByLabel.Text = "Some value";
-                    
-                    
-        }
-                
-        public virtual void SetSortControl()
-        {
-            
-                this.PopulateSortControl(MiscUtils.GetSelectedValue(this.SortControl,  GetFromSession(this.SortControl)), 500);					
-                    
-
-        }
-            
-        public virtual void SetEmailCopiesAddressFilter()
-        {
-            
-            ArrayList EmailCopiesAddressFilterselectedFilterItemList = new ArrayList();
-            string EmailCopiesAddressFilteritemsString = null;
-            if (this.InSession(this.EmailCopiesAddressFilter))
-                EmailCopiesAddressFilteritemsString = this.GetFromSession(this.EmailCopiesAddressFilter);
-            
-            if (EmailCopiesAddressFilteritemsString != null)
-            {
-                string[] EmailCopiesAddressFilteritemListFromSession = EmailCopiesAddressFilteritemsString.Split(',');
-                foreach (string item in EmailCopiesAddressFilteritemListFromSession)
-                {
-                    EmailCopiesAddressFilterselectedFilterItemList.Add(item);
-                }
-            }
-              
-            			
-            this.PopulateEmailCopiesAddressFilter(MiscUtils.GetSelectedValueList(this.EmailCopiesAddressFilter, EmailCopiesAddressFilterselectedFilterItemList), 500);
-                    
-              string url = this.ModifyRedirectUrl("../Configuration/Configuration-QuickSelector.aspx", "", true);
-              
-              url = this.Page.ModifyRedirectUrl(url, "", true);                                  
-              
-              url += "?Target=" + this.EmailCopiesAddressFilter.ClientID + "&IndexField=" + (this.Page as BaseApplicationPage).Encrypt("EmailCopiesAddress")+ "&EmptyValue=" + (this.Page as BaseApplicationPage).Encrypt("--ANY--") + "&EmptyDisplayText=" + (this.Page as BaseApplicationPage).Encrypt(this.Page.GetResourceValue("Txt:All")) + "&RedirectStyle=" + (this.Page as BaseApplicationPage).Encrypt("Popup");
-              
-              this.EmailCopiesAddressFilter.Attributes["onClick"] = "initializePopupPage(this, '" + url + "', " + Convert.ToString(EmailCopiesAddressFilter.AutoPostBack).ToLower() + ", event); return false;";
-                  
-                             
-        }
-            
-        // Get the filters' data for SortControl.
-                
-        protected virtual void PopulateSortControl(string selectedValue, int maxItems)
-                    
-        {
-            
-              
-                this.SortControl.Items.Clear();
-                
-              // 1. Setup the static list items
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("{Txt:PleaseSelect}"), "--PLEASE_SELECT--"));
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Email Copies Address {Txt:Ascending}"), "EmailCopiesAddress Asc"));
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Email Copies Address {Txt:Descending}"), "EmailCopiesAddress Desc"));
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Send Email Copies {Txt:Ascending}"), "SendEmailCopies Asc"));
-              
-                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Send Email Copies {Txt:Descending}"), "SendEmailCopies Desc"));
-              
-            try
-            {          
-                // Set the selected value.
-                MiscUtils.SetSelectedValue(this.SortControl, selectedValue);
-
-               
-            }
-            catch
-            {
-            }
-              
-            if (this.SortControl.SelectedValue != null && this.SortControl.Items.FindByValue(this.SortControl.SelectedValue) == null)
-                this.SortControl.SelectedValue = null;
-              
-        }
-            
-        // Get the filters' data for EmailCopiesAddressFilter.
-                
-        protected virtual void PopulateEmailCopiesAddressFilter(ArrayList selectedValue, int maxItems)
-                    
-        {
-        
-            
-            //Setup the WHERE clause.
-                        
-            WhereClause wc = this.CreateWhereClause_EmailCopiesAddressFilter();            
-            this.EmailCopiesAddressFilter.Items.Clear();
-            			  			
-            // Set up the WHERE and the ORDER BY clause by calling the CreateWhereClause_EmailCopiesAddressFilter function.
-            // It is better to customize the where clause there.
-             
-            
-            
-            OrderBy orderBy = new OrderBy(false, false);
-            orderBy.Add(ConfigurationTable.EmailCopiesAddress, OrderByItem.OrderDir.Asc);                
-            
-            
-            string[] values = new string[0];
-            if (wc.RunQuery)
-            {
-            
-                values = ConfigurationTable.GetValues(ConfigurationTable.EmailCopiesAddress, wc, orderBy, maxItems);
-            
-            }
-            
-            ArrayList listDuplicates = new ArrayList();
-            foreach (string cvalue in values)
-            {
-            // Create the item and add to the list.
-            string fvalue;
-            if ( ConfigurationTable.EmailCopiesAddress.IsColumnValueTypeBoolean()) {
-                    fvalue = cvalue;
-                }else {
-                    fvalue = ConfigurationTable.EmailCopiesAddress.Format(cvalue);
-                }
-                if (fvalue == null) {
-                    fvalue = "";
-                }
-
-                fvalue = fvalue.Trim();
-
-                if ( fvalue.Length > 50 ) {
-                    fvalue = fvalue.Substring(0, 50) + "...";
-                }
-
-                ListItem dupItem = this.EmailCopiesAddressFilter.Items.FindByText(fvalue);
-								
-                if (dupItem != null) {
-                    listDuplicates.Add(fvalue);
-                    if (!string.IsNullOrEmpty(dupItem.Value))
-                    {
-                        dupItem.Text = fvalue + " (ID " + dupItem.Value.Substring(0, Math.Min(dupItem.Value.Length,38)) + ")";
-                    }
-                }
-
-                ListItem newItem = new ListItem(fvalue, cvalue);
-                this.EmailCopiesAddressFilter.Items.Add(newItem);
-
-                if (listDuplicates.Contains(fvalue) &&  !string.IsNullOrEmpty(cvalue)) {
-                    newItem.Text = fvalue + " (ID " + cvalue.Substring(0, Math.Min(cvalue.Length,38)) + ")";
-                }
-            }
-
-                          
-            try
-            {
-      
-                
-            }
-            catch
-            {
-            }
-            
-            
-            this.EmailCopiesAddressFilter.SetFieldMaxLength(50);
-                                 
-                  
-            // Add the selected value.
-            if (this.EmailCopiesAddressFilter.Items.Count == 0)
-                this.EmailCopiesAddressFilter.Items.Add(new ListItem(Page.GetResourceValue("Txt:All", "OLR"), "--ANY--"));
-            
-            // Mark all items to be selected.
-            foreach (ListItem item in this.EmailCopiesAddressFilter.Items)
-            {
-                item.Selected = true;
-            }
-                               
-        }
-            
-        public virtual WhereClause CreateWhereClause_EmailCopiesAddressFilter()
-        {
-            // Create a where clause for the filter EmailCopiesAddressFilter.
-            // This function is called by the Populate method to load the items 
-            // in the EmailCopiesAddressFilterQuickSelector
-        
-            ArrayList EmailCopiesAddressFilterselectedFilterItemList = new ArrayList();
-            string EmailCopiesAddressFilteritemsString = null;
-            if (this.InSession(this.EmailCopiesAddressFilter))
-                EmailCopiesAddressFilteritemsString = this.GetFromSession(this.EmailCopiesAddressFilter);
-            
-            if (EmailCopiesAddressFilteritemsString != null)
-            {
-                string[] EmailCopiesAddressFilteritemListFromSession = EmailCopiesAddressFilteritemsString.Split(',');
-                foreach (string item in EmailCopiesAddressFilteritemListFromSession)
-                {
-                    EmailCopiesAddressFilterselectedFilterItemList.Add(item);
-                }
-            }
-              
-            EmailCopiesAddressFilterselectedFilterItemList = MiscUtils.GetSelectedValueList(this.EmailCopiesAddressFilter, EmailCopiesAddressFilterselectedFilterItemList); 
-            WhereClause wc = new WhereClause();
-            if (EmailCopiesAddressFilterselectedFilterItemList == null || EmailCopiesAddressFilterselectedFilterItemList.Count == 0)
-                wc.RunQuery = false;
-            else            
-            {
-                foreach (string item in EmailCopiesAddressFilterselectedFilterItemList)
-                {
-            
-      
-   
-                    wc.iOR(ConfigurationTable.EmailCopiesAddress, BaseFilter.ComparisonOperator.EqualsTo, item);
-
-                                
-                }
-            }
-            return wc;
-        
-        }
-      
 
     
         protected virtual void Control_PreRender(object sender, System.EventArgs e)
@@ -2141,17 +1767,6 @@ public class BaseConfigurationTableControl : OLR.UI.BaseApplicationTableControl
             base.SaveControlsToSession();
             // Save filter controls to values to session.
         
-            this.SaveToSession(this.SortControl, this.SortControl.SelectedValue);
-                  
-            ArrayList EmailCopiesAddressFilterselectedFilterItemList = MiscUtils.GetSelectedValueList(this.EmailCopiesAddressFilter, null);
-            string EmailCopiesAddressFilterSessionString = "";
-            if (EmailCopiesAddressFilterselectedFilterItemList != null){
-                foreach (string item in EmailCopiesAddressFilterselectedFilterItemList){
-                    EmailCopiesAddressFilterSessionString = String.Concat(EmailCopiesAddressFilterSessionString ,"," , item);
-                }
-            }
-            this.SaveToSession(this.EmailCopiesAddressFilter, EmailCopiesAddressFilterSessionString);
-                  
             
                     
             // Save pagination state to session.
@@ -2179,17 +1794,6 @@ public class BaseConfigurationTableControl : OLR.UI.BaseApplicationTableControl
         {
             // Save filter controls to values to session.
           
-            this.SaveToSession(this.SortControl, this.SortControl.SelectedValue);
-                  
-            ArrayList EmailCopiesAddressFilterselectedFilterItemList = MiscUtils.GetSelectedValueList(this.EmailCopiesAddressFilter, null);
-            string EmailCopiesAddressFilterSessionString = "";
-            if (EmailCopiesAddressFilterselectedFilterItemList != null){
-                foreach (string item in EmailCopiesAddressFilterselectedFilterItemList){
-                    EmailCopiesAddressFilterSessionString = String.Concat(EmailCopiesAddressFilterSessionString ,"," , item);
-                }
-            }
-            this.SaveToSession("EmailCopiesAddressFilter_Ajax", EmailCopiesAddressFilterSessionString);
-          
            HttpContext.Current.Session["AppRelativeVirtualPath"] = this.Page.AppRelativeVirtualPath;
          
         }
@@ -2200,8 +1804,6 @@ public class BaseConfigurationTableControl : OLR.UI.BaseApplicationTableControl
             base.ClearControlsFromSession();
             // Clear filter controls values from the session.
         
-            this.RemoveFromSession(this.SortControl);
-            this.RemoveFromSession(this.EmailCopiesAddressFilter);
             
             // Clear pagination state from session.
          
@@ -2287,56 +1889,12 @@ public class BaseConfigurationTableControl : OLR.UI.BaseApplicationTableControl
 
         // Generate set method for buttons
         
-        public virtual void SetResetButton()                
-              
-        {
-        
-   
-        }
-            
-        public virtual void SetSaveButton()                
-              
-        {
-        
-                    this.SaveButton.Attributes.Add("onclick", "SubmitHRefOnce(this, \"" + this.Page.GetResourceValue("Txt:SaveRecord", "OLR") + "\");");
-                  
-   
-        }
-            
         public virtual void SetSaveButton1()                
               
         {
         
                     this.SaveButton1.Attributes.Add("onclick", "SubmitHRefOnce(this, \"" + this.Page.GetResourceValue("Txt:SaveRecord", "OLR") + "\");");
                   
-   
-        }
-            
-        public virtual void SetActionsButton()                
-              
-        {
-        
-   
-        }
-            
-        public virtual void SetFilterButton()                
-              
-        {
-        
-   
-        }
-            
-        public virtual void SetFiltersButton()                
-              
-        {
-                
-         IThemeButtonWithArrow themeButtonFiltersButton = (IThemeButtonWithArrow)(MiscUtils.FindControlRecursively(this, "FiltersButton"));
-         themeButtonFiltersButton.ArrowImage.ImageUrl = "../Images/ButtonExpandArrow.png";
-    
-      
-            if (MiscUtils.IsValueSelected(EmailCopiesAddressFilter))
-                themeButtonFiltersButton.ArrowImage.ImageUrl = "../Images/ButtonCheckmark.png";
-        
    
         }
                
@@ -2470,88 +2028,6 @@ public class BaseConfigurationTableControl : OLR.UI.BaseApplicationTableControl
         // Generate the event handling functions for button events.
         
         // event handler for ImageButton
-        public virtual void ResetButton_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            try {
-                
-              this.EmailCopiesAddressFilter.ClearSelection();
-            
-           
-            this.SortControl.ClearSelection();
-          
-              this.CurrentSortOrder.Reset();
-              if (this.InSession(this, "Order_By"))
-                  this.CurrentSortOrder = OrderBy.FromXmlString(this.GetFromSession(this, "Order_By", null));
-              else
-              {
-                  this.CurrentSortOrder = new OrderBy(true, false);
-                  
-              }
-                
-
-            // Setting the DataChanged to true results in the page being refreshed with
-            // the most recent data from the database.  This happens in PreRender event
-            // based on the current sort, search and filter criteria.
-            this.DataChanged = true;
-                
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
-        
-        // event handler for ImageButton
-        public virtual void SaveButton_Click(object sender, ImageClickEventArgs args)
-        {
-              
-            try {
-                // Enclose all database retrieval/update code within a Transaction boundary
-                DbUtils.StartTransaction();
-                
-        
-              if (!this.Page.IsPageRefresh)
-              {
-                  this.SaveData();
-              }
-
-          this.Page.CommitTransaction(sender);
-          // Set IsNewRecord to False for all records - since everything has been saved and is no longer "new"
-           
-                foreach (ConfigurationTableControlRow recCtl in this.GetRecordControls()){
-                     
-                    recCtl.IsNewRecord = false;
-                }
-      
-          // Set DeletedRecordsIds to Nothing since we have deleted all pending deletes.
-          
-                this.DeletedRecordIds = null;
-            
-            } catch (Exception ex) {
-                  // Upon error, rollback the transaction
-                  this.Page.RollBackTransaction(sender);
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-                DbUtils.EndTransaction();
-            }
-    
-        }
-            
-            
-        
-        // event handler for ImageButton
         public virtual void SaveButton1_Click(object sender, ImageClickEventArgs args)
         {
               
@@ -2593,139 +2069,10 @@ public class BaseConfigurationTableControl : OLR.UI.BaseApplicationTableControl
             
             
         
-        // event handler for Button
-        public virtual void ActionsButton_Click(object sender, EventArgs args)
-        {
-              
-            try {
-                
-            //This method is initially empty to implement custom click handler.
-      
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
-        
-        // event handler for Button
-        public virtual void FilterButton_Click(object sender, EventArgs args)
-        {
-              
-            try {
-                
-            this.DataChanged = true;
-          
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
-        
-        // event handler for Button
-        public virtual void FiltersButton_Click(object sender, EventArgs args)
-        {
-              
-            try {
-                
-            //This method is initially empty to implement custom click handler.
-      
-            } catch (Exception ex) {
-                  this.Page.ErrorOnPage = true;
-
-            // Report the error message to the end user
-            BaseClasses.Utils.MiscUtils.RegisterJScriptAlert(this, "BUTTON_CLICK_MESSAGE", ex.Message);
-    
-            } finally {
-    
-            }
-    
-        }
-            
-            
-        
 
 
         // Generate the event handling functions for filter and search events.
         
-        // event handler for OrderSort
-        protected virtual void SortControl_SelectedIndexChanged(object sender, EventArgs args)
-        {
-              
-                  string SelVal1 = this.SortControl.SelectedValue.ToUpper();
-                  string[] words1 = SelVal1.Split(' ');
-                  if (SelVal1 != "" )
-                  {
-                  SelVal1 = SelVal1.Replace(words1[words1.Length - 1], "").TrimEnd();
-                  foreach (BaseClasses.Data.BaseColumn ColumnNam in ConfigurationTable.GetColumns())
-                  {
-                  if (ColumnNam.Name.ToUpper().Equals(SelVal1))
-                  {
-                  SelVal1 = ColumnNam.InternalName;
-                  }
-                  }
-                  }
-
-                
-                OrderByItem sd = this.CurrentSortOrder.Find(ConfigurationTable.GetColumnByName(SelVal1));
-                if (sd == null || this.CurrentSortOrder.Items != null)
-                {
-                // First time sort, so add sort order for Discontinued.
-                if (ConfigurationTable.GetColumnByName(SelVal1) != null)
-                {
-                  this.CurrentSortOrder.Reset();
-                }
-
-                //If default sort order was GeoProximity, create new CurrentSortOrder of OrderBy type
-                if ((this.CurrentSortOrder).GetType() == typeof(GeoOrderBy)) this.CurrentSortOrder = new OrderBy(true, false);
-
-                
-                  if (SelVal1 != "--PLEASE_SELECT--" && ConfigurationTable.GetColumnByName(SelVal1) != null)
-                  {
-                    if (words1[words1.Length - 1].Contains("ASC"))
-                  {
-                  this.CurrentSortOrder.Add(ConfigurationTable.GetColumnByName(SelVal1),OrderByItem.OrderDir.Asc);
-                    }
-                    else
-                    {
-                      if (words1[words1.Length - 1].Contains("DESC"))
-                  {
-                  this.CurrentSortOrder.Add(ConfigurationTable.GetColumnByName(SelVal1),OrderByItem.OrderDir.Desc );
-                      }
-                    }
-                  }
-                
-                }
-                this.DataChanged = true;
-              				
-        }
-            
-        // event handler for FieldFilter
-        protected virtual void EmailCopiesAddressFilter_SelectedIndexChanged(object sender, EventArgs args)
-        {
-            // Setting the DataChanged to True results in the page being refreshed with
-            // the most recent data from the database.  This happens in PreRender event
-            // based on the current sort, search and filter criteria.
-            this.DataChanged = true;
-            
-           				
-        }
-            
     
         // Generate the event handling functions for others
         	  
@@ -2800,51 +2147,9 @@ public class BaseConfigurationTableControl : OLR.UI.BaseApplicationTableControl
 
 #region "Helper Properties"
         
-        public OLR.UI.IThemeButtonWithArrow ActionsButton {
-            get {
-                return (OLR.UI.IThemeButtonWithArrow)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "ActionsButton");
-            }
-        }
-        
-        public BaseClasses.Web.UI.WebControls.QuickSelector EmailCopiesAddressFilter {
-            get {
-                return (BaseClasses.Web.UI.WebControls.QuickSelector)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "EmailCopiesAddressFilter");
-            }
-        }              
-        
-        public System.Web.UI.WebControls.Literal EmailCopiesAddressLabel1 {
-            get {
-                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "EmailCopiesAddressLabel1");
-            }
-        }
-        
-        public OLR.UI.IThemeButton FilterButton {
-            get {
-                return (OLR.UI.IThemeButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FilterButton");
-            }
-        }
-        
-        public OLR.UI.IThemeButtonWithArrow FiltersButton {
-            get {
-                return (OLR.UI.IThemeButtonWithArrow)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "FiltersButton");
-            }
-        }
-        
         public OLR.UI.IPaginationModern Pagination {
             get {
                 return (OLR.UI.IPaginationModern)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Pagination");
-            }
-        }
-        
-        public System.Web.UI.WebControls.ImageButton ResetButton {
-            get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "ResetButton");
-            }
-        }
-        
-        public System.Web.UI.WebControls.ImageButton SaveButton {
-            get {
-                return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "SaveButton");
             }
         }
         
@@ -2853,18 +2158,6 @@ public class BaseConfigurationTableControl : OLR.UI.BaseApplicationTableControl
                 return (System.Web.UI.WebControls.ImageButton)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "SaveButton1");
             }
         }
-        
-        public System.Web.UI.WebControls.Label SortByLabel {
-            get {
-                return (System.Web.UI.WebControls.Label)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "SortByLabel");
-            }
-        }
-        
-          public System.Web.UI.WebControls.DropDownList SortControl {
-          get {
-          return (System.Web.UI.WebControls.DropDownList)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "SortControl");
-          }
-          }
         
         public System.Web.UI.WebControls.Literal Title0 {
             get {
