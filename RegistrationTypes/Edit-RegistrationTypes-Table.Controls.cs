@@ -102,6 +102,10 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
           
                     this.DeleteRowButton.Click += DeleteRowButton_Click;
                         
+              this.InactiveType.SelectedIndexChanged += InactiveType_SelectedIndexChanged;
+            
+              this.ActivateOnInactiveType.CheckedChanged += ActivateOnInactiveType_CheckedChanged;
+            
               this.ActiveOption.CheckedChanged += ActiveOption_CheckedChanged;
             
               this.InactiveOnMax.CheckedChanged += InactiveOnMax_CheckedChanged;
@@ -169,6 +173,8 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
 
             // Call the Set methods for each controls on the panel
         
+                SetActivateOnInactiveType();
+                SetActivateOnInactiveTypeLabel();
                 SetActiveOption();
                 SetActiveOptionLabel();
                 SetCostMember();
@@ -178,6 +184,8 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
                 
                 SetInactiveOnMax();
                 SetInactiveOnMaxLabel();
+                SetInactiveType();
+                SetInactiveTypeLabel();
                 SetMaximumNumber();
                 SetMaximumNumberLabel();
                 SetRegistrationType();
@@ -208,6 +216,40 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
         }
         
         
+        public virtual void SetActivateOnInactiveType()
+        {
+            
+            // If data was retrieved from UI previously, restore it
+            if (this.PreviousUIData.ContainsKey(this.ActivateOnInactiveType.ID))
+            {
+                this.ActivateOnInactiveType.Checked = Convert.ToBoolean(this.PreviousUIData[this.ActivateOnInactiveType.ID]);
+                return;
+            }	
+            
+                    
+            // Set the ActivateOnInactiveType CheckBox on the webpage with value from the
+            // DatabaseOLR_db%dbo.RegistrationTypes database record.
+
+            // this.DataSource is the DatabaseOLR_db%dbo.RegistrationTypes record retrieved from the database.
+            // this.ActivateOnInactiveType is the ASP:CheckBox on the webpage.
+                  
+            if (this.DataSource != null && this.DataSource.ActivateOnInactiveTypeSpecified) {
+                							
+                // If the ActivateOnInactiveType is non-NULL, then format the value.
+                // The Format method will use the Display Format
+                this.ActivateOnInactiveType.Checked = this.DataSource.ActivateOnInactiveType;
+                    				
+            } else {
+            
+                // ActivateOnInactiveType is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+                if (!this.DataSource.IsCreated) 
+                    this.ActivateOnInactiveType.Checked = RegistrationTypesTable.ActivateOnInactiveType.ParseValue(RegistrationTypesTable.ActivateOnInactiveType.DefaultValue).ToBoolean();                
+                    									
+            }
+            
+        }
+                
         public virtual void SetActiveOption()
         {
             
@@ -360,6 +402,65 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
             
         }
                 
+        public virtual void SetInactiveType()
+        {
+            				
+        
+        
+            string selectedValue = null;
+            
+            // figure out the selectedValue
+                  
+            							
+            // If selection was retrieved from UI previously, restore it
+            if (this.PreviousUIData.ContainsKey(this.InactiveType.ID))
+            {
+                if (this.PreviousUIData[this.InactiveType.ID] == null)
+                    selectedValue = null;
+                else
+                    selectedValue = this.PreviousUIData[this.InactiveType.ID].ToString();
+            }
+            
+            
+            // Set the InactiveType DropDownList on the webpage with value from the
+            // DatabaseOLR_db%dbo.RegistrationTypes database record.
+            
+            // this.DataSource is the DatabaseOLR_db%dbo.RegistrationTypes record retrieved from the database.
+            // this.InactiveType is the ASP:DropDownList on the webpage.
+            
+            // You can modify this method directly, or replace it with a call to
+            //     base.SetInactiveType();
+            // and add your own custom code before or after the call to the base function.
+
+            
+            if (this.DataSource != null && this.DataSource.InactiveTypeSpecified)
+            {
+                            
+                // If the InactiveType is non-NULL, then format the value.
+                // The Format method will return the Display Foreign Key As (DFKA) value
+                selectedValue = this.DataSource.InactiveType.ToString();
+                
+            }
+            else
+            {
+                
+                // InactiveType is NULL in the database, so use the Default Value.  
+                // Default Value could also be NULL.
+                if (this.DataSource != null && this.DataSource.IsCreated)
+                    selectedValue = null;
+                else
+                    selectedValue = RegistrationTypesTable.InactiveType.DefaultValue;
+                				
+            }			
+                            
+                  
+            // Populate the item(s) to the control
+            
+            this.PopulateInactiveTypeDropDownList(selectedValue, 100);              
+                
+                  
+        }
+                
         public virtual void SetMaximumNumber()
         {
             
@@ -444,6 +545,12 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
                                
         }
                 
+        public virtual void SetActivateOnInactiveTypeLabel()
+                  {
+                  
+                    
+        }
+                
         public virtual void SetActiveOptionLabel()
                   {
                   
@@ -465,6 +572,12 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
         }
                 
         public virtual void SetInactiveOnMaxLabel()
+                  {
+                  
+                    
+        }
+                
+        public virtual void SetInactiveTypeLabel()
                   {
                   
                     
@@ -636,15 +749,28 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
       
             // Call the Get methods for each of the user interface controls.
         
+            GetActivateOnInactiveType();
             GetActiveOption();
             GetCostMember();
             GetCostNonMember();
             GetInactiveOnMax();
+            GetInactiveType();
             GetMaximumNumber();
             GetRegistrationType();
         }
         
         
+        public virtual void GetActivateOnInactiveType()
+        {	
+        		
+            // Retrieve the value entered by the user on the ActivateOnInactiveType ASP:CheckBox, and
+            // save it into the ActivateOnInactiveType field in DataSource DatabaseOLR_db%dbo.RegistrationTypes record.
+            // Custom validation should be performed in Validate, not here.
+            
+            this.DataSource.ActivateOnInactiveType = this.ActivateOnInactiveType.Checked;						
+                    
+        }
+                
         public virtual void GetActiveOption()
         {	
         		
@@ -693,6 +819,17 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
             
             this.DataSource.InactiveOnMax = this.InactiveOnMax.Checked;						
                     
+        }
+                
+        public virtual void GetInactiveType()
+        {
+         // Retrieve the value entered by the user on the InactiveType ASP:DropDownList, and
+            // save it into the InactiveType field in DataSource DatabaseOLR_db%dbo.RegistrationTypes record.
+            
+            // Custom validation should be performed in Validate, not here.
+            
+            this.DataSource.Parse(MiscUtils.GetValueSelectedPageRequest(this.InactiveType), RegistrationTypesTable.InactiveType);			
+                			 
         }
                 
         public virtual void GetMaximumNumber()
@@ -856,6 +993,163 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
    
         }
             
+        public virtual WhereClause CreateWhereClause_InactiveTypeDropDownList() 
+        {
+            // By default, we simply return a new WhereClause.
+            // Add additional where clauses to restrict the items shown in the dropdown list.
+            						
+            // This WhereClause is for the DatabaseOLR_db%dbo.RegistrationTypes table.
+            // Examples:
+            // wc.iAND(RegistrationTypesTable.RegistrationType, BaseFilter.ComparisonOperator.EqualsTo, "XYZ");
+            // wc.iAND(RegistrationTypesTable.Active, BaseFilter.ComparisonOperator.EqualsTo, "1");
+            
+            WhereClause wc = new WhereClause();
+            return wc;
+            				
+        }
+        
+        // Fill the InactiveType list.
+        protected virtual void PopulateInactiveTypeDropDownList(string selectedValue, int maxItems) 
+        {
+            		  					                
+            this.InactiveType.Items.Clear();
+            
+            // 1. Setup the static list items        
+            
+              // Add the Please Select item.
+              this.InactiveType.Items.Insert(0, new ListItem(this.Page.GetResourceValue("Txt:PleaseSelect", "OLR"), "--PLEASE_SELECT--"));
+            		  			
+            // 2. Set up the WHERE and the ORDER BY clause by calling the CreateWhereClause_InactiveTypeDropDownList function.
+            // It is better to customize the where clause there.
+            
+                      
+            WhereClause wc = CreateWhereClause_InactiveTypeDropDownList();
+                        
+                
+            // Create the ORDER BY clause to sort based on the displayed value.							
+                
+            OrderBy orderBy = new OrderBy(false, false);
+                          orderBy.Add(RegistrationTypesTable.RegistrationType, OrderByItem.OrderDir.Asc);
+
+            System.Collections.Generic.IDictionary<string, object> variables = new System.Collections.Generic.Dictionary<string, object> ();
+            FormulaEvaluator evaluator = new FormulaEvaluator();
+
+            // 3. Read a total of maxItems from the database and insert them into the InactiveTypeDropDownList.
+            RegistrationTypesRecord[] itemValues  = null;
+            if (wc.RunQuery)
+            {
+                int counter = 0;
+                int pageNum = 0;	
+                ArrayList listDuplicates = new ArrayList();
+
+                do
+                {
+                    itemValues = RegistrationTypesTable.GetRecords(wc, orderBy, pageNum, maxItems);
+                    foreach (RegistrationTypesRecord itemValue in itemValues) 
+                    {
+                        // Create the item and add to the list.
+                        string cvalue = null;
+                        string fvalue = null;
+                        if (itemValue.RegistrationTypeIdSpecified) 
+                        {
+                            cvalue = itemValue.RegistrationTypeId.ToString().ToString();
+                            if (counter < maxItems && this.InactiveType.Items.FindByValue(cvalue) == null)
+                            {
+                                     
+                                Boolean _isExpandableNonCompositeForeignKey = RegistrationTypesTable.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(RegistrationTypesTable.InactiveType);
+                                if(_isExpandableNonCompositeForeignKey && RegistrationTypesTable.InactiveType.IsApplyDisplayAs)
+                                    fvalue = RegistrationTypesTable.GetDFKA(itemValue, RegistrationTypesTable.InactiveType);
+                                if ((!_isExpandableNonCompositeForeignKey) || (String.IsNullOrEmpty(fvalue)))
+                                    fvalue = itemValue.Format(RegistrationTypesTable.RegistrationType);
+                                    		
+
+                                if (fvalue == null || fvalue.Trim() == "") 
+                                    fvalue = cvalue;
+
+                                if (fvalue == null) {
+                                    fvalue = "";
+                                }
+
+                                fvalue = fvalue.Trim();
+
+                                if ( fvalue.Length > 50 ) {
+                                    fvalue = fvalue.Substring(0, 50) + "...";
+                                }
+
+                                ListItem dupItem = this.InactiveType.Items.FindByText(fvalue);
+								
+                                if (dupItem != null) {
+                                    listDuplicates.Add(fvalue);
+                                    if (!string.IsNullOrEmpty(dupItem.Value))
+                                    {
+                                        dupItem.Text = fvalue + " (ID " + dupItem.Value.Substring(0, Math.Min(dupItem.Value.Length,38)) + ")";
+                                    }
+                                }
+
+                                ListItem newItem = new ListItem(fvalue, cvalue);
+                                this.InactiveType.Items.Add(newItem);
+
+                                if (listDuplicates.Contains(fvalue) &&  !string.IsNullOrEmpty(cvalue)) {
+                                    newItem.Text = fvalue + " (ID " + cvalue.Substring(0, Math.Min(cvalue.Length,38)) + ")";
+                                }
+
+                                counter += 1;
+                            }
+                        }
+                    }
+                    pageNum++;
+                }
+                while (itemValues.Length == maxItems && counter < maxItems);
+            }
+                        
+                                        
+            // 4. Set the selected value (insert if not already present).
+              
+            if (selectedValue != null &&
+                selectedValue.Trim() != "" &&
+                !MiscUtils.SetSelectedValue(this.InactiveType, selectedValue) &&
+                !MiscUtils.SetSelectedDisplayText(this.InactiveType, selectedValue))
+            {
+
+                // construct a whereclause to query a record with DatabaseOLR_db%dbo.RegistrationTypes.RegistrationTypeId = selectedValue
+                    
+                CompoundFilter filter2 = new CompoundFilter(CompoundFilter.CompoundingOperators.And_Operator, null);
+                WhereClause whereClause2 = new WhereClause();
+                filter2.AddFilter(new BaseClasses.Data.ColumnValueFilter(RegistrationTypesTable.RegistrationTypeId, selectedValue, BaseClasses.Data.BaseFilter.ComparisonOperator.EqualsTo, false));
+                whereClause2.AddFilter(filter2, CompoundFilter.CompoundingOperators.And_Operator);
+
+                // Execute the query
+                try
+                {
+                    RegistrationTypesRecord[] rc = RegistrationTypesTable.GetRecords(whereClause2, new OrderBy(false, false), 0, 1);
+                    System.Collections.Generic.IDictionary<string, object> vars = new System.Collections.Generic.Dictionary<string, object> ();
+                    // if find a record, add it to the dropdown and set it as selected item
+                    if (rc != null && rc.Length == 1)
+                    {
+                        RegistrationTypesRecord itemValue = rc[0];
+                        string cvalue = null;
+                        string fvalue = null;                        
+                        if (itemValue.RegistrationTypeIdSpecified)
+                            cvalue = itemValue.RegistrationTypeId.ToString(); 
+                        Boolean _isExpandableNonCompositeForeignKey = RegistrationTypesTable.Instance.TableDefinition.IsExpandableNonCompositeForeignKey(RegistrationTypesTable.InactiveType);
+                        if(_isExpandableNonCompositeForeignKey && RegistrationTypesTable.InactiveType.IsApplyDisplayAs)
+                            fvalue = RegistrationTypesTable.GetDFKA(itemValue, RegistrationTypesTable.InactiveType);
+                        if ((!_isExpandableNonCompositeForeignKey) || (String.IsNullOrEmpty(fvalue)))
+                            fvalue = itemValue.Format(RegistrationTypesTable.RegistrationType);
+                            					
+                        if (fvalue == null || fvalue.Trim() == "") fvalue = cvalue;
+                        MiscUtils.ResetSelectedItem(this.InactiveType, new ListItem(fvalue, cvalue));                      
+                    }
+                }
+                catch
+                {
+                }
+
+                    					
+            }					
+                        
+        }
+                  
         // event handler for ImageButton
         public virtual void DeleteRowButton_Click(object sender, ImageClickEventArgs args)
         {
@@ -892,6 +1186,26 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
             
             
         
+        protected virtual void InactiveType_SelectedIndexChanged(object sender, EventArgs args)
+        {
+            // for the value inserted by quick add button or large list selector, 
+            // the value is necessary to be inserted by this event during postback 
+            string val = (string)(this.Page.Session[InactiveType.ClientID + "_SelectedValue"]);
+            string displayText = (string)(this.Page.Session[InactiveType.ClientID + "_SelectedDisplayText"]);
+            if (!string.IsNullOrEmpty(displayText) && !string.IsNullOrEmpty(val)) {
+	            this.InactiveType.Items.Add(new ListItem(displayText, val));
+	            this.InactiveType.SelectedIndex = this.InactiveType.Items.Count - 1;
+	            this.Page.Session.Remove(InactiveType.ClientID + "_SelectedValue");
+	            this.Page.Session.Remove(InactiveType.ClientID + "_SelectedDisplayText");
+            }
+           						
+        }
+            
+        protected virtual void ActivateOnInactiveType_CheckedChanged(object sender, EventArgs args)
+        {
+           						
+        }
+            
         protected virtual void ActiveOption_CheckedChanged(object sender, EventArgs args)
         {
            						
@@ -1011,6 +1325,18 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
        
 #region "Helper Properties"
         
+        public System.Web.UI.WebControls.CheckBox ActivateOnInactiveType {
+            get {
+                return (System.Web.UI.WebControls.CheckBox)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "ActivateOnInactiveType");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal ActivateOnInactiveTypeLabel {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "ActivateOnInactiveTypeLabel");
+            }
+        }
+        
         public System.Web.UI.WebControls.CheckBox ActiveOption {
             get {
                 return (System.Web.UI.WebControls.CheckBox)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "ActiveOption");
@@ -1062,6 +1388,18 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
         public System.Web.UI.WebControls.Literal InactiveOnMaxLabel {
             get {
                 return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "InactiveOnMaxLabel");
+            }
+        }
+        
+        public System.Web.UI.WebControls.DropDownList InactiveType {
+            get {
+                return (System.Web.UI.WebControls.DropDownList)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "InactiveType");
+            }
+        }
+            
+        public System.Web.UI.WebControls.Literal InactiveTypeLabel {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "InactiveTypeLabel");
             }
         }
         
@@ -1470,7 +1808,9 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
           }
           
           //  LoadData for DataSource for chart and report if they exist
-               
+          
+            // Improve performance by prefetching display as records.
+            this.PreFetchForeignKeyValues();     
 
             // Setup the pagination controls.
             BindPaginationControls();
@@ -1541,6 +1881,14 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
 
     }
 
+        
+        public void PreFetchForeignKeyValues() {
+            if (this.DataSource == null) {
+                return;
+            }
+          
+            this.Page.PregetDfkaRecords(RegistrationTypesTable.InactiveType, this.DataSource);
+        }
         
 
         public virtual void RegisterPostback()
@@ -1972,6 +2320,8 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
             if (recControl.Visible && recControl.IsNewRecord) {
       RegistrationTypesRecord rec = new RegistrationTypesRecord();
         
+                        rec.ActivateOnInactiveType = recControl.ActivateOnInactiveType.Checked;
+                
                         rec.ActiveOption = recControl.ActiveOption.Checked;
                 
                         if (recControl.CostMember.Text != "") {
@@ -1984,6 +2334,9 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                 
                         rec.InactiveOnMax = recControl.InactiveOnMax.Checked;
                 
+                        if (MiscUtils.IsValueSelected(recControl.InactiveType)) {
+                            rec.Parse(recControl.InactiveType.SelectedItem.Value, RegistrationTypesTable.InactiveType);
+                        }
                         if (recControl.MaximumNumber.Text != "") {
                             rec.Parse(recControl.MaximumNumber.Text, RegistrationTypesTable.MaximumNumber);
                   }

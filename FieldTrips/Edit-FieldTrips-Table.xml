@@ -611,7 +611,7 @@
         </Attribute>
         <Attribute>
           <Name>PageSize</Name>
-          <Value>10</Value>
+          <Value>20</Value>
         </Attribute>
       </PassthroughAttributes>
       <InsideControl>FieldTripsTableControl</InsideControl>

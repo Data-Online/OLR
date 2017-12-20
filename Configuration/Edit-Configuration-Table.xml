@@ -14,6 +14,7 @@
     <Layout>Configuration\Edit-Configuration-Table.html</Layout>
     <DisplayName>Edit-Configuration-Table</DisplayName>
     <Description>Table view to show or edit multiple records.</Description>
+    <LoginRequired>&lt;PRoles&gt;NOT_ANONYMOUS&lt;/PRoles&gt;</LoginRequired>
     <CheckSum>1791547125-19629</CheckSum>
   </Self>
   <ComposedOf>

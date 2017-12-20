@@ -1025,7 +1025,7 @@ public class BaseFieldTripOptionsTableControl : OLR.UI.BaseApplicationTableContr
 
     // Setup default pagination settings.
     
-            this.PageSize = Convert.ToInt32(this.GetFromSession(this, "Page_Size", "10"));
+            this.PageSize = Convert.ToInt32(this.GetFromSession(this, "Page_Size", "20"));
             this.PageIndex = Convert.ToInt32(this.GetFromSession(this, "Page_Index", "0"));
                      
         }

@@ -2001,6 +2001,14 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
               
                 this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Active Option {Txt:Descending}"), "ActiveOption Desc"));
               
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Activate On Inactive Type {Txt:Ascending}"), "ActivateOnInactiveType Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Activate On Inactive Type {Txt:Descending}"), "ActivateOnInactiveType Desc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Inactive Type {Txt:Ascending}"), "InactiveType Asc"));
+              
+                this.SortControl.Items.Add(new ListItem(this.Page.ExpandResourceValue("Inactive Type {Txt:Descending}"), "InactiveType Desc"));
+              
             try
             {          
                 // Set the selected value.

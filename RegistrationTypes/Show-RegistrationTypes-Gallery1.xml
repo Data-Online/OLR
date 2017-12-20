@@ -638,6 +638,22 @@
           <Name>ActiveOption Desc</Name>
           <Value>Active Option {Txt:Descending}</Value>
         </Item>
+        <Item>
+          <Name>ActivateOnInactiveType Asc</Name>
+          <Value>Activate On Inactive Type {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>ActivateOnInactiveType Desc</Name>
+          <Value>Activate On Inactive Type {Txt:Descending}</Value>
+        </Item>
+        <Item>
+          <Name>InactiveType Asc</Name>
+          <Value>Inactive Type {Txt:Ascending}</Value>
+        </Item>
+        <Item>
+          <Name>InactiveType Desc</Name>
+          <Value>Inactive Type {Txt:Descending}</Value>
+        </Item>
       </SpecifiedItems>
       <PassthroughAttributes>
         <Attribute>

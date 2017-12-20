@@ -70,6 +70,8 @@ public class BaseRegistrationTypesTable : PrimaryKeyTable
         ActiveOptionColumn.DefaultValue = EvaluateFormula("\"true\"");
         MaximumNumberColumn.CodeName = "MaximumNumber";
         InactiveOnMaxColumn.CodeName = "InactiveOnMax";
+        ActivateOnInactiveTypeColumn.CodeName = "ActivateOnInactiveType";
+        InactiveTypeColumn.CodeName = "InactiveType";
 
         
     }
@@ -314,6 +316,56 @@ public class BaseRegistrationTypesTable : PrimaryKeyTable
         get
         {
             return RegistrationTypesTable.Instance.InactiveOnMaxColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's RegistrationTypes_.ActivateOnInactiveType column object.
+    /// </summary>
+    public BaseClasses.Data.BooleanColumn ActivateOnInactiveTypeColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.BooleanColumn)this.TableDefinition.ColumnList[9];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's RegistrationTypes_.ActivateOnInactiveType column object.
+    /// </summary>
+    public static BaseClasses.Data.BooleanColumn ActivateOnInactiveType
+    {
+        get
+        {
+            return RegistrationTypesTable.Instance.ActivateOnInactiveTypeColumn;
+        }
+    }
+    
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's RegistrationTypes_.InactiveType column object.
+    /// </summary>
+    public BaseClasses.Data.NumberColumn InactiveTypeColumn
+    {
+        get
+        {
+            return (BaseClasses.Data.NumberColumn)this.TableDefinition.ColumnList[10];
+        }
+    }
+    
+
+    
+    /// <summary>
+    /// This is a convenience property that provides direct access to the table's RegistrationTypes_.InactiveType column object.
+    /// </summary>
+    public static BaseClasses.Data.NumberColumn InactiveType
+    {
+        get
+        {
+            return RegistrationTypesTable.Instance.InactiveTypeColumn;
         }
     }
     
@@ -850,7 +902,9 @@ public class BaseRegistrationTypesTable : PrimaryKeyTable
         string Default0Value, 
         string ActiveOptionValue, 
         string MaximumNumberValue, 
-        string InactiveOnMaxValue
+        string InactiveOnMaxValue, 
+        string ActivateOnInactiveTypeValue, 
+        string InactiveTypeValue
     )
         {
             IPrimaryKeyRecord rec = (IPrimaryKeyRecord)this.CreateRecord();
@@ -862,6 +916,8 @@ public class BaseRegistrationTypesTable : PrimaryKeyTable
         rec.SetString(ActiveOptionValue, ActiveOptionColumn);
         rec.SetString(MaximumNumberValue, MaximumNumberColumn);
         rec.SetString(InactiveOnMaxValue, InactiveOnMaxColumn);
+        rec.SetString(ActivateOnInactiveTypeValue, ActivateOnInactiveTypeColumn);
+        rec.SetString(InactiveTypeValue, InactiveTypeColumn);
 
 
             rec.Create(); //update the DB so any DB-initialized fields (like autoincrement IDs) can be initialized

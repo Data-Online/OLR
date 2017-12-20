@@ -530,6 +530,104 @@ public class BaseRegistrationTypesRecord : PrimaryKeyRecord
 		ColumnValue cv = new ColumnValue(val);
 		this.SetValue(cv, TableUtils.InactiveOnMaxColumn);
 	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's RegistrationTypes_.ActivateOnInactiveType field.
+	/// </summary>
+	public ColumnValue GetActivateOnInactiveTypeValue()
+	{
+		return this.GetValue(TableUtils.ActivateOnInactiveTypeColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's RegistrationTypes_.ActivateOnInactiveType field.
+	/// </summary>
+	public bool GetActivateOnInactiveTypeFieldValue()
+	{
+		return this.GetValue(TableUtils.ActivateOnInactiveTypeColumn).ToBoolean();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.ActivateOnInactiveType field.
+	/// </summary>
+	public void SetActivateOnInactiveTypeFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.ActivateOnInactiveTypeColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.ActivateOnInactiveType field.
+	/// </summary>
+	public void SetActivateOnInactiveTypeFieldValue(string val)
+	{
+		this.SetString(val, TableUtils.ActivateOnInactiveTypeColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.ActivateOnInactiveType field.
+	/// </summary>
+	public void SetActivateOnInactiveTypeFieldValue(bool val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.ActivateOnInactiveTypeColumn);
+	}
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's RegistrationTypes_.InactiveType field.
+	/// </summary>
+	public ColumnValue GetInactiveTypeValue()
+	{
+		return this.GetValue(TableUtils.InactiveTypeColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that provides direct access to the value of the record's RegistrationTypes_.InactiveType field.
+	/// </summary>
+	public Int32 GetInactiveTypeFieldValue()
+	{
+		return this.GetValue(TableUtils.InactiveTypeColumn).ToInt32();
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.InactiveType field.
+	/// </summary>
+	public void SetInactiveTypeFieldValue(ColumnValue val)
+	{
+		this.SetValue(val, TableUtils.InactiveTypeColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.InactiveType field.
+	/// </summary>
+	public void SetInactiveTypeFieldValue(string val)
+	{
+		this.SetString(val, TableUtils.InactiveTypeColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.InactiveType field.
+	/// </summary>
+	public void SetInactiveTypeFieldValue(double val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.InactiveTypeColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.InactiveType field.
+	/// </summary>
+	public void SetInactiveTypeFieldValue(decimal val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.InactiveTypeColumn);
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.InactiveType field.
+	/// </summary>
+	public void SetInactiveTypeFieldValue(long val)
+	{
+		ColumnValue cv = new ColumnValue(val);
+		this.SetValue(cv, TableUtils.InactiveTypeColumn);
+	}
 
 
 #endregion
@@ -924,6 +1022,93 @@ public class BaseRegistrationTypesRecord : PrimaryKeyRecord
 		get
 		{
 			return TableUtils.InactiveOnMaxColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's RegistrationTypes_.ActivateOnInactiveType field.
+	/// </summary>
+	public bool ActivateOnInactiveType
+	{
+		get
+		{
+			return this.GetValue(TableUtils.ActivateOnInactiveTypeColumn).ToBoolean();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+	   		this.SetValue(cv, TableUtils.ActivateOnInactiveTypeColumn);
+		}
+	}
+	
+	
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool ActivateOnInactiveTypeSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.ActivateOnInactiveTypeColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.ActivateOnInactiveType field.
+	/// </summary>
+	public string ActivateOnInactiveTypeDefault
+	{
+		get
+		{
+			return TableUtils.ActivateOnInactiveTypeColumn.DefaultValue;
+		}
+	}
+	/// <summary>
+	/// This is a property that provides direct access to the value of the record's RegistrationTypes_.InactiveType field.
+	/// </summary>
+	public Int32 InactiveType
+	{
+		get
+		{
+			return this.GetValue(TableUtils.InactiveTypeColumn).ToInt32();
+		}
+		set
+		{
+			ColumnValue cv = new ColumnValue(value);
+			this.SetValue(cv, TableUtils.InactiveTypeColumn);
+		}
+	}
+
+
+	/// <summary>
+	/// This is a convenience method that can be used to determine that the column is set.
+	/// </summary>
+	public bool InactiveTypeSpecified
+	{
+		get
+		{
+			ColumnValue val = this.GetValue(TableUtils.InactiveTypeColumn);
+            if (val == null || val.IsNull)
+            {
+                return false;
+            }
+            return true;
+		}
+	}
+
+	/// <summary>
+	/// This is a convenience method that allows direct modification of the value of the record's RegistrationTypes_.InactiveType field.
+	/// </summary>
+	public string InactiveTypeDefault
+	{
+		get
+		{
+			return TableUtils.InactiveTypeColumn.DefaultValue;
 		}
 	}
 

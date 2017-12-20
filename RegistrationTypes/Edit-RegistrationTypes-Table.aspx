@@ -89,7 +89,9 @@
 </tr>
 </table>
 </span>
-</td><td class="tableCellLabel"><asp:Literal runat="server" id="InactiveOnMaxLabel" Text="Inactive On Maximum">	</asp:Literal></td><td class="tableCellValue"><asp:CheckBox runat="server" id="InactiveOnMax"></asp:CheckBox></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableRowDivider" colspan="8"></td><td class="tableRowDivider"></td><td class="tableRowDivider"></td></tr></OLR:RegistrationTypesTableControlRow>
+</td><td class="tableCellLabel"><asp:Literal runat="server" id="InactiveOnMaxLabel" Text="Inactive On Maximum">	</asp:Literal></td><td class="tableCellValue"><asp:CheckBox runat="server" id="InactiveOnMax"></asp:CheckBox></td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableCellSelectCheckbox" scope="row" style="font-size: 5px;"></td><td class="tableRowButtonsCellVertical"></td><td class="tableCellLabel"><asp:Literal runat="server" id="ActivateOnInactiveTypeLabel" Text="Activate On Inactive Type">	</asp:Literal></td><td class="tableCellValue"><asp:CheckBox runat="server" id="ActivateOnInactiveType"></asp:CheckBox></td><td class="tableCellLabel"><asp:Literal runat="server" id="InactiveTypeLabel" Text="Inactive Type">	</asp:Literal></td><td class="tableCellLabel"><span style="white-space:nowrap;">
+<asp:DropDownList runat="server" id="InactiveType" cssclass="field_input" onkeypress="dropDownListTypeAhead(this,false)"></asp:DropDownList></span>
+</td><td class="tableCellValue"></td><td class="tableCellValue"></td></tr><tr><td class="tableRowDivider" colspan="8"></td><td class="tableRowDivider"></td><td class="tableRowDivider"></td></tr></OLR:RegistrationTypesTableControlRow>
 </ITEMTEMPLATE>
 
 </asp:Repeater>
