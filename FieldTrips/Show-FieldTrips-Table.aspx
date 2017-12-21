@@ -68,6 +68,7 @@
                   </td></tr></table>
 </asp:panel>
                 </td><td class="panelR"></td></tr><tr><td class="panelBL"><img src="../Images/space.gif" class="panelBLSpace" alt="" /></td><td class="panelB"></td><td class="panelBR"><img src="../Images/space.gif" class="panelBRSpace" alt="" /></td></tr><tr><td class="panelBL"></td><td class="largeText"><table><tr><td class="largeText"><asp:Label runat="server" id="Label3" Text="Total Additional Diners Requested:">	</asp:Label></td><td class="largeText"><asp:Literal runat="server" id="RegistrationsCountControl2">	</asp:Literal></td></tr></table>
+</td><td class="largeText"></td></tr><tr><td class="panelBL"></td><td class="largeText"></td><td class="largeText"></td></tr><tr><td class="panelBL"></td><td class="largeText"><table><tr><td class="largeText"><asp:Label runat="server" id="Label5" Text="Total payments recorded:">	</asp:Label></td><td class="largeText"><asp:Literal runat="server" id="RegistrationsCountControl3">	</asp:Literal></td></tr></table>
 </td><td class="largeText"></td></tr></table>
 	<asp:hiddenfield id="RegistrationTypesTableControl_PostbackTracker" runat="server" />
 </OLR:RegistrationTypesTableControl>

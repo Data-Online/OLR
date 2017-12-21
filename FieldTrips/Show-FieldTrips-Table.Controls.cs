@@ -9781,6 +9781,8 @@ public class BaseRegistrationTypesTableControlRow : OLR.UI.BaseApplicationRecord
                         
                 e.Variables.Add("RegistrationsCountQuery3", panel.RegistrationsCountQuery3);                                                       
                         
+                e.Variables.Add("RegistrationsCountQuery4", panel.RegistrationsCountQuery4);                                                       
+                        
             }
             
             // All variables referred to in the formula are expected to be
@@ -10520,6 +10522,8 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                   LoadData_RegistrationsCountQuery2();
        
                   LoadData_RegistrationsCountQuery3();
+       
+                  LoadData_RegistrationsCountQuery4();
             
 
             // Setup the pagination controls.
@@ -10556,7 +10560,10 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
             // Call the Set methods for each controls on the panel
         
                 SetLabel3();
+                SetLabel5();
                 SetRegistrationsCountControl2();
+                SetRegistrationsCountControl3();
+                
                 
                 
                 
@@ -10616,6 +10623,8 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                 if (RegistrationsCountQuery2 != null) e.Variables.Add("RegistrationsCountQuery2", RegistrationsCountQuery2);                                                       
                     
                 if (RegistrationsCountQuery3 != null) e.Variables.Add("RegistrationsCountQuery3", RegistrationsCountQuery3);                                                       
+                    
+                if (RegistrationsCountQuery4 != null) e.Variables.Add("RegistrationsCountQuery4", RegistrationsCountQuery4);                                                       
                     
             }
 
@@ -11065,10 +11074,28 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                     
         }
                 
+        public virtual void SetLabel5()
+                  {
+                  
+                      //Code for the text property is generated inside the .aspx file. 
+                      //To override this property you can uncomment the following property and add you own value.
+                      //this.Label5.Text = "Some value";
+                    
+                    
+        }
+                
         public virtual void SetRegistrationsCountControl2()
                   {
                   
                         this.RegistrationsCountControl2.Text = EvaluateFormula("LOOKUP(RegistrationsCountQuery3, \"\")");
+                    
+                    
+        }
+                
+        public virtual void SetRegistrationsCountControl3()
+                  {
+                  
+                        this.RegistrationsCountControl3.Text = EvaluateFormula("LOOKUP(RegistrationsCountQuery4, \"\")");
                     
                     
         }
@@ -11105,6 +11132,25 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
             return wc;
         }
       
+        public virtual WhereClause CreateWhereClause_RegistrationsCountQuery4()
+        
+        {
+            WhereClause wc = new WhereClause();
+            // Compose the WHERE clause consist of:
+            // 1. Static clause defined at design tithis.
+            // 2. User selected search criteria.
+            // 3. User selected filter criteria.
+
+          
+            // Get the static clause defined at design time on the Query Wizard
+            WhereClause qc = this.CreateQueryClause_RegistrationsCountQuery4();
+            if (qc != null) {
+                wc.iAND(qc);
+            }
+                      
+            return wc;
+        }
+      
         public virtual WhereClause CreateQueryClause_RegistrationsCountQuery3()
         
         {
@@ -11115,6 +11161,21 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
             
             if (EvaluateFormula("1", false) != "")filter.AddFilter(new BaseClasses.Data.ColumnValueFilter(BaseClasses.Data.BaseTable.CreateInstance(@"OLR.Business.RegistrationsTable, OLR.Business").TableDefinition.ColumnList.GetByUniqueName(@"Registrations_.AdditionalDinnerTicket"), EvaluateFormula("1", false), BaseClasses.Data.BaseFilter.ComparisonOperator.EqualsTo, false));
          if (EvaluateFormula("1", false) == "--PLEASE_SELECT--" || EvaluateFormula("1", false) == "--ANY--") whereClause.RunQuery = false;
+
+            whereClause.AddFilter(filter, CompoundFilter.CompoundingOperators.And_Operator);
+    
+            return whereClause;
+        }
+          
+        public virtual WhereClause CreateQueryClause_RegistrationsCountQuery4()
+        
+        {
+          
+            // Create a where clause for the Static clause defined at design time.
+            CompoundFilter filter = new CompoundFilter(CompoundFilter.CompoundingOperators.And_Operator, null);
+            WhereClause whereClause = new WhereClause();
+            
+            filter.AddFilter(new BaseClasses.Data.ColumnValueFilter(BaseClasses.Data.BaseTable.CreateInstance(@"OLR.Business.RegistrationsTable, OLR.Business").TableDefinition.ColumnList.GetByUniqueName(@"Registrations_.DatePaid"), null, BaseClasses.Data.BaseFilter.ComparisonOperator.Not_Equals, false));
 
             whereClause.AddFilter(filter, CompoundFilter.CompoundingOperators.And_Operator);
     
@@ -11175,6 +11236,31 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
                         
         }
       
+        public virtual void LoadData_RegistrationsCountQuery4()
+        
+        {
+          
+              if (!(this.ResetData || this.DataChanged || _RegistrationsCountQuery4.DataChanged) && this.Page.IsPostBack  && this.Page.Request["__EVENTTARGET"] != "isd_geo_location") return;
+        
+              _RegistrationsCountQuery4.DataChanged = true;
+          
+              this._RegistrationsCountQuery4.Initialize("RegistrationsCountQuery4", RegistrationsTable.Instance, 0, 0);
+            
+               
+              // Add the primary key of the record
+              WhereClause wc = CreateWhereClause_RegistrationsCountQuery4();
+              this._RegistrationsCountQuery4.WhereClause.iAND(wc);                      
+          
+              // Define selects
+          
+                    this._RegistrationsCountQuery4.AddSelectItem(new SelectItem(SelectItem.Operation.COUNT, new SelectItem(SelectItem.ItemType.AllColumns, RegistrationsTable.Instance, "RegistrationsCount", ""), "RegistrationsCount"));
+              
+              // Define joins if there are any
+          
+              this._RegistrationsCountQuery4.LoadData(false, this._RegistrationsCountQuery4.PageSize, this._RegistrationsCountQuery4.PageIndex);                       
+                        
+        }
+      
         private DataSource _RegistrationsCountQuery2 = new DataSource();
         public DataSource RegistrationsCountQuery2
         {
@@ -11190,6 +11276,15 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
             get
             {
                 return _RegistrationsCountQuery3;
+             }
+        }
+      
+        private DataSource _RegistrationsCountQuery4 = new DataSource();
+        public DataSource RegistrationsCountQuery4
+        {
+            get
+            {
+                return _RegistrationsCountQuery4;
              }
         }
       
@@ -11441,9 +11536,21 @@ public class BaseRegistrationTypesTableControl : OLR.UI.BaseApplicationTableCont
             }
         }
         
+        public System.Web.UI.WebControls.Label Label5 {
+            get {
+                return (System.Web.UI.WebControls.Label)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "Label5");
+            }
+        }
+        
         public System.Web.UI.WebControls.Literal RegistrationsCountControl2 {
             get {
                 return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "RegistrationsCountControl2");
+            }
+        }
+        
+        public System.Web.UI.WebControls.Literal RegistrationsCountControl3 {
+            get {
+                return (System.Web.UI.WebControls.Literal)BaseClasses.Utils.MiscUtils.FindControlRecursively(this, "RegistrationsCountControl3");
             }
         }
         
